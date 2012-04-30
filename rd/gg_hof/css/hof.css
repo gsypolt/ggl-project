@@ -1,0 +1,149 @@
+/* Goal-line Gridiron Hall of Fame CSS */
+
+body {
+   	padding: 0px;
+   	margin: 0px;
+   	font-size: 90%;
+   	background-color: #000; }
+
+h2 { 
+	margin-left: 10px; 
+	color: red; }
+
+body, td, th, div { 
+    font-family: Helvetica, Arial, sans-serif;
+    color: #FFF;
+    font-size:12px; }
+    
+.halloffame{
+   	position: relative;
+   	overflow: hidden;
+   	margin: 0px auto;
+   	width: 1024px;
+   	background-color: #000; }
+
+.banner {
+   	margin-bottom: 10px; }
+
+ul.tabs {  
+    margin: 0px; padding:0px;
+    margin-top: 5px;
+    margin-bottom: 6px; }  
+
+ul.tabs li {  
+    list-style: none;  
+    display: inline; }
+    
+ul.tabs li a {  
+    background-color: #CCC;  
+    color: #333;  
+    padding: 8px 14px 8px 14px;  
+    text-decoration: none;  
+    font-size: 	12px;  
+    font-family: Helvetica, Arial, sans-serif;  
+    font-weight: bold;  
+    text-transform: uppercase; 
+    
+    -moz-border-radius-topleft: 2px;
+    -moz-border-radius-topright: 2px;
+    -webkit-border-top-left-radius: 2px;
+    -webkit-border-top-right-radius: 2px; 
+
+    -moz-border-radius-bottomleft: 2px;
+    -moz-border-radius-bottomright: 2px;
+    -webkit-border-bottom-left-radius: 2px;
+    -webkit-border-bottom-right-radius: 2px;}  
+
+ul.tabs li a:hover {  
+    background-color: #404040; 
+    color: red; }  
+
+ul.tabs li a.active {  
+    background-color: #FFF;  
+    color: #0099FF; }  
+    
+.tabbed_area {   
+    background-color:#000;  
+    padding: 8px; 
+    margin-bottom: 10px; }  
+    
+.content ul li:last-child {  
+    border-bottom:none; } 
+    
+#content_2, #content_3, #content_4, #content_5, 	#content_6, #content_7 { display: none; } 
+
+.colleft {
+   	position: relative;
+   	width: 100%;
+   	right: 50%;
+   	color: #FFF;
+   	background-color: #333; }
+
+.col1 {
+   	position: relative;
+   	overflow: hidden;
+   	float: left;
+   	width: 48%;
+   	left: 101%;
+   	border: 1px solid #999;
+   	background-color: #333; 
+   	
+   	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px; }
+	
+.col2 {
+	position: relative;
+   	overflow: hidden;
+   	float: left;
+   	width: 48%;
+   	left: 3%;
+   	border: 1px solid #999;
+   	background-color: #333; 
+   	
+   	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px; }
+
+.module {
+	margin: 5px;
+	padding: 5px;
+	background-color: #212121; 
+	
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;}
+
+.report {
+	width: 100%;
+	padding: 5px; }
+
+.module caption {
+	text-align: left;
+	text-indent: 5px;
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase; }
+
+.module span { 
+	display: block;
+	padding: 10px 0 2px 0px; }
+	
+table.report th { background-color: #333; }
+	
+table.report td {
+	text-align: center;
+	border-bottom: 1px dotted #404040;
+	padding-left: 4px;
+	padding-right: 4px; }
+	
+table.report .oddtablerow {
+	background-color: transparent;
+	color: #FFF; }
+	
+
+
+
+	
+
+	
