@@ -6,5 +6,4 @@ function tabSwitch_2(active, number, tab_prefix, content_prefix) {
     }  
     document.getElementById(content_prefix+active).style.display = 'block';  
     document.getElementById(tab_prefix+active).className = 'active';      
-  
 }   

@@ -17,7 +17,7 @@
 	font-style: normal;
 	font-weight: 300; 
 	background: #212121;
-	width: 100%; }
+	width: auto; }
 
 .jqueryslidemenu ul {
 	margin: 0;
@@ -345,10 +345,11 @@ font-size:18px;
 /* ==== ADDED COLOR STYLES ==== */
  
 span.reportnavigation {
-background-color: #fff;
-padding: 2px;
-color: #000;
-}
+	background-color: #FFF;
+	padding: 2px;
+	color: #000;
+	font-family:Impact;
+	font-size: 14px;}
  
 span.reportnavigation a:link, span.reportnavigation a:visited, span.reportnavigation a:hover {
 color: #0099FF; 
@@ -865,10 +866,12 @@ body#email, td#email, th#email, div#email { color:#ccc; }
 
 /* Division Images on Home Page > (Tab) Standings */
 #division00 {
+	background-color: #990100;
 	width: 992px;
 	height: 50px; }
  
 #division01 {
+	background-color: #000032;
 	width: 992px;
 	height: 50px; }
  
@@ -877,10 +880,21 @@ body#email, td#email, th#email, div#email { color:#ccc; }
 /* Standings Franchise Icon */
 .ficon {
 	width: 300px;
-	height: 100px;
+	height: 100px; 
 	margin: 0px;
 	padding: 0px;
 }
+
+#standings img#franchiseicon_0001.franchiseicon { width: 300px; height: 100px; }
+#standings img#franchiseicon_0002.franchiseicon { width: 300px; height: 100px; }
+#standings img#franchiseicon_0003.franchiseicon { width: 300px; height: 100px; }
+#standings img#franchiseicon_0004.franchiseicon { width: 300px; height: 100px; }
+#standings img#franchiseicon_0005.franchiseicon { width: 300px; height: 100px; }
+#standings img#franchiseicon_0006.franchiseicon { width: 300px; height: 100px; }
+#standings img#franchiseicon_0007.franchiseicon { width: 300px; height: 100px; }
+#standings img#franchiseicon_0008.franchiseicon { width: 300px; height: 100px; }
+#standings img#franchiseicon_0009.franchiseicon { width: 300px; height: 100px; }
+#standings img#franchiseicon_0010.franchiseicon { width: 300px; height: 100px; }
 
 /* Main Tab is tabcontent0 */
 
@@ -1113,6 +1127,14 @@ table.scoresummary {
 	* Revoke Trade is revoke */
 	
 /* TRADES and REVOKE */		
+
+#body_trades#wrapper {
+    margin: auto;
+    padding-top: 10px;
+    width: 1024px;
+    background-color: transparent;
+    height: 100%; }
+    
 #trades td, #revoke td { 
 	border-bottom: none; 
 	padding-top: 10px; }
@@ -1138,6 +1160,12 @@ table.scoresummary {
 #body_accept img {
 	width: 150px;
 	height: 50px; }
+	
+#body_accept#wrapper {
+   	position: relative;
+   	margin: 0px auto;
+   	width: 1024px;
+   	background: #212121;} 
 	
 #body_accept ul {
 	background-color: #333333;
