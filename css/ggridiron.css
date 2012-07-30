@@ -839,6 +839,8 @@ body#email, td#email, th#email, div#email { color:#ccc; }
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 1px; }
+    
+ #options_74 .oddtablerow { background-color: #212121;}
 
 /* Testing Highlighting Player Position */
 /* #options_74 a.position_qb {
@@ -878,13 +880,19 @@ body#email, td#email, th#email, div#email { color:#ccc; }
  
 /* Live Draft Room */
 
-/* Standings Franchise Icon */
+
 .ficon {
 	width: 300px;
 	height: 100px; 
 	margin: 0px;
 	padding: 0px;
 }
+
+/* Standings Formating and Franchise Icon */
+
+#standings span.reportnavigation {
+	font-family: "Copperplate Gothic Bold";
+	font-size: 16px; }
 
 #standings img#franchiseicon_0001.franchiseicon { width: 300px; height: 100px; }
 #standings img#franchiseicon_0002.franchiseicon { width: 300px; height: 100px; }
@@ -1690,8 +1698,8 @@ span.reportnavigation {
 	background-color: #FFF;
 	padding: 2px;
 	color: #000;
-	font-family:Impact;
-	font-size: 14px;}
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-size: 12px;}
  
 span.reportnavigation a:link, span.reportnavigation a:visited, span.reportnavigation a:hover {
 color: #0099FF; 
