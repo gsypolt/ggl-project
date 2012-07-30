@@ -866,17 +866,6 @@ body#email, td#email, th#email, div#email { color:#ccc; }
     -webkit-border-top-left-radius: 10px;
     -webkit-border-top-right-radius: 10px;
 }
-
-/* Division Images on Home Page > (Tab) Standings */
-#division00 {
-	background-color: #990100;
-	width: 992px;
-	height: 50px; }
- 
-#division01 {
-	background-color: #000032;
-	width: 992px;
-	height: 50px; }
  
 /* Live Draft Room */
 
@@ -888,6 +877,18 @@ body#email, td#email, th#email, div#email { color:#ccc; }
 	padding: 0px;
 }
 
+/* Division Images on Home Page > (Tab) Standings */
+
+#division00 {
+	background-color: #990100;
+	width: 992px;
+	height: 50px; }
+ 
+#division01 {
+	background-color: #000032;
+	width: 992px;
+	height: 50px; }
+	
 /* Standings Formating and Franchise Icon */
 
 #standings span.reportnavigation {
