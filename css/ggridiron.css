@@ -935,16 +935,8 @@ body#email, td#email, th#email, div#email { color:#ccc; }
     background-color: #000;
     border: 1px solid #ccc;
     margin-bottom: 5px; } */
-    
-#processed_waivers li img {
-	width: 150px;
-	height: 50px; 
-	padding-left: 10px; }
 
-/* Free Agent */
-
-/* #free_agents a:link {
-    color: #FFF; } /* Testing header sort color */
+/* Free Agent - #free_agents */
 
 /* Player Search is player_search */
 #player_search form.reportform {
@@ -2277,11 +2269,6 @@ body#email, td#email, th#email, div#email { color:#ccc; }
     background-color: #000;
     border: 1px solid #ccc;
     margin-bottom: 5px; } */
-    
-#processed_waivers li img {
-	width: 150px;
-	height: 50px; 
-	padding-left: 10px; }
 
 /* Free Agent */
 
@@ -2509,9 +2496,10 @@ table.scoresummary {
     
 /* Commissioner Trade Accepted */
 
+/*
 #body_accept img {
 	width: 150px;
-	height: 50px; }
+	height: 50px; } */
 	
 #body_accept#wrapper {
    	position: relative;
