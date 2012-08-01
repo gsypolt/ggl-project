@@ -8,6 +8,11 @@
     document.getElementsByClassName('menu-item-object-page')[i].firstChild.style.paddingRight = "0px";}
 </script>
 
+<script type="text/JavaScript">
+function timedRefresh(timeoutPeriod) {
+	setTimeout("location.reload(true);",timeoutPeriod); }
+</script>
+
 <!-- START TOP NAVIGATION -->
 
 
@@ -70,6 +75,7 @@
 					<ul>
 						<li><a href="http://football26.myfantasyleague.com/2012/news_articles?MYNEWS=1&L=36828">My Player News</a></li>
 						<li><a href="http://football26.myfantasyleague.com/2012/news_articles?L=36828&PLAYERS=&SOURCE=*&TEAM=*&POSITION=*&DAYS=7">League Player News</a></li>
+						<li><a href="http://www26.myfantasyleague.com/2012/home/36828#1" onclick="javascript:timedRefresh(500)">Twitter Feed</a></li>
 						<li><a href="#">NFL News</a>
 							<ul>
 								<li><a href="#">ESPN</a>
