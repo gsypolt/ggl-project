@@ -52,7 +52,7 @@ ul.tabs li a {
     -moz-border-radius-bottomleft: 2px;
     -moz-border-radius-bottomright: 2px;
     -webkit-border-bottom-left-radius: 2px;
-    -webkit-border-bottom-right-radius: 2px;}  
+    -webkit-border-bottom-right-radius: 2px; }  
 
 ul.tabs li a:hover {  
     background-color: #404040; 
