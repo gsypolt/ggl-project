@@ -1,5 +1,6 @@
 @import url(../all.css);
 @import url("http://nitrografixx.com/templates/css/adremoval.css");
+@import url(../36828.css);
 
 /* ==== NEW NAVIGATION AND BANNER CSS ==== */
 
@@ -205,15 +206,6 @@ color: #000;
     -moz-border-radius-bottomright: 3px;
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px; } */
-    
-/* Start - Testing */
-#welcome.homepagemodule.report td { border-bottom: none; }
-#fantasy_articles.homepagemodule.report td { border-bottom: none; }
-#trades.homepagemodule.report td { border-bottom: none; }
-#my_options.homepagemodule.report td { border-bottom: none; }
-#player_search.homepagemodule.report td { border-bottom: none; }
-#league_news_feed.homepagemodule.report td { border-bottom: none; }
-#weekly_newsletter.homepagemodule.report td { border-bottom: none; }
 
 table .homepagemodule.report caption span { background-color: #000; }
 table .homepagemodule.report { border: 1px solid #404040; }
@@ -242,7 +234,6 @@ table .homepagemodule.report { border: 1px solid #404040; }
     text-indent: 2px; /*Testing 10px */
     padding:0px 5px 5px 5px;
     font-size:16px;
-    /* font-weight: bold; */
    	font-weight: 300;
     text-transform: uppercase;
     background-color: transparent; /*Testing #333 */
@@ -283,8 +274,7 @@ table .homepagemodule.report { border: 1px solid #404040; }
 	color:#FFF;
 	font-weight: 300;
 	text-align:left;
-font-size:18px;
-}
+  font-size:18px; }
  
 #homepagecolumn1, #homepagecolumn2, #homepagecolumn3 { padding: 10px;}
 
@@ -303,8 +293,8 @@ font-size:18px;
 .homepagecolumn .report th { 
 	height: 25px; 
 	-webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 1px; }
+  -moz-border-radius: 10px;
+  border-radius: 1px; }
  
 .homepagecolumn tbody td {
 	text-align: left;
@@ -784,14 +774,6 @@ body#email, td#email, th#email, div#email { color:#ccc; }
 
 /* ==== COMMISSIONER SETUP is commissioner_setup ==== */
 
-#commissioner_setup table.two_column_layout {
-    width: 100%;
-    margin-top: 10px;
-    padding: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 1px; }
-
 #commissioner_setup th { background-color: #333; }
 	
 #commissioner_setup td {
@@ -828,30 +810,35 @@ body#email, td#email, th#email, div#email { color:#ccc; }
 #options_05 .report a:hover { font-weight: 300; text-decoration: underline; }
 #options_05 .report  a:active { font-weight: 300; text-decoration: underline; }
  
-/* Drop Players Page */
-#options_74 table {
+/*  TABLE AND REPORT MARGIN, PADDING, AND BORDER
+    Drop Players Page is optioins_74
+    Draft Report Page is options_17
+    Transaction Page is options_03 
+    Head-To-Head Page is options_06 
+    Commissioner Setup is commissionser_setup */
+
+#options_74 table, #options_17 .report, #options_03 .report, #options_06 .report,
+#options_07 table.two_column_layout, #commissioner_setup table.two_column_layout,
+#options_11 table, #body_login table.two_column_layout, #options_15 table.two_column_layout,
+#options_01 table, #options_16 table.two_column_layout {
     width: 100%;
     margin-top: 10px;
     padding: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 1px; }
+    border: 1px solid #404040; } 
+
+/* Removed the DOTTED Border Bottom on these modules */
+#welcome.homepagemodule.report td, #fantasy_articles.homepagemodule.report td, 
+#trades.homepagemodule.report td, #my_options.homepagemodule.report td, 
+#player_search.homepagemodule.report td, #league_news_feed.homepagemodule.report td, 
+#weekly_newsletter.homepagemodule.report td, #options_11 td, #body_login td, #options_01 td { border-bottom: none; }
     
- #options_74 .oddtablerow { background-color: #212121;}
+#options_74 .oddtablerow { background-color: #212121;}
 
 /* Testing Highlighting Player Position */
 /* #options_74 a.position_qb {
 	background-color: #333; } */
- 
-/* 	Draft Report Page is options_17
- 	Transaction Page is options_03*/
- 
-#options_17 .report, #options_03 .report {
-	width: 100%;
-    padding: 10px;
-    background-color: #212121;
-    margin-top: 10px; 
-    border: 1px solid #404040; }
+
+#trades { }
     
 /* 	My Draft List Page is options_129
  	Pre-Draft Picks Page is options_52 */
@@ -1249,7 +1236,7 @@ table #playoff2.playoffbracket.homepagemodule .oddtablerow {
 	color: white;
 	padding: 2px 5px; }
 
-/* Mobile Pages 
+/* Mobile Pages is options_159
 Home is options_159
 Login/Logout is options_160
 Live Scoring is options_155
@@ -1257,3 +1244,12 @@ Standings is options_154
 Roster is options_221 
 Player News is options_188
 Top Players is options_189 */
+
+body #body_options_159{ background-color: #212121; }
+
+#body_ajax_ld body {
+     margin: 0;
+     padding: 0;
+     background:#000000;
+     background-repeat: repeat;
+     color:#FFFFFF;}
