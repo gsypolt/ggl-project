@@ -116,9 +116,9 @@
 body {
      margin: 0;
      padding: 0;
-     background:#000000;
+     background: #000000;
      background-repeat: repeat;
-     color:#FFFFFF;}
+     color: #FFFFFF;}
      
 .pagebody { /*puts padding below header on sub pages */                                           
     /* background-image:url(page_body_bg.jpg);*/
@@ -129,6 +129,9 @@ body {
     
 #body_home {
     padding-top:0;  /*removes padding below header on home */ }
+
+/* Homepage Team Logo Background */
+#body_home #homepagecolumn1 div { background-color: #000; }
  
 a:link, a:active, a:visited { color:#fff; }
 a:hover {
@@ -820,7 +823,7 @@ body#email, td#email, th#email, div#email { color:#ccc; }
 #options_74 table, #options_17 .report, #options_03 .report, #options_06 .report,
 #options_07 table.two_column_layout, #commissioner_setup table.two_column_layout,
 #options_11 table, #body_login table.two_column_layout, #options_15 table.two_column_layout,
-#options_01 table, #options_16 table.two_column_layout {
+#options_01 table, #options_16 table.two_column_layout, #options_34 ul {
     width: 100%;
     margin-top: 10px;
     padding: 10px;
@@ -954,36 +957,6 @@ body#email, td#email, th#email, div#email { color:#ccc; }
 
 #options_37 td { text-align: center; }
 #options_37 td.franchisename { width: 150px; }
-
-/* Commissioner Trade Prospals */
-#options_34 ul {
-	background-color: #333333;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	-moz-border-radius-topleft: 10px;
-    -moz-border-radius-topright: 10px;
-    -moz-border-radius-bottomleft: 10px;
-    -moz-border-radius-bottomright: 10px;
-    -webkit-border-top-left-radius: 10px;
-    -webkit-border-top-right-radius: 10px;
-    -webkit-border-bottom-left-radius: 10px;
-    -webkit-border-bottom-right-radius: 10px; }
-  
-#options_34 li {
-	border: 1px solid #cccccc;
-	background-color: #000000;
-	margin-bottom: 5px;
-	padding-top: 5px;
-	padding-bottom: 5px; 
-	width: 975px; 
-	-moz-border-radius-topleft: 5px;
-    -moz-border-radius-topright: 5px;
-    -moz-border-radius-bottomleft: 5px;
-    -moz-border-radius-bottomright: 5px;
-    -webkit-border-top-left-radius: 5px;
-    -webkit-border-top-right-radius: 5px;
-    -webkit-border-bottom-left-radius: 5px;
-    -webkit-border-bottom-right-radius: 5px;}
 
 #options_34 .position_qb, #options_34 .position_rb, #options_34 .position_wr, #options_34 .position_te, #options_34 .position_de, #options_34 .position_lb, #options_34 .position_db, #options_34 .position_k {
 	margin: 5px; }
