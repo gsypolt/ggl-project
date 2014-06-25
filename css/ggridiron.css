@@ -8,7 +8,7 @@
    	position: relative;
    	margin: 0px auto;
    	width: 1024px;
-   	background: #212121;} 
+   	background: #212121;}
 
 #myslidemenu {
   	padding-top: 0px; }
@@ -16,7 +16,7 @@
 .jqueryslidemenu {
 	font: 14px "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-style: normal;
-	font-weight: 300; 
+	font-weight: 300;
 	background: #212121;
 	width: auto; }
 
@@ -29,43 +29,44 @@
 .jqueryslidemenu ul li {
 	position: relative;
 	display: inline;
-	float: left; }
+	float: left;
+  background: #212121; }
 
 .jqueryslidemenu ul li.first a {
-  	margin-left: 0;
-  	padding-left: 0; }
-  	
+  margin-left: 0;
+  padding-left: 0; }
+
 /* TOP LEVEL MENU LINK ITEMS SYTLE */
 .jqueryslidemenu ul li a {
 	display: block;
 	overflow: hidden;
 	background: #212121;
-  	width: auto;              
-  	padding: 5px 15px 5px 20px; 
-  	text-decoration: none;
-  	outline: none;
-  	text-align: left;
-  	font-size: 12px;
+  width: auto;
+  padding: 5px 15px 5px 20px;
+  text-decoration: none;
+  outline: none;
+  text-align: left;
+  font-size: 12px;
 	text-transform: none;
-  	color: white; 
-  	margin: 0 20px 0 20px; }
+  color: white;
+  margin: 0 20px 0 20px; }
 
 * html .jqueryslidemenu ul li a { /*IE6 hack to get sub menu links to behave correctly*/
   display: inline-block; }
-  
+
 .jqueryslidemenu ul li a:link, .jqueryslidemenu ul li a:visited {
 	color: white; }
 
 .jqueryslidemenu ul li a:hover {
-	background: #0099FF; 
-	color: white; } 
-  
+	background: #0099FF;
+	color: white; }
+
 /* 1st SUB LEVEL MENU */
 .jqueryslidemenu ul li ul {
 	position: absolute;
 	left: 0;
 	display: block;
-	visibility: hidden; 
+	visibility: hidden;
 	margin-left: 38px; }
 
 /*Sub level menu list items (undo style from Top level List Items)*/
@@ -86,7 +87,7 @@
 	padding: 5px;
 	margin: 0;
 	border-top-width: 0;
-	/* border-bottom: 1px solid #404040; 
+	/* border-bottom: 1px solid #404040;
 	border-left: 1px solid #404040; */}
 
 .jqueryslidemenu ul li ul li a:hover{ /*sub menus hover style*/
@@ -98,19 +99,19 @@
 .downarrowclass {
 	position: absolute;
 	top: 12px;
-	right: 7px; 
+	right: 7px;
 	display: none; }
-	
+
 
 .rightarrowclass {
 	position: absolute;
 	top: 6px;
 	right: 5px; }
-	
-	
+
+
 /* REMOVE THE MYFANTASYLEAGUE MAIN MENU */
 #menu0 {display: none;}
- 
+
 /* ====   MAIN TAGS ==== */
 
 body {
@@ -119,31 +120,31 @@ body {
      background: #000000;
      background-repeat: repeat;
      color: #FFFFFF;}
-     
-.pagebody { /*puts padding below header on sub pages */                                           
+
+.pagebody { /*puts padding below header on sub pages */
     /* background-image:url(page_body_bg.jpg);*/
     background-color: #000000;
     background-position:top center;
     background-repeat: repeat;
     /* padding-top: 40px; */ }
-    
+
 #body_home {
     padding-top:0;  /*removes padding below header on home */ }
 
 /* Homepage Team Logo Background */
 #body_home #homepagecolumn1 div { background-color: #000; }
- 
+
 a:link, a:active, a:visited { color:#fff; }
 a:hover {
         color:#fff;
-        text-decoration:underline; 
+        text-decoration:underline;
         }
-body, td, th, div { 
+body, td, th, div {
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    font-size: 12px; 
+    font-size: 12px;
     font-weight: 300; }
- 
- 
+
+
 /* =========================================================================== */
 
 /* ==== HOMEPAGE ==== */
@@ -155,54 +156,54 @@ color: #000;
 /* HOMEPAGECOLUMN1 - TEAM LOGO AND CHAMPIONSHIP LOGO */
 /* #homepagecolumn1.homepagecolumn {
 	padding-top: 2px;
-	padding-bottom: 2px; 
+	padding-bottom: 2px;
 	border: 1px solid #2F2F2F;} */
-	
+
 /* HOMEPAGECOLUMN2 - LEFT SIDE */
 
 /* HOMEPAGECOLUMN3 - RIGHT SIDE */
 
 /*#homepagecolumn1.homepagecolumn, #homepagecolumn2.homepagecolumn, #homepagecolumn3.homepagecolumn {
-	margin: 5px; 
+	margin: 5px;
 	border: 1px solid #2F2F2F;
-	background-color: #212121; 
-	
+	background-color: #212121;
+
     -webkit-border-top-left-radius: 3px;
     -webkit-border-top-right-radius: 3px;
     -moz-border-radius-topleft: 3px;
     -moz-border-radius-topright: 3px;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
-    
+
     -webkit-border-bottom-left-radius: 3px;
     -webkit-border-bottom-right-radius: 3px;
     -moz-border-radius-bottomleft: 3px;
     -moz-border-radius-bottomright: 3px;
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px; } */
-    
+
 /* HOMEPAGECOLUMN1 - TEAM LOGO AND CHAMPIONSHIP LOGO */
 /* #homepagecolumn1.homepagecolumn {
 	padding-top: 2px;
-	padding-bottom: 2px; 
+	padding-bottom: 2px;
 	border: 1px solid #2F2F2F;} */
-	
+
 /* HOMEPAGECOLUMN2 - LEFT SIDE */
 
 /* HOMEPAGECOLUMN3 - RIGHT SIDE */
 
 /*#homepagecolumn1.homepagecolumn, #homepagecolumn2.homepagecolumn, #homepagecolumn3.homepagecolumn {
-	margin: 5px; 
+	margin: 5px;
 	border: 1px solid #2F2F2F;
-	background-color: #212121; 
-	
+	background-color: #212121;
+
     -webkit-border-top-left-radius: 3px;
     -webkit-border-top-right-radius: 3px;
     -moz-border-radius-topleft: 3px;
     -moz-border-radius-topright: 3px;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
-    
+
     -webkit-border-bottom-left-radius: 3px;
     -webkit-border-bottom-right-radius: 3px;
     -moz-border-radius-bottomleft: 3px;
@@ -216,22 +217,22 @@ table .homepagemodule.report { border: 1px solid #404040; }
 .homepagemodule.report th { background-color: #333; }
 
 .homepagemodule.report tbody tr {-webkit-border-radius: 36px 12px;}
-	
+
 .homepagemodule.report td {
 	border-bottom: 1px dotted #404040;
 	padding-left: 4px;
 	padding-right: 4px; }
-	
+
 .homepagemodule.report .oddtablerow, .homepagemodule.report .eventablerow {
 	background-color: transparent;
 	color: #FFF; }
-	
+
 .homepagemodule.report td.points { /* Testing table.report td.points */
 	border-bottom: 1px dotted #404040;
 	background-color: transparent;
 	text-align: center;
 	color: #FFF; }
-	
+
 .homepagecolumn .homepagemodule caption, caption {
     text-align:left;
     text-indent: 2px; /*Testing 10px */
@@ -240,9 +241,9 @@ table .homepagemodule.report { border: 1px solid #404040; }
    	font-weight: 300;
     text-transform: uppercase;
     background-color: transparent; /*Testing #333 */
-    color:#FFFFFF; 
+    color:#FFFFFF;
     width: auto;
- 
+
     /* CSS3 Block */
     -webkit-border-top-left-radius: 5px;
     -webkit-border-top-right-radius: 5px;
@@ -250,14 +251,14 @@ table .homepagemodule.report { border: 1px solid #404040; }
     -moz-border-radius-topright: 5px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    
+
     -webkit-border-bottom-left-radius: 5px;
     -webkit-border-bottom-right-radius: 5px;
     -moz-border-radius-bottomleft: 5px;
     -moz-border-radius-bottomright: 5px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px; }
- 
+
 #homepagecolumns {
 	width: 100%;
     background-color: #fff;
@@ -278,50 +279,50 @@ table .homepagemodule.report { border: 1px solid #404040; }
 	font-weight: 300;
 	text-align:left;
   font-size:18px; }
- 
+
 #homepagecolumn1, #homepagecolumn2, #homepagecolumn3 { padding: 10px;}
 
 /* Home Page Team Banner */
-#homepagecolumn1 { 
+#homepagecolumn1 {
 	padding-top: 5px; }
 
 .homepagecolumn { background-color: #000000; }
- 
+
 .homepagecolumn tbody th {
 	text-align: left;
 	text-indent: 10px;
 	color: #FFFFFF;
 	padding: 2px 5px; }
-	
-.homepagecolumn .report th { 
-	height: 25px; 
+
+.homepagecolumn .report th {
+	height: 25px;
 	-webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 1px; }
- 
+
 .homepagecolumn tbody td {
 	text-align: left;
 	padding: 2px 5px; }
 
-/* Module Content Table - Homepage */ 
-.homepagecolumn table { 
+/* Module Content Table - Homepage */
+.homepagecolumn table {
     width: 100%;
     margin-top: 10px;
     padding: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 1px; }
-    
+
 /* Home Page Message */
 .homepagemessage { border: none; }
- 
+
 .homepagemessage td {
 	padding: 10px;
 	/* background-image:url(warning_bg.png); */ }
-	
+
 .homepagemessage .oddtablerow {
 	background-color: transparent; }
- 
+
 .homepagemessage { margin-left: -2px; }
 
 .homepagemessage th {
@@ -330,36 +331,36 @@ table .homepagemodule.report { border: 1px solid #404040; }
     background-repeat: repeat-x;
     padding: 0;
     color: #fff; }
-    
+
 .homepagecolumn { vertical-align: top; }
-.homepagecolumn #monthly_calendar { width: 95%; } 
+.homepagecolumn #monthly_calendar { width: 95%; }
 #homepagecolumns { width: 100%; }
- 
+
 /* ==== ADDED COLOR STYLES ==== */
- 
+
 span.reportnavigation {
 	background-color: #FFF;
 	padding: 2px;
 	color: #000;
 	font-size: 12px;}
- 
+
 span.reportnavigation a:link, span.reportnavigation a:visited, span.reportnavigation a:hover {
-color: #0099FF; 
+color: #0099FF;
 }
- 
+
 form { color: #fff; }
- 
+
 td form { color: #000; }
- 
+
 #withmenus h3 { color: #aaa; }
- 
+
 .pagebody #home { margin: 0px 20px; }
 
 /* ===== FILTER MENU ==== */
- 
+
 #withmenus {
 width:1024px;
-padding: top center; 
+padding: top center;
 margin-top: 5px; }
 
 .withleft h3 {
@@ -372,23 +373,23 @@ color: #aaa;
     width: 1024px;
     background-color: transparent;
     height: 100%; }
- 
+
 /* Home Page Table Two Column Layout */
- 
+
 .two_column_layout table {
 width: 100%;
 }
- 
+
 td h3 {
 color: #ccc;
 }
- 
+
 blockquote {
 color: #ccc;
 }
- 
-th { 
-	background-color: #333; 
+
+th {
+	background-color: #333;
 	font-style: normal;
 	/* font-weight: bold; */
 	font-weight: 300; }
@@ -396,53 +397,53 @@ th {
 th a:link, th a:visited {
 	text-decoration: none;
 	color: #FFF; }
- 
+
 th a:hover {
 color: #0099FF;
 text-decoration:underline;
 }
- 
+
 #monthly_calendar td, #monthly_calendar tr, #monthly_calendar  {
 border: 1px solid #000;
 }
- 
+
 .points a:link, td.points a:visited {
 color: #0099FF;
 text-decoration: underline;
 }
- 
+
 .points a:hover {
 color: #0099FF;
 text-decoration: underline;
 }
 
 /* ==== CONTENT BODY ==== */
- 
+
 #contentframe table {
   width: 100%;
   background-color:#212121; }
- 
+
 caption a:link, caption a:visited {
 color: #fff;
 }
- 
+
 caption a:hover {
 color: #0099FF;
 text-decoration: underline;
 }
- 
- 
- 
+
+
+
 /*  Top Menu
 ==================== */
-  
+
 .mainmenucurrent, a.mainmenucurrent {
-   font-size: 100%; 
-   text-decoration: none; 
+   font-size: 100%;
+   text-decoration: none;
    color:#FFFFFF;
    background-color: #555;
 }
- 
+
 a.mainmenucurrent:link,
 a.mainmenucurrent:visited,
 a.mainmenucurrent:active {
@@ -450,39 +451,39 @@ a.mainmenucurrent:active {
     font-size:10px;
     background-color:#000;
 }
-.mainmenuon, 
-A.mainmenuon:hover, 
-A.mainmenuon:link, 
-A.mainmenuon:visited, 
-A.mainmenuon:active { 
-    color: #FFF; 
-    background-color: #555; 
+.mainmenuon,
+A.mainmenuon:hover,
+A.mainmenuon:link,
+A.mainmenuon:visited,
+A.mainmenuon:active {
+    color: #FFF;
+    background-color: #555;
     font-size:10px;
 }
-.mainmenuoff, 
-A.mainmenuoff:hover, 
-A.mainmenuoff:link, 
-A.mainmenuoff:visited, 
-A.mainmenuoff:active { 
-    color: #FFF; 
-    background: #000; 
+.mainmenuoff,
+A.mainmenuoff:hover,
+A.mainmenuoff:link,
+A.mainmenuoff:visited,
+A.mainmenuoff:active {
+    color: #FFF;
+    background: #000;
     font-size:10px;
 }
- 
-/* ==== PAGE HEADER ==== */ 
- 
+
+/* ==== PAGE HEADER ==== */
+
 .brandlogo {display: none; }
 .pagetitle { display: none;}
- 
+
 .mmenucontainer { position: relative; }
- 
+
 .mmenucontainer a {
 	padding: 0 0 0 10px;
 	background-color: #000; }
 
 .welcome {display:none;}
 
- 
+
 /* ==== HOMEPAGE TABS ==== */
 #homepagetabs {
     display: none;
@@ -492,14 +493,14 @@ A.mainmenuoff:active {
     -moz-border-radius-topleft: 5px;
     -moz-border-radius-topright: 5px;
     -webkit-border-top-left-radius: 5px;
-    -webkit-border-top-right-radius: 5px; 
+    -webkit-border-top-right-radius: 5px;
 
     -moz-border-radius-bottomleft: 5px;
     -moz-border-radius-bottomright: 5px;
     -webkit-border-bottom-left-radius: 5px;
     -webkit-border-bottom-right-radius: 5px; */
 }
- 
+
 #homepagetabs li, #homepagetabs li:hover {
     display: inline;
     /* list-style-type: none; */
@@ -514,10 +515,10 @@ A.mainmenuoff:active {
     cursor: pointer;
     color: #FFF;
     text-align: center; }
- 
+
 #homepagetabs li:hover {
 	color: red;}
-	
+
 #homepagetabs li.currenttab {
     display: inline;
     margin: 0;
@@ -527,7 +528,7 @@ A.mainmenuoff:active {
     text-align: center;
 	padding: 10px 15px 10px 15px;
 	background: #FFF;
-	
+
     -moz-border-radius-topleft: 2px;
     -moz-border-radius-topright: 2px;
     -webkit-border-top-left-radius: 2px;
@@ -544,16 +545,16 @@ A.mainmenuoff:active {
 	border-top: 5px solid #990000; }
 
 table.report th { background-color: #333; }
-	
+
 table.report td {
 	border-bottom: 1px dotted #404040;
 	padding-left: 4px;
 	padding-right: 4px; }
-	
+
 table.report .oddtablerow, table.report .eventablerow {
 	background-color: transparent;
 	color: #FFF; }
-	
+
 table.report td.points { /* Testing table.report td.points */
 	border-bottom: 1px dotted #404040;
 	background-color: transparent;
@@ -563,42 +564,42 @@ table.report td.points { /* Testing table.report td.points */
 .eventablerow a:link, .eventablerow a:visited, .eventablerow a:active, .oddtablerow a:link, .oddtablerow a:visited, .oddtablerow a:active {
 	color: #0099FF; /* Testing #1549FF; */
 	text-decoration:underline; }
- 
+
 .eventablerow a:hover, .oddtablerow a:hover {
 	color:#FFFFFF;
 	text-decoration:underline; }
-    
+
 span.module_expand {
     margin-top: -3px; }
- 
+
 
 /* My Team Banner */
 .tabcontent1 img#franchiselogo {
 	border: 2px;
 	padding-bottom: 5px; }
- 
+
 th.rank {
 width: 15px;
 }
- 
- 
-#monthly_calendar td.today { 
+
+
+#monthly_calendar td.today {
 	border:none;
 	background:#E40706 url(bg-menu.gif) repeat-x left bottom;
 	color:#fff;
 }
- 
+
 #monthly_calendar td.today a:link,
 #monthly_calendar td.today a:visited,
 #monthly_calendar td.today a:active{
 color:#0B2685;
 }
- 
+
 #monthly_calendar td .calendarday {
 background: #fff;
 color:#E40706;
 }
- 
+
 #bar_chart table {
    width: auto;
 }
@@ -608,7 +609,7 @@ color:#E40706;
 
 .pagefooter { visibility: hidden; }
 .pagefooter table { display: none; }
- 
+
 /* main body css
 ================== */
 
@@ -619,19 +620,19 @@ table.two_column_layout {
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 1px; }
- 
+
 td.two_column_layout { width: 50%; }
- 
+
 /* ----Other----*/
- 
- 
+
+
 h3.warning {
   padding: 20px 0px;
   background-color: #000;
   font-size: 12pt;
 }
- 
- 
+
+
 #kickoff_countdown h3, #draft_countdown h3, #auction_countdown h3, #calendar_countdown h3 {
   color: #323321;
   background-color: transparent;
@@ -640,24 +641,24 @@ h3.warning {
 /* League Reminders is league_reminders */
 #league_reminders th {
 	background-color: red; }
- 
+
 .warning {
   color: #c91b19;
 }
- 
+
 #HELP {
   color: #ffcc00;
 }
- 
+
 #contentframe #article table, #options_73 .articlepicturetable, #options_177 .articlepicturetable, #fantasy_recap .articlepicturetable, #options_185 .articlepicturetable, #contentframe .articlepicturetable { width: auto;}
 #article td {padding: 5px;}
- 
+
 /*  Horizontal Sub Nav */
 #hsubmenu {display: none;} /* REMOVED FROM THE SITE */
 #vsubmenu { display: none; } /* REMOVED FROM THE SITE */
- 
+
 .messageboardlink { color: #000000 !important } ;
- 
+
 ul { margin-top: 0; margin-bottom: 0; }
 ul li { margin-left: -1.5em; }
 small { font-size: 95%; }
@@ -675,13 +676,13 @@ td.points, td.week, td.salary, td.contractyear, td.drafted, td.year, td.rank { t
 .verticalmenu { width: 120px; }
 .report, .playoffbracket, .homepagemessage { margin-bottom: 1em; }
 
-.module_expand { 
+.module_expand {
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-weight: 300;
- 	float: right; 
- 	visibility: visible; 
+ 	float: right;
+ 	visibility: visible;
  	cursor: pointer; }
- 	
+
 .moohighlight { background-color:#FFFF00; }
 .reallysmall { font-size: 90%; }
 .picks { width: 400px; }
@@ -742,7 +743,7 @@ td.rank	{ text-align: center; }
 
 td.salary { text-align: center; }
 td.strk { text-align: center; }
-td.status { width: 225px;  } 
+td.status { width: 225px;  }
 
 
 td.ww { text-align: center; }
@@ -768,9 +769,9 @@ td.vp { text-align: center; }
 .reportnavigation { text-align: center; display: block; padding-top: 1em; padding-bottom: 1em; font-size: 95%; }
 TD .reportnavigation { padding-top: 0; padding-bottom: 0; text-align: left; }
 .reportnavigationheader { /* font-weight: bold; */  font-weight: 300; }
- 
+
 body#email, td#email, th#email, div#email { color:#ccc; }
- 
+
 /* Options Pages CSS Settings */
 
 #options_98 form > table {border:none;}
@@ -778,12 +779,12 @@ body#email, td#email, th#email, div#email { color:#ccc; }
 /* ==== COMMISSIONER SETUP is commissioner_setup ==== */
 
 #commissioner_setup th { background-color: #333; }
-	
+
 #commissioner_setup td {
 	border-bottom: none;
 	padding-left: 4px;
 	padding-right: 4px; }
-	
+
 #commissioner_setup .oddtablerow {
 	background-color: transparent;
 	color: #FFF; }
@@ -798,7 +799,7 @@ body#email, td#email, th#email, div#email { color:#ccc; }
 
 /* IR Players is options_18 */
 #options_18 form > table {border:none;}
-    
+
 /* Trades Page is options_05 */
 #options_05 table table {width:auto;}
 
@@ -807,17 +808,17 @@ body#email, td#email, th#email, div#email { color:#ccc; }
 #options_05 table .report {
     width: auto;
     padding: 0px; }
- 
+
 #options_05 .report a:link { font-weight: 300; }
 #options_05 .report  a:visited { font-weight: 300; }
 #options_05 .report a:hover { font-weight: 300; text-decoration: underline; }
 #options_05 .report  a:active { font-weight: 300; text-decoration: underline; }
- 
+
 /*  TABLE AND REPORT MARGIN, PADDING, AND BORDER
     Drop Players Page is optioins_74
     Draft Report Page is options_17
-    Transaction Page is options_03 
-    Head-To-Head Page is options_06 
+    Transaction Page is options_03
+    Head-To-Head Page is options_06
     Commissioner Setup is commissionser_setup */
 
 #options_74 table, #options_17 .report, #options_03 .report, #options_06 .report,
@@ -827,14 +828,14 @@ body#email, td#email, th#email, div#email { color:#ccc; }
     width: 100%;
     margin-top: 10px;
     padding: 10px;
-    border: 1px solid #404040; } 
+    border: 1px solid #404040; }
 
 /* Removed the DOTTED Border Bottom on these modules */
-#welcome.homepagemodule.report td, #fantasy_articles.homepagemodule.report td, 
-#trades.homepagemodule.report td, #my_options.homepagemodule.report td, 
-#player_search.homepagemodule.report td, #league_news_feed.homepagemodule.report td, 
+#welcome.homepagemodule.report td, #fantasy_articles.homepagemodule.report td,
+#trades.homepagemodule.report td, #my_options.homepagemodule.report td,
+#player_search.homepagemodule.report td, #league_news_feed.homepagemodule.report td,
 #weekly_newsletter.homepagemodule.report td, #options_11 td, #body_login td, #options_01 td { border-bottom: none; }
-    
+
 #options_74 .oddtablerow { background-color: #212121;}
 
 /* Testing Highlighting Player Position */
@@ -842,7 +843,7 @@ body#email, td#email, th#email, div#email { color:#ccc; }
 	background-color: #333; } */
 
 #trades { }
-    
+
 /* 	My Draft List Page is options_129
  	Pre-Draft Picks Page is options_52 */
 #options_129 form, #options_52 from {
@@ -853,13 +854,13 @@ body#email, td#email, th#email, div#email { color:#ccc; }
     -webkit-border-top-left-radius: 10px;
     -webkit-border-top-right-radius: 10px;
 }
- 
+
 /* Live Draft Room */
 
 
 .ficon {
 	width: 300px;
-	height: 100px; 
+	height: 100px;
 	margin: 0px;
 	padding: 0px;
 }
@@ -870,12 +871,12 @@ body#email, td#email, th#email, div#email { color:#ccc; }
 	background-color: #990100;
 	width: 992px;
 	height: 50px; }
- 
+
 #division01 {
 	background-color: #000032;
 	width: 992px;
 	height: 50px; }
-	
+
 /* Standings Formating and Franchise Icon */
 
 #standings span.reportnavigation {
@@ -895,12 +896,12 @@ body#email, td#email, th#email, div#email { color:#ccc; }
 
 /* Main Tab is tabcontent0 */
 
-    
+
 /* My Team Tab is tabcontent1 */
 #tabcontent1 td.week  { text-align: center; }
 #tabcontent1 td.points { text-align: center; }
 #tabcontent1 td.drafted { text-align: center; }
-	
+
 /* Live Scoreboard is tabcontent7 */
 #tabcontent7 boxoutertable {
 	width: 1024px; }
@@ -912,7 +913,7 @@ body#email, td#email, th#email, div#email { color:#ccc; }
 #processed_waivers h3 {
 	color: #fff;
 	font-size: 18px; }
-	
+
 /* #processed_waivers ol {
     width: 300px;
     padding: 10px;
@@ -928,16 +929,16 @@ body#email, td#email, th#email, div#email { color:#ccc; }
 /* Weekly Fantasy Points (Filter) Report  */
 
 #top table.report th { background-color: #333; }
-	
+
 #top table.report td {
 	border-bottom: 1px dotted #404040;
 	padding-left: 4px;
 	padding-right: 4px; }
-	
+
 #top table.report .oddtablerow, #top table.report .eventablerow {
 	background-color: transparent;
 	color: #FFF; }
-	
+
 /* FRANCHISE ICON RESIZING 300x150 TO 150x50 */
 #franchiseicon_0001.franchiseicon { width: 150px; height: 50px; }
 #franchiseicon_0002.franchiseicon { width: 150px; height: 50px; }
@@ -951,7 +952,7 @@ body#email, td#email, th#email, div#email { color:#ccc; }
 #franchiseicon_0010.franchiseicon { width: 150px; height: 50px; }
 
 /* OPTIONS 08  TOP PLAYER STATS (#options_08) */
-	
+
 /* Bar Chart is options_20 */
 #options_20 table table {width: auto;}
 
@@ -960,10 +961,10 @@ body#email, td#email, th#email, div#email { color:#ccc; }
 
 #options_34 .position_qb, #options_34 .position_rb, #options_34 .position_wr, #options_34 .position_te, #options_34 .position_de, #options_34 .position_lb, #options_34 .position_db, #options_34 .position_k {
 	margin: 5px; }
-    
+
 /* Game Review > Weekly Results */
 #weekly h3 {
-	color: #FFF; 
+	color: #FFF;
 	font-size: 18px; }
 
 #weekly .oddtablerow {
@@ -972,7 +973,7 @@ body#email, td#email, th#email, div#email { color:#ccc; }
 
 #weekly .eventablerow {
 	background-color: transparent;
-	color: #FFF; }	
+	color: #FFF; }
 
 
 /* Testing two_column_layout needs some background work */
@@ -984,7 +985,7 @@ table.scoresummary {
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 1px; }
-    
+
 /* #weekly table.scoresummary {
     width: 100%;
     padding: 10px;
@@ -1009,7 +1010,7 @@ table.scoresummary {
 
 /* Fantasy Preview and Recap */
 #options_207 table table caption a, #options_177 table table caption a { color: white; }
-	
+
 #options_177 table.report {
  	width: 100%;
  	background-color: #000;
@@ -1017,21 +1018,21 @@ table.scoresummary {
 
 /* Current Pools is options_69*/
 #options_69 h3 {
-	color: #FFF; 
+	color: #FFF;
 	font-size: 18px; }
- 
- /* OPTIONS PAGES HTML IDS   
+
+ /* OPTIONS PAGES HTML IDS
   	* Top Starters is options_37
 	* Fantasy Pick'em Pool Summary is options_180
 	* Survivor Pick is options_120
-	* NFL Confidenence Pool Picks is options_121 
-	* NFL Confidenence Pool Summary is options_122 
+	* NFL Confidenence Pool Picks is options_121
+	* NFL Confidenence Pool Summary is options_122
 	* Team > Series Records is options_171
 	* Franchise Rosters is options_105
-	* Trade Bait is options_133 
-	* Waivers is options_46 
-	* Leauge Awards is options_202 
-	* Send Text Message is options_218 
+	* Trade Bait is options_133
+	* Waivers is options_46
+	* Leauge Awards is options_202
+	* Send Text Message is options_218
 	* Game Review > Scoring History is options_118
 	* Fantasy Schedule by Compact is options_54
 	* My Team > Roster with Stats is options_138
@@ -1039,34 +1040,34 @@ table.scoresummary {
 	* Weekly Summary is options_31
 	* Power Ranking is options_101
 	* Victory Points Summary is options_153
-	* Starter Points of Players 
+	* Starter Points of Players
 	* Game Review Projected Scores is options_169
 	* Top Add/Drops is options_117
-	* Rules League Scoring is options_09 
+	* Rules League Scoring is options_09
 	* Submit Line-up is options_02 */
 
 /* OTHER MODULE HTML IDS
-	* Message Board is board_show 
-	* Module Owner Activity 
+	* Message Board is board_show
+	* Module Owner Activity
 	* Revoke Trade is revoke */
-	
-/* TRADES, REJECTS, COUNTERS, and REVOKE */		
 
-#accept #withmenus.withleft { 
-  background-color: #212121; 
+/* TRADES, REJECTS, COUNTERS, and REVOKE */
+
+#accept #withmenus.withleft {
+  background-color: #212121;
   margin-top: 10px; }
 
 #accept #withmenus.withleft h3 { background-color: transparent; }
- 
-#trades .oddtablerow td, #revoke .oddtablerow td, #accept #withmenus.withleft td { 
-	border-bottom: none; 
+
+#trades .oddtablerow td, #revoke .oddtablerow td, #accept #withmenus.withleft td {
+	border-bottom: none;
 	padding-top: 10px; }
-	
+
 #trades .oddtablerow li, #revoke .oddtablerow li, #accept #withmenus.withleft li {
 	margin-top: 5px;
 	margin-bottom: 5px; } */
 
-#trades .oddtablerow ul, #revoke .oddtablerow ul, #accept #withmenus.withleft ul { 
+#trades .oddtablerow ul, #revoke .oddtablerow ul, #accept #withmenus.withleft ul {
   margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 5px;
@@ -1074,7 +1075,7 @@ table.scoresummary {
   padding-top: 2px;
   padding-bottom: 2px; }
 
-#trades .oddtablerow td > a, #revoke .oddtablerow td > a, #accept #withmenus.withleft a { padding-left: 5px; } 
+#trades .oddtablerow td > a, #revoke .oddtablerow td > a, #accept #withmenus.withleft a { padding-left: 5px; }
 
 #body_accept .position_qb, #body_accept .position_rb, #body_accept .position_wr, #body_accept .position_te, #body_accept .position_de, #body_accept .position_lb, #body_accept .position_db, #body_accept .position_k {
 	margin: 5px; }
@@ -1090,7 +1091,7 @@ table.scoresummary {
 
 #live_scoring .report { width: 100%; }
 #live_scoring .report td { width: auto; }
-    
+
 #live_scoring ul {
 	background-color: #333;
 	padding-top: 5px;
@@ -1100,10 +1101,10 @@ table.scoresummary {
 	/* font-weight: bold; */
 	font-weight: 300;
 	color: #0099FF; }
-	
+
 #live_scoring tr.grand_total td {
-	border: 1px solid #404040;  
-	background-color: #333; 
+	border: 1px solid #404040;
+	background-color: #333;
 	font-size: 16px;
 	/* font-weight: bold; */
 	font-weight: 300;
@@ -1120,8 +1121,8 @@ table.scoresummary {
 #body_live_scoring td, #body_live_scoring_summary td { }
 #body_live_scoring caption, #body_live_scoring_summary caption { }
 #body_live_scoring .report, #body_live_scoring_summary .report { }
-#body_live_scoring .report th, #body_live_scoring_summary .report th{ } 
-#body_live_scoring .reportnavigation, #body_live_scoring_summary .reportnavigation { } 
+#body_live_scoring .report th, #body_live_scoring_summary .report th{ }
+#body_live_scoring .reportnavigation, #body_live_scoring_summary .reportnavigation { }
 
 #body_live_scoring_summary .report,body_live_scoring .report {
     width:400px;
@@ -1133,12 +1134,12 @@ table.scoresummary {
 #body_live_scoring h4, #body_live_scoring_summary h4 { display:none;}
 
 #body_live_scoring_summary table.report tbody tr { background-color: transparent; } /*Testing transparent */
-	
+
 #body_live_scoring_summary table.report td {
 	border-bottom: none; /* Testing 1px dotted #404040 */
 	padding-left: 4px;
 	padding-right: 4px; }
-	
+
 #body_live_scoring_summary table.report tbody tr td .oddtablerow {
 	background-color: transparent;
 	color: #FFF; }
@@ -1146,27 +1147,27 @@ table.scoresummary {
 #body_live_scoring_summary table.report tbody tr td .eventablerow {
 	background-color: transparent;
 	color: #FFF; }
-	
-#body_live_scoring_summary table.report tbody tr td { border-bottom: 1px dotted #404040; } 
-#body_live_scoring_summary table.report tbody tr.eventablerow.live_scoring_player.newposition td { border-top: none; } 
-#body_live_scoring_summary table.report tbody tr.oddtablerow.live_scoring_player.newposition td { border-top: none; } 
+
+#body_live_scoring_summary table.report tbody tr td { border-bottom: 1px dotted #404040; }
+#body_live_scoring_summary table.report tbody tr.eventablerow.live_scoring_player.newposition td { border-top: none; }
+#body_live_scoring_summary table.report tbody tr.oddtablerow.live_scoring_player.newposition td { border-top: none; }
 
 #body_live_scoring_summary table.report { border: 1px solid #404040; }
 
-#body_live_scoring_summary table.report .total th,	
+#body_live_scoring_summary table.report .total th,
 #body_live_scoring_summary table.report .players_yet_to_play th,
 #body_live_scoring_summary table.report .players_currently_playing th,
 #body_live_scoring_summary table.report .player_minutes_remaining th {
-	border: 1px solid #404040;  
-	background-color: #333; 
+	border: 1px solid #404040;
+	background-color: #333;
 	color: #FFF; }
-	
-#body_live_scoring_summary table.report .total td,	
+
+#body_live_scoring_summary table.report .total td,
 #body_live_scoring_summary table.report .players_yet_to_play td,
 #body_live_scoring_summary table.report .players_currently_playing td,
 #body_live_scoring_summary table.report .player_minutes_remaining td {
-	border: 1px solid #404040;  
-	background-color: #222; 
+	border: 1px solid #404040;
+	background-color: #222;
 	color: #FFF; }
 
 /* Playoffs is options_79 */
@@ -1175,7 +1176,7 @@ table.scoresummary {
 #options_79 table #playoff1.playoffbracket.homepagemodule .oddtablerow {
 	background-color: transparent;
 	color: #0099FF; }
-	
+
 #options_79 table #playoff1.playoffbracket.homepagemodule tr {
 	padding-left: 4px;
 	padding-right: 4px; }
@@ -1186,7 +1187,7 @@ table #playoff1.playoffbracket.homepagemodule { border: 1px solid #404040; }
 table #playoff1.playoffbracket.homepagemodule .oddtablerow {
 	background-color: transparent;
 	color: #0099FF; }
-	
+
 table #playoff2.playoffbracket.homepagemodule { border: 1px solid #404040; }
 
 table #playoff2.playoffbracket.homepagemodule .oddtablerow {
@@ -1214,7 +1215,7 @@ Home is options_159
 Login/Logout is options_160
 Live Scoring is options_155
 Standings is options_154
-Roster is options_221 
+Roster is options_221
 Player News is options_188
 Top Players is options_189 */
 
