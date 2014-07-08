@@ -88,8 +88,7 @@ function Draft () {
     };
 
     // Success Modal
-    function show_success_modal(display_time) {
-        
+    function show_success_modal(display_time) {        
         $('#draft_modal_success').modal('show');
         if(display_time) {
             setTimeout(hide_success_modal,display_time);
@@ -110,7 +109,7 @@ function Draft () {
     };
     
     function addDraftingIframe() {
-        $("body").append('<iframe id="draft_frame" width="0" height="0" src="" class="hidden"></iframe>');
+        $("body").append('<iframe id="draft_frame" width="800" height="800" src="" class="hidden"></iframe>');
         //$("body").append('<iframe id="draft_frame" width="800" height="800" src="" class=""></iframe>');
     }
     
@@ -142,8 +141,8 @@ function Draft () {
     
     function draft_player_using_mfl(player_id, callback) {
         var iframe = $('#draft_frame');
-        //var mfl_url = 'http://football.myfantasyleague.com/' + MFL_YEAR + '/live_chat?L=' + MFL_LEAGUE_ID + '&PLAYER_PICK='+player_id+'&XML=1';
-        var mfl_url = '';
+        var mfl_url = 'http://football.myfantasyleague.com/' + MFL_YEAR + '/live_chat?L=' + MFL_LEAGUE_ID + '&PLAYER_PICK='+player_id+'&XML=1';
+        //var mfl_url = '';
         var db_url = '_can_player_be_drafted.php';
         $.ajax({
             type: "POST",
@@ -157,15 +156,16 @@ function Draft () {
                 if(data.success) {
                     iframe.attr('src', mfl_url);
                     document.getElementById('draft_frame').onload = function() {
+                        if(update_draft_results()) {
+                            hide_drafting_modal();
+                            show_success_modal();
+                        } else {
+                            show_error_modal("Error Updating Draft Results");
+                        }
                         hide_drafting_modal();
                         callback();                            
                     }; 
-                    if(update_draft_results()) {
-                        hide_drafting_modal();
-                        show_success_modal();
-                    } else {
-                        show_error_modal("Error Updating Draft Results");
-                    }
+                    
                 } else {
                     hide_drafting_modal();
                     show_error_modal(data.error);
