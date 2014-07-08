@@ -10,7 +10,10 @@
     <script type="text/javascript" language="javascript" src="js/modals.js"></script>
     <script type="text/javascript" src="bootstrap-3.1.1/js/bootstrap.min.js"></script>
     <link href="bootstrap-3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    
+    <script type="text/javascript" src="js/globals.js"></script>
     <script type="text/javascript" src="js/login.js"></script>
+    
     <style type="text/css">
         body { 
             padding-top: 60px; 

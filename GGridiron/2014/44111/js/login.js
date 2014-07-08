@@ -4,9 +4,6 @@
 */
 
 function Login () {
-    var MFL_YEAR = 2014;
-    var MFL_LEAGUE_ID = 44111;
-    
     // Initialization
     this.init = function() {
         addLoggingInModal();

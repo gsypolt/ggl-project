@@ -2,9 +2,11 @@
     require_once "core.php";
     authentication_handle_login();
 ?>
+<!DOCTYPE html>
 <html>
     <head>    
         <title>Draft Room</title>
+        
         <script type="text/javascript" language="javascript" src="jQuery/jquery-2.0.3.js"></script>
         
         <link rel="stylesheet" href="flipclock-0.5.5/compiled/flipclock.css">
@@ -22,6 +24,7 @@
         <link href="bootstrap-3.1.1/css/bootstrap.css" rel="stylesheet">
 
         <script type="text/javascript" src="js/addons.js"></script>
+        <script type="text/javascript" src="js/globals.js"></script>
         <script type="text/javascript" src="js/draft.js"></script>
         
         <style>       
@@ -29,13 +32,13 @@
                 font-family: 'digi';
                 src: url('fonts/DS-DIGII.TTF');
             }
-            /*Bootstrap Modifications*/
+
             .container {
                 width: 1000px !important;
             }      
             body { 
                 padding-top: 60px;
-                background-image: url(images/background/dark_wood.png);
+                background-image: url(images/background/dark_wood.png) format('embedded-opentype');
                 position: relative;
                 width: 101%;
                 margin-top: -10px;
@@ -44,7 +47,7 @@
                 margin-bottom: -10px;
             }
             
-            /*Generic Modifications*/ 
+
             .bg-green {
                 background-color: greenyellow;
             }
@@ -134,7 +137,7 @@
                border: 2px dashed #000000;
                border-radius: 10px;
                box-shadow: 0 0 0 4px #B8B8B8, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
-               /*text-shadow: -1px -1px #000000;*/
+
                font-weight: normal;
             }
             .stitched-clear {
@@ -172,7 +175,7 @@
                 overflow-y: scroll;
                 overflow-x: hidden;
             }
-            /*Datatables Modifications*/
+
             .table-really-condensed > thead > tr > th,
             .table-really-condensed > tbody > tr > th,
             .table-really-condensed > tfoot > tr > th,
@@ -180,7 +183,6 @@
             .table-really-condensed > tbody > tr > td,
             .table-really-condensed > tfoot > tr > td {
                 padding: 1px;
-                /*font-family:"Times New Roman", Times, serif !important;*/
                 font-size:14px !important;
             }
             .fg-toolbar{
@@ -198,7 +200,6 @@
             td .center,tr .center { 
                 text-align: center;
             }
-            /*Flipclock modification*/
             .something{}
             .league-logo {
                 width: 100%;
@@ -209,7 +210,6 @@
                 -moz-transform: scale(0.475);
                 margin-left: 30px;
             }
-            /*Helper modifications*/
             .centered {
                 margin-right: auto;
                 margin-left: auto;
@@ -217,7 +217,6 @@
             .numbers {
                 font-family: 'digi';
                 font-size: 30px;
-                /*font-weight:bold;*/
             }
             .text-gray {
                 color: lightpink;
@@ -232,7 +231,7 @@
             var draft_results_table = null;
             var on_clock = null;
             var current_draft_timestamp = null;
-            var watching_delay = 3;
+            var watching_delay = 1;
             
             var free_agents = null;
             var watch_list = null;
@@ -606,7 +605,7 @@
                             <div id="collapseZero" class="panel-collapse collapse in">
                                 <br>
                                 <div id="clock" class="your-clock"></div>
-                                <div class="stitched-red"><span id="on_clock_round_details"class="numbers"></span><img id="on_clock_icon" alt="" class="small_logo centered" src=""></div><br>
+                                <div class="stitched-red"><span id="on_clock_round_details" class="numbers"></span><img id="on_clock_icon" alt="" class="small_logo centered" src=""></div><br>
                             </div>
                         </div>
                     </div>                      

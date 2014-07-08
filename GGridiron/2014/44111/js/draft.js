@@ -3,11 +3,8 @@
 * @author Gregory A. Smyth
 */
 
-function Draft () {
-    var MFL_DRAFT_ENABLED = true;
+function Draft () {    
     var SUCCESS_MODAL_SHOW_TIME = 1000;
-    var MFL_YEAR = 2014;
-    var MFL_LEAGUE_ID = 44111;
     
     // Initialization
     this.init = function() {
