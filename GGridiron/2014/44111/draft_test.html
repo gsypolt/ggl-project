@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Draft Test</title>
+        <script type="text/javascript" language="javascript" src="jQuery/jquery-2.0.3.js"></script>
+        
+        <link rel="stylesheet" href="flipclock-0.5.5/compiled/flipclock.css">
+        <script src="flipclock-0.5.5/compiled/flipclock.js"></script>        
+                
+        <link href="datatables-1.10.0/media/css/jquery.dataTables.css" rel="stylesheet">
+        <link href="datatables-1.10.0/media/css/dataTables.jqueryui.css" rel="stylesheet">
+        <script type="text/javascript" language="javascript" src="datatables-1.10.0/media/js/jquery.dataTables.js"></script>
+        <script type="text/javascript" language="javascript" src="datatables-1.10.0/media/js/dataTables.jqueryui.js"></script> 
+        
+        <link href="jquery-ui/jquery-ui.css" rel="stylesheet">                      
+        <script type="text/javascript" language="javascript" src="jquery-ui/jquery-ui.js"></script>
+        
+        <script type="text/javascript" src="bootstrap-3.1.1/js/bootstrap.min.js"></script>
+        <link href="bootstrap-3.1.1/css/bootstrap.css" rel="stylesheet">
+
+        <script type="text/javascript" src="js/addons.js"></script>
+        
+        <script type="text/javascript" src="js/draft.js"></script>
+        <script type="text/javascript">
+            var draft = false;
+            
+            $(document).ready(function() {  
+                draft = new Draft();     
+                draft.draft_player(3579,my_alert);
+            });
+            function my_alert() {
+                alert("HI");
+            }
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>
