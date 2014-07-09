@@ -1,4 +1,10 @@
 <?php
+require_once "core.php";
+
+$franchise_id = sessions_get_franchise_id();
+$session_id = sessions_get_token();
+
+$franchise_logged_in = is_franchise_logged_in($franchise_id, $session_id);
 
 $html = "";
 
@@ -12,14 +18,18 @@ $html .=            '<span class="icon-bar">BLAH 3</span>';
 $html .=        '</button>';
 $html .=        '<a class="navbar-brand" href="#">Goal-Line Gridiron</a>';
 $html .=    '</div>';
-$html .=    '<ul class="nav navbar-nav navbar-right">';
-$html .=        '<li class="dropdown">';
-$html .=            '<a href="#" id="nav_userblock" class="dropdown-toggle" data-toggle="dropdown">User Options<b class="caret"></b></a>';
-$html .=            '<ul class="dropdown-menu">';
-$html .=                '<li><a href="logout.php"><i class="glyphicon glyphicon-off"></i> Logout</a></li>';
-$html .=            '</ul>';
-$html .=        '</li>';
-$html .=    '</ul>';
+if($franchise_logged_in) {
+    $franchise = get_franchise($franchise_id);
+    $fracnhise_name = $franchise['name'];    
+    $html .=    '<ul class="nav navbar-nav navbar-right">';
+    $html .=        '<li class="dropdown">';
+    $html .=            '<a href="#" id="nav_userblock" class="dropdown-toggle" data-toggle="dropdown">'.$fracnhise_name.' Options<b class="caret"></b></a>';
+    $html .=            '<ul class="dropdown-menu">';
+    $html .=                '<li><a href="logout.php"><i class="glyphicon glyphicon-off"></i> Logout</a></li>';
+    $html .=            '</ul>';
+    $html .=        '</li>';
+    $html .=    '</ul>';
+}
 $html .=    '<div class="navbar-collapse collapse"></div>';
 $html .= '</div>';
 
