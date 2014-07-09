@@ -7,7 +7,7 @@
 # Configurable Details
 define('MFL_YEAR','2014');
 define('MFL_LEAGUE_ID','44111');
-define('HTDOCS_FOLDER','/GGridiron/2014/44111');
+define('HTDOCS_FOLDER','/ggl-project/GGridiron/2014/44111');
 
 # Folders and Paths
 $DOCUMENT_ROOT = $_SERVER['DOCUMENT_ROOT'];

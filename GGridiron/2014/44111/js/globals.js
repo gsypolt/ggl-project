@@ -4,6 +4,30 @@
  * and open the template in the editor.
  */
 
-var MFL_DRAFT_ENABLED = true;
-var MFL_YEAR = 2014;
-var MFL_LEAGUE_ID = 44111;
+var MFL_DRAFT_ENABLED = false;
+var MFL_YEAR = null;
+var MFL_LEAGUE_ID = null;
+
+this.init = function() {
+    var url = '_get_php_globals.php';
+    var return_value = false;
+    $.ajax({
+        type: "GET",
+        url: url,
+        dataType: "json",
+        beforeSend: function(){},
+        data: {},
+        success: function(data){
+            MFL_YEAR = data.MFL_YEAR;
+            MFL_LEAGUE_ID = data.MFL_LEAGUE_ID;
+        },
+        error: function() {
+            
+        },
+        async: false,
+        cache: false
+    });
+    return return_value;
+};
+
+this.init();
