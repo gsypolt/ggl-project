@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-var MFL_DRAFT_ENABLED = false;
+var MFL_DRAFT_ENABLED = true;
 var MFL_YEAR = null;
 var MFL_LEAGUE_ID = null;
 

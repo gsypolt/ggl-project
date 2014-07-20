@@ -141,19 +141,19 @@
         <div class="modal-dialog" style="width:400px;margin-top:75px;">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times</button>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h4 class="modal-title"><i class="glyphicon glyphicon-globe"></i> Franchise Log In</h4>
                 </div>
                 <div class="modal-body">
                     <div class="input-group">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                        <input id="franchise_id" name="franchise_id" disabled hidden></input>
-                        <input id="franchise_name" name="franchise_name" type="text" class="form-control" placeholder="Franchise Name" required autofocus disabled></input>
+                        <input id="franchise_id" name="franchise_id" disabled hidden/>
+                        <input id="franchise_name" name="franchise_name" type="text" class="form-control" placeholder="Franchise Name" required autofocus disabled/>
                     </div>
-                    <p/>
+                    <p>
                     <div class="input-group" id="password_input_div">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                        <input id="password" name="password" type="password" class="form-control" placeholder="Password" required></input>
+                        <input id="password" name="password" type="password" class="form-control" placeholder="Password" required/>
                     </div>
                     <br><button name="submit" type="submit" class="btn btn-primary btn-block" onclick="AttemptLogin()">Log In</button>
                 </div>

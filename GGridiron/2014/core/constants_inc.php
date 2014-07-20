@@ -7,7 +7,7 @@
 # Configurable Details
 define('MFL_YEAR','2014');
 define('MFL_LEAGUE_ID','44111');
-define('HTDOCS_FOLDER','/GGridiron/2014/44111');
+define('HTDOCS_FOLDER','/ggl-project/GGridiron/2014');
 
 # Folders and Paths
 $DOCUMENT_ROOT = $_SERVER['DOCUMENT_ROOT'];
@@ -18,18 +18,18 @@ $WEB_ROOT = ltrim($WEB_PATH,'/');
 define('WEB_ROOT',$WEB_ROOT);
 
 # Server MYSQL
-define('MYSQL_HOST','ggridiron2.db.11749711.hostedresource.com');
-define('MYSQL_USERNAME','ggridiron2');
-define('MYSQL_PASSWORD','gg!QAZ1qaz');
-define('MYSQL_DATABASE','ggridiron2');
-define('MYSQL_CHARSET', 'utf8');
+//define('MYSQL_HOST','ggridiron2.db.11749711.hostedresource.com');
+//define('MYSQL_USERNAME','ggridiron2');
+//define('MYSQL_PASSWORD','gg!QAZ1qaz');
+//define('MYSQL_DATABASE','ggridiron2');
+//define('MYSQL_CHARSET', 'utf8');
 
 # Local MYSQL
-//define('MYSQL_HOST','127.0.0.1');
-//define('MYSQL_USERNAME','admin');
-//define('MYSQL_PASSWORD','admin');
-//define('MYSQL_DATABASE','mfl_2014');
-//define('MYSQL_CHARSET', 'utf8');
+define('MYSQL_HOST','127.0.0.1');
+define('MYSQL_USERNAME','admin');
+define('MYSQL_PASSWORD','admin');
+define('MYSQL_DATABASE','mfl_2014');
+define('MYSQL_CHARSET', 'utf8');
 
 # Log
 define('LOG_FILENAME','log.txt');
@@ -72,7 +72,9 @@ define(MAIN_PAGE_URL,'main.php');
 define('COOKIE_LOGIN_TOKEN','login_token');
 define('COOKIE_LOGIN_FRANCHISE_ID','login_franchise_id');
 define('COOKIE_EXPIRATION_TIME', 31536000); //1 year
-define('USER_ID','USER_ID'); // For MFL
+define('MFL_LOGIN_TOKEN','USER_ID'); // For MFL
+define('MFL_MAIN_COOKIE_URL','myfantasyleague.com'); // For MFL
+
 
 # Sessions
 define('SESSION_LOGIN_TOKEN','login_token');

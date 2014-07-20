@@ -2,7 +2,6 @@
     require_once "core.php";
     authentication_handle_login();
 ?>
-<!DOCTYPE html>
 <html>
     <head>    
         <title>Draft Room</title>
@@ -30,7 +29,11 @@
         <style>       
             @font-face {
                 font-family: 'digi';
-                src: url('fonts/DS-DIGII.TTF');
+                src: url('fonts/DS-DIGII.eot'); /* IE9 Compat Modes */
+                src: url('fonts/DS-DIGII.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+                     url('fonts/DS-DIGII.woff') format('woff'), /* Modern Browsers */
+                     url('fonts/DS-DIGII.ttf')  format('truetype'), /* Safari, Android, iOS */
+                     url('fonts/DS-DIGII.svg#svgFontName') format('svg'); /* Legacy iOS */
             }
 
             .container {
@@ -38,7 +41,7 @@
             }      
             body { 
                 padding-top: 60px;
-                background-image: url(images/background/dark_wood.png) format('embedded-opentype');
+                background-image: url(images/background/dark_wood.png);
                 position: relative;
                 width: 101%;
                 margin-top: -10px;
@@ -68,6 +71,10 @@
                 height: auto; 
                 text-align: center;
             }
+            img.very_small_logo{
+                width: 90px;
+                height: auto; 
+            }            
             .round_pick_div{
                 width: 205px;
                 height: 15px;            
@@ -156,6 +163,7 @@
                 flex-align: center;
                 flex-pack: center;
                 margin: auto;
+                text-align: center;
             }
             .highlight {
                 background-color: #33FF44;
@@ -202,8 +210,8 @@
             }
             .something{}
             .league-logo {
-                width: 100%;
-                height: 200px;
+                width: 1000px;
+                height: 150px;
             }
             .your-clock{
                 zoom: 0.475;
@@ -217,6 +225,13 @@
             .numbers {
                 font-family: 'digi';
                 font-size: 30px;
+            }
+            .small-numbers {
+                font-family: 'digi';
+                font-size: 20px;
+            }
+            .medium-text {
+                font-size: 13px;
             }
             .text-gray {
                 color: lightpink;
@@ -245,17 +260,38 @@
             var admin = false;
             
             $(document).ready(function() {  
-                draft = new Draft();
-                DoStartUp();               
+                draft = new Draft();    
+                DoStartUp();
             });
+            
+            function ActivatePopOver(id, text) {
+                var search_help = $('#'+id);
+                search_help.data('state', 'hover');
+
+                var enterShow = function () {
+                    if (search_help.data('state') === 'hover') {
+                        search_help.popover('show');
+                    }
+                };
+                var exitHide = function () {
+                    if (search_help.data('state') === 'hover') {
+                        search_help.popover('hide');
+                    }
+                };
+                if(text) {
+                    search_help.attr('data-content',text);
+                }                
+                search_help.popover({trigger: 'manual'}).on('mouseenter', enterShow).on('mouseleave', exitHide);
+            }
             
             function DoStartUp() {
                 GetImportantStartupData();
                 UpdateOnTheClock();
                 BuildWatchTable();
                 BuildFreeAgentTable();
-                BuildDraftResultsTable();                  
-                StartWatchingForDraftChange();
+                BuildDraftResultsTable();      
+                UpdateRecentPicks();
+                StartWatchingForDraftChange();                
             }
             
             function show_player_details(player_id) {
@@ -319,8 +355,8 @@
                     free_agents_table.fnDestroy();
                 }
                 $('#tbody_free_agents_table').empty();
-                
                 free_agents_table = $('#free_agents_table').DataTable( {
+                    "oLanguage": {"sSearch": '<i data-container="body" id="free_agents_search_help" class="popover-dismiss" data-toggle="popover" data-placement="bottom" title="Search Help" data-content=""><span class="glyphicon glyphicon-question-sign"></span></i>&nbsp;Search: '},
                     "jQueryUI": true,
                     "sAjaxSource": url,
                     "fnPreDrawCallback":function(){
@@ -367,6 +403,7 @@
                         { "mData": "id", "sWidth": "18%"}
                     ]
                 });
+                ActivatePopOver('free_agents_search_help','If you want to search for a quarterback (QB) whos first name is Tom (Tom) and is on Houston (HOU) and was draft in 2014 (2014) you can search for all of these terms by entering spaces such as "QB Tom HOU 2014". Criteria order and capitalization do not matter.');
             }
             function RefreshFreeAgentsTable() {
                 //_building_parts_table_flag = true;
@@ -384,6 +421,7 @@
                 $('#tbody_watch_table').empty();
                 
                 watch_table = $('#watch_table').DataTable( {
+                    "oLanguage": {"sSearch": '<i data-container="body" id="watched_search_help" class="popover-dismiss" data-toggle="popover" data-placement="bottom" title="Search Help" data-content=""><span class="glyphicon glyphicon-question-sign"></span></i>&nbsp;Search: '},
                     "jQueryUI": true,
                     "sAjaxSource": url,
                     "fnPreDrawCallback":function(){
@@ -437,6 +475,7 @@
                         { "mData": "id", "sWidth": "18%"}
                     ]
                 });
+                ActivatePopOver('watched_search_help','If you want to search for a quarterback (QB) whos first name is Tom (Tom) and is on Houston (HOU) and was draft in 2014 (2014) you can search for all of these terms by entering spaces such as "QB Tom HOU 2014". Criteria order and capitalization do not matter.');
             }
             function RefreshWatchTable() {
                 //_building_parts_table_flag = true;
@@ -454,6 +493,7 @@
                 $('#tbody_draft_results_table').empty();
                 
                 draft_results_table = $('#draft_results_table').DataTable( {
+                    "oLanguage": {"sSearch": '<i data-container="body" id="drafted_search_help" class="popover-dismiss" data-toggle="popover" data-placement="bottom" title="Search Help" data-content=""><span class="glyphicon glyphicon-question-sign"></span></i>&nbsp;Search: '},
                     "jQueryUI": true,
                     "sAjaxSource": url,
                     "fnPreDrawCallback":function(){
@@ -487,6 +527,7 @@
                         { "mData": "franchise_name", "sWidth": "15%"}
                     ]
                 });
+                ActivatePopOver('drafted_search_help','If you want to search for a quarterback (QB) whos first name is Tom (Tom) and is on Houston (HOU) and was draft in 2014 (2014) you can search for all of these terms by entering spaces such as "QB Tom HOU 2014". Criteria order and capitalization do not matter.');
             }
             function RefreshDraftResultsTable() {
                 //_building_parts_table_flag = true;
@@ -539,17 +580,52 @@
                     dataType: "json",
                     data: {},
                     success: function(data){
+                        $('#clock_heading').html('<div><h4 class="center"><u>TIME SINCE LAST PICK</u></h4><br></div>');
                         on_clock.setTime(parseInt(data.on_time));
                         on_clock.start();
                         var round_details = "R"+data.round+"-P"+data.pick+"&nbsp;&nbsp;";
                         $('#on_clock_round_details').html(round_details);
                         $("#on_clock_icon").attr("src",data.icon_url);
                         franchise_id_on_the_clock = data.franchise_id;
+                        for(var i = 0; i < data.on_deck_picks.length; i++) {
+                            round_details = "R"+data.on_deck_picks[i].round+"-P"+data.on_deck_picks[i].pick+"&nbsp;&nbsp;";
+                            $('#on_deck_round_details_' + i).html(round_details);
+                            $('#on_deck_icon_' + i).attr("src",data.on_deck_picks[i].icon_url);
+                        }
                     },
                     error: function(data) {
                         alert("***UpdateOnTheClock() GET Error***");
                     },
                     async: false,
+                    cache: false
+                });
+            }
+            
+            function UpdateRecentPicks() {
+                var url = '_get_most_recent_draft_picks.php';              
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    dataType: "json",
+                    data: {},
+                    success: function(data){
+                        //Build HTML
+                        var html = "";
+                        
+                        for(var i = 0; i < data.length; i++) {
+                            var round_details = "R"+data[i].round+"-P"+data[i].pick+"&nbsp;&nbsp;";
+                            html += '<div class="stitched-clear">';
+                            //html +=     '<span class="small-numbers">' + round_details + '&nbsp;&nbsp;</span>';
+                            html +=     '<img alt="" class="very_small_logo centered" src="' + data[i].franchise_icon_url + '">&nbsp;&nbsp;';
+                            html +=     '<span class="medium-text">' + data[i].player_name + '</span>';
+                            html += '</div>';
+                        }
+                        $('#last_picks_div').html(html);
+                    },
+                    error: function(data) {
+                        alert("***UpdateRecentPicks() GET Error***");
+                    },
+                    async: true,
                     cache: false
                 });
             }
@@ -567,6 +643,7 @@
                             RefreshFreeAgentsTable();
                             RefreshWatchTable();
                             RefreshDraftResultsTable();
+                            UpdateRecentPicks();
                         }
                     },
                     error: function(data) {
@@ -580,6 +657,9 @@
                 setInterval(function(){CheckForDraftChange()},watching_delay*1000);
             }
             
+            function UPDATE() {
+                draft.update_draft_results();
+            }
         </script>
     </head>
 
@@ -590,25 +670,46 @@
             <!-- /Navigation -->  
             
             <div class="row">
-                <img class="league-logo center" alt="" src="http://i1088.photobucket.com/albums/i340/4Gdynasty/GG2014.png"/>
+                <img class="league-logo center" alt="" src="images/banners/GGDraft14.png"/>
             </div>
             <br>
             <div class="row no_padding">     
                 <div class="col-xs-4 lite-padding">
-                    <div class="panel-group" id="accordion0">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion0" href="#collapseZero">On The Clock</a>
-                                </h4>
+                    <div class="col-xs-12 lite-padding">
+                        <div class="panel-group" id="accordion0">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion0" href="#collapseZero">On The Clock</a>
+                                    </h4>
+                                </div>
+                                <div id="collapseZero" class="panel-collapse collapse in">
+                                    <div><button class="btn btn-block btn-xs btn-primary" onclick="UPDATE()">UPDATE DB</button><hr></div>
+                                    <div id="clock_heading"></div>
+                                    <div id="clock" class="your-clock"></div>
+                                    <div><h4 class="center"><u>ON THE CLOCK</u></h4></div>
+                                    <div class="stitched-red"><span id="on_clock_round_details" class="numbers"></span><img id="on_clock_icon" alt="" class="small_logo centered" src=""></div><br>
+                                    <div><h4 class="center"><u>ON DECK</u></h4></div>
+                                    <div class="stitched-gray"><span id="on_deck_round_details_0" class="numbers"></span><img id="on_deck_icon_0" alt="" class="small_logo centered" src=""></div>
+                                    <div class="stitched-gray"><span id="on_deck_round_details_1" class="numbers"></span><img id="on_deck_icon_1" alt="" class="small_logo centered" src=""></div>
+                                </div>
                             </div>
-                            <div id="collapseZero" class="panel-collapse collapse in">
-                                <br>
-                                <div id="clock" class="your-clock"></div>
-                                <div class="stitched-red"><span id="on_clock_round_details" class="numbers"></span><img id="on_clock_icon" alt="" class="small_logo centered" src=""></div><br>
+                        </div>         
+                    </div>
+                    <div class="col-xs-12 lite-padding">
+                        <div class="panel-group" id="last_picks_accordion">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#last_picks_accordion" href="#last_picks_collapse">Most Recent Picks</a>
+                                    </h4>
+                                </div>
+                                <div id="last_picks_collapse" class="panel-collapse collapse in"> 
+                                    <div id="last_picks_div"></div>
+                                </div>
                             </div>
-                        </div>
-                    </div>                      
+                        </div>         
+                    </div>
                 </div>
                 <div class="col-xs-8 lite-padding">
                     <div class="panel-group" id="accordion">

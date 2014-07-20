@@ -139,7 +139,6 @@ function Draft () {
     function draft_player_using_mfl(player_id, callback) {
         var iframe = $('#draft_frame');
         var mfl_url = 'http://football.myfantasyleague.com/' + MFL_YEAR + '/live_chat?L=' + MFL_LEAGUE_ID + '&PLAYER_PICK='+player_id+'&XML=1';
-        //var mfl_url = '';
         var db_url = '_can_player_be_drafted.php';
         $.ajax({
             type: "POST",

@@ -2121,10 +2121,10 @@
         log_info("draft_player() function complete");
         return true;        
     }
-    function get_current_pick_details() {
+    function get_current_pick_details($offset = 0) {
         log_info("get_last_pick_id() function called");
         
-        $current_pick_id = (int)get_last_pick_id() + 1;
+        $current_pick_id = (int)get_last_pick_id() + 1 + (int)$offset;
         
         $table_name = DRAFT_RESULTS_TABLE;
         $query = "SELECT * FROM $table_name WHERE id='$current_pick_id'"; 

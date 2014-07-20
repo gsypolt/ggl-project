@@ -29,6 +29,7 @@
             foreach($franchises as $franchise) {
                     if((int)$franchise['id'] == (int)$draft_result['franchise_id']) {
                         $draft_result['franchise_name'] = $franchise['name'];
+                        $draft_result['franchise_icon_url'] = $franchise['icon_url'];
                         break;
                     }
                 }
