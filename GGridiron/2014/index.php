@@ -1,1 +1,1 @@
-<?php     header( 'Location: 44111/' ) ; ?>
+<?php     header( 'Location: draft_room.php' ) ; ?>
