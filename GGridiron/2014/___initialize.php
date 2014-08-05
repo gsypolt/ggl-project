@@ -41,7 +41,8 @@ if(is_initialized() && !$force) {
     if(create_free_agents_table()) { log_info('SUCCESS'); } else { log_info('**FAILED**'); }
     log_info('Creating watched players table');
     if(create_watched_players_table()) { log_info('SUCCESS'); } else { log_info('**FAILED**'); }
-    
+    log_info('Creating draft settings table');
+    if(create_draft_settings_table()) { log_info('SUCCESS'); } else { log_info('**FAILED**'); }    
     log_info("Tables Complete");
 
     
@@ -60,10 +61,8 @@ if(is_initialized() && !$force) {
     log_info("Updating Free Agents DB");
     update_free_agents_db();    
     log_info("Updating Draft Results DB");
-    update_draft_results_db();
-    
-    log_info("Data Complete");
-    
+    update_draft_results_db();    
+    log_info("Data Complete");    
     log_info("Setting as Initialized");
     set_as_initialized();
 }
@@ -576,6 +575,39 @@ function create_franchise_heartbeat_table() {
         $error_message = "Database error: ".db_error_message();
         log_error($error_message);
         return false;
+    }
+    log_info("Created table ".$table_name);
+    return true;
+}
+
+# DRAFT TYPE
+function create_draft_settings_table() {
+    # Set table name
+    $table_name = DRAFT_SETTINGS_TABLE;
+    
+    # Check if table exists
+    if(db_does_table_exist($table_name)) {
+        log_info("Table ".$table_name." already exists");
+        return true;
+    } else {
+        log_info("Creating table ".$table_name);
+    }   
+    # Create Table
+    $query = "CREATE TABLE IF NOT EXISTS $table_name";
+    $query .= "(";
+    $query .= "id VARCHAR(4) NOT NULL DEFAULT 0,PRIMARY KEY (id), ";
+    $query .= "live_draft_enabled TINYINT(1) NOT NULL DEFAULT 0, ";
+    $query .= "offline_draft_enabled TINYINT(1) NOT NULL DEFAULT 0, ";
+    $query .= "offline_draft_start_timestamp TIMESTAMP NOT NULL DEFAULT 0"; 
+    $query .= ")";
+
+    db_query($query);
+    
+    # Check for database error
+    if(db_error_message()) {
+        $error_message = "Database error: ".db_error_message();
+        log_error($error_message);
+        die($error_message);
     }
     log_info("Created table ".$table_name);
     return true;

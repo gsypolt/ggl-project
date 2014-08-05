@@ -2,19 +2,51 @@
 * @copyright Copyright (C) 2014  SmythLLC
 * @author Gregory A. Smyth
 */
-
 function Draft () {    
-    var SUCCESS_MODAL_SHOW_TIME = 1000;
+    var Draft = this;
+    
+    var SUCCESS_MODAL_SHOW_TIME = 1000;    
+    var LIVE_DRAFT_ENABLED = false;
+    var MFL_DRAFT_ENABLED = false;
+    
+    this.ON_THE_CLOCK_UPDATE_SECONDS = 5;
+    this.UPDATE_ON_THE_CLOCK_INTERVAL = null;
+    this.on_the_clock_data = new Array();
+    
+    this.DRAFT_RESULTS_UPDATE_SECONDS = 2;
+    this.UPDATE_DRAFT_RESULTS_INTERVAL = null;
+    this.draft_results_data = new Array();
+    this.last_draft_timestamp = 0;
+    
+    this.DRAFT_ACTIVE_UPDATE_SECONDS = 5;
+    this.UPDATE_DRAFT_ACTIVE_INTERVAL = null;
     
     // Initialization
     this.init = function() {
+        addDraftingNotActiveModal();
         addDraftingModal();
         addErrorModal();
-        addSuccessModal();
+        addSuccessModal();        
         addDraftingIframe();
+        this.startCheckingForDraftActive();
+        this.updateOnTheClockData();
     };
 
     // HTML Adding
+    function addDraftingNotActiveModal() {
+        var html =  "";
+        html += '<div class="modal" id="draft_modal_drafting_not_active" tabindex="-1" role="dialog" aria-hidden="true" data-keyboard="false" data-backdrop="static">';
+        html +=     '<div class="modal-dialog" style="width:80%;margin-top:70px;">';
+        html +=         '<div class="modal-content">';
+        html +=             '<div class="modal-body center" align="center">';
+        html +=                 '<br><br><br><br><h1>DRAFTING IS NOT ACTIVATED</h1><br><br><br><br><br>';
+        html +=                 '<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>';
+        html +=             '</div>';
+        html +=         '</div>';
+        html +=     '</div>';
+        html += '</div>';   
+        $("body").append(html); 
+    }
     function addDraftingModal() {
         var html =  "";
         html += '<div class="modal" id="draft_modal_drafting" tabindex="-1" role="dialog" aria-hidden="true" data-keyboard="false" data-backdrop="static">';
@@ -59,63 +91,248 @@ function Draft () {
         html += '</div>';   
         $("body").append(html); 
     }
-
-    // Loading Modal
-    function show_drafting_modal() {
-        $('#draft_modal_drafting').modal('show');
-    }
-    this.show_drafting_modal = function (){
-        show_drafting_modal();
-    };
-
-    function hide_drafting_modal() {
-        $('#draft_modal_drafting').modal('hide');
-    }
-    this.hide_drafting_modal = function (){
-        hide_drafting_modal();
-    };
-
-    // Error Modal
-    function show_error_modal(message) {
-        $('#draft_modal_error_text').html('<h4>' + message + '</h4>');
-        $('#draft_modal_error').modal('show');
-    }
-    this.show_error_modal = function (message){   
-        show_error_modal(message);
-    };
-
-    // Success Modal
-    function show_success_modal(display_time) {        
-        $('#draft_modal_success').modal('show');
-        if(display_time) {
-            setTimeout(hide_success_modal,display_time);
-        } else {
-            setTimeout(hide_success_modal,SUCCESS_MODAL_SHOW_TIME);
-        }
-        
-    }
-    this.show_success_modal = function (display_time){
-        show_success_modal(display_time);
-    };
-
-    function hide_success_modal() {
-        $('#draft_modal_success').modal('hide');
-    }
-    this.hide_success_modal = function (){
-        hide_success_modal();
-    };
-    
     function addDraftingIframe() {
         $("body").append('<iframe id="draft_frame" width="800" height="800" src="" class="hidden"></iframe>');
         //$("body").append('<iframe id="draft_frame" width="800" height="800" src="" class=""></iframe>');
     }
     
-    function update_draft_results() {
-        var db_url = '_update_draft_results.php';
+    // Loading Modal
+    this.showDraftingNotActiveModal = function (){
+        console.log("handleDraftActive() called"); 
+        $('#draft_modal_drafting_not_active').modal('show');
+        console.log("handleDraftActive() complete"); 
+    };
+    this.hideDraftingNotActiveModal = function (){
+        console.log("hideDraftingNotActiveModal() called");
+        $('#draft_modal_drafting_not_active').modal('hide');
+        console.log("hideDraftingNotActiveModal() complete");
+    };
+    this.showDraftingModal = function (){
+        console.log("showDraftingModal() called"); 
+        $('#draft_modal_drafting').modal('show');
+        console.log("showDraftingModal() complete");
+    };
+    this.hideDraftingModal = function (){
+        console.log("hideDraftingModal() called"); 
+        $('#draft_modal_drafting').modal('hide');
+        console.log("hideDraftingModal() complete");
+    };
+    this.showDraftingErrorModal = function (message){  
+        console.log("showDraftingErrorModal() called"); 
+        $('#draft_modal_error_text').html('<h4>' + message + '</h4>');
+        $('#draft_modal_error').modal('show');
+        console.log("showDraftingErrorModal() complete");
+    };
+    this.showDraftingSuccessModal = function (display_time){
+        console.log("showDraftingSuccessModal() called"); 
+        $('#draft_modal_success').modal('show');
+        if(display_time) {
+            setTimeout(this.hideDraftingSuccessModal,display_time);
+        } else {
+            setTimeout(this.hideDraftingSuccessModal,SUCCESS_MODAL_SHOW_TIME);
+        }
+        console.log("showDraftingSuccessModal() complete");
+    };
+    this.hideDraftingSuccessModal = function (){
+        console.log("hideDraftingSuccessModal() called"); 
+        $('#draft_modal_success').modal('hide');
+        console.log("hideDraftingSuccessModal() complete");
+    };
+
+    // On The Clock Functions
+    this.updateOnTheClockData = function(){
+        console.log("updateOnTheClockData() called");       
+        var url = '_get_on_the_clock_details.php';             
+        $.ajax({
+            type: "GET",
+            url: url,
+            dataType: "json",
+            data: {},
+            success: function(data){
+                Draft.on_the_clock_data = data;
+                console.log("updateOnTheClockData() success");
+            },
+            error: function() {
+                console.log("updateOnTheClockData() ***ERROR***");
+            },
+            async: false,
+            cache: false
+        });
+    };
+    /*this.startOnTheClockUpdate = function(){
+        console.log("startOnTheClockUpdate() called");
+        this.updateOnTheClockData();
+        this.UPDATE_ON_THE_CLOCK_INTERVAL = setInterval(this.updateOnTheClockData,this.ON_THE_CLOCK_UPDATE_SECONDS*1000);
+        console.log("startOnTheClockUpdate() complete");
+    };
+    this.stopOnTheClockUpdate = function(){
+        console.log("stopOnTheClockUpdate() called");
+        clearInterval(this.UPDATE_ON_THE_CLOCK_INTERVAL);
+        console.log("stopOnTheClockUpdate() complete");
+    };
+    */
+    // Live Draft Functions
+    this.startLiveDraft = function() {
+        console.log("startLiveDraft() called");       
+        var url = '_start_live_draft.php';             
+        $.ajax({
+            type: "GET",
+            url: url,
+            dataType: "json",
+            data: {},
+            success: function(data){
+                if(!data.success) {
+                    Draft.showDraftingErrorModal("Unable to start the Live Draft");
+                }
+                console.log("startLiveDraft() success");
+            },
+            error: function() {
+                Draft.showDraftingErrorModal("Error while trying to start the Live Draft");
+                console.log("startLiveDraft() ***ERROR***");
+            },
+            async: true,
+            cache: false
+        });
+    };
+    this.stopLiveDraft = function() {
+        console.log("stopLiveDraft() called");       
+        var url = '_stop_live_draft.php';             
+        $.ajax({
+            type: "GET",
+            url: url,
+            dataType: "json",
+            data: {},
+            success: function(data){
+                if(!data.success) {
+                    Draft.showDraftingErrorModal("Unable to stop the Live Draft");
+                }
+                console.log("stopLiveDraft() success");
+            },
+            error: function() {
+                Draft.showDraftingErrorModal("Error while trying to stop the Live Draft");
+                console.log("stopLiveDraft() ***ERROR***");
+            },
+            async: true,
+            cache: false
+        });
+    };
+    
+    // Offline Draft Functions
+    this.startOfflineDraft = function() {
+        console.log("startOfflineDraft() called");       
+        var url = '_start_offline_draft.php';             
+        $.ajax({
+            type: "GET",
+            url: url,
+            dataType: "json",
+            data: {},
+            success: function(data){
+                if(!data.success) {
+                    Draft.showDraftingErrorModal("Unable to start the Offline Draft");
+                }
+                console.log("startOfflineDraft() success");
+            },
+            error: function() {
+                Draft.showDraftingErrorModal("Error while trying to start the Offline Draft");
+                console.log("startOfflineDraft() ***ERROR***");
+            },
+            async: true,
+            cache: false
+        });
+    };
+    this.stopOfflineDraft = function() {
+        console.log("stopOfflineDraft() called");       
+        var url = '_stop_offline_draft.php';             
+        $.ajax({
+            type: "GET",
+            url: url,
+            dataType: "json",
+            data: {},
+            success: function(data){
+                if(!data.success) {
+                    Draft.showDraftingErrorModal("Unable to stop the Offline Draft");
+                }
+                console.log("stopOfflineDraft() success");
+            },
+            error: function() {
+                Draft.showDraftingErrorModal("Error while trying to stop the Offline Draft");
+                console.log("stopOfflineDraft() ***ERROR***");
+            },
+            async: true,
+            cache: false
+        });
+    };
+    
+    // Draft Results
+    this.handleDraftChange = function(on_change_callback) {
+        console.log("handleDraftChange() called");
+        var url = '_get_last_pick_timestamp.php';
+        $.ajax({
+            type: "GET",
+            url: url,
+            dataType: "json",
+            data: {},
+            success: function(data){
+                if(Draft.last_draft_timestamp !== data) {
+                    console.log("checkForDraftChange() draft timestamp change detected");
+                    Draft.last_draft_timestamp = data;                    
+                    Draft.updateDraftResults();
+                    Draft.updateOnTheClockData();
+                    try {
+                        on_change_callback();
+                    } catch (ex){ }
+                }                
+                console.log("handleDraftChange() complete");
+            },
+            error: function() {
+                console.log("checkForDraftChange() ***ERROR***");
+            },
+            async: false,
+            cache: false
+        });
+    };
+    this.startCheckForDraftChangeUpdate = function(on_change_callback){
+        console.log("startCheckForDraftChangeUpdate() called");
+        //this.handleDraftChange(on_change_callback);
+        this.UPDATE_DRAFT_RESULTS_INTERVAL = setInterval(function(){Draft.handleDraftChange(on_change_callback);},this.DRAFT_RESULTS_UPDATE_SECONDS*1000);
+        console.log("startCheckForDraftChangeUpdate() complete");
+    };
+    this.stopCheckForDraftChangeUpdate = function(){
+        console.log("stopCheckForDraftChangeUpdate() called");
+        clearInterval(this.UPDATE_DRAFT_RESULTS_INTERVAL);
+        console.log("stopCheckForDraftChangeUpdate() complete");
+    };
+    this.updateDraftResults = function() {
+        console.log("updateDraftResults() called");
+        var url = '_get_draft_results.php?details=1';
         var return_value = false;
         $.ajax({
             type: "POST",
-            url: db_url,
+            url: url,
+            dataType: "json",
+            beforeSend: function(){},
+            data: {},
+            success: function(data){
+                Draft.draft_results_data = data;
+                console.log("updateDraftResults() complete");
+            },
+            error: function() {
+                console.log("updateDraftResults() ***ERROR***");
+                Draft.showDraftingErrorModal("Error updating the database");
+                console.log("updateDraftResults() complete");
+            },
+            async: true,
+            cache: false
+        });
+        return return_value;
+    };
+    this.updateFromMflDraftResults = function() {
+        console.log("updateFromMflDraftResults() called");
+        var url = '_update_draft_results.php';
+        var return_value = false;
+        $.ajax({
+            type: "POST",
+            url: url,
             dataType: "json",
             beforeSend: function(){},
             data: {},
@@ -125,18 +342,17 @@ function Draft () {
                 }
             },
             error: function() {
-                 show_error_modal("Error Getting");
+                 console.log("updateFromMflDraftResults() ***ERROR***");
             },
             async: false,
             cache: false
         });
         return return_value;
-    }
-    this.update_draft_results = function (){
-        return update_draft_results();
     };
     
-    function draft_player_using_mfl(player_id, callback) {
+    // Drafting
+    this.draftPlayerUsingMfl = function (player_id,on_success_callback){
+        console.log("draftPlayerUsingMfl() called");
         var iframe = $('#draft_frame');
         var mfl_url = 'http://football.myfantasyleague.com/' + MFL_YEAR + '/live_chat?L=' + MFL_LEAGUE_ID + '&PLAYER_PICK='+player_id+'&XML=1';
         var db_url = '_can_player_be_drafted.php';
@@ -145,39 +361,40 @@ function Draft () {
             url: db_url,
             dataType: "json",
             beforeSend: function(){
-                show_drafting_modal();
+                Draft.showDraftingModal();
             },
             data: {player_id: player_id},
             success: function(data){
                 if(data.success) {
                     iframe.attr('src', mfl_url);
                     document.getElementById('draft_frame').onload = function() {
-                        if(update_draft_results()) {
-                            hide_drafting_modal();
-                            show_success_modal();
+                        if(Draft.updateFromMflDraftResults()) {
+                            Draft.hideDraftingModal();
+                            Draft.showDraftingSuccessModal();
                         } else {
-                            show_error_modal("Error Updating Draft Results");
+                            Draft.showDraftingErrorModal("Error Updating Draft Results");
                         }
-                        hide_drafting_modal();
-                        callback();                            
+                        Draft.hideDraftingModal();
+                        try { on_success_callback(); } catch(ex){}
                     }; 
                     
                 } else {
-                    hide_drafting_modal();
-                    show_error_modal(data.error);
+                    Draft.hideDraftingModal();
+                    Draft.showDraftingErrorModal(data.error);
                 }
+                console.log("draftPlayerUsingMfl() complete");
             },
             error: function(data) {
-                 show_error_modal("Error Getting");
+                console.log("draftPlayerUsingMfl() ***ERROR***");
+                Draft.showDraftingErrorModal("Error Getting");
+                console.log("draftPlayerUsingMfl() complete");
             },
             async: true,
             cache: false
         });
-    }
-    this.draft_player_using_mfl = function (player_id,callback){
-        draft_player_using_mfl(player_id,callback);
     };
-    function draft_player_using_db(player_id, callback) {
+    this.draftPlayerUsingDb = function (player_id,on_success_callback){
+        console.log("draftPlayerUsingDb() called");
         var db_url = '_draft_player.php';
         $.ajax({
             type: "POST",
@@ -185,40 +402,131 @@ function Draft () {
             dataType: "json",
             data: {player_id: player_id},
             beforeSend: function(){
-                show_drafting_modal();
+                Draft.showDraftingModal();
             },            
             success: function(data){
                 if(data.success) {
-                   hide_drafting_modal();
-                   show_success_modal();
-                   callback();
+                   Draft.updateOnTheClockData();                   
+                   Draft.hideDraftingModal();
+                   Draft.showDraftingSuccessModal(); 
+                   try { on_success_callback(); } catch(ex){}
                 } else {
-                    hide_drafting_modal();
-                    show_error_modal(data.error);
+                    Draft.hideDraftingModal();
+                    Draft.showDraftingErrorModal(data.error);
                 }
+                console.log("draftPlayerUsingDb() complete");
             },
             error: function() {
-                 show_error_modal("Error Getting");
+                console.log("draftPlayerUsingDb() ***ERROR***");
+                Draft.showDraftingErrorModal("Error Getting");
+                console.log("draftPlayerUsingDb() complete");
             },
             async: true,
             cache: false
         });
         return false;
-    }
-    this.draft_player_using_db = function (player_id,callback){
-        draft_player_using_db(player_id,callback);
+    };
+    this.draftPlayer = function (player_id, callback) {
+        console.log("draftPlayer() called");
+        if(MFL_DRAFT_ENABLED) {
+            this.draftPlayerUsingMfl(player_id,callback);
+        } else {
+            this.draftPlayerUsingDb(player_id,callback);
+        } 
+        console.log("draftPlayer() complete");
     };
     
-    function draft_player(player_id, callback) {
-        if(MFL_DRAFT_ENABLED) {
-            draft_player_using_mfl(player_id,callback);
-        } else {
-            draft_player_using_db(player_id,callback);
-        }       
-    }
-    this.draft_player = function (player_id,callback){
-        draft_player(player_id,callback);
+    // Watch Lists
+    this.addPlayerToWatchList = function(player_id,on_success_callback) {
+        console.log("addPlayerToWatchList() called");
+        var url = '_add_player_id_to_watch_list.php';
+        $.ajax({
+            type: "POST",
+            url: url,
+            dataType: "json",
+            data: {player_id: player_id},
+            success: function(data){
+                if(data.success) {
+                    try { on_success_callback(); } catch(ex){}
+                } else {
+                    alert(data.error);
+                }
+                console.log("addPlayerToWatchList() complete");
+            },
+            error: function(data) {
+                console.log("addPlayerToWatchList() ***ERROR");
+                alert("Could Not Add Player");
+                console.log("addPlayerToWatchList() complete");
+            },
+            async: true,
+            cache: false
+        });  
     };
-
+    this.removePlayerFromWatchList = function(player_id,on_success_callback) {
+        console.log("removePlayerFromWatchList() called");
+        var url = '_remove_player_id_from_watch_list.php';
+        $.ajax({
+            type: "POST",
+            url: url,
+            dataType: "json",
+            data: {player_id: player_id},
+            success: function(data){
+                if(data.success) {
+                    try { on_success_callback(); } catch(ex){}
+                } else {
+                    alert(data.error);
+                }
+                console.log("removePlayerFromWatchList() complete");
+            },
+            error: function(data) {
+                console.log("removePlayerFromWatchList() ***ERROR");
+                alert("Could Not Remove Player");
+                console.log("removePlayerFromWatchList() complete");
+            },
+            async: true,
+            cache: false
+        });  
+    };
+    
+    // Player Details
+    this.showPlayerDetails = function(player_id) {
+        alert("TODO - Show player details ID = " + player_id);
+    };
+    
+    this.handleDraftActive = function() {
+        console.log("handleDraftActive() called");       
+        var url = '_is_draft_active.php';             
+        $.ajax({
+            type: "GET",
+            url: url,
+            dataType: "json",
+            data: {},
+            success: function(data){
+                if(!JSON.parse(data)) {
+                    Draft.showDraftingNotActiveModal();
+                } else {
+                    Draft.hideDraftingNotActiveModal();
+                }
+            },
+            error: function() {
+                console.log("handleDraftActive() ***ERROR***");
+            },
+            async: true,
+            cache: false
+        });
+    };
+    this.startCheckingForDraftActive = function(on_change_callback){
+        console.log("startCheckingForDraftActive() called");
+        this.handleDraftActive();
+        this.UPDATE_DRAFT_ACTIVE_INTERVAL = setInterval(this.handleDraftActive,this.DRAFT_ACTIVE_UPDATE_SECONDS*1000);
+        console.log("startCheckingForDraftActive() complete");
+    };
+    this.stopCheckingForDraftActive = function(){
+        console.log("stopCheckForDraftChangeUpdate() called");
+        clearInterval(this.UPDATE_DRAFT_ACTIVE_INTERVAL);
+        console.log("stopCheckForDraftChangeUpdate() complete");
+    };
+    
+    //Initialization
     this.init();
 }

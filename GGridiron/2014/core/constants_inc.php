@@ -7,7 +7,7 @@
 # Configurable Details
 define('MFL_YEAR','2014');
 define('MFL_LEAGUE_ID','44111');
-define('HTDOCS_FOLDER','/ggl-project/GGridiron/2014');
+define('HTDOCS_FOLDER','/ggl/ggl-project/GGridiron/2014');
 
 # Folders and Paths
 $DOCUMENT_ROOT = $_SERVER['DOCUMENT_ROOT'];
@@ -60,9 +60,13 @@ define(PLAYER_SCORES_TABLE,'player_scores');
 define(FREE_AGENTS_TABLE,'free_agents');
 define(INITIALIZATION_TABLE,'initialization');
 define(WATCHED_PLAYERS_TABLE,'watched_players');
+define(DRAFT_SETTINGS_TABLE,'draft_settings');
 
 # Heartbeats
 define(HEARTBEAT_TIMEOUT,5);
+
+# Draft timestamp offset (HRS)
+define(DRAFT_TIMESTAMP_OFFSET,(int)0);
 
 # Pages
 define(LOGIN_PAGE_URL,'login.php');

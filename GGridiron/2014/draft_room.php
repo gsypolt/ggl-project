@@ -72,7 +72,7 @@
                 text-align: center;
             }
             img.very_small_logo{
-                width: 90px;
+                width: 80px;
                 height: auto; 
             }            
             .round_pick_div{
@@ -295,55 +295,16 @@
             }
             
             function show_player_details(player_id) {
-                alert("TODO - Show player details ID = " + player_id);
+                draft.showPlayerDetails(player_id);
             }
-
             function add_player_to_watch_list(player_id) {
-                var url = '_add_player_id_to_watch_list.php';
-                $.ajax({
-                    type: "POST",
-                    url: url,
-                    dataType: "json",
-                    data: {player_id: player_id},
-                    success: function(data){
-                        if(data.success) {
-                            RefreshWatchTable();
-                            RefreshFreeAgentsTable();
-                        } else {
-                            alert(data.error);
-                        }
-                    },
-                    error: function(data) {
-                         alert("***add_player_to_watch_list() GET Error***");
-                    },
-                    async: true,
-                    cache: false
-                });
+                draft.addPlayerToWatchList(player_id,function(){RefreshWatchTable(); RefreshFreeAgentsTable();});
             }
             function remove_player_from_watch_list(player_id) {
-                var url = '_remove_player_id_from_watch_list.php';
-                $.ajax({
-                    type: "POST",
-                    url: url,
-                    dataType: "json",
-                    data: {player_id: player_id},
-                    success: function(data){
-                        if(data.success) {
-                            RefreshWatchTable();
-                            RefreshFreeAgentsTable();
-                        } else {
-                            alert(data.error);
-                        }
-                    },
-                    error: function(data) {
-                        alert("***remove_player_from_watch_list() GET Error***");
-                    },
-                    async: true,
-                    cache: false
-                });
+                draft.removePlayerFromWatchList(player_id,function(){RefreshWatchTable(); RefreshFreeAgentsTable();});
             }            
             function draft_player(player_id) {
-                draft.draft_player(player_id,function(){RefreshFreeAgentsTable();RefreshDraftResultsTable();RefreshWatchTable();});
+                draft.draftPlayer(player_id,function(){RefreshFreeAgentsTable();RefreshDraftResultsTable();RefreshWatchTable();});
             }
                         
             var _building_free_agent_table_flag = false;
@@ -540,20 +501,6 @@
                 }  
                 $.ajax({
                     type: "GET",
-                    url: '_get_last_pick_timestamp.php',
-                    dataType: "json",
-                    data: {},
-                    success: function(data){
-                        current_draft_timestamp = data;
-                    },
-                    error: function(data) {
-                        alert("***GetImportantStartupData()-Last Pick Timestamp GET Error***");
-                    },
-                    async: false,
-                    cache: false
-                });
-                $.ajax({
-                    type: "GET",
                     url: '_get_current_franchise_id.php',
                     dataType: "json",
                     data: {},
@@ -568,37 +515,25 @@
                 });
             }
             function UpdateOnTheClock() {
-                var url = '_get_on_the_clock_details.php';
-                if(on_clock === null) {
-                    on_clock = $('#clock').FlipClock({
-                        clockFace: 'DailyCounter'
-                    });
-                }                
-                $.ajax({
-                    type: "GET",
-                    url: url,
-                    dataType: "json",
-                    data: {},
-                    success: function(data){
-                        $('#clock_heading').html('<div><h4 class="center"><u>TIME SINCE LAST PICK</u></h4><br></div>');
-                        on_clock.setTime(parseInt(data.on_time));
-                        on_clock.start();
-                        var round_details = "R"+data.round+"-P"+data.pick+"&nbsp;&nbsp;";
-                        $('#on_clock_round_details').html(round_details);
-                        $("#on_clock_icon").attr("src",data.icon_url);
-                        franchise_id_on_the_clock = data.franchise_id;
-                        for(var i = 0; i < data.on_deck_picks.length; i++) {
-                            round_details = "R"+data.on_deck_picks[i].round+"-P"+data.on_deck_picks[i].pick+"&nbsp;&nbsp;";
-                            $('#on_deck_round_details_' + i).html(round_details);
-                            $('#on_deck_icon_' + i).attr("src",data.on_deck_picks[i].icon_url);
-                        }
-                    },
-                    error: function(data) {
-                        alert("***UpdateOnTheClock() GET Error***");
-                    },
-                    async: false,
-                    cache: false
-                });
+                try {
+                    if(on_clock === null) {
+                        on_clock = $('#clock').FlipClock({
+                            clockFace: 'DailyCounter'
+                        });
+                    }      
+                    $('#clock_heading').html('<div><h4 class="center"><u>TIME SINCE LAST PICK</u></h4><br></div>');
+                    on_clock.setTime(parseInt(draft.on_the_clock_data.on_time));
+                    on_clock.start();
+                    var round_details = "R"+draft.on_the_clock_data.round+"-P"+draft.on_the_clock_data.pick+"&nbsp;&nbsp;";
+                    $('#on_clock_round_details').html(round_details);
+                    $("#on_clock_icon").attr("src",draft.on_the_clock_data.icon_url);
+                    franchise_id_on_the_clock = draft.on_the_clock_data.franchise_id;
+                    for(var i = 0; i < draft.on_the_clock_data.on_deck_picks.length; i++) {
+                        round_details = "R"+draft.on_the_clock_data.on_deck_picks[i].round+"-P"+draft.on_the_clock_data.on_deck_picks[i].pick+"&nbsp;&nbsp;";
+                        $('#on_deck_round_details_' + i).html(round_details);
+                        $('#on_deck_icon_' + i).attr("src",draft.on_the_clock_data.on_deck_picks[i].icon_url);
+                    }
+                } catch(ex){ console.log(ex);}
             }
             
             function UpdateRecentPicks() {
@@ -616,8 +551,9 @@
                             var round_details = "R"+data[i].round+"-P"+data[i].pick+"&nbsp;&nbsp;";
                             html += '<div class="stitched-clear">';
                             //html +=     '<span class="small-numbers">' + round_details + '&nbsp;&nbsp;</span>';
-                            html +=     '<img alt="" class="very_small_logo centered" src="' + data[i].franchise_icon_url + '">&nbsp;&nbsp;';
-                            html +=     '<span class="medium-text">' + data[i].player_name + '</span>';
+                            html +=     '<img alt="" class="very_small_logo centered" src="' + data[i].franchise_icon_url + '">&nbsp;';
+                            html +=     '<span class="medium-text">' + data[i].player_name + ', ' + data[i].player_position + ', ' + data[i].player_team+ '</span><br>';
+                            html +=     '<span class="medium-text">' + '</span>';
                             html += '</div>';
                         }
                         $('#last_picks_div').html(html);
@@ -630,35 +566,20 @@
                 });
             }
             
-            function CheckForDraftChange() {
-                $.ajax({
-                    type: "GET",
-                    url: '_get_last_pick_timestamp.php',
-                    dataType: "json",
-                    data: {},
-                    success: function(data){
-                        if(data !== current_draft_timestamp) {
-                            current_draft_timestamp = data;
-                            UpdateOnTheClock();
-                            RefreshFreeAgentsTable();
-                            RefreshWatchTable();
-                            RefreshDraftResultsTable();
-                            UpdateRecentPicks();
-                        }
-                    },
-                    error: function(data) {
-                        alert("***CheckForDraftChange() GET Error***");
-                    },
-                    async: true,
-                    cache: false
-                });
-            }   
+            function UpdateEverything() {
+                UpdateOnTheClock();
+                RefreshFreeAgentsTable();
+                RefreshWatchTable();
+                RefreshDraftResultsTable();
+                UpdateRecentPicks();
+            }
+ 
             function StartWatchingForDraftChange() {
-                setInterval(function(){CheckForDraftChange()},watching_delay*1000);
+                draft.startCheckForDraftChangeUpdate(UpdateEverything);
             }
             
             function UPDATE() {
-                draft.update_draft_results();
+                draft.updateFromMflDraftResults();
             }
         </script>
     </head>
@@ -690,8 +611,8 @@
                                     <div><h4 class="center"><u>ON THE CLOCK</u></h4></div>
                                     <div class="stitched-red"><span id="on_clock_round_details" class="numbers"></span><img id="on_clock_icon" alt="" class="small_logo centered" src=""></div><br>
                                     <div><h4 class="center"><u>ON DECK</u></h4></div>
-                                    <div class="stitched-gray"><span id="on_deck_round_details_0" class="numbers"></span><img id="on_deck_icon_0" alt="" class="small_logo centered" src=""></div>
-                                    <div class="stitched-gray"><span id="on_deck_round_details_1" class="numbers"></span><img id="on_deck_icon_1" alt="" class="small_logo centered" src=""></div>
+                                    <div class="stitched-clear"><span id="on_deck_round_details_0" class="numbers"></span><img id="on_deck_icon_0" alt="" class="small_logo centered" src=""></div>
+                                    <div class="stitched-clear"><span id="on_deck_round_details_1" class="numbers"></span><img id="on_deck_icon_1" alt="" class="small_logo centered" src=""></div>
                                 </div>
                             </div>
                         </div>         

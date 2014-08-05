@@ -540,6 +540,205 @@
         return false;
     }
     
+    # Draft Settings.
+    function does_draft_settings_exist() {
+        log_info("does_draft_settings_exist() function called");
+         
+        $franchise_id = db_escape_string(trim($franchise_id));
+        
+        $table_name = DRAFT_SETTINGS_TABLE;
+        $query = "SELECT * FROM $table_name WHERE id='0'";
+        $result = db_query($query);
+        if(db_error_message()) {
+            $error_message = "Database error: ".db_error_message();
+            log_error($error_message);
+            die($error_message);
+        }
+        if(sizeof($result) < 1) {
+            log_info("does_draft_settings_exist() function complete");
+            return false;
+        }
+        log_info("does_draft_settings_exist() function complete");
+        return true;
+    }
+    function start_live_draft() {
+        log_info("start_live_draft() function called");
+        
+        #Set Table Name
+        $table_name = DRAFT_SETTINGS_TABLE;
+        
+        if(!does_draft_settings_exist()) {            
+            $query = "INSERT INTO $table_name (live_draft_enabled,offline_draft_enabled) VALUES ('1','0')";
+        } else {    
+            $query = "UPDATE $table_name SET live_draft_enabled='1',offline_draft_enabled='0' WHERE id='0'";
+        }
+        
+        db_query($query);  
+
+        # Check for db error
+        if(db_error_message()) {
+            $error_message = "Database error: ".db_error_message();
+            log_error($error_message);
+            die($error_message);
+        }    
+        log_info("start_live_draft() function complete");
+        return true;        
+    }
+    function stop_live_draft() {
+        log_info("stop_live_draft() function called");
+        
+        #Set Table Name
+        $table_name = DRAFT_SETTINGS_TABLE;
+        
+        if(!does_draft_settings_exist()) {            
+            $query = "INSERT INTO $table_name (live_draft_enabled) VALUES ('0')";
+        } else {    
+            $query = "UPDATE $table_name SET live_draft_enabled='0' WHERE id='0'";
+        }
+        
+        db_query($query);  
+
+        # Check for db error
+        if(db_error_message()) {
+            $error_message = "Database error: ".db_error_message();
+            log_error($error_message);
+            die($error_message);
+        }    
+        log_info("stop_live_draft() function complete");
+        return true;
+    }
+    function start_offline_draft() {
+        log_info("start_offline_draft() function called");
+        
+        #Set Table Name
+        $table_name = DRAFT_SETTINGS_TABLE;
+        
+        if(!does_draft_settings_exist()) {            
+            $query = "INSERT INTO $table_name (live_draft_enabled,offline_draft_enabled) VALUES ('0','1')";
+        } else {    
+            $query = "UPDATE $table_name SET live_draft_enabled='0',offline_draft_enabled='1' WHERE id='0'";
+        }
+        
+        db_query($query);  
+
+        # Check for db error
+        if(db_error_message()) {
+            $error_message = "Database error: ".db_error_message();
+            log_error($error_message);
+            die($error_message);
+        }    
+        log_info("start_offline_draft() function complete");
+        return true;
+    }
+    function stop_offline_draft() {
+        log_info("stop_offline_draft() function called");
+        
+        #Set Table Name
+        $table_name = DRAFT_SETTINGS_TABLE;
+        
+        if(!does_draft_settings_exist()) {            
+            $query = "INSERT INTO $table_name (offline_draft_enabled) VALUES ('0')";
+        } else {    
+            $query = "UPDATE $table_name SET offline_draft_enabled='0' WHERE id='0'";
+        }
+        
+        db_query($query);  
+
+        # Check for db error
+        if(db_error_message()) {
+            $error_message = "Database error: ".db_error_message();
+            log_error($error_message);
+            die($error_message);
+        }    
+        log_info("stop_offline_draft() function complete");
+        return true;
+    }
+    function is_draft_active() {
+        log_info("is_draft_enabled() function called");
+        
+        # Clean inputs
+        $franchise_id = db_escape_string(trim($franchise_id));  
+    
+        # Run Query
+        $table_name = DRAFT_SETTINGS_TABLE;
+        $query = "SELECT id FROM $table_name WHERE live_draft_enabled='1' OR offline_draft_enabled='1'";
+        $result = db_query($query);
+
+        # Check for db error
+        if(db_error_message()) {
+            $error_message = "Database error: ".db_error_message();
+            log_error($error_message);
+            die($error_message);
+        }
+
+        # Check
+        if(sizeof($result) < 1) {
+            log_info("is_draft_enabled() function complete");
+            return false;
+        }
+        log_info("is_draft_enabled() function complete");
+        return true;
+    }
+    function get_offline_draft_start_timestamp() {
+        log_info("get_league() function called");
+        
+        # Set Table Name
+        $table_name = DRAFT_SETTINGS_TABLE;
+
+        # Build Query
+        $query = "SELECT offline_draft_start_timestamp FROM $table_name";
+        
+        # Do Query
+        db_query($query);
+
+        # Check for db error
+        if(db_error_message()) {
+            $error_message = "Database error: ".db_error_message();
+            log_error($error_message);
+            die($error_message);
+        }    
+        
+        $data = db_get_single_result();
+        
+        log_info("get_league() function complete");
+        
+        return $data['offline_draft_start_timestamp'];
+    }
+    function is_franchise_commish($franchise_id) {
+        log_info("is_franchise_commish() function called");
+        
+        $franchise_id = db_escape_string(trim($franchise_id));
+        
+        # Set Table Name
+        $table_name = FRANCHISES_TABLE;
+
+        # Perform Query
+        $query = "SELECT * FROM $table_name WHERE id='$franchise_id' AND is_commish='1'";
+        db_query($query);
+
+        # Check for db error
+        if(db_error_message()) {
+            $error_message = "Database error: ".db_error_message();
+            log_error($error_message);
+            die($error_message);
+        }    
+        # Return Array
+        $result = db_query($query);
+        
+        if(db_error_message()) {
+            $error_message = "Database error: ".db_error_message();
+            log_error($error_message);
+            die($error_message);
+        }
+        
+        if(sizeof($result) < 1) {
+            log_info("is_franchise_commish() function complete");
+            return false;
+        }
+        
+        log_info("is_franchise_commish() function complete");
+        return true;
+    }
         
     ########################
     #  INTERNAL FUNCTIONS  #
@@ -2078,7 +2277,10 @@
         $result = db_get_single_result();
 
         log_info("get_last_pick_timestamp() function complete");
-        return $result['timestamp'];
+        $new_time = date( "Y-m-d H:i:s", strtotime($result['timestamp'])+ (DRAFT_TIMESTAMP_OFFSET*60*60) );
+        //die("old = ".$result['timestamp']." / new = ".$new_time);
+        return $new_time;
+        //return $result['timestamp'];
     }
     function remove_free_agent($player_id) {
         log_info("remove_free_agent() function called");
@@ -2109,8 +2311,8 @@
         $pick_id = get_pick_id($round, $pick);
         
         $table_name = DRAFT_RESULTS_TABLE;
-        $query = "UPDATE $table_name SET player_id='$player_id',timestamp=curtime(4),comments='TEST DRAFT!' WHERE id='$pick_id'";	
-
+        //$query = "UPDATE $table_name SET player_id='$player_id',timestamp=ADDTIME( curtime(4) , '03:00:00' ),comments='TEST DRAFT!' WHERE id='$pick_id'";	
+        $query = "UPDATE $table_name SET player_id='$player_id',timestamp=NOW(),comments='TEST DRAFT!' WHERE id='$pick_id'";
         db_query($query);    
         if(db_error_message()) {
             $error_message = "Database error: ".db_error_message();

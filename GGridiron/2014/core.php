@@ -17,7 +17,7 @@ if ( file_exists( 'offline.php' ) && !isset( $_GET['admin'] ) ) {
 #######################
 error_reporting(E_ERROR | E_PARSE);  // Turn off non-error reporting
 set_time_limit(600); // Set PHP timeout for 10 minutes
-date_default_timezone_set('America/Los_Angeles');
+date_default_timezone_set('America/New_York');
 //date_default_timezone_set('America/New_York');
 
 ###############
