@@ -9,7 +9,9 @@
         <script type="text/javascript" language="javascript" src="jQuery/jquery-2.0.3.js"></script>
         
         <link rel="stylesheet" href="flipclock-0.5.5/compiled/flipclock.css">
-        <script src="flipclock-0.5.5/compiled/flipclock.js"></script>        
+        <!--<script src="flipclock-0.5.5/compiled/flipclock.js"></script>-->
+        <script src="time-to/jquery.timeTo.min.js"></script>
+        
                 
         <link href="datatables-1.10.0/media/css/jquery.dataTables.css" rel="stylesheet">
         <link href="datatables-1.10.0/media/css/dataTables.jqueryui.css" rel="stylesheet">
@@ -21,6 +23,7 @@
         
         <script type="text/javascript" src="bootstrap-3.1.1/js/bootstrap.min.js"></script>
         <link href="bootstrap-3.1.1/css/bootstrap.css" rel="stylesheet">
+        <link href="time-to/timeTo.css" type="text/css" rel="stylesheet"/>
 
         <script type="text/javascript" src="js/addons.js"></script>
         <script type="text/javascript" src="js/globals.js"></script>
@@ -213,11 +216,6 @@
                 width: 1000px;
                 height: 150px;
             }
-            .your-clock{
-                zoom: 0.475;
-                -moz-transform: scale(0.475);
-                margin-left: 30px;
-            }
             .centered {
                 margin-right: auto;
                 margin-left: auto;
@@ -246,13 +244,18 @@
                 text-align: center;
             }
             .draft-state-active {
-                 background-color: #35E85A;
+                 background-color: #00CC66;
             }
             .draft-state-paused {
-                 background-color: #FF1751;
+                background-color: #FF1751;
             }
             .draft-state-unknown {
-                background-color: gray;
+                background-color: #000000;
+            }
+            .my-little-clock {
+                position: relative !important;
+                margin-right: auto;
+                margin-left: auto;
             }
         </style>
         
@@ -284,16 +287,11 @@
             function UpdateDraftStatusBanner() {
                 if(draft.isDraftActive()) {
                     $("#draft_state_div").html("DRAFT STARTED");
-                    $("#draft_state_div").removeClass("draft-state-paused").addClass("draft-state-active");
+                    $("#draft_state_div").removeClass("draft-state-unknown").removeClass("draft-state-paused").addClass("draft-state-active");
                 } else {
                     $("#draft_state_div").html("DRAFT NOT STARTED");
-                    $("#draft_state_div").removeClass("draft-state-active").removeClass("draft-state-unknown").addClass("draft-state-paused");
+                    $("#draft_state_div").removeClass("draft-state-unknown").removeClass("draft-state-active").addClass("draft-state-paused");
                 }
-            }
-            function HandleDraftStatusChange() {
-                UpdateDraftStatusBanner();
-                RefreshFreeAgentsTable();
-                RefreshWatchTable();
             }
             function ActivatePopOver(id, text) {
                 var search_help = $('#'+id);
@@ -315,15 +313,16 @@
                 search_help.popover({trigger: 'manual'}).on('mouseenter', enterShow).on('mouseleave', exitHide);
             }
             
-            function DoStartUp() {
+            function DoStartUp() {                
                 GetImportantStartupData();
                 UpdateOnTheClock();
                 BuildWatchTable();
                 BuildFreeAgentTable();
                 BuildDraftResultsTable();      
                 UpdateRecentPicks();
+                UpdateDraftStatusBanner();
                 draft.startCheckForDraftChangeUpdate(UpdateEverything);
-                draft.startCheckingForDraftStatus(HandleDraftStatusChange);
+                draft.startCheckingForDraftStatus(UpdateEverything);
             }
             
             function show_player_details(player_id) {
@@ -336,7 +335,7 @@
                 draft.removePlayerFromWatchList(player_id,function(){RefreshWatchTable(); RefreshFreeAgentsTable();});
             }            
             function draft_player(player_id) {
-                draft.draftPlayer(player_id,function(){RefreshFreeAgentsTable();RefreshDraftResultsTable();RefreshWatchTable();});
+                draft.draftPlayer(player_id,function(){UpdateEverything();});
             }
                         
             var _building_free_agent_table_flag = false;
@@ -547,16 +546,23 @@
                 });
             }
             function UpdateOnTheClock() {
-                try {
-                    if(on_clock === null) {
-                        on_clock = $('#clock').FlipClock({
-                            clockFace: 'DailyCounter'
-                        });
-                    }      
-                    $('#clock_heading').html('<div><h4 class="center"><u>TIME SINCE LAST PICK</u></h4><br></div>');
-                    on_clock.setTime(parseInt(draft.on_the_clock_data.on_time));
-                    on_clock.start();
+                try {                       
                     var round_details = "R"+draft.on_the_clock_data.round+"-P"+draft.on_the_clock_data.pick+"&nbsp;&nbsp;";
+                    if(!JSON.parse(draft.on_the_clock_data.draft_active)) {
+                        $("#on_the_clock_outline").removeClass("stitched-green").addClass("stitched-clear");
+                    } else {
+                        $("#on_the_clock_outline").removeClass("stitched-clear").addClass("stitched-green");
+                    }
+                    if(JSON.parse(draft.on_the_clock_data.count_down)) {
+                        SetClockSeconds(parseInt(draft.on_the_clock_data.on_time),true);
+                    } else {                        
+                        SetClockSeconds(parseInt(draft.on_the_clock_data.on_time),false);
+                    }                    
+                    if(!JSON.parse(draft.on_the_clock_data.draft_active) && JSON.parse(draft.on_the_clock_data.count_down)) {
+                        $('#clock_heading').html('<div><h4 class="center"><u>TIME UNTIL DRAFT STARTS</u></h4><br></div>');
+                    } else {
+                        $('#clock_heading').html('<div><h4 class="center"><u>TIME SINCE LAST PICK</u></h4><br></div>');
+                    }
                     $('#on_clock_round_details').html(round_details);
                     $("#on_clock_icon").attr("src",draft.on_the_clock_data.icon_url);
                     franchise_id_on_the_clock = draft.on_the_clock_data.franchise_id;
@@ -578,7 +584,9 @@
                     success: function(data){
                         //Build HTML
                         var html = "";
-                        
+                        if(data.length == 0) {
+                            html += '<div class="stitched-clear"><div class="center">NO PICKS HAVE OCCURRED</div></div>';
+                        }
                         for(var i = 0; i < data.length; i++) {
                             var round_details = "R"+data[i].round+"-P"+data[i].pick+"&nbsp;&nbsp;";
                             html += '<div class="stitched-clear">';
@@ -604,6 +612,21 @@
                 RefreshWatchTable();
                 RefreshDraftResultsTable();
                 UpdateRecentPicks();
+                UpdateDraftStatusBanner();
+            }
+            function SetClockSeconds(seconds, countdown) {
+                $('#clock').timeTo({
+                    seconds: seconds,
+                    countdown: countdown,
+                    theme: "black",
+                    fontSize: 36,
+                    displayDays: 2,
+                    displayCaptions: true,
+                    captionSize: 15
+                });
+            }
+            function UPDATE() {
+                alert("NOTHING CONFIGURED");
             }
         </script>
     </head>
@@ -615,8 +638,8 @@
             <!-- /Navigation -->  
 
             <div class="row">
-                <img class="league-logo center" alt="" src="images/banners/GGDraft14.png"/>
-                <div id="draft_state_div" class="col-xs-12 draft-state draft-state-paused"></div>
+                <img class="league-logo center" alt="" src="images/banners/GGDraft14.jpg"/>
+                <div id="draft_state_div" class="col-xs-12 draft-state draft-state-unknown"></div>
             </div>
             <div class="row no_padding">     
                 <div class="col-xs-4 lite-padding">
@@ -629,11 +652,13 @@
                                     </h4>
                                 </div>
                                 <div id="collapseZero" class="panel-collapse collapse in">
-                                    <!--<div><button class="btn btn-block btn-xs btn-primary" onclick="UPDATE()">UPDATE DB</button><hr></div>-->
+                                    <!--<div><button class="btn btn-block btn-xs btn-primary" onclick="UPDATE()">UPDATE</button><hr></div>-->
                                     <div id="clock_heading"></div>
-                                    <div id="clock" class="your-clock"></div>
+                                    <div id="clock" class="my-little-clock centered"></div><br><hr>
+                                    
                                     <div><h4 class="center"><u>ON THE CLOCK</u></h4></div>
-                                    <div class="stitched-red"><span id="on_clock_round_details" class="numbers"></span><img id="on_clock_icon" alt="" class="small_logo centered" src=""></div><br>
+                                    <div class="stitched-clear" id="on_the_clock_outline"><span id="on_clock_round_details" class="numbers"></span><img id="on_clock_icon" alt="" class="small_logo centered" src=""></div>
+                                    <hr>
                                     <div><h4 class="center"><u>ON DECK</u></h4></div>
                                     <div class="stitched-clear"><span id="on_deck_round_details_0" class="numbers"></span><img id="on_deck_icon_0" alt="" class="small_logo centered" src=""></div>
                                     <div class="stitched-clear"><span id="on_deck_round_details_1" class="numbers"></span><img id="on_deck_icon_1" alt="" class="small_logo centered" src=""></div>

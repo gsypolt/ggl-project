@@ -48,6 +48,8 @@ require_once 'core/authentication_api.php';
 require_once 'core/http_api.php';
 # --Helper Functions
 require_once 'core/helper_functions_api.php';
+# --Initialization Functions
+require_once 'core/initialization_api.php';
 
 #############
 #  Objects  #

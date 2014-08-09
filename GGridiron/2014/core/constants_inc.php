@@ -7,7 +7,8 @@
 # Configurable Details
 define('MFL_YEAR','2014');
 define('MFL_LEAGUE_ID','44111');
-define('HTDOCS_FOLDER','/ggl/ggl-project/GGridiron/2014');
+define('HTDOCS_FOLDER','/ggl-project/GGridiron/2014');
+define(DRAFT_START_DATE, '2014-08-22 20:00:00');
 
 # Folders and Paths
 $DOCUMENT_ROOT = $_SERVER['DOCUMENT_ROOT'];
@@ -36,7 +37,7 @@ define('LOG_FILENAME','log.txt');
 define('LOG_FILE_PATH', $MAIN_FILE_PATH.'/log/');
 define('LOG_FILE_MAX_SIZE_MB', 25);
 define('LOG_ERROR_MESSAGES', true);
-define('LOG_INFO_MESSAGES', true);
+define('LOG_INFO_MESSAGES', false);
 define('LOG_SECURITY_MESSAGES', true);
 
 # Initialization file
@@ -86,7 +87,7 @@ define('SESSION_LOGIN_FRANCHISE_ID','login_franchise_id');
 
 # Authentication
 define('REQUIRE_AUTHENTICATION', true);
-define('REQUIRE_COMMISH_PRIV', false);
+define('REQUIRE_COMMISH_PRIV', true);
 
 
 # Data Sets

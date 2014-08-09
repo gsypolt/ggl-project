@@ -6,7 +6,7 @@
     $on_deck_picks = array();
     $on_deck_picks[] = get_current_pick_details(1);
     $on_deck_picks[] = get_current_pick_details(2);
-    
+    $count_down = false;
     $franchise = get_franchise($current_pick['franchise_id']);
     
     $on_deck_data_array = array();
@@ -25,19 +25,39 @@
     endforeach;
     $on_deck_franchise_1 = get_franchise($ondeck_pick_1['franchise_id']);
     $on_deck_franchise_2 = get_franchise($ondeck_pick_2['franchise_id']);
+
+    $draft_active = is_draft_active();    
+    $last_pick_timestamp = strtotime(get_last_pick_timestamp());
+    $draft_start_timestamp = strtotime(DRAFT_START_DATE);
+    $current_timestamp = get_current_timestamp();    
+    $seconds_until_draft = $draft_start_timestamp - $current_timestamp;
     
-    $timestamp = strtotime(get_last_pick_timestamp());
-    
-    if((int)$timestamp == 0) {
-        $timestamp = strtotime('2014-07-06 00:00:00');
+    if($last_pick_timestamp > 0) {  //Pick has been made regardless of anything else
+        $on_time =  $current_timestamp - $last_pick_timestamp;
+        $count_down = false;
+    } else if($last_pick_timestamp == 0 && $seconds_until_draft > 0 && !$draft_active) {   //No Picks, draft has not started yet, normal    
+        $on_time = $seconds_until_draft;
+        $count_down = true;
+    } elseif($current_timestamp == 0 && $seconds_until_draft > 0 && $draft_active) {    //No Picks, draft has started early
+        $on_time = 1;
+        $count_down = false;
+    } elseif($current_timestamp == 0 && $seconds_until_draft < 0 && $draft_active) {    //No Picks, draft started on time or later  
+        $on_time = $current_timestamp - $draft_start_timestamp;
+        $count_down = false;
+    } elseif ($current_timestamp == 0 && $seconds_until_draft < 0 && !$draft_active) {   //No Picks, draft has not started on time
+        $on_time = 1;
+        $count_down = true;
+    } else {
+        $on_time = 1;
+        $count_down = true;
     }
-    
-    $on_time = time() - $timestamp;
     $round = str_pad($current_pick['round'],2, '0', STR_PAD_LEFT);
     $pick = str_pad($current_pick['pick'],2, '0', STR_PAD_LEFT);
     $icon_url = $franchise['icon_url'];
-    
+
     $detailed_array = array (
+        'draft_active' => $draft_active,
+        'count_down' => $count_down,
         'on_time' => $on_time,
         'round' => $round,
         'pick' => $pick,

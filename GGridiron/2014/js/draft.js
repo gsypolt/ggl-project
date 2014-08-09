@@ -7,7 +7,7 @@ function Draft () {
     
     var SUCCESS_MODAL_SHOW_TIME = 1000;    
     var LIVE_DRAFT_ENABLED = false;
-    var MFL_DRAFT_ENABLED = false;
+    var MFL_DRAFT_ENABLED = true;
     
     this.ON_THE_CLOCK_UPDATE_SECONDS = 5;
     this.UPDATE_ON_THE_CLOCK_INTERVAL = null;
@@ -400,7 +400,7 @@ function Draft () {
     };
     this.draftPlayerUsingDb = function (player_id,on_success_callback){
         console.log("draftPlayerUsingDb() called");
-        var db_url = '_draft_player.php';
+        var db_url = '_draft_db_player.php';
         $.ajax({
             type: "POST",
             url: db_url,            
@@ -507,14 +507,18 @@ function Draft () {
             dataType: "json",
             data: {},
             success: function(data){
-                if(!JSON.parse(data)) {
+                if(!JSON.parse(data) && Draft.DRAFT_ACTIVE) {
                     Draft.DRAFT_ACTIVE = false;
                     if(status_change_callback) {
+                        Draft.updateDraftResults();
+                        Draft.updateOnTheClockData();
                         status_change_callback();
                     }
-                } else {
+                } else if(JSON.parse(data) && !Draft.DRAFT_ACTIVE) {
                     Draft.DRAFT_ACTIVE = true;
                     if(status_change_callback) {
+                        Draft.updateDraftResults();
+                        Draft.updateOnTheClockData();
                         status_change_callback();
                     }
                 }

@@ -33,3 +33,6 @@ function is_multi_array($array) {
       return true;
     }
 }
+function get_current_timestamp() {
+    return time();
+}

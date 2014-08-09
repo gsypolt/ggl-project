@@ -72,7 +72,7 @@ function log_info($message) {
 
 function log_security($message) {
     global $logging_last_security_message;
-    if(LOG_INFO_MESSAGES) {
+    if(LOG_SECURITY_MESSAGES) {
         $message_to_write = "****SECURITY**** - ".$message;
         $logging_last_security_message = $message;
         log_write_message($message_to_write);

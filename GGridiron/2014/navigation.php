@@ -21,10 +21,14 @@ $html .=    '</div>';
 if($franchise_logged_in) {
     $franchise = get_franchise($franchise_id);
     $franchise_name = $franchise['name'];    
+ 
     $html .=    '<ul class="nav navbar-nav navbar-right">';
     $html .=        '<li class="dropdown">';
     $html .=            '<a href="#" id="nav_userblock" class="dropdown-toggle" data-toggle="dropdown">'.$franchise_name.' Options<b class="caret"></b></a>';
     $html .=            '<ul class="dropdown-menu">';
+    if(is_franchise_commish($franchise_id)) {
+        $html .= '<li><a href="admin.php"><i class="glyphicon glyphicon-cog"></i> Admin Controls</a></li>';
+    }
     $html .=                '<li><a href="logout.php"><i class="glyphicon glyphicon-off"></i> Logout</a></li>';
     $html .=            '</ul>';
     $html .=        '</li>';

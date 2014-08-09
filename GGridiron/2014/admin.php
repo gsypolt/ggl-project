@@ -2,7 +2,7 @@
     require_once "core.php";
     authentication_handle_login();
     $franchise_id = authentication_get_current_franchise();
-    
+
     if(!is_franchise_commish($franchise_id)) {
         log_error("Franchise isn't a commish");
         json_print_error("Franchise isn't a commish");

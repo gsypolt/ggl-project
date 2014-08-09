@@ -2290,7 +2290,7 @@
     }
     function get_last_pick_timestamp() {
         log_info("get_last_pick_timestamp() function called");
-        
+
         $table_name = DRAFT_RESULTS_TABLE;
         $query = "SELECT * FROM $table_name WHERE timestamp IN (SELECT MAX(timestamp) FROM $table_name)"; 
         
@@ -2302,10 +2302,9 @@
             die($error_message);
         }
         $result = db_get_single_result();
-
-        log_info("get_last_pick_timestamp() function complete");
         $new_time = date( "Y-m-d H:i:s", strtotime($result['timestamp'])+ (DRAFT_TIMESTAMP_OFFSET*60*60) );
         //die("old = ".$result['timestamp']." / new = ".$new_time);
+        log_info("get_last_pick_timestamp() function complete");
         return $new_time;
         //return $result['timestamp'];
     }
