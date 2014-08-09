@@ -13,13 +13,15 @@ function Draft () {
     this.UPDATE_ON_THE_CLOCK_INTERVAL = null;
     this.on_the_clock_data = new Array();
     
-    this.DRAFT_RESULTS_UPDATE_SECONDS = 2;
+    this.DRAFT_RESULTS_UPDATE_SECONDS = 10;
     this.UPDATE_DRAFT_RESULTS_INTERVAL = null;
     this.draft_results_data = new Array();
     this.last_draft_timestamp = 0;
     
-    this.DRAFT_ACTIVE_UPDATE_SECONDS = 5;
-    this.UPDATE_DRAFT_ACTIVE_INTERVAL = null;
+    this.DRAFT_STATUS_UPDATE_SECONDS = 5;
+    this.UPDATE_DRAFT_STATUS_INTERVAL = null;
+    
+    this.DRAFT_ACTIVE = false;
     
     // Initialization
     this.init = function() {
@@ -28,8 +30,11 @@ function Draft () {
         addErrorModal();
         addSuccessModal();        
         addDraftingIframe();
-        this.startCheckingForDraftActive();
         this.updateOnTheClockData();
+    };
+    
+    this.isDraftActive = function () {
+        return Draft.DRAFT_ACTIVE;
     };
 
     // HTML Adding
@@ -493,8 +498,8 @@ function Draft () {
         alert("TODO - Show player details ID = " + player_id);
     };
     
-    this.handleDraftActive = function() {
-        console.log("handleDraftActive() called");       
+    this.updateDraftStatus = function(status_change_callback) {
+        console.log("updateDraftStatus() called");       
         var url = '_is_draft_active.php';             
         $.ajax({
             type: "GET",
@@ -503,28 +508,35 @@ function Draft () {
             data: {},
             success: function(data){
                 if(!JSON.parse(data)) {
-                    Draft.showDraftingNotActiveModal();
+                    Draft.DRAFT_ACTIVE = false;
+                    if(status_change_callback) {
+                        status_change_callback();
+                    }
                 } else {
-                    Draft.hideDraftingNotActiveModal();
+                    Draft.DRAFT_ACTIVE = true;
+                    if(status_change_callback) {
+                        status_change_callback();
+                    }
                 }
+                console.log("updateDraftStatus() complete");
             },
             error: function() {
-                console.log("handleDraftActive() ***ERROR***");
+                console.log("updateDraftStatus() ***ERROR***");
             },
             async: true,
             cache: false
         });
     };
-    this.startCheckingForDraftActive = function(on_change_callback){
-        console.log("startCheckingForDraftActive() called");
-        this.handleDraftActive();
-        this.UPDATE_DRAFT_ACTIVE_INTERVAL = setInterval(this.handleDraftActive,this.DRAFT_ACTIVE_UPDATE_SECONDS*1000);
-        console.log("startCheckingForDraftActive() complete");
+    this.startCheckingForDraftStatus = function(status_change_callback){
+        console.log("startCheckingForDraftStatus() called");
+        this.updateDraftStatus(status_change_callback);
+        this.UPDATE_DRAFT_STATUS_INTERVAL = setInterval(function(){Draft.updateDraftStatus(status_change_callback);},this.DRAFT_STATUS_UPDATE_SECONDS*1000);
+        console.log("startCheckingForDraftStatus() complete");
     };
-    this.stopCheckingForDraftActive = function(){
-        console.log("stopCheckForDraftChangeUpdate() called");
-        clearInterval(this.UPDATE_DRAFT_ACTIVE_INTERVAL);
-        console.log("stopCheckForDraftChangeUpdate() complete");
+    this.stopCheckingForDraftStatus = function(){
+        console.log("stopCheckingForDraftStatus() called");
+        clearInterval(this.UPDATE_DRAFT_STATUS_INTERVAL);
+        console.log("stopCheckingForDraftStatus() complete");
     };
     
     //Initialization

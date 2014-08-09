@@ -236,24 +236,6 @@
             .text-gray {
                 color: lightpink;
             }
-            
-            
-            .draft-state {
-                height: 30px;
-                background-color: gray;
-                font-size: 22px;
-                font-weight: bold;
-                text-align: center;
-            }
-            .draft-state-active {
-                 background-color: #35E85A;
-            }
-            .draft-state-paused {
-                 background-color: #FF1751;
-            }
-            .draft-state-unknown {
-                background-color: gray;
-            }
         </style>
         
         <script type="text/javascript">
@@ -278,23 +260,10 @@
             var admin = false;
             
             $(document).ready(function() {  
-                draft = new Draft();
+                draft = new Draft();    
                 DoStartUp();
             });
-            function UpdateDraftStatusBanner() {
-                if(draft.isDraftActive()) {
-                    $("#draft_state_div").html("DRAFT STARTED");
-                    $("#draft_state_div").removeClass("draft-state-paused").addClass("draft-state-active");
-                } else {
-                    $("#draft_state_div").html("DRAFT NOT STARTED");
-                    $("#draft_state_div").removeClass("draft-state-active").removeClass("draft-state-unknown").addClass("draft-state-paused");
-                }
-            }
-            function HandleDraftStatusChange() {
-                UpdateDraftStatusBanner();
-                RefreshFreeAgentsTable();
-                RefreshWatchTable();
-            }
+            
             function ActivatePopOver(id, text) {
                 var search_help = $('#'+id);
                 search_help.data('state', 'hover');
@@ -322,8 +291,7 @@
                 BuildFreeAgentTable();
                 BuildDraftResultsTable();      
                 UpdateRecentPicks();
-                draft.startCheckForDraftChangeUpdate(UpdateEverything);
-                draft.startCheckingForDraftStatus(HandleDraftStatusChange);
+                StartWatchingForDraftChange();                
             }
             
             function show_player_details(player_id) {
@@ -376,7 +344,7 @@
                         } else {
                             html = '<button class="btn btn-default btn-xs disabled" onclick="add_player_to_watch_list('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-plus"></span>&nbsp;</button>&nbsp;&nbsp;&nbsp;';                     
                         }
-                        if(((franchise_id_on_the_clock === user_franchise_id) || admin) && draft.isDraftActive()) {
+                        if((franchise_id_on_the_clock === user_franchise_id) || admin) {
                             html += '<button class="btn btn-primary btn-xs" onclick="draft_player('+ aData.id +')"><span class="glyphicon glyphicon-ok"></span>&nbsp;DRAFT</button>';
                         } else {
                             html += '<button class="btn btn-default btn-xs disabled" onclick="draft_player('+ aData.id +')"><span class="glyphicon glyphicon-ok"></span>&nbsp;DRAFT</button>';
@@ -437,7 +405,7 @@
                             $('td:eq(4)', nRow).html('<div class="center">' + aData.age + '</div>');
                             $('td:eq(5)', nRow).html(aData.draft_details);
                             html = '<button class="btn btn-danger btn-xs" onclick="remove_player_from_watch_list('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-remove"></span>&nbsp;</button>&nbsp;&nbsp;&nbsp;'; 
-                            if(((franchise_id_on_the_clock === user_franchise_id) || admin) && draft.isDraftActive()) {
+                            if((franchise_id_on_the_clock === user_franchise_id) || admin) {
                                 html += '<button class="btn btn-primary btn-xs" onclick="draft_player('+ aData.id +')"><span class="glyphicon glyphicon-ok"></span>&nbsp;DRAFT</button>';
                             } else {
                                 html += '<button class="btn btn-default btn-xs disabled" onclick="draft_player('+ aData.id +')"><span class="glyphicon glyphicon-ok"></span>&nbsp;DRAFT</button>';
@@ -605,6 +573,10 @@
                 RefreshDraftResultsTable();
                 UpdateRecentPicks();
             }
+ 
+            function StartWatchingForDraftChange() {
+                draft.startCheckForDraftChangeUpdate(UpdateEverything);
+            }
         </script>
     </head>
 
@@ -613,11 +585,11 @@
             <!-- Navigation --> 
             <?php include 'navigation.php'; ?>
             <!-- /Navigation -->  
-
+            
             <div class="row">
                 <img class="league-logo center" alt="" src="images/banners/GGDraft14.png"/>
-                <div id="draft_state_div" class="col-xs-12 draft-state draft-state-paused"></div>
             </div>
+            <br>
             <div class="row no_padding">     
                 <div class="col-xs-4 lite-padding">
                     <div class="col-xs-12 lite-padding">

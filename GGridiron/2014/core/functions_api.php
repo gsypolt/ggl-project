@@ -419,6 +419,30 @@
         return db_get_result_array();
     }
     
+    function get_draft_settings() {
+        log_info("get_draft_settings() function called");
+        
+        # Set Table Name
+        $table_name = DRAFT_SETTINGS_TABLE;
+
+        # Build Query
+        $query = "SELECT * FROM $table_name";
+        
+        # Do Query
+        db_query($query);
+
+        # Check for db error
+        if(db_error_message()) {
+            $error_message = "Database error: ".db_error_message();
+            log_error($error_message);
+            die($error_message);
+        }    
+        
+        log_info("get_draft_settings() function complete");
+        
+        return db_get_single_result();
+    }
+    
     # Heartbeats
     function update_franchise_heartbeat($franchise_id) {
         log_info("update_franchise_heartbeat() function called");
@@ -705,6 +729,9 @@
         return $data['offline_draft_start_timestamp'];
     }
     function is_franchise_commish($franchise_id) {
+        if(!REQUIRE_COMMISH_PRIV) {
+            return true;
+        }
         log_info("is_franchise_commish() function called");
         
         $franchise_id = db_escape_string(trim($franchise_id));
@@ -2412,4 +2439,28 @@
 
         log_info("get_franchise() function complete");
         return $result;
+    }
+    
+    function get_last_data_updates() {
+        log_info("get_last_data_updates() function called");
+        
+        # Set Table Name
+        $table_name = DATA_UPDATES_TABLE;
+
+        # Build Query
+        $query = "SELECT * FROM $table_name";
+        
+        # Do Query
+        db_query($query);
+
+        # Check for db error
+        if(db_error_message()) {
+            $error_message = "Database error: ".db_error_message();
+            log_error($error_message);
+            die($error_message);
+        }    
+        
+        log_info("get_last_data_updates() function complete");
+        
+        return db_get_result_array();
     }

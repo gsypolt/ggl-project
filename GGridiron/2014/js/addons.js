@@ -7,7 +7,6 @@
 *
 */
 
-//jQuery add-ons
 (function($){
     $.get_url_var = function(key){
         var result = new RegExp(key + "=([^&]*)", "i").exec(window.location.search); 

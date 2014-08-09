@@ -86,6 +86,8 @@ define('SESSION_LOGIN_FRANCHISE_ID','login_franchise_id');
 
 # Authentication
 define('REQUIRE_AUTHENTICATION', true);
+define('REQUIRE_COMMISH_PRIV', false);
+
 
 # Data Sets
 define('LEAGUE_DATA_SET','LEAGUE');

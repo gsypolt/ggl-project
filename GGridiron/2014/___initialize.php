@@ -352,6 +352,7 @@ function create_data_updates_table() {
     $query = "CREATE TABLE IF NOT EXISTS $table_name";
     $query .= "(";
     $query .= "data_set VARCHAR(32) NOT NULL DEFAULT 0,PRIMARY KEY (data_set), ";
+    $query .= "update_rate_seconds INT(32) NOT NULL DEFAULT 0, ";
     $query .= "updated_datetime TIMESTAMP DEFAULT 0"; 
     $query .= ")";
 
