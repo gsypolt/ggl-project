@@ -447,7 +447,8 @@
         $query .= "(";
         $query .= "id INT(12) NOT NULL DEFAULT NULL AUTO_INCREMENT,PRIMARY KEY (id), ";
         $query .= "franchise_id VARCHAR(4) NOT NULL DEFAULT 0, ";
-        $query .= "player_id INT(8) NOT NULL DEFAULT 0";
+        $query .= "player_id INT(8) NOT NULL DEFAULT 0, ";
+        $query .= "sort_order INT(32) NOT NULL DEFAULT 0";
         $query .= ")";
 
         db_query($query);

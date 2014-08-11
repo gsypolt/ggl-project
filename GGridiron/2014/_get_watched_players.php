@@ -5,9 +5,13 @@
     $details = gpc_get_bool('details');
     $franchise_id = authentication_get_current_franchise();
     
-    $player_ids = get_watched_player_ids($franchise_id);
+    $watched_players = get_watched_players($franchise_id);
     $free_agents_data = get_free_agents();
     
+    $player_ids = array();
+    foreach($watched_players as $watched_player) {
+        $player_ids[] = $watched_player['player_id'];
+    }
     $detailed_players = array();
     if($details && sizeof($player_ids)!=0) {
         $players = get_players($player_ids);
@@ -23,6 +27,12 @@
             $player['age'] = get_age($player['birthdate']);
             $player['name'] = $player['first_name'] . ' ' . $player['last_name'];
             $player['draft_details'] = $player['draft_year'] . '-R' . $player['draft_round'] . '-P' . $player['draft_pick'];
+            $player['sort_order'] = -1;
+            foreach($watched_players as $watched_player) {
+                if((int)$watched_player['player_id'] == (int)$player['id']) {
+                    $player['sort_order'] = $watched_player['sort_order'];
+                }
+            }
             $detailed_players[] = $player;
         }
         

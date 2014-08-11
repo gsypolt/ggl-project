@@ -5,7 +5,7 @@
 function Draft () {    
     var Draft = this;
     
-    var SUCCESS_MODAL_SHOW_TIME = 1000;    
+    var SUCCESS_MODAL_SHOW_TIME = 3000;    
     var LIVE_DRAFT_ENABLED = false;
     var MFL_DRAFT_ENABLED = true;
     
@@ -28,7 +28,7 @@ function Draft () {
         addDraftingNotActiveModal();
         addDraftingModal();
         addErrorModal();
-        addSuccessModal();        
+        addSuccessModal();  
         addDraftingIframe();
         this.updateOnTheClockData();
     };
@@ -99,7 +99,7 @@ function Draft () {
     function addDraftingIframe() {
         $("body").append('<iframe id="draft_frame" width="800" height="800" src="" class="hidden"></iframe>');
         //$("body").append('<iframe id="draft_frame" width="800" height="800" src="" class=""></iframe>');
-    }
+    }    
     
     // Loading Modal
     this.showDraftingNotActiveModal = function (){
@@ -492,6 +492,110 @@ function Draft () {
             cache: false
         });  
     };
+    this.moveWatchedPlayerUp = function(player_id,on_success_callback) {
+        console.log("moveWatchedPlayerUp() called");
+        var url = '_move_watched_player.php';
+        var return_value = false;
+        $.ajax({
+            type: "POST",
+            url: url,
+            dataType: "json",
+            beforeSend: function(){},
+            data: {
+                player_id:player_id,
+                action:'up'
+            },
+            success: function(){
+                if(on_success_callback) { on_success_callback(); }
+                console.log("moveWatchedPlayerUp() complete");
+            },
+            error: function() {
+                console.log("moveWatchedPlayerUp() ***ERROR***");
+                console.log("moveWatchedPlayerUp() complete");
+            },
+            async: true,
+            cache: false
+        });
+        return return_value;
+    };
+    this.moveWatchedPlayerDown = function(player_id,on_success_callback) {
+        console.log("moveWatchedPlayerDown() called");
+        var url = '_move_watched_player.php';
+        var return_value = false;
+        $.ajax({
+            type: "POST",
+            url: url,
+            dataType: "json",
+            beforeSend: function(){},
+            data: {
+                player_id:player_id,
+                action:'down'
+            },
+            success: function(){
+                if(on_success_callback) { on_success_callback(); }
+                console.log("moveWatchedPlayerDown() complete");
+            },
+            error: function() {
+                console.log("moveWatchedPlayerDown() ***ERROR***");
+                console.log("moveWatchedPlayerDown() complete");
+            },
+            async: true,
+            cache: false
+        });
+        return return_value;
+    };
+    this.moveWatchedPlayerToTop = function(player_id,on_success_callback) {
+        console.log("moveWatchedPlayerToTop() called");
+        var url = '_move_watched_player.php';
+        var return_value = false;
+        $.ajax({
+            type: "POST",
+            url: url,
+            dataType: "json",
+            beforeSend: function(){},
+            data: {
+                player_id:player_id,
+                action:'top'
+            },
+            success: function(){
+                if(on_success_callback) { on_success_callback(); }
+                console.log("moveWatchedPlayerToTop() complete");
+            },
+            error: function() {
+                console.log("moveWatchedPlayerToTop() ***ERROR***");
+                console.log("moveWatchedPlayerToTop() complete");
+            },
+            async: true,
+            cache: false
+        });
+        return return_value;
+    };
+    this.moveWatchedPlayerToBottom = function(player_id,on_success_callback) {
+        console.log("moveWatchedPlayerToBottom() called");
+        var url = '_move_watched_player.php';
+        var return_value = false;
+        $.ajax({
+            type: "POST",
+            url: url,
+            dataType: "json",
+            beforeSend: function(){},
+            data: {
+                player_id:player_id,
+                action:'bottom'
+            },
+            success: function(){
+                if(on_success_callback) { on_success_callback(); }
+                console.log("moveWatchedPlayerToBottom() complete");
+            },
+            error: function() {
+                console.log("moveWatchedPlayerToBottom() ***ERROR***");
+                console.log("moveWatchedPlayerToBottom() complete");
+            },
+            async: true,
+            cache: false
+        });
+        return return_value;
+    };
     
     // Player Details
     this.showPlayerDetails = function(player_id) {
@@ -543,6 +647,27 @@ function Draft () {
         console.log("stopCheckingForDraftStatus() complete");
     };
     
+    this.getPlayerInformation = function(player_id) {
+        console.log("getPlayerInformation() called");  
+        var return_data = null;
+        var url = '_get_player_information.php';             
+        $.ajax({
+            type: "GET",
+            url: url,
+            dataType: "json",
+            data: {player_id:player_id},
+            success: function(data){   
+                return_data = data;
+                console.log("getPlayerInformation() complete");
+            },
+            error: function() {
+                console.log("getPlayerInformation() ***ERROR***");
+            },
+            async: false,
+            cache: false
+        });
+        return return_data;
+    };
     //Initialization
     this.init();
 }

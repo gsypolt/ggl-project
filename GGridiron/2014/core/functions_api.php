@@ -1974,6 +1974,51 @@
     }
     
     # Watch List
+    function get_current_sort_order_number($franchise_id,$player_id) {
+        log_info("get_highest_sort_order_number() function called");
+        $franchise_id = db_escape_string(trim($franchise_id));
+        $player_id = db_escape_string(trim($player_id));
+        
+        $table_name = WATCHED_PLAYERS_TABLE;
+        $query = "SELECT sort_order FROM $table_name WHERE franchise_id = '$franchise_id' AND player_id = '$player_id'"; 
+        
+        db_query($query);
+        
+        if(db_error_message()) {
+            $error_message = "Database error: ".db_error_message();
+            log_error($error_message);
+            die($error_message);
+        }
+        $result = db_get_single_result();
+
+        log_info("get_highest_sort_order_number() function complete");
+        if(!$result['sort_order']) { 
+            return 0;
+        }
+        return (int)$result['sort_order'];
+    }
+    function get_highest_sort_order_number($franchise_id) {
+        log_info("get_highest_sort_order_number() function called");
+        $franchise_id = db_escape_string(trim($franchise_id));
+        
+        $table_name = WATCHED_PLAYERS_TABLE;
+        $query = "SELECT sort_order FROM $table_name WHERE franchise_id = '$franchise_id' ORDER BY sort_order DESC LIMIT 1"; 
+        
+        db_query($query);
+        
+        if(db_error_message()) {
+            $error_message = "Database error: ".db_error_message();
+            log_error($error_message);
+            die($error_message);
+        }
+        $result = db_get_single_result();
+
+        log_info("get_highest_sort_order_number() function complete");
+        if(!$result['sort_order']) { 
+            return 0;
+        }
+        return (int)$result['sort_order'];
+    }
     function get_watched_player_ids($franchise_id) {
         log_info("get_watch_list_player_ids() function called");
         
@@ -1999,6 +2044,28 @@
         }
         log_info("get_watch_list_player_ids() function complete");
         return $return_array;
+    }
+    function get_watched_players($franchise_id) {
+        log_info("get_watch_list_player_ids() function called");
+        
+        # Clean inputs
+        $franchise_id = db_escape_string(trim($franchise_id));  
+        
+        # Set Table Name
+        $table_name = WATCHED_PLAYERS_TABLE;
+
+        $query = "SELECT * FROM $table_name WHERE franchise_id='$franchise_id'";
+
+        db_query($query);
+        if(db_error_message()) {
+            $error_message = "Database error: ".db_error_message();
+            log_error($error_message);
+            die($error_message);
+        }
+        $results = db_get_result_array();
+
+        log_info("get_watch_list_player_ids() function complete");
+        return $results;
     }
     function does_watch_player_exist($franchise_id, $player_id) {
         log_info("does_watch_player_exist() function called");
@@ -2027,9 +2094,10 @@
         $franchise_id = db_escape_string(trim($franchise_id));
         $player_id = db_escape_string(trim($player_id));
         
+        $next_sort_number = get_highest_sort_order_number($franchise_id) + 1;
         if(!does_watch_player_exist($franchise_id, $player_id)) {
             $table_name = WATCHED_PLAYERS_TABLE;
-            $query = "INSERT INTO $table_name (franchise_id,player_id) values ('$franchise_id','$player_id')";	
+            $query = "INSERT INTO $table_name (franchise_id,player_id,sort_order) values ('$franchise_id','$player_id','$next_sort_number')";	
 
             db_query($query);    
             if(db_error_message()) {
@@ -2047,11 +2115,22 @@
         $franchise_id = db_escape_string(trim($franchise_id));
         $player_id = db_escape_string(trim($player_id));
         
+        $current_sort_order = get_current_sort_order_number($franchise_id,$player_id);
+        
         if(does_watch_player_exist($franchise_id, $player_id)) {
             $table_name = WATCHED_PLAYERS_TABLE;
-            $query = "DELETE FROM $table_name WHERE franchise_id='$franchise_id' AND player_id='$player_id'";	
+            $first_query = "DELETE FROM $table_name WHERE franchise_id='$franchise_id' AND player_id='$player_id'";	
 
-            db_query($query);    
+            db_query($first_query);    
+            if(db_error_message()) {
+                $error_message = "Database error: ".db_error_message();
+                log_error($error_message);
+                die($error_message);
+            }
+            
+            $second_query = "UPDATE $table_name SET sort_order = sort_order - 1 WHERE franchise_id='$franchise_id' AND sort_order > '$current_sort_order'";	
+
+            db_query($second_query);    
             if(db_error_message()) {
                 $error_message = "Database error: ".db_error_message();
                 log_error($error_message);
@@ -2059,6 +2138,128 @@
             }
         }
         log_info("add_player_to_watch_list() function complete");
+        return true;
+    }
+    function set_watched_player_id_sort_order($franchise_id,$player_id,$sort_order) {
+        log_info("set_watched_player_id_sort_order() function called");
+        
+        # Clean inputs
+        $franchise_id = db_escape_string(trim($franchise_id));  
+        $player_id = db_escape_string(trim($player_id));  
+        $sort_order = db_escape_string(trim($sort_order));  
+        
+        #Set Table Name
+        $table_name = WATCHED_PLAYERS_TABLE;
+        
+        $highest_sort_number = get_highest_sort_order_number($franchise_id);
+
+        if($sort_order < 1) { 
+            log_error("Invalid sort order of $sort_order.  Too Low");
+            return false;
+        }
+        if($sort_order > $highest_sort_number) {
+            log_error("Invalid sort order of $sort_order.  Higher than highest");
+            return false;
+        }
+        
+        $current_sort_order = get_current_sort_order_number($franchise_id,$player_id);
+        if($sort_order == $current_sort_order) {
+            log_info("Invalid sort order of $sort_order.  Same as current");
+            return true;
+        }
+               
+        if(does_watch_player_exist($franchise_id, $player_id)) {               
+            $first_query = "UPDATE $table_name SET sort_order = '$sort_order' WHERE franchise_id='$franchise_id' AND player_id='$player_id'";
+            if($sort_order > $current_sort_order) {            
+                $second_query = "UPDATE $table_name SET sort_order = sort_order - 1 WHERE franchise_id='$franchise_id' AND player_id != '$player_id' AND sort_order > '$current_sort_order' AND sort_order <= '$sort_order'";
+            } else {
+                $second_query = "UPDATE $table_name SET sort_order = sort_order + 1 WHERE franchise_id='$franchise_id' AND player_id != '$player_id' AND sort_order < '$current_sort_order' AND sort_order >= '$sort_order'";
+            }
+            # Perform Query
+            db_query($first_query);  
+
+            # Check for db error
+            if(db_error_message()) {
+                $error_message = "Database error: ".db_error_message();
+                log_error($error_message);
+                die($error_message);
+            }    
+            
+            # Perform Query
+            db_query($second_query);  
+
+            # Check for db error
+            if(db_error_message()) {
+                $error_message = "Database error: ".db_error_message();
+                log_error($error_message);
+                die($error_message);
+            }             
+        }
+
+        # Perform Query
+        db_query($query);  
+
+        # Check for db error
+        if(db_error_message()) {
+            $error_message = "Database error: ".db_error_message();
+            log_error($error_message);
+            die($error_message);
+        }    
+        log_info("set_watched_player_id_sort_order() function complete");
+        return true;
+    }
+    
+    
+    function move_watched_player_to_top($franchise_id,$player_id) {
+        log_info("move_watched_player_to_first() function called");
+        
+        # Clean inputs
+        $franchise_id = db_escape_string(trim($franchise_id));  
+        $player_id = db_escape_string(trim($player_id));  
+        set_watched_player_id_sort_order($franchise_id,$player_id,1);        
+        
+        log_info("move_watched_player_to_first() function complete");
+        return true;
+    }    
+    function move_watched_player_to_bottom($franchise_id,$player_id) {
+        log_info("move_watched_player_to_last() function called");
+        
+        # Clean inputs
+        $franchise_id = db_escape_string(trim($franchise_id));  
+        $player_id = db_escape_string(trim($player_id));  
+        
+        $highest_sort_number = get_highest_sort_order_number($franchise_id);
+        set_watched_player_id_sort_order($franchise_id,$player_id,$highest_sort_number);        
+        
+        log_info("move_watched_player_to_last() function complete");
+        return true;
+    }
+    function move_watched_player_down($franchise_id,$player_id) {
+        log_info("move_watched_player_to_last() function called");
+        
+        # Clean inputs
+        $franchise_id = db_escape_string(trim($franchise_id));  
+        $player_id = db_escape_string(trim($player_id));  
+        
+        $current_sort_number = get_current_sort_order_number($franchise_id,$player_id);
+        
+        set_watched_player_id_sort_order($franchise_id,$player_id,$current_sort_number + 1);        
+        
+        log_info("move_watched_player_to_last() function complete");
+        return true;
+    }    
+    function move_watched_player_up($franchise_id,$player_id) {
+        log_info("move_watched_player_to_last() function called");
+        
+        # Clean inputs
+        $franchise_id = db_escape_string(trim($franchise_id));  
+        $player_id = db_escape_string(trim($player_id));  
+        
+        $current_sort_number = get_current_sort_order_number($franchise_id,$player_id);
+        
+        set_watched_player_id_sort_order($franchise_id,$player_id,$current_sort_number - 1);        
+        
+        log_info("move_watched_player_to_last() function complete");
         return true;
     }
     

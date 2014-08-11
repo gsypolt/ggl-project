@@ -7,9 +7,6 @@
         <title>Draft Room</title>
         
         <script type="text/javascript" language="javascript" src="jQuery/jquery-2.0.3.js"></script>
-        
-        <link rel="stylesheet" href="flipclock-0.5.5/compiled/flipclock.css">
-        <!--<script src="flipclock-0.5.5/compiled/flipclock.js"></script>-->
         <script src="time-to/jquery.timeTo.min.js"></script>
         
                 
@@ -262,6 +259,8 @@
         <script type="text/javascript">
             var draft = null;
             
+            var TO_DRAFT_PLAYER_ID = 0;
+            
             var free_agents_table = null;
             var watch_table = null;
             var draft_results_table = null;
@@ -280,7 +279,8 @@
             
             var admin = false;
             
-            $(document).ready(function() {  
+            $(document).ready(function() {
+                AddConfirmDraftPickModal(); 
                 draft = new Draft();
                 DoStartUp();
             });
@@ -334,9 +334,6 @@
             function remove_player_from_watch_list(player_id) {
                 draft.removePlayerFromWatchList(player_id,function(){RefreshWatchTable(); RefreshFreeAgentsTable();});
             }            
-            function draft_player(player_id) {
-                draft.draftPlayer(player_id,function(){UpdateEverything();});
-            }
                         
             var _building_free_agent_table_flag = false;
             function BuildFreeAgentTable() {
@@ -364,7 +361,7 @@
                         var html = "";
 
                         html = '<button class="btn btn-info btn-xs" onclick="show_player_details('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-user"></span>&nbsp;</button>';
-                        $('td:eq(0)', nRow).html('<div class="center">' + html + '</div>');
+                        $('td:eq(0)', nRow).html('<div class="center">' + html + '</div>');                        
                         $('td:eq(1)', nRow).html(aData.name);
                         $('td:eq(2)', nRow).html('<div class="center">' + aData.position + '</div>');
                         $('td:eq(3)', nRow).html('<div class="center">' + aData.team + '</div>');
@@ -376,9 +373,9 @@
                             html = '<button class="btn btn-default btn-xs disabled" onclick="add_player_to_watch_list('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-plus"></span>&nbsp;</button>&nbsp;&nbsp;&nbsp;';                     
                         }
                         if(((franchise_id_on_the_clock === user_franchise_id) || admin) && draft.isDraftActive()) {
-                            html += '<button class="btn btn-primary btn-xs" onclick="draft_player('+ aData.id +')"><span class="glyphicon glyphicon-ok"></span>&nbsp;DRAFT</button>';
+                            html += '<button class="btn btn-primary btn-xs" onclick="ConfirmDraftPick('+ aData.id +')"><span class="glyphicon glyphicon-ok"></span>&nbsp;DRAFT</button>';
                         } else {
-                            html += '<button class="btn btn-default btn-xs disabled" onclick="draft_player('+ aData.id +')"><span class="glyphicon glyphicon-ok"></span>&nbsp;DRAFT</button>';
+                            html += '<button class="btn btn-default btn-xs disabled" onclick="ConfirmDraftPick('+ aData.id +')"><span class="glyphicon glyphicon-ok"></span>&nbsp;DRAFT</button>';
                         }
                         $('td:eq(6)', nRow).html(html);
                                                
@@ -428,8 +425,12 @@
                     "fnRowCallback": function( nRow, aData, iDisplayIndex ) {
                         if(JSON.parse(aData.available)) {
                             var html = "";
-                            html = '<button class="btn btn-info btn-xs" onclick="show_player_details('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-user"></span>&nbsp;</button>';
-                            $('td:eq(0)', nRow).html('<div class="center">' + html + '</div>');
+                            html = '<button class="btn btn-default btn-xs" onclick="MoveWatchedPlayerToTop('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-arrow-up"></span>&nbsp;</button>';
+                            html += '<button class="btn btn-default btn-xs" onclick="MoveWatchedPlayerUp('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-chevron-up"></span>&nbsp;</button>';
+                            html += '<button class="btn btn-default btn-xs" onclick="MoveWatchedPlayerDown('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-chevron-down"></span>&nbsp;</button>';
+                            html += '<button class="btn btn-default btn-xs" onclick="MoveWatchedPlayerToBottom('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-arrow-down"></span>&nbsp;</button>';
+                            $('td:eq(0)', nRow).html(html);
+                            //$('td:eq(0)', nRow).html(aData.sort_order);
                             $('td:eq(1)', nRow).html(aData.name);
                             $('td:eq(2)', nRow).html('<div class="center">' + aData.position + '</div>');
                             $('td:eq(3)', nRow).html('<div class="center">' + aData.team + '</div>');
@@ -437,34 +438,36 @@
                             $('td:eq(5)', nRow).html(aData.draft_details);
                             html = '<button class="btn btn-danger btn-xs" onclick="remove_player_from_watch_list('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-remove"></span>&nbsp;</button>&nbsp;&nbsp;&nbsp;'; 
                             if(((franchise_id_on_the_clock === user_franchise_id) || admin) && draft.isDraftActive()) {
-                                html += '<button class="btn btn-primary btn-xs" onclick="draft_player('+ aData.id +')"><span class="glyphicon glyphicon-ok"></span>&nbsp;DRAFT</button>';
+                                html += '<button class="btn btn-primary btn-xs" onclick="ConfirmDraftPick('+ aData.id +')"><span class="glyphicon glyphicon-ok"></span>&nbsp;DRAFT</button>';
                             } else {
-                                html += '<button class="btn btn-default btn-xs disabled" onclick="draft_player('+ aData.id +')"><span class="glyphicon glyphicon-ok"></span>&nbsp;DRAFT</button>';
+                                html += '<button class="btn btn-default btn-xs disabled" onclick="ConfirmDraftPick('+ aData.id +')"><span class="glyphicon glyphicon-ok"></span>&nbsp;DRAFT</button>';
                             }
-                            $('td:eq(6)', nRow).html(html);
+                            $('td:eq(5)', nRow).html(html);
                         } else {
-                            html = '<button class="btn btn-default btn-xs disabled" onclick="show_player_details('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-user"></span>&nbsp;</button>';
-                            $('td:eq(0)', nRow).html('<div class="center text-gray">' + html + '</div>');
+                            html = '<button class="btn btn-default btn-xs" onclick="MoveWatchedPlayerToTop('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-arrow-up"></span>&nbsp;</button>';
+                            html += '<button class="btn btn-default btn-xs" onclick="MoveWatchedPlayerUp('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-chevron-up"></span>&nbsp;</button>';
+                            html += '<button class="btn btn-default btn-xs" onclick="MoveWatchedPlayerDown('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-chevron-down"></span>&nbsp;</button>';
+                            html += '<button class="btn btn-default btn-xs" onclick="MoveWatchedPlayerToBottom('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-arrow-down"></span>&nbsp;</button>';
+                            
+                            $('td:eq(0)', nRow).html(html);
                             $('td:eq(1)', nRow).html('<div class="text-gray">' + aData.name  + '</div>');
                             $('td:eq(2)', nRow).html('<div class="center text-gray">' + aData.position + '</div>');
                             $('td:eq(3)', nRow).html('<div class="center text-gray">' + aData.team + '</div>');
                             $('td:eq(4)', nRow).html('<div class="center text-gray">' + aData.age + '</div>');
-                            $('td:eq(5)', nRow).html('<div class="text-gray">' + aData.draft_details + '</div>');
                             html = '<button class="btn btn-danger btn-xs" onclick="remove_player_from_watch_list('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-remove"></span>&nbsp;</button>&nbsp;&nbsp;&nbsp;'; 
-                            html += '<button class="btn btn-default btn-xs disabled" onclick="draft_player('+ aData.id +')"><span class="glyphicon glyphicon-ok"></span>&nbsp;DRAFT</button>';
-                            $('td:eq(6)', nRow).html(html);
+                            html += '<button class="btn btn-default btn-xs disabled" onclick="ConfirmDraftPick('+ aData.id +')"><span class="glyphicon glyphicon-ok"></span>&nbsp;DRAFT</button>';
+                            $('td:eq(5)', nRow).html(html);
                         }
 			return nRow;
                     },
                     "bAutoWidth": false,       
                     "aoColumns": [
-                        { "mData": "id", "sWidth": "5%"},
-                        { "mData": "name", "sWidth": "30%"},
-                        { "mData": "position", "sWidth": "6%"},
-                        { "mData": "team", "sWidth": "6%"},
-                        { "mData": "age", "sWidth": "6%"},
-                        { "mData": "draft_details", "sWidth": "15%"},
-                        { "mData": "id", "sWidth": "18%"}
+                        { "mData": "sort_order", "sWidth": "16%", "bSortable": false},
+                        { "mData": "name", "sWidth": "32%", "bSortable": false},
+                        { "mData": "position", "sWidth": "6%", "bSortable": false},
+                        { "mData": "team", "sWidth": "6%", "bSortable": false},
+                        { "mData": "age", "sWidth": "6%", "bSortable": false},
+                        { "mData": "id", "sWidth": "14%", "bSortable": false}
                     ]
                 });
                 ActivatePopOver('watched_search_help','If you want to search for a quarterback (QB) whos first name is Tom (Tom) and is on Houston (HOU) and was draft in 2014 (2014) you can search for all of these terms by entering spaces such as "QB Tom HOU 2014". Criteria order and capitalization do not matter.');
@@ -625,6 +628,57 @@
                     captionSize: 15
                 });
             }
+
+            function MoveWatchedPlayerToTop(player_id) {
+                 draft.moveWatchedPlayerToTop(player_id,function(){RefreshWatchTable();});
+            }
+            function MoveWatchedPlayerUp(player_id) {
+                 draft.moveWatchedPlayerUp(player_id,function(){RefreshWatchTable();});
+            }
+            function MoveWatchedPlayerDown(player_id) {
+                 draft.moveWatchedPlayerDown(player_id,function(){RefreshWatchTable();});
+            }
+            function MoveWatchedPlayerToBottom(player_id) {
+                 draft.moveWatchedPlayerToBottom(player_id,function(){RefreshWatchTable();});
+            }
+            
+            function ConfirmDraftPick(player_id) {
+                TO_DRAFT_PLAYER_ID = player_id;
+                var player = draft.getPlayerInformation(TO_DRAFT_PLAYER_ID);
+                $('#confirm_draft_modal_text').html(player.first_name + ' ' + player.last_name + ', ' + player.team + ', ' + player.position);
+                ShowConfirmDraftModal();
+            }
+            function ReallyDraftSelectedPlayer() {
+                draft.draftPlayer(TO_DRAFT_PLAYER_ID,function(){UpdateEverything();});
+            }
+            function DontReallyDraftSelectedPlayer() {
+                TO_DRAFT_PLAYER_ID = 0;
+                $('#confirm_draft_modal_text').html('');
+            }
+            function AddConfirmDraftPickModal() {
+                var html =  "";
+                html += '<div class="modal" id="confirm_draft_modal" tabindex="-1" role="dialog" aria-hidden="true" data-keyboard="false" data-backdrop="static">';
+                html +=     '<div class="modal-dialog" style="width:600px;margin-top:75px;">';
+                html +=         '<div class="modal-content">';
+                html +=             '<div class="modal-header">';
+                html +=                 '<h2>Confirm Draft Pick</h2>';
+                html +=             '</div>';
+                html +=             '<div class="modal-body center" align="center">';
+                html +=                 '<h2><div id="confirm_draft_modal_text"></div></h2>';
+                html +=             '</div>';
+                html +=             '<div class="modal-footer">';
+                html +=                 '<button onclick="ReallyDraftSelectedPlayer()" data-dismiss="modal" class="btn btn-lg btn-success">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;</button>';
+                html +=                 '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+                html +=                 '<button onclick="DontReallyDraftSelectedPlayer()" data-dismiss="modal" aria-hidden="true" class="btn btn-lg btn-danger">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;</button>';
+                html +=             '</div>';
+                html +=         '</div>';
+                html +=     '</div>';
+                html += '</div>';        
+                $("body").append(html); 
+            }
+            function ShowConfirmDraftModal() {
+                $('#confirm_draft_modal').modal('show');
+            }
             function UPDATE() {
                 alert("NOTHING CONFIGURED");
             }
@@ -637,35 +691,34 @@
             <?php include 'navigation.php'; ?>
             <!-- /Navigation -->  
 
-            <div class="row">
+            <div class="row no_padding">
                 <img class="league-logo center" alt="" src="images/banners/GGDraft14.jpg"/>
                 <div id="draft_state_div" class="col-xs-12 draft-state draft-state-unknown"></div>
             </div>
-            <div class="row no_padding">     
-                <div class="col-xs-4 lite-padding">
-                    <div class="col-xs-12 lite-padding">
-                        <div class="panel-group" id="accordion0">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion0" href="#collapseZero">On The Clock</a>
-                                    </h4>
-                                </div>
-                                <div id="collapseZero" class="panel-collapse collapse in">
-                                    <!--<div><button class="btn btn-block btn-xs btn-primary" onclick="UPDATE()">UPDATE</button><hr></div>-->
-                                    <div id="clock_heading"></div>
-                                    <div id="clock" class="my-little-clock centered"></div><br><hr>
-                                    
-                                    <div><h4 class="center"><u>ON THE CLOCK</u></h4></div>
-                                    <div class="stitched-clear" id="on_the_clock_outline"><span id="on_clock_round_details" class="numbers"></span><img id="on_clock_icon" alt="" class="small_logo centered" src=""></div>
-                                    <hr>
-                                    <div><h4 class="center"><u>ON DECK</u></h4></div>
-                                    <div class="stitched-clear"><span id="on_deck_round_details_0" class="numbers"></span><img id="on_deck_icon_0" alt="" class="small_logo centered" src=""></div>
-                                    <div class="stitched-clear"><span id="on_deck_round_details_1" class="numbers"></span><img id="on_deck_icon_1" alt="" class="small_logo centered" src=""></div>
-                                </div>
+            <div class="row no_padding">  
+                <div class="col-xs-4 lite-padding">                    
+                    <div class="panel-group" id="accordion0">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion0" href="#collapseZero">On The Clock</a>
+                                </h4>
                             </div>
-                        </div>         
-                    </div>
+                            <div id="collapseZero" class="panel-collapse collapse in">
+                                <!--<div><button class="btn btn-block btn-xs btn-primary" onclick="UPDATE()">UPDATE</button><hr></div>-->
+                                <div id="clock_heading"></div>
+                                <div id="clock" class="my-little-clock centered"></div><br><hr>
+
+                                <div><h4 class="center"><u>ON THE CLOCK</u></h4></div>
+                                <div class="stitched-clear" id="on_the_clock_outline"><span id="on_clock_round_details" class="numbers"></span><img id="on_clock_icon" alt="" class="small_logo centered" src=""></div>
+                                <hr>
+                                <div><h4 class="center"><u>ON DECK</u></h4></div>
+                                <div class="stitched-clear"><span id="on_deck_round_details_0" class="numbers"></span><img id="on_deck_icon_0" alt="" class="small_logo centered" src=""></div>
+                                <div class="stitched-clear"><span id="on_deck_round_details_1" class="numbers"></span><img id="on_deck_icon_1" alt="" class="small_logo centered" src=""></div>
+                            </div>
+                        </div>
+                    </div>         
+
                     <div class="col-xs-12 lite-padding">
                         <div class="panel-group" id="last_picks_accordion">
                             <div class="panel panel-default">
@@ -721,12 +774,11 @@
                                     <table id="watch_table" class="table table-bordered table-really-condensed dark-header">
                                         <thead>
                                             <tr>
-                                                <th>&nbsp;&nbsp;<i class="glyphicon glyphicon-user"></i></th>
+                                                <th class="center">Sorting</th>
                                                 <th class="center">Name</th>
                                                 <th class="center">Pos</th>
                                                 <th class="center">Team</th>
                                                 <th class="center">Age</th>
-                                                <th class="center">Drafted</th>
                                                 <th class="center">Actions</th>
                                             </tr>
                                         </thead>                                       
@@ -763,7 +815,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>                   
                 </div>
             </div>            
         </div>
