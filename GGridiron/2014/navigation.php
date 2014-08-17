@@ -10,13 +10,14 @@ $html = "";
 
 $html .= '<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">';
 $html .=    '<div class="navbar-header">';
-$html .=        '<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">';
-$html .=            '<span class="sr-only">Toggle navigation</span>';
-$html .=            '<span class="icon-bar">BLAH 1</span>';
-$html .=            '<span class="icon-bar">BLAH 2</span>';
-$html .=            '<span class="icon-bar">BLAH 3</span>';
-$html .=        '</button>';
+//$html .=        '<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">';
+//$html .=            '<span class="sr-only">Toggle navigation</span>';
+//$html .=            '<span class="icon-bar">BLAH 1</span>';
+//$html .=            '<span class="icon-bar">BLAH 2</span>';
+//$html .=            '<span class="icon-bar">BLAH 3</span>';
+//$html .=        '</button>';
 $html .=        '<a class="navbar-brand" href="#">Goal-Line Gridiron</a>';
+$html .=        '<a class="navbar-brand" href="http://www3.myfantasyleague.com/2014/home/44111#0" target="_blank">MFL Site</a>';
 $html .=    '</div>';
 if($franchise_logged_in) {
     $franchise = get_franchise($franchise_id);

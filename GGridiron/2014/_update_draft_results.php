@@ -10,10 +10,11 @@
         json_print_error("Could not update free agents database");
         exit;
     }
+    /*
     if(!update_league_db()) {
         json_print_error("Could not update league database");
         exit;
-    }
+    }*/
     
     json_print_success();
     exit;

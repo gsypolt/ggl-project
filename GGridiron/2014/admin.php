@@ -152,18 +152,18 @@
                         <td><button class="btn btn-primary" onclick="draft.updateFromMflDraftResults()"><span class="glyphicon glyphicon-star"></span> UPDATE</button></td>
                         <td><div id="draft_results_last_update"></div></td>
                         <td><div id="draft_results_update_rate"></td>
+                    </tr>                    
+                    <tr>
+                        <td>FREE AGENTS</td>
+                        <td><button class="btn btn-primary" onclick="league.updateFreeAgents()"><span class="glyphicon glyphicon-star"></span> UPDATE</button></td>
+                        <td><div id="free_agents_last_update"></div></td>
+                        <td><div id="free_agents_update_rate"></td>
                     </tr>
                     <tr>
                         <td>LEAGUE</td>
                         <td><button class="btn btn-primary" onclick="league.updateLeague()"><span class="glyphicon glyphicon-star"></span> UPDATE</button></td>
                         <td><div id="league_last_update"></div></td>
                         <td><div id="league_update_rate"></td>
-                    </tr>
-                    <tr>
-                        <td>PLAYER SCORES</td>
-                        <td><button class="btn btn-primary" onclick="league.updateFreeAgents()"><span class="glyphicon glyphicon-star"></span> UPDATE</button></td>
-                        <td><div id="free_agents_last_update"></div></td>
-                        <td><div id="free_agents_update_rate"></td>
                     </tr>
                     <tr>
                         <td>INJURIES</td>

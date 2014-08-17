@@ -599,7 +599,8 @@ function Draft () {
     
     // Player Details
     this.showPlayerDetails = function(player_id) {
-        alert("TODO - Show player details ID = " + player_id);
+        var url = "http://football3.myfantasyleague.com/2014/player?L=44111&P="+player_id;
+        window.open(url,'_blank');
     };
     
     this.updateDraftStatus = function(status_change_callback) {

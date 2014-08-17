@@ -264,6 +264,8 @@
             var free_agents_table = null;
             var watch_table = null;
             var draft_results_table = null;
+            var team_roster_table = null;
+            
             var on_clock = null;
             var current_draft_timestamp = null;
             var watching_delay = 1;
@@ -318,7 +320,8 @@
                 UpdateOnTheClock();
                 BuildWatchTable();
                 BuildFreeAgentTable();
-                BuildDraftResultsTable();      
+                BuildDraftResultsTable();    
+                BuildTeamRosterTable();
                 UpdateRecentPicks();
                 UpdateDraftStatusBanner();
                 draft.startCheckForDraftChangeUpdate(UpdateEverything);
@@ -350,12 +353,12 @@
                     "sAjaxSource": url,
                     "fnPreDrawCallback":function(){
                         if(_building_free_agent_table_flag) {
-                            //_dreams_notification_modals.show_loading_modal();
+                            // Show Loading Modal
                         }
                     },
                     "fnInitComplete":function(){
                         _building_free_agent_table_flag = false;
-                        //_dreams_notification_modals.hide_loading_modal();						
+                        // Hide Loading Modal						
                     },
                     "fnRowCallback": function( nRow, aData, iDisplayIndex ) {
                         var html = "";
@@ -395,7 +398,7 @@
                 ActivatePopOver('free_agents_search_help','If you want to search for a quarterback (QB) whos first name is Tom (Tom) and is on Houston (HOU) and was draft in 2014 (2014) you can search for all of these terms by entering spaces such as "QB Tom HOU 2014". Criteria order and capitalization do not matter.');
             }
             function RefreshFreeAgentsTable() {
-                //_building_parts_table_flag = true;
+                //_building_free_agent_table_flag = true;
                 free_agents_table.ajax.reload(null,false);
             }
             
@@ -415,12 +418,12 @@
                     "sAjaxSource": url,
                     "fnPreDrawCallback":function(){
                         if(_building_watch_table_flag) {
-                            //_dreams_notification_modals.show_loading_modal();
+                            // Show Loading Modal
                         }
                     },
                     "fnInitComplete":function(){
                         _building_watch_table_flag = false;
-                        //_dreams_notification_modals.hide_loading_modal();						
+                        // Hide Loading Modal						
                     },
                     "fnRowCallback": function( nRow, aData, iDisplayIndex ) {
                         if(JSON.parse(aData.available)) {
@@ -473,7 +476,7 @@
                 ActivatePopOver('watched_search_help','If you want to search for a quarterback (QB) whos first name is Tom (Tom) and is on Houston (HOU) and was draft in 2014 (2014) you can search for all of these terms by entering spaces such as "QB Tom HOU 2014". Criteria order and capitalization do not matter.');
             }
             function RefreshWatchTable() {
-                //_building_parts_table_flag = true;
+                //_building_watch_table_flag = true;
                 watch_table.ajax.reload(null,false);
             }    
             
@@ -493,17 +496,19 @@
                     "sAjaxSource": url,
                     "fnPreDrawCallback":function(){
                         if(_building_draft_results_table_flag) {
-                            //_dreams_notification_modals.show_loading_modal();
+                            // Show Loading Modal
                         }
                     },
                     "fnInitComplete":function(){
                         _building_draft_results_table_flag = false;
-                        //_dreams_notification_modals.hide_loading_modal();						
+                        // Hide Loading Modal						
                     },
                     "fnRowCallback": function( nRow, aData, iDisplayIndex ) {
                         //_parts.push(aData);
                         var html = "";
-                        html = '<button class="btn btn-default btn-info btn-xs" onclick="show_player_details('+ aData.player_id +')">&nbsp;<span class="glyphicon glyphicon-user"></span>&nbsp;</button>';
+                        if(aData.player_id > 0) {
+                            html = '<button class="btn btn-default btn-info btn-xs" onclick="show_player_details('+ aData.player_id +')">&nbsp;<span class="glyphicon glyphicon-user"></span>&nbsp;</button>';
+                        }
                         $('td:eq(0)', nRow).html('<div class="center">' + html + '</div>');
                         $('td:eq(1)', nRow).html('<div class="center">' + aData.pick_details + '</div>');
                         $('td:eq(2)', nRow).html(aData.player_name);
@@ -525,8 +530,61 @@
                 ActivatePopOver('drafted_search_help','If you want to search for a quarterback (QB) whos first name is Tom (Tom) and is on Houston (HOU) and was draft in 2014 (2014) you can search for all of these terms by entering spaces such as "QB Tom HOU 2014". Criteria order and capitalization do not matter.');
             }
             function RefreshDraftResultsTable() {
-                //_building_parts_table_flag = true;
+                //_building_draft_results_table_flag = true;
                 draft_results_table.ajax.reload(null,false);
+            } 
+            
+            var _building_team_roster_table_flag = false;
+            function BuildTeamRosterTable() {
+                var url = '_get_team_roster.php?details=1&datatable=1';
+                _building_team_roster_table_flag = true;
+
+                if(team_roster_table !== null) {
+                    team_roster_table.fnDestroy();
+                }
+                $('#tbody_draft_results_table').empty();
+                
+                team_roster_table = $('#team_roster_table').DataTable( {
+                    "oLanguage": {"sSearch": '<i data-container="body" id="drafted_search_help" class="popover-dismiss" data-toggle="popover" data-placement="bottom" title="Search Help" data-content=""><span class="glyphicon glyphicon-question-sign"></span></i>&nbsp;Search: '},
+                    "jQueryUI": true,
+                    "sAjaxSource": url,
+                    "fnPreDrawCallback":function(){
+                        if(_building_team_roster_table_flag) {
+                            // Show Loading Modal
+                        }
+                    },
+                    "fnInitComplete":function(){
+                        _building_draft_results_table_flag = false;
+                        // Hide Loading Modal						
+                    },
+                    "fnRowCallback": function( nRow, aData, iDisplayIndex ) {
+                        //_parts.push(aData);
+                        var html = "";
+                        if(aData.id > 0) {
+                            html = '<button class="btn btn-default btn-info btn-xs" onclick="show_player_details('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-user"></span>&nbsp;</button>';
+                        }
+                        $('td:eq(0)', nRow).html('<div class="center">' + html + '</div>');
+                        $('td:eq(1)', nRow).html(aData.name);
+                        $('td:eq(2)', nRow).html('<div class="center">' + aData.position + '</div>');
+                        $('td:eq(3)', nRow).html('<div class="center">' + aData.team + '</div>');
+                        $('td:eq(4)', nRow).html('<div class="center">' + aData.age + '</div>');
+			return nRow;
+                    },
+                    "bAutoWidth": false,   
+                    "order": [[ 2, "desc" ]],
+                    "aoColumns": [
+                        { "mData": "id", "sWidth": "5%", "bSortable": false},
+                        { "mData": "name", "sWidth": "50%"},
+                        { "mData": "position", "sWidth": "10%"},                        
+                        { "mData": "team", "sWidth": "10%"},
+                        { "mData": "age", "sWidth": "10%"}
+                    ]
+                });
+                ActivatePopOver('drafted_search_help','If you want to search for a quarterback (QB) whos first name is Tom (Tom) and is on Houston (HOU) and was draft in 2014 (2014) you can search for all of these terms by entering spaces such as "QB Tom HOU 2014". Criteria order and capitalization do not matter.');
+            }
+            function RefreshTeamRosterTable() {
+                //_building_team_roster_table_flag = true;
+                team_roster_table.ajax.reload(null,false);
             } 
 
             function GetImportantStartupData() {
@@ -614,6 +672,7 @@
                 RefreshFreeAgentsTable();
                 RefreshWatchTable();
                 RefreshDraftResultsTable();
+                RefreshTeamRosterTable();
                 UpdateRecentPicks();
                 UpdateDraftStatusBanner();
             }
@@ -679,6 +738,7 @@
             function ShowConfirmDraftModal() {
                 $('#confirm_draft_modal').modal('show');
             }
+            
             function UPDATE() {
                 alert("NOTHING CONFIGURED");
             }
@@ -815,7 +875,32 @@
                                 </div>
                             </div>
                         </div>
-                    </div>                   
+                    </div> 
+                    <div class="panel-group" id="accordion4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion4" href="#collapseFour">Team Roster</a>
+                                </h4>
+                            </div>
+                            <div id="collapseFour" class="panel-collapse collapse in">
+                                <div class="panel-body no_padding">   
+                                    <table id="team_roster_table" class="table table-bordered table-really-condensed dark-header">
+                                        <thead>
+                                            <tr>
+                                                <th class="center">&nbsp;&nbsp;<i class="glyphicon glyphicon-user"></i></th>
+                                                <th class="center">Name</th>
+                                                <th class="center">Pos</th>
+                                                <th class="center">Team</th>
+                                                <th class="center">Age</th>
+                                            </tr>
+                                        </thead>                                       
+                                        <tbody id="tbody_team_roster_table"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>            
         </div>
