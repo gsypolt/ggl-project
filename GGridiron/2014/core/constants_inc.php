@@ -71,7 +71,6 @@ define(DRAFT_TIMESTAMP_OFFSET,(int)0);
 
 # Pages
 define(LOGIN_PAGE_URL,'login.php');
-define(MAIN_PAGE_URL,'main.php');
 
 # Cookies
 define('COOKIE_LOGIN_TOKEN','login_token');
