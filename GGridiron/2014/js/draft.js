@@ -356,6 +356,29 @@ function Draft () {
     };
     
     // Drafting
+    this.SendNotifications = function (){
+        console.log("SendNotifications() called");
+        var url = '_send_notifications.php';
+        $.ajax({
+            type: "POST",
+            url: url,
+            dataType: "json",
+            data: {},
+            success: function(data){
+                if(!data.success) {
+                    Draft.showDraftingErrorModal("ERROR SENDING NOTIFICATIONS");
+                }
+                console.log("SendNotifications() complete");
+            },
+            error: function(data) {
+                console.log("SendNotifications() ***ERROR***");
+                Draft.showDraftingErrorModal("ERROR SENDING NOTIFICATIONS");
+                console.log("SendNotifications() complete");
+            },
+            async: false,
+            cache: false
+        });
+    };
     this.draftPlayerUsingMfl = function (player_id,on_success_callback){
         console.log("draftPlayerUsingMfl() called");
         var iframe = $('#draft_frame');
@@ -374,6 +397,7 @@ function Draft () {
                     iframe.attr('src', mfl_url);
                     document.getElementById('draft_frame').onload = function() {
                         if(Draft.updateFromMflDraftResults()) {
+                            Draft.SendNotifications();
                             Draft.hideDraftingModal();
                             Draft.showDraftingSuccessModal();
                         } else {
