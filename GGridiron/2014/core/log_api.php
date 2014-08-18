@@ -17,12 +17,18 @@ function log_open_file() {
     global $logging_fp;
     $max_log_file_size = LOG_FILE_MAX_SIZE_MB*(1024*1024); // Kb to bytes
     $lfile = LOG_FILE_PATH.LOG_FILENAME;
+    
     if (file_exists($lfile)) {
         if (filesize($lfile) > $max_log_file_size) {
             rename($lfile, $lfile.'.'.time()) or exit("can't rename file!");
         }
     }
-    $logging_fp = fopen($lfile, 'a') or exit("Can't open $lfile!");
+    //$logging_fp = fopen($lfile, 'a') or exit("Can't open $lfile!");
+    $logging_fp = fopen($lfile, 'a');
+    if(!$logging_fp) {
+        return false;
+    }
+    return true;
 }
 
 function log_close_file() {
@@ -35,7 +41,9 @@ function log_write_message($message) {
     
     // if file pointer doesn't exist, then open log file
     if (!is_resource($logging_fp)) {
-        log_open_file();
+        if(!log_open_file()) {
+            return;
+        }
     }
     // define script name
     $script_name = pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);

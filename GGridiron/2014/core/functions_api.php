@@ -287,7 +287,7 @@
         return db_get_result_array();
     }  
     function get_player_scores($player_ids = null) {
-        log_info("get_roster_players() function called");
+        log_info("get_player_scores() function called");
         
         # Set Table Name
         $table_name = PLAYER_SCORES_TABLE;
@@ -325,7 +325,7 @@
             die($error_message);
         }    
         
-        log_info("get_roster_players() function complete");
+        log_info("get_player_scores() function complete");
         
         return db_get_result_array();
     }
