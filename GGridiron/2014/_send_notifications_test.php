@@ -2,43 +2,21 @@
 require_once 'core.php';
 authentication_handle_login();
 
-$this_franchise_id = authentication_get_current_franchise();
-if($this_franchise_id <= 0) {
-    json_print_error("Invalid franchises"); 
-    exit;
-}
-
-$last_pick_details = get_current_pick_details(-1);
-
-if($this_franchise_id != (int)$last_pick_details['franchise_id']) {
-    json_print_error("Could not send notifications since you are not the drafting franchises"); 
-    exit;
-}
-$current_pick_details = get_current_pick_details();
 $franchises = GetFranchises();
-$drafted_franchise = get_franchise($last_pick_details['franchise_id']);
-$drafted_player = get_players(array($last_pick_details['player_id']))[0];
-$drafted_player_name = $drafted_player['first_name'].' '.$drafted_player['last_name'].', '.$drafted_player['position'].', '.$drafted_player['team'];
-$drafted_franchise_name = $drafted_franchise['name'];
 
-$email_notification_to_address_string = '';
+$to_email_string = '';
+$to_text_string = '';
 foreach($franchises as $franchise) {
-    $email_notification_to_address_string .= $franchise['email_address'].',';
+    $to_email_string .= $franchise['email_address'].',';
+    $to_text_string .= $franchise['phone_address'].',';
 }
 
-$text_notification_to_address = "";
-foreach($franchises as $franchise) {
-    if((int)$franchise['franchise_id'] == (int)$current_pick_details['franchise_id']) {
-        $text_notification_to_address = $franchise['phone_address'];
-    }
-}
-
-if(!SendEmailNotifications($email_notification_to_address_string,$drafted_franchise_name,$drafted_player_name)) {
+if(!SendTestMessage($to_email_string)) {
     json_print_error("Could not send email notifications"); 
     exit;
 }
-if(!SendOnDeckText($text_notification_to_address,$drafted_franchise_name,$drafted_player_name)) {
-    json_print_error("Could not send text notifications");   
+if(!SendTestMessage($to_text_string)) {
+    json_print_error("Could not send text notifications"); 
     exit;
 }
 
@@ -46,27 +24,10 @@ json_print_success();
 exit;
 
 function SendTestMessage($to_address_string) {
-    echo($to_address_string.'<hr>');
+    //echo($to_address_string.'<hr>');
     $title = "This is a Test!";
     $message = "This is a test message.";
     $headers = "From: DRAFTER@goallinegridiron.com\r\n";
-    return mail($to_address_string, $title, $message, $headers);
-}
-
-
-function SendEmailNotifications($to_address_string, $franchises_name, $drafted_player_name) {
-    $title = "Draft Selection Made!";
-    $message = "$franchises_name have drafted $drafted_player_name";
-    $headers = "From: DRAFTER@goallinegridiron.com\r\n";
-    log_info("Emails - To: ".$to_address_string.", Title: ".$title.", Message: ".$message);
-    return mail($to_address_string, $title, $message, $headers);
-}
-
-function SendOnDeckText($to_address_string, $franchises_name, $drafted_player_name) {
-    $title = "Draft Selection Made!";
-    $message = "$franchises_name have drafted $drafted_player_name.  YOU ARE ON THE CLOCK!";
-    $headers = "From: DRAFTER@goallinegridiron.com\r\n";
-    log_info("SENDING TEXTS - To: ".$to_address_string.", Title: ".$title.", Message: ".$message);
     return mail($to_address_string, $title, $message, $headers);
 }
 
