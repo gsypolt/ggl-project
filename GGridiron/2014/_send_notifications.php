@@ -5,12 +5,14 @@ authentication_handle_login();
 $this_franchise_id = authentication_get_current_franchise();
 if($this_franchise_id <= 0) {
     json_print_error("Invalid franchises"); 
+    exit;
 }
 
 $last_pick_details = get_current_pick_details(-1);
 
 if($this_franchise_id != (int)$last_pick_details['franchise_id']) {
     json_print_error("Could not send notifications since you are not the drafting franchises"); 
+    exit;
 }
 $current_pick_details = get_current_pick_details();
 $franchises = GetFranchises();
