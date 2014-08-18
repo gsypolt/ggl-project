@@ -45,15 +45,6 @@ if(!SendOnDeckText($text_notification_to_address,$drafted_franchise_name,$drafte
 json_print_success();
 exit;
 
-function SendTestMessage($to_address_string) {
-    echo($to_address_string.'<hr>');
-    $title = "This is a Test!";
-    $message = "This is a test message.";
-    $headers = "From: DRAFTER@goallinegridiron.com\r\n";
-    return mail($to_address_string, $title, $message, $headers);
-}
-
-
 function SendEmailNotifications($to_address_string, $franchises_name, $drafted_player_name) {
     $title = "Draft Selection Made!";
     $message = "$franchises_name have drafted $drafted_player_name";
