@@ -17,7 +17,8 @@ if($this_franchise_id != (int)$last_pick_details['franchise_id']) {
 $current_pick_details = get_current_pick_details();
 $franchises = GetFranchises();
 $drafted_franchise = get_franchise($last_pick_details['franchise_id']);
-$drafted_player = get_players(array($last_pick_details['player_id']))[0];
+$drafted_player_array = get_players(array($last_pick_details['player_id']));
+$drafted_player = $drafted_player_array[0];
 $drafted_player_name = $drafted_player['first_name'].' '.$drafted_player['last_name'].', '.$drafted_player['position'].', '.$drafted_player['team'];
 $drafted_franchise_name = $drafted_franchise['name'];
 
