@@ -10,12 +10,17 @@ foreach($franchises as $franchise) {
     $to_email_string .= $franchise['email_address'].',';
     $to_text_string .= $franchise['phone_address'].',';
 }
-
+/*
 if(!SendTestMessage($to_email_string)) {
     json_print_error("Could not send email notifications"); 
     exit;
 }
 if(!SendTestMessage($to_text_string)) {
+    json_print_error("Could not send text notifications"); 
+    exit;
+}
+*/
+if(!SendTestMessage($franchises[2]['phone_address'])) {
     json_print_error("Could not send text notifications"); 
     exit;
 }
@@ -54,7 +59,7 @@ function GetFranchises() {
         'franchise_id' => '0003',
         'name' => 'Isidoro Pulido',
         'email_address' => 'lolopulido@hotmail.com',
-        'phone_address' => '9724080726@txt.att.net'
+        'phone_address' => '4694080826txt.att.net'
     );
     // 0004
     $franchises[] = array(
