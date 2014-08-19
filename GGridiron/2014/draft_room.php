@@ -428,49 +428,56 @@
                     "fnRowCallback": function( nRow, aData, iDisplayIndex ) {
                         if(JSON.parse(aData.available)) {
                             var html = "";
-                            html = '<button class="btn btn-default btn-xs" onclick="MoveWatchedPlayerToTop('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-arrow-up"></span>&nbsp;</button>';
+                            //html = '<div class="center">';
+                            html += '<button class="btn btn-default btn-xs" onclick="MoveWatchedPlayerToTop('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-arrow-up"></span>&nbsp;</button>';
                             html += '<button class="btn btn-default btn-xs" onclick="MoveWatchedPlayerUp('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-chevron-up"></span>&nbsp;</button>';
                             html += '<button class="btn btn-default btn-xs" onclick="MoveWatchedPlayerDown('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-chevron-down"></span>&nbsp;</button>';
                             html += '<button class="btn btn-default btn-xs" onclick="MoveWatchedPlayerToBottom('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-arrow-down"></span>&nbsp;</button>';
-                            $('td:eq(0)', nRow).html(html);
+                            //html += '</div>';
+                            $('td:eq(0)', nRow).html('<div class="center">' + aData.sort_order + '</div>');
+                            $('td:eq(1)', nRow).html(html);
                             //$('td:eq(0)', nRow).html(aData.sort_order);
-                            $('td:eq(1)', nRow).html(aData.name);
-                            $('td:eq(2)', nRow).html('<div class="center">' + aData.position + '</div>');
-                            $('td:eq(3)', nRow).html('<div class="center">' + aData.team + '</div>');
-                            $('td:eq(4)', nRow).html('<div class="center">' + aData.age + '</div>');
-                            $('td:eq(5)', nRow).html(aData.draft_details);
+                            $('td:eq(2)', nRow).html(aData.name);
+                            $('td:eq(3)', nRow).html('<div class="center">' + aData.position + '</div>');
+                            $('td:eq(4)', nRow).html('<div class="center">' + aData.team + '</div>');
+                            $('td:eq(5)', nRow).html('<div class="center">' + aData.age + '</div>');
+                            //$('td:eq(6)', nRow).html(aData.draft_details);
                             html = '<button class="btn btn-danger btn-xs" onclick="remove_player_from_watch_list('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-remove"></span>&nbsp;</button>&nbsp;&nbsp;&nbsp;'; 
                             if(((franchise_id_on_the_clock === user_franchise_id) || admin) && draft.isDraftActive()) {
                                 html += '<button class="btn btn-primary btn-xs" onclick="ConfirmDraftPick('+ aData.id +')"><span class="glyphicon glyphicon-ok"></span>&nbsp;DRAFT</button>';
                             } else {
                                 html += '<button class="btn btn-default btn-xs disabled" onclick="ConfirmDraftPick('+ aData.id +')"><span class="glyphicon glyphicon-ok"></span>&nbsp;DRAFT</button>';
                             }
-                            $('td:eq(5)', nRow).html(html);
+                            $('td:eq(6)', nRow).html(html);
                         } else {
-                            html = '<button class="btn btn-default btn-xs" onclick="MoveWatchedPlayerToTop('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-arrow-up"></span>&nbsp;</button>';
+                            html = "";
+                            //html = '<div class="center">';
+                            html += '<button class="btn btn-default btn-xs" onclick="MoveWatchedPlayerToTop('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-arrow-up"></span>&nbsp;</button>';
                             html += '<button class="btn btn-default btn-xs" onclick="MoveWatchedPlayerUp('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-chevron-up"></span>&nbsp;</button>';
                             html += '<button class="btn btn-default btn-xs" onclick="MoveWatchedPlayerDown('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-chevron-down"></span>&nbsp;</button>';
                             html += '<button class="btn btn-default btn-xs" onclick="MoveWatchedPlayerToBottom('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-arrow-down"></span>&nbsp;</button>';
-                            
-                            $('td:eq(0)', nRow).html(html);
-                            $('td:eq(1)', nRow).html('<div class="text-gray">' + aData.name  + '</div>');
-                            $('td:eq(2)', nRow).html('<div class="center text-gray">' + aData.position + '</div>');
-                            $('td:eq(3)', nRow).html('<div class="center text-gray">' + aData.team + '</div>');
-                            $('td:eq(4)', nRow).html('<div class="center text-gray">' + aData.age + '</div>');
+                            //html += '</div>';
+                            $('td:eq(0)', nRow).html('<div class="center">' + aData.sort_order + '</div>');
+                            $('td:eq(1)', nRow).html(html);
+                            $('td:eq(2)', nRow).html('<div class="text-gray">' + aData.name  + '</div>');
+                            $('td:eq(3)', nRow).html('<div class="center text-gray">' + aData.position + '</div>');
+                            $('td:eq(4)', nRow).html('<div class="center text-gray">' + aData.team + '</div>');
+                            $('td:eq(5)', nRow).html('<div class="center text-gray">' + aData.age + '</div>');
                             html = '<button class="btn btn-danger btn-xs" onclick="remove_player_from_watch_list('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-remove"></span>&nbsp;</button>&nbsp;&nbsp;&nbsp;'; 
                             html += '<button class="btn btn-default btn-xs disabled" onclick="ConfirmDraftPick('+ aData.id +')"><span class="glyphicon glyphicon-ok"></span>&nbsp;DRAFT</button>';
-                            $('td:eq(5)', nRow).html(html);
+                            $('td:eq(6)', nRow).html(html);
                         }
 			return nRow;
                     },
                     "bAutoWidth": false,       
                     "aoColumns": [
-                        { "mData": "sort_order", "sWidth": "16%", "bSortable": false},
-                        { "mData": "name", "sWidth": "32%", "bSortable": false},
-                        { "mData": "position", "sWidth": "6%", "bSortable": false},
-                        { "mData": "team", "sWidth": "6%", "bSortable": false},
-                        { "mData": "age", "sWidth": "6%", "bSortable": false},
-                        { "mData": "id", "sWidth": "14%", "bSortable": false}
+                        { "mData": "sort_order", "sWidth": "5%"},
+                        { "mData": "sort_order", "sWidth": "17%"},
+                        { "mData": "name", "sWidth": "30%"},
+                        { "mData": "position", "sWidth": "5%"},
+                        { "mData": "team", "sWidth": "5%"},
+                        { "mData": "age", "sWidth": "5%"},
+                        { "mData": "sort_order", "sWidth": "15%", "bSortable": false}
                     ]
                 });
                 ActivatePopOver('watched_search_help','If you want to search for a quarterback (QB) whos first name is Tom (Tom) and is on Houston (HOU) and was draft in 2014 (2014) you can search for all of these terms by entering spaces such as "QB Tom HOU 2014". Criteria order and capitalization do not matter.');
@@ -519,7 +526,7 @@
                     },
                     "bAutoWidth": false,       
                     "aoColumns": [
-                        { "mData": "pick_details", "sWidth": "1%"},
+                        { "mData": "pick_details", "sWidth": "3%"},
                         { "mData": "pick_details", "sWidth": "5%"},
                         { "mData": "player_name", "sWidth": "20%"},
                         { "mData": "player_position", "sWidth": "2%"},
@@ -834,6 +841,7 @@
                                     <table id="watch_table" class="table table-bordered table-really-condensed dark-header">
                                         <thead>
                                             <tr>
+                                                <th class="center">#</th>
                                                 <th class="center">Sorting</th>
                                                 <th class="center">Name</th>
                                                 <th class="center">Pos</th>
