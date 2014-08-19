@@ -85,7 +85,7 @@ function GetFranchises() {
         'franchise_id' => '0003',
         'name' => 'Isidoro Pulido',
         'email_address' => 'lolopulido@hotmail.com',
-        'phone_address' => '4694080826txt.att.net'
+        'phone_address' => '4694080726@txt.att.net'
     );
     // 0004
     $franchises[] = array(
