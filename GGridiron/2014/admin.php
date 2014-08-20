@@ -159,12 +159,14 @@
                         <td><div id="free_agents_last_update"></div></td>
                         <td><div id="free_agents_update_rate"></td>
                     </tr>
+                    <!--
                     <tr>
                         <td>LEAGUE</td>
                         <td><button class="btn btn-primary" onclick="league.updateLeague()"><span class="glyphicon glyphicon-star"></span> UPDATE</button></td>
                         <td><div id="league_last_update"></div></td>
                         <td><div id="league_update_rate"></td>
                     </tr>
+                    -->
                     <tr>
                         <td>INJURIES</td>
                         <td><button class="btn btn-primary" onclick="league.updateInjuries()"><span class="glyphicon glyphicon-star"></span> UPDATE</button></td>
@@ -177,12 +179,13 @@
                         <td><div id="players_last_update"></div></td>
                         <td><div id="players_update_rate"></td>
                     </tr>
-                    <tr>
+                    <!--<tr>
                         <td>PLAYER SCORES</td>
                         <td><button class="btn btn-primary" onclick="league.updatePlayerScores()"><span class="glyphicon glyphicon-star"></span> UPDATE</button></td>
                         <td><div id="player_scores_last_update"></div></td>
                         <td><div id="player_scores_update_rate"></td>
                     </tr>
+                    -->
                     <tr>
                         <td>ROSTER PLAYERS</td>
                         <td><button class="btn btn-primary" onclick="league.updateRosterPlayers()"><span class="glyphicon glyphicon-star"></span> UPDATE</button></td>
