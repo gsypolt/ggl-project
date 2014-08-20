@@ -11,7 +11,7 @@ if($this_franchise_id <= 0) {
 $last_pick_details = get_current_pick_details(-1);
 
 if($this_franchise_id != (int)$last_pick_details['franchise_id']) {
-    if(!is_franchise_commish($franchise_id) && REQUIRE_COMMISH_PRIV) {
+    if(!is_franchise_commish($this_franchise_id) && REQUIRE_COMMISH_PRIV) {
         json_print_error("Could not send drfat pick notifications since you are not a commish and you are not the drafting franchises"); 
         exit;
     }

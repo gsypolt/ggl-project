@@ -8,7 +8,7 @@ if($this_franchise_id <= 0) {
     exit;
 }
 
-if(!is_franchise_commish($franchise_id) && REQUIRE_COMMISH_PRIV) {
+if(!is_franchise_commish($this_franchise_id) && REQUIRE_COMMISH_PRIV) {
     json_print_error("Could not send draft stop notifications since you are not a commish"); 
     exit;
 }
