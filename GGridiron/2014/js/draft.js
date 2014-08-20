@@ -234,8 +234,11 @@ function Draft () {
             success: function(data){
                 if(!data.success) {
                     Draft.showDraftingErrorModal("Unable to start the Offline Draft");
+                    console.log("startOfflineDraft() success");
+                } else {
+                    Draft.SendDraftStartNotifications();
                 }
-                console.log("startOfflineDraft() success");
+                console.log("startOfflineDraft() error");
             },
             error: function() {
                 Draft.showDraftingErrorModal("Error while trying to start the Offline Draft");
@@ -256,8 +259,11 @@ function Draft () {
             success: function(data){
                 if(!data.success) {
                     Draft.showDraftingErrorModal("Unable to stop the Offline Draft");
+                    console.log("stopOfflineDraft() success");
+                } else {
+                    Draft.SendDraftStopNotifications();
                 }
-                console.log("stopOfflineDraft() success");
+                console.log("stopOfflineDraft() error");
             },
             error: function() {
                 Draft.showDraftingErrorModal("Error while trying to stop the Offline Draft");
@@ -356,9 +362,9 @@ function Draft () {
     };
     
     // Drafting
-    this.SendNotifications = function (){
-        console.log("SendNotifications() called");
-        var url = '_send_notifications.php';
+    this.SendDraftStartNotifications = function (){
+        console.log("SendDraftStartNotifications() called");
+        var url = '_send_draft_start_notification.php';
         $.ajax({
             type: "POST",
             url: url,
@@ -366,14 +372,60 @@ function Draft () {
             data: {},
             success: function(data){
                 if(!data.success) {
-                    Draft.showDraftingErrorModal("ERROR SENDING NOTIFICATIONS");
+                    Draft.showDraftingErrorModal(data.error);
                 }
-                console.log("SendNotifications() complete");
+                console.log("SendDraftStartNotifications() complete");
             },
             error: function(data) {
-                console.log("SendNotifications() ***ERROR***");
+                console.log("SendDraftStartNotifications() ***ERROR***");
                 Draft.showDraftingErrorModal("ERROR SENDING NOTIFICATIONS");
-                console.log("SendNotifications() complete");
+                console.log("SendDraftStartNotifications() complete");
+            },
+            async: false,
+            cache: false
+        });
+    };
+    this.SendDraftStopNotifications = function (){
+        console.log("SendDraftStopNotifications() called");
+        var url = '_send_draft_stop_notification.php';
+        $.ajax({
+            type: "POST",
+            url: url,
+            dataType: "json",
+            data: {},
+            success: function(data){
+                if(!data.success) {
+                    Draft.showDraftingErrorModal(data.error);
+                }
+                console.log("SendDraftStopNotifications() complete");
+            },
+            error: function(data) {
+                console.log("SendDraftStopNotifications() ***ERROR***");
+                Draft.showDraftingErrorModal("ERROR SENDING NOTIFICATIONS");
+                console.log("SendDraftStopNotifications() complete");
+            },
+            async: false,
+            cache: false
+        });
+    };
+    this.SendDraftPickNotifications = function (){
+        console.log("SendDraftPickNotifications() called");
+        var url = '_send_draft_pick_notification.php';
+        $.ajax({
+            type: "POST",
+            url: url,
+            dataType: "json",
+            data: {},
+            success: function(data){
+                if(!data.success) {
+                    Draft.showDraftingErrorModal(data.error);
+                }
+                console.log("SendDraftPickNotifications() complete");
+            },
+            error: function(data) {
+                console.log("SendDraftPickNotifications() ***ERROR***");
+                Draft.showDraftingErrorModal("ERROR SENDING NOTIFICATIONS");
+                console.log("SendDraftPickNotifications() complete");
             },
             async: false,
             cache: false
@@ -397,7 +449,7 @@ function Draft () {
                     iframe.attr('src', mfl_url);
                     document.getElementById('draft_frame').onload = function() {
                         if(Draft.updateFromMflDraftResults()) {
-                            Draft.SendNotifications();
+                            Draft.SendDraftPickNotifications();
                             Draft.hideDraftingModal();
                             Draft.showDraftingSuccessModal();
                         } else {
@@ -435,6 +487,7 @@ function Draft () {
             },            
             success: function(data){
                 if(data.success) {
+                   Draft.SendDraftPickNotifications();
                    Draft.updateOnTheClockData();                   
                    Draft.hideDraftingModal();
                    Draft.showDraftingSuccessModal(); 
