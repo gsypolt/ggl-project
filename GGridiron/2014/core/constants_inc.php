@@ -4,11 +4,35 @@
 * @author Gregory A. Smyth
 */
 
+# Server or local setting
+$SERVER_MODE_ENABLED = false;
+
 # Configurable Details
 define('MFL_YEAR','2014');
 define('MFL_LEAGUE_ID','44111');
-define('HTDOCS_FOLDER','/ggl-project/GGridiron/2014');
-define(DRAFT_START_DATE, '2014-08-22 20:00:00');
+define('DRAFT_START_DATE', '2014-08-22 20:00:00');
+define('SEND_NOTIFICATION_EMAILS', true);
+define('SEND_NOTIFICATION_TEXTS', true);
+define('REQUIRE_AUTHENTICATION', true);
+define('REQUIRE_COMMISH_PRIV', true);
+
+if($SERVER_MODE_ENABLED) {
+    # Local Server Settings
+    define('MYSQL_HOST','ggridiron2.db.11749711.hostedresource.com');
+    define('MYSQL_USERNAME','ggridiron2');
+    define('MYSQL_PASSWORD','gg!QAZ1qaz');
+    define('MYSQL_DATABASE','ggridiron2');
+    define('MYSQL_CHARSET', 'utf8');
+    define('HTDOCS_FOLDER','/2014');
+} else {
+    # Remote Server Settings
+    define('MYSQL_HOST','127.0.0.1');
+    define('MYSQL_USERNAME','admin');
+    define('MYSQL_PASSWORD','admin');
+    define('MYSQL_DATABASE','mfl_2014');
+    define('MYSQL_CHARSET', 'utf8');
+    define('HTDOCS_FOLDER','/ggl/ggl-project/GGridiron/2014');
+}
 
 # Folders and Paths
 $DOCUMENT_ROOT = $_SERVER['DOCUMENT_ROOT'];
@@ -18,31 +42,17 @@ $WEB_PATH = str_replace($DOCUMENT_ROOT, "", dirname($PHP_SELF));
 $WEB_ROOT = ltrim($WEB_PATH,'/');
 define('WEB_ROOT',$WEB_ROOT);
 
-# Server MYSQL
-//define('MYSQL_HOST','ggridiron2.db.11749711.hostedresource.com');
-//define('MYSQL_USERNAME','ggridiron2');
-//define('MYSQL_PASSWORD','gg!QAZ1qaz');
-//define('MYSQL_DATABASE','ggridiron2');
-//define('MYSQL_CHARSET', 'utf8');
-
-# Local MYSQL
-define('MYSQL_HOST','127.0.0.1');
-define('MYSQL_USERNAME','admin');
-define('MYSQL_PASSWORD','admin');
-define('MYSQL_DATABASE','mfl_2014');
-define('MYSQL_CHARSET', 'utf8');
-
 # Log
 define('LOG_FILENAME','log.txt');
 define('LOG_FILE_PATH', $MAIN_FILE_PATH.'/log/');
 define('LOG_FILE_MAX_SIZE_MB', 25);
+define('LOG_SPECIAL_MESSAGES', true);
 define('LOG_ERROR_MESSAGES', true);
 define('LOG_INFO_MESSAGES', false);
 define('LOG_SECURITY_MESSAGES', true);
 
 # Initialization file
 define('INITIALIZATION_FILENAME', 'initialized');
-
 
 # Tables
 define(ADMIN_HEARTBEAT_TABLE,'admin_heartbeat');
@@ -79,15 +89,9 @@ define('COOKIE_EXPIRATION_TIME', 31536000); //1 year
 define('MFL_LOGIN_TOKEN','USER_ID'); // For MFL
 define('MFL_MAIN_COOKIE_URL','myfantasyleague.com'); // For MFL
 
-
 # Sessions
 define('SESSION_LOGIN_TOKEN','login_token');
 define('SESSION_LOGIN_FRANCHISE_ID','login_franchise_id');
-
-# Authentication
-define('REQUIRE_AUTHENTICATION', true);
-define('REQUIRE_COMMISH_PRIV', true);
-
 
 # Data Sets
 define('LEAGUE_DATA_SET','LEAGUE');

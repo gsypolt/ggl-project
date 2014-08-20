@@ -8,6 +8,7 @@ $logging_fp = false;
 $logging_last_error_message = "None";
 $logging_last_info_message = "None";
 $logging_last_security_message = "None";
+$logging_last_special_message = "None";
 
 function log_create_directories() {
     is_dir(LOG_FILE_PATH) || mkdir(LOG_FILE_PATH);
@@ -57,6 +58,15 @@ function log_write_message($message) {
 
     if (!is_resource($logging_fp)) {
         $this->lclose();
+    }
+}
+
+function log_special($message) {
+    global $logging_last_special_message;
+    if(LOG_SPECIAL_MESSAGES) {
+        $message_to_write = "**SPECIAL** - ".$message;
+        $logging_last_special_message = $message;
+        log_write_message($message_to_write);
     }
 }
 
