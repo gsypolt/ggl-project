@@ -2769,8 +2769,9 @@
         $drafted_franchise_name = $drafted_franchise['name'];
 
         $title = "A draft selection has been made!";
+        $title_on_the_clock = "You are on the clock!";
         $message = "The $drafted_franchise_name have drafted $drafted_player_name.";
-        $message_on_the_clock = "The $drafted_franchise_name have drafted $drafted_player_name.  You are now on the clock!  Please select a player to draft or post on facebook when you will be able to make a selection!";
+        $message_on_the_clock = "The $drafted_franchise_name have drafted $drafted_player_name.  You are now on the clock!";
         $headers = "From: DRAFTER@goallinegridiron.com\r\n";
 
         $franchises = GetNotificationFranchises();
@@ -2801,7 +2802,7 @@
             log_special("SendDraftPickNotifications - SEND_NOTIFICATION_EMAILS = false");
         }
         if(SEND_NOTIFICATION_TEXTS) {
-            $text_success = mail($text_to_address_string, $title, $message_on_the_clock, $headers);
+            $text_success = mail($text_to_address_string, $title_on_the_clock, $message_on_the_clock, $headers);
             log_special("SendDraftPickNotifications - Trying to send Texts...");
             if($text_success) {
                 log_special("SendDraftPickNotifications - Text sent successfully!");
