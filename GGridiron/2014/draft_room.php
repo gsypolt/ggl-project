@@ -25,6 +25,7 @@
         <script type="text/javascript" src="js/addons.js"></script>
         <script type="text/javascript" src="js/globals.js"></script>
         <script type="text/javascript" src="js/draft.js"></script>
+        <script type="text/javascript" src="js/league.js"></script>
         
         <style>       
             @font-face {
@@ -258,6 +259,7 @@
         
         <script type="text/javascript">
             var draft = null;
+            var league = null;
             
             var TO_DRAFT_PLAYER_ID = 0;
             
@@ -284,6 +286,7 @@
             $(document).ready(function() {
                 AddConfirmDraftPickModal(); 
                 draft = new Draft();
+                league = new League();
                 DoStartUp();
             });
             function UpdateDraftStatusBanner() {
