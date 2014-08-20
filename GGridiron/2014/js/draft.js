@@ -449,6 +449,7 @@ function Draft () {
                     iframe.attr('src', mfl_url);
                     document.getElementById('draft_frame').onload = function() {
                         if(Draft.updateFromMflDraftResults()) {
+                            
                             Draft.SendDraftPickNotifications();
                             Draft.hideDraftingModal();
                             Draft.showDraftingSuccessModal();
@@ -746,6 +747,7 @@ function Draft () {
         });
         return return_data;
     };
+    
     //Initialization
     this.init();
 }

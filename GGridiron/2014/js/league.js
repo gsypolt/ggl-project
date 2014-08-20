@@ -114,7 +114,7 @@ function League () {
             error: function() {
                  console.log("updateRosterPlayers() ***ERROR***");
             },
-            async: true,
+            async: false,
             cache: false
         });
     };

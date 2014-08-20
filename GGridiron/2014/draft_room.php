@@ -675,6 +675,7 @@
             }
             
             function UpdateEverything() {
+                league.updateRosterPlayers();
                 UpdateOnTheClock();
                 RefreshFreeAgentsTable();
                 RefreshWatchTable();
