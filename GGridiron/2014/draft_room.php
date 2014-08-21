@@ -431,12 +431,16 @@
                     "fnRowCallback": function( nRow, aData, iDisplayIndex ) {
                         if(JSON.parse(aData.available)) {
                             var html = "";
-                            //html = '<div class="center">';
-                            html += '<button class="btn btn-default btn-xs" onclick="MoveWatchedPlayerToTop('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-arrow-up"></span>&nbsp;</button>';
-                            html += '<button class="btn btn-default btn-xs" onclick="MoveWatchedPlayerUp('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-chevron-up"></span>&nbsp;</button>';
-                            html += '<button class="btn btn-default btn-xs" onclick="MoveWatchedPlayerDown('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-chevron-down"></span>&nbsp;</button>';
-                            html += '<button class="btn btn-default btn-xs" onclick="MoveWatchedPlayerToBottom('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-arrow-down"></span>&nbsp;</button>';
-                            //html += '</div>';
+                            html = '<div class="center">';
+                            html += '<img onclick="MoveWatchedPlayerToTop('+ aData.id +')" src="images/arrows/small_up_up_arrow.png"></img>';
+                            html += '<img onclick="MoveWatchedPlayerUp('+ aData.id +')" src="images/arrows/small_up_arrow.png"></img>';
+                            html += '<img onclick="MoveWatchedPlayerDown('+ aData.id +')" src="images/arrows/small_down_arrow.png"></img>';
+                            html += '<img onclick="MoveWatchedPlayerToBottom('+ aData.id +')" src="images/arrows/small_down_down_arrow.png"></img>';
+                            //html += '<button class="btn btn-default btn-xs" onclick="MoveWatchedPlayerToTop('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-arrow-up"></span>&nbsp;</button>';
+                            //html += '<button class="btn btn-default btn-xs" onclick="MoveWatchedPlayerUp('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-chevron-up"></span>&nbsp;</button>';
+                            //html += '<button class="btn btn-default btn-xs" onclick="MoveWatchedPlayerDown('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-chevron-down"></span>&nbsp;</button>';
+                            //html += '<button class="btn btn-default btn-xs" onclick="MoveWatchedPlayerToBottom('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-arrow-down"></span>&nbsp;</button>';
+                            html += '</div>';
                             $('td:eq(0)', nRow).html('<div class="center">' + aData.sort_order + '</div>');
                             $('td:eq(1)', nRow).html(html);
                             //$('td:eq(0)', nRow).html(aData.sort_order);
@@ -444,22 +448,26 @@
                             $('td:eq(3)', nRow).html('<div class="center">' + aData.position + '</div>');
                             $('td:eq(4)', nRow).html('<div class="center">' + aData.team + '</div>');
                             $('td:eq(5)', nRow).html('<div class="center">' + aData.age + '</div>');
-                            //$('td:eq(6)', nRow).html(aData.draft_details);
+                            $('td:eq(6)', nRow).html(aData.draft_details);
                             html = '<button class="btn btn-danger btn-xs" onclick="remove_player_from_watch_list('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-remove"></span>&nbsp;</button>&nbsp;&nbsp;&nbsp;'; 
                             if(((franchise_id_on_the_clock === user_franchise_id) || admin) && draft.isDraftActive()) {
                                 html += '<button class="btn btn-primary btn-xs" onclick="ConfirmDraftPick('+ aData.id +')"><span class="glyphicon glyphicon-ok"></span>&nbsp;DRAFT</button>';
                             } else {
                                 html += '<button class="btn btn-default btn-xs disabled" onclick="ConfirmDraftPick('+ aData.id +')"><span class="glyphicon glyphicon-ok"></span>&nbsp;DRAFT</button>';
                             }
-                            $('td:eq(6)', nRow).html(html);
+                            $('td:eq(7)', nRow).html(html);
                         } else {
                             html = "";
-                            //html = '<div class="center">';
-                            html += '<button class="btn btn-default btn-xs" onclick="MoveWatchedPlayerToTop('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-arrow-up"></span>&nbsp;</button>';
-                            html += '<button class="btn btn-default btn-xs" onclick="MoveWatchedPlayerUp('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-chevron-up"></span>&nbsp;</button>';
-                            html += '<button class="btn btn-default btn-xs" onclick="MoveWatchedPlayerDown('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-chevron-down"></span>&nbsp;</button>';
-                            html += '<button class="btn btn-default btn-xs" onclick="MoveWatchedPlayerToBottom('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-arrow-down"></span>&nbsp;</button>';
-                            //html += '</div>';
+                            html = '<div class="center">';
+                            html += '<img onclick="MoveWatchedPlayerToTop('+ aData.id +')" src="images/arrows/small_up_up_arrow.png"></img>';
+                            html += '<img onclick="MoveWatchedPlayerUp('+ aData.id +')" src="images/arrows/small_up_arrow.png"></img>';
+                            html += '<img onclick="MoveWatchedPlayerDown('+ aData.id +')" src="images/arrows/small_down_arrow.png"></img>';
+                            html += '<img onclick="MoveWatchedPlayerToBottom('+ aData.id +')" src="images/arrows/small_down_down_arrow.png"></img>';
+                            //html += '<button class="btn btn-default btn-xs" onclick="MoveWatchedPlayerToTop('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-arrow-up"></span>&nbsp;</button>';
+                            //html += '<button class="btn btn-default btn-xs" onclick="MoveWatchedPlayerUp('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-chevron-up"></span>&nbsp;</button>';
+                            //html += '<button class="btn btn-default btn-xs" onclick="MoveWatchedPlayerDown('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-chevron-down"></span>&nbsp;</button>';
+                            //html += '<button class="btn btn-default btn-xs" onclick="MoveWatchedPlayerToBottom('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-arrow-down"></span>&nbsp;</button>';
+                            html += '</div>';
                             $('td:eq(0)', nRow).html('<div class="center">' + aData.sort_order + '</div>');
                             $('td:eq(1)', nRow).html(html);
                             $('td:eq(2)', nRow).html('<div class="text-gray">' + aData.name  + '</div>');
@@ -468,18 +476,20 @@
                             $('td:eq(5)', nRow).html('<div class="center text-gray">' + aData.age + '</div>');
                             html = '<button class="btn btn-danger btn-xs" onclick="remove_player_from_watch_list('+ aData.id +')">&nbsp;<span class="glyphicon glyphicon-remove"></span>&nbsp;</button>&nbsp;&nbsp;&nbsp;'; 
                             html += '<button class="btn btn-default btn-xs disabled" onclick="ConfirmDraftPick('+ aData.id +')"><span class="glyphicon glyphicon-ok"></span>&nbsp;DRAFT</button>';
-                            $('td:eq(6)', nRow).html(html);
+                            $('td:eq(6)', nRow).html(aData.draft_details);
+                            $('td:eq(7)', nRow).html(html);                            
                         }
 			return nRow;
                     },
                     "bAutoWidth": false,       
                     "aoColumns": [
-                        { "mData": "sort_order", "sWidth": "5%"},
-                        { "mData": "sort_order", "sWidth": "17%"},
-                        { "mData": "name", "sWidth": "30%"},
+                        { "mData": "sort_order", "sWidth": "3%"},
+                        { "mData": "sort_order", "sWidth": "7%"},
+                        { "mData": "name", "sWidth": "27%"},
                         { "mData": "position", "sWidth": "5%"},
                         { "mData": "team", "sWidth": "5%"},
                         { "mData": "age", "sWidth": "5%"},
+                        { "mData": "draft_details", "sWidth": "13%"},
                         { "mData": "sort_order", "sWidth": "15%", "bSortable": false}
                     ]
                 });
@@ -851,6 +861,7 @@
                                                 <th class="center">Pos</th>
                                                 <th class="center">Team</th>
                                                 <th class="center">Age</th>
+                                                <th class="center">Draft Pick</th>
                                                 <th class="center">Actions</th>
                                             </tr>
                                         </thead>                                       
