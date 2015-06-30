@@ -8,13 +8,13 @@
 $SERVER_MODE_ENABLED = false;
 
 # Configurable Details
-define('MFL_YEAR','2014');
-define('MFL_LEAGUE_ID','44111');
-define('DRAFT_START_DATE', '2014-08-22 20:00:00');
-define('SEND_NOTIFICATION_EMAILS', true);
-define('SEND_NOTIFICATION_TEXTS', true);
-define('REQUIRE_AUTHENTICATION', true);
-define('REQUIRE_COMMISH_PRIV', true);
+define('MFL_YEAR','2015');
+define('MFL_LEAGUE_ID','15280');
+define('DRAFT_START_DATE', '2015-08-01 20:00:00');
+define('SEND_NOTIFICATION_EMAILS', false);
+define('SEND_NOTIFICATION_TEXTS', false);
+define('REQUIRE_AUTHENTICATION', false);
+define('REQUIRE_COMMISH_PRIV', false);
 
 if($SERVER_MODE_ENABLED) {
     # Local Server Settings
@@ -23,15 +23,15 @@ if($SERVER_MODE_ENABLED) {
     define('MYSQL_PASSWORD','gg!QAZ1qaz');
     define('MYSQL_DATABASE','ggridiron2');
     define('MYSQL_CHARSET', 'utf8');
-    define('HTDOCS_FOLDER','/2014');
+    define('HTDOCS_FOLDER','/2015');
 } else {
     # Remote Server Settings
     define('MYSQL_HOST','127.0.0.1');
     define('MYSQL_USERNAME','admin');
     define('MYSQL_PASSWORD','admin');
-    define('MYSQL_DATABASE','mfl_2014');
+    define('MYSQL_DATABASE','mfl_2015');
     define('MYSQL_CHARSET', 'utf8');
-    define('HTDOCS_FOLDER','/ggl/ggl-project/GGridiron/2014');
+    define('HTDOCS_FOLDER','/ggl-project/GGridiron/2015');
 }
 
 # Folders and Paths
