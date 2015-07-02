@@ -46,6 +46,11 @@
             log_error("Initialization Faileds");
             exit;
         }
+        if(!update_draft_settings_db()) {
+            echo json_print_error("Unable to update Draft Settings DB");
+            log_error("Initialization Faileds");
+            exit;
+        }
     }    
     //set_as_initialized();
     log_info("Initialization Complete");

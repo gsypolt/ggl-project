@@ -63,7 +63,12 @@
         if(create_draft_settings_table()) { log_info('SUCCESS'); } 
         else { log_info('**FAILED**'); $fail_count++; }    
         
+        log_info('Creating auto draft settings table');
+        if(create_auto_draft_settings_table()) { log_info('SUCCESS'); } 
+        else { log_info('**FAILED**'); $fail_count++; }
+        
         log_info("create_all_tables complete");
+        
         
         if($fail_count > 0) {
             return false;
@@ -71,7 +76,7 @@
         return true;
     }
     
-    # Create Sinlg Tables
+    # Create Single Tables
     function create_franchise_login_table() {
         # Set table name
         $table_name = FRANCHISE_LOGIN_TABLE;
@@ -574,6 +579,35 @@
         $query .= "live_draft_enabled TINYINT(1) NOT NULL DEFAULT 0, ";
         $query .= "offline_draft_enabled TINYINT(1) NOT NULL DEFAULT 0, ";
         $query .= "offline_draft_start_timestamp TIMESTAMP NOT NULL DEFAULT 0"; 
+        $query .= ")";
+
+        db_query($query);
+
+        # Check for database error
+        if(db_error_message()) {
+            $error_message = "Database error: ".db_error_message();
+            log_error($error_message);
+            die($error_message);
+        }
+        log_info("Created table ".$table_name);
+        return true;
+    }
+    function create_auto_draft_settings_table() {
+        # Set table name
+        $table_name = AUTO_DRAFT_SETTINGS_TABLE;
+
+        # Check if table exists
+        if(db_does_table_exist($table_name)) {
+            log_info("Table ".$table_name." already exists");
+            return true;
+        } else {
+            log_info("Creating table ".$table_name);
+        }   
+        # Create Table
+        $query = "CREATE TABLE IF NOT EXISTS $table_name";
+        $query .= "(";
+        $query .= "id VARCHAR(4) NOT NULL DEFAULT 0,PRIMARY KEY (id), ";
+        $query .= "auto_draft TINYINT(1) NOT NULL DEFAULT 0";
         $query .= ")";
 
         db_query($query);

@@ -13,7 +13,7 @@ define('MFL_LEAGUE_ID','15280');
 define('DRAFT_START_DATE', '2015-08-01 20:00:00');
 define('SEND_NOTIFICATION_EMAILS', false);
 define('SEND_NOTIFICATION_TEXTS', false);
-define('REQUIRE_AUTHENTICATION', false);
+define('REQUIRE_AUTHENTICATION', true);
 define('REQUIRE_COMMISH_PRIV', false);
 
 if($SERVER_MODE_ENABLED) {
@@ -72,6 +72,7 @@ define(FREE_AGENTS_TABLE,'free_agents');
 define(INITIALIZATION_TABLE,'initialization');
 define(WATCHED_PLAYERS_TABLE,'watched_players');
 define(DRAFT_SETTINGS_TABLE,'draft_settings');
+define(AUTO_DRAFT_SETTINGS_TABLE, 'auto_draft_settings');
 
 # Heartbeats
 define(HEARTBEAT_TIMEOUT,5);

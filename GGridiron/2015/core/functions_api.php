@@ -164,6 +164,18 @@
         
         return true;
     }
+    function update_draft_settings_db() {
+        log_info("update_draft_settings_db() function called");    
+        $franchises = get_franchises();
+        
+        foreach($franchises as $key => $franchise):
+            disable_auto_draft($franchise['id']);
+        endforeach;
+            
+        log_info("update_draft_settings_db() function complete");
+        
+        return true;
+    }
     
     # Get Functions
     function get_league() {
@@ -418,7 +430,6 @@
         
         return db_get_result_array();
     }
-    
     function get_draft_settings() {
         log_info("get_draft_settings() function called");
         
@@ -441,6 +452,29 @@
         log_info("get_draft_settings() function complete");
         
         return db_get_single_result();
+    }
+    function get_auto_draft_settings() {
+        log_info("get_auto_draft_settings() function called");
+        
+        # Set Table Name
+        $table_name = AUTO_DRAFT_SETTINGS_TABLE;
+
+        # Build Query
+        $query = "SELECT * FROM $table_name";
+        
+        # Do Query
+        db_query($query);
+
+        # Check for db error
+        if(db_error_message()) {
+            $error_message = "Database error: ".db_error_message();
+            log_error($error_message);
+            die($error_message);
+        }    
+        
+        log_info("get_auto_draft_settings() function complete");
+        
+        return db_get_result_array();
     }
     
     # Heartbeats
@@ -564,14 +598,14 @@
         return false;
     }
     
-    # Draft Settings.
+    # Draft Settings
     function does_draft_settings_exist() {
         log_info("does_draft_settings_exist() function called");
          
         $franchise_id = db_escape_string(trim($franchise_id));
         
         $table_name = DRAFT_SETTINGS_TABLE;
-        $query = "SELECT * FROM $table_name WHERE id='0'";
+        $query = "SELECT * FROM $table_name WHERE id='$franchise_id'";
         $result = db_query($query);
         if(db_error_message()) {
             $error_message = "Database error: ".db_error_message();
@@ -767,6 +801,46 @@
         return true;
     }
         
+    # Auto raft Settings
+    function enable_auto_draft($franchise_id) {
+        log_info("enable_auto_draft() function called");
+        
+        #Set Table Name
+        $table_name = AUTO_DRAFT_SETTINGS_TABLE;
+                
+        $query = "REPLACE INTO $table_name (id,auto_draft) VALUES ('$franchise_id','1')";
+        
+        db_query($query);  
+
+        # Check for db error
+        if(db_error_message()) {
+            $error_message = "Database error: ".db_error_message();
+            log_error($error_message);
+            die($error_message);
+        }    
+        log_info("enable_auto_draft() function complete");
+        return true;      
+    }
+    function disable_auto_draft($franchise_id) {
+        log_info("disable_auto_draft() function called");
+        
+        #Set Table Name
+        $table_name = AUTO_DRAFT_SETTINGS_TABLE;
+                          
+        $query = "REPLACE INTO $table_name (id,auto_draft) VALUES ('$franchise_id','0')";
+        
+        db_query($query);  
+
+        # Check for db error
+        if(db_error_message()) {
+            $error_message = "Database error: ".db_error_message();
+            log_error($error_message);
+            die($error_message);
+        }    
+        log_info("disable_auto_draft() function complete");
+        return true;   
+    }
+    
     ########################
     #  INTERNAL FUNCTIONS  #
     ########################
@@ -2209,7 +2283,6 @@
         return true;
     }
     
-    
     function move_watched_player_to_top($franchise_id,$player_id) {
         log_info("move_watched_player_to_first() function called");
         
@@ -2314,7 +2387,6 @@
 	$age = ($birth < 0) ? ( $t + ($birth * -1) ) : $t - $birth;
 	return floor($age/31536000);
     }
-    
     
     function xml_to_array($xml, $options = array()) {
         $defaults = array(
