@@ -237,7 +237,7 @@ document.getElementsByClassName('menu-item-object-page')[i].firstChild.style.pad
 		<li><a href="#">Hall of Fame</a></li>
 		<li><a href="#">Seasons</a>
 		<ul>
-      <li><a href="http://www57.myfantasyleague.com/2019/home/72440">2019</a></li>
+      			<li><a href="http://www57.myfantasyleague.com/2019/home/72440">2019</a></li>
 			<li><a href="http://www57.myfantasyleague.com/2018/home/72440">2018</a></li>
 			<li><a href="http://www57.myfantasyleague.com/2017/home/72440">2017</a></li>
 			<li><a href="http://www57.myfantasyleague.com/2016/home/25320">2016</a></li>
