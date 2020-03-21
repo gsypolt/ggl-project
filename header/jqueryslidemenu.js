@@ -11,7 +11,7 @@
 // LOCAL OFF MODE 
 // var arrowimages={down:['downarrowclass', 'img/down.gif', 23], right:['rightarrowclass', 'img/right.gif']}
 
-var arrowimages={down:['downarrowclass', 'http://i1088.photobucket.com/albums/i340/4Gdynasty/down.gif'], right:['rightarrowclass', 'http://i1088.photobucket.com/albums/i340/4Gdynasty/right.gif']}
+var arrowimages={down:['downarrowclass', 'https://drive.google.com/uc?export=view&id=1txKUUq1V39YYgxewLspAyVHj71OsPC0M'], right:['rightarrowclass', 'https://drive.google.com/uc?export=view&id=1q1QjZSIxOe4XOmK32I9cEWn1S-jF-2GA']}
 
 
 var jqueryslidemenu={
