@@ -3,6 +3,11 @@
 @import url(../36828.css);
 
 /* ==== NEW NAVIGATION AND BANNER CSS ==== */
+/* Colors 
+#720000 - Alpha Red 
+#013F6E - Bravo Blue
+ 
+*/
 
 #wrapper {
    	position: relative;
@@ -126,7 +131,7 @@ body {
     background-color: #000000;
     background-position:top center;
     background-repeat: repeat;
-    /* padding-top: 40px; */ }
+}
 
 #body_home {
     padding-top:0;  /*removes padding below header on home */ }
@@ -138,11 +143,14 @@ a:link, a:active, a:visited { color:#fff; }
 a:hover {
         color:#fff;
         text-decoration:underline;
-        }
+}
+
 body, td, th, div {
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-size: 12px;
-    font-weight: 300; }
+    font-weight: 300;
+	margin: 0px auto;
+}
 
 
 /* =========================================================================== */
@@ -214,6 +222,13 @@ color: #000;
 table .homepagemodule.report caption span { background-color: #000; }
 table .homepagemodule.report { border: 1px solid #404040; }
 
+table #drop.pickerbox { color: #FFF; }
+table #add.pickerbox { color: #FFF; }
+
+#picker, #drop, #add {
+  color: #FFF;
+}
+
 .homepagemodule.report th { background-color: #333; }
 
 .homepagemodule.report tbody tr {-webkit-border-radius: 36px 12px;}
@@ -240,7 +255,7 @@ table .homepagemodule.report { border: 1px solid #404040; }
     font-size:16px;
    	font-weight: 300;
     text-transform: uppercase;
-    background-color: transparent; /*Testing #333 */
+    background-color: #013F6E; /* GREG 2019 */
     color:#FFFFFF;
     width: auto;
 
@@ -542,9 +557,9 @@ A.mainmenuoff:active {
 
 /* Testing Table Across Entire Site */
 .newposition td, .newposition th {
-	border-top: 5px solid #990000; }
+	border-top: 5px solid #720000; } /* GREG 2019 */
 
-table.report th { background-color: #333; }
+table.report th { background-color: #720000; }
 
 table.report td {
 	border-bottom: 1px dotted #404040;
@@ -552,7 +567,7 @@ table.report td {
 	padding-right: 4px; }
 
 table.report .oddtablerow, table.report .eventablerow {
-	background-color: transparent;
+	background-color: #404040; /* GREG 2019 */
 	color: #FFF; }
 
 table.report td.points { /* Testing table.report td.points */
@@ -607,6 +622,7 @@ color:#E40706;
    padding: 0;
 }
 
+.myfantasyleague_menu { visibility: hidden; position: absolute; }
 .pagefooter { visibility: hidden; }
 .pagefooter table { display: none; }
 
@@ -868,12 +884,12 @@ body#email, td#email, th#email, div#email { color:#ccc; }
 /* Division Images on Home Page > (Tab) Standings */
 
 #division00 {
-	background-color: #990100;
+	background-color: #720000; /* GREG 2019 */
 	width: 992px;
 	height: 50px; }
 
 #division01 {
-	background-color: #000032;
+	background-color: #013F6E; /* GREG 2019 */
 	width: 992px;
 	height: 50px; }
 
@@ -927,6 +943,8 @@ body#email, td#email, th#email, div#email { color:#ccc; }
 /* Free Agent - #free_agents */
 
 /* Weekly Fantasy Points (Filter) Report  */
+
+#draft_warn {display:block;}
 
 #top table.report th { background-color: #333; }
 
