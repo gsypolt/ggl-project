@@ -1,6 +1,6 @@
 <link rel="stylesheet" type="text/css" href="http://www26.myfantasyleague.com/fflnetdynamic2012/36828_use_css.css" />
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
-<script type="text/javascript" src="https://drive.google.com/uc?export=view&id=1A8robd_jR2d8In_WCVzemYFkKXiRUvl7"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+<script type="text/javascript" src="http://yourjavascript.com/4176228112/jqueryslidemenu.js"></script>
 <script type='text/javascript'>
 for(i = 0; i < document.getElementsByClassName('menu-item-object-page').length; i++){
 document.getElementsByClassName('menu-item-object-page')[i].firstChild.style.paddingRight = "0px";}
@@ -11,60 +11,59 @@ document.getElementsByClassName('menu-item-object-page')[i].firstChild.style.pad
 <div id="wrapper">
 <div class="jqueryslidemenu" id="myslidemenu">
 <ul>
-	<li><a href="http://www57.myfantasyleague.com/2019/home/72440">Owner&#39;s Box</a>
+	<li><a href="http://www57.myfantasyleague.com/2020/home/72440">Owner&#39;s Box</a>
 	<ul>
 		<li><a href="#">Franchise Setup</a>
 		<ul>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=50">Owner Setup</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=70">Change Password</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=01">League Franchises</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=50">Owner Setup</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=70">Change Password</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=01">League Franchises</a></li>
 		</ul>
 		</li>
 		<!-- close franchise setup -->
-		<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=07">League Roster</a></li>
-		<li><a href="http://www57.myfantasyleague.com/2019/injury?L=72440">Injury Report</a></li>
-		<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=138">Roster with Stats</a></li>
-		<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=118">Scoring History</a></li>
-		<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=171">Series Records</a></li>
-		<li><a href="http://www57.myfantasyleague.com/2019/fantasy_box_score?L=72440">Box Score</a></li>
-		<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=202">My Trophy Room</a></li>
-		<li><a href="http://www57.myfantasyleague.com/2019/accounting_report?L=72440&amp;TYPE=GRID">League Fees Summary</a></li>
+		<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=07">League Roster</a></li>
+		<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=138">Roster with Stats</a></li>
+		<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=118">Scoring History</a></li>
+		<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=171">Series Records</a></li>
+		<li><a href="http://www57.myfantasyleague.com/2020/fantasy_box_score?L=72440">Box Score</a></li>
+		<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=202">My Trophy Room</a></li>
+		<li><a href="http://www57.myfantasyleague.com/2020/accounting_report?L=72440&amp;TYPE=GRID">League Fees Summary</a></li>
 	</ul>
 	</li>
 	<!-- close my team -->
 	<li><a href="#">GM&#39;s Office</a>
 	<ul>
-		<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=02">Submit Line-up</a></li>
+		<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=02">Submit Line-up</a></li>
 		<li><a href="#">Player Management</a>
 		<ul>
-			<li><a href="http://www57.myfantasyleague.com/2019/player_search?L=72440">Player Search</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/add_drop?L=72440">Add/Drop Player</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=98&amp;F">Taxi Squad</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?O=18&amp;L=72440">IR Player</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?O=178&amp;L=72440">FA Scounting List</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/player_search?L=72440">Player Search</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/add_drop?L=72440">Add/Drop Player</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=98&amp;F">Taxi Squad</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?O=18&amp;L=72440">IR Player</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?O=178&amp;L=72440">FA Scounting List</a></li>
 		</ul>
 		</li>
 		<!-- close player management -->
 		<li><a href="#">Free Agents</a>
 		<ul>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?O=08&amp;CATEGORY=freeagent&amp;L=72440">Available Free Agents</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/free_agents?L=72440">Full Free Agent List</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=117">Top Adds/Drops</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?O=08&amp;CATEGORY=freeagent&amp;L=72440">Available Free Agents</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/free_agents?L=72440">Full Free Agent List</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=117">Top Adds/Drops</a></li>
 		</ul>
 		</li>
 		<!-- close free agents -->
 		<li><a href="#">Trades</a>
-		<ul>                
-			<li><a href="http://www57.myfantasyleague.com/2019/options?O=05&amp;L=72440">Submit Trade</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=133">Trade Bait</a></li>
+		<ul>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?O=05&amp;L=72440">Submit Trade</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=133">Trade Bait</a></li>
 		</ul>
 		</li>
 		<!-- close trades -->
 		<li><a href="#">Transactions</a>
 		<ul>
-			<li><a href="http://www57.myfantasyleague.com/2019/processed_waivers?L=72440">Waiver History</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=03">Latest Transactions</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=119&amp;TYPE=WAIVERS">Waiver Order</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/processed_waivers?L=72440">Waiver History</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=03">Latest Transactions</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=119&amp;TYPE=WAIVERS">Waiver Order</a></li>
 		</ul>
 		</li>
 		<!-- close transactions -->
@@ -73,8 +72,8 @@ document.getElementsByClassName('menu-item-object-page')[i].firstChild.style.pad
 	<!-- close GM's Office -->
 	<li><a href="#">Newsroom</a>
 	<ul>
-		<li><a href="http://www57.myfantasyleague.com/2019/news_articles?MYNEWS=1&amp;L=72440">My Player News</a></li>
-		<li><a href="http://www57.myfantasyleague.com/2019/news_articles?L=72440&amp;PLAYERS=&amp;SOURCE=*&amp;TEAM=*&amp;POSITION=*&amp;DAYS=7">League Player News</a></li>
+		<li><a href="http://www57.myfantasyleague.com/2020/news_articles?MYNEWS=1&amp;L=72440">My Player News</a></li>
+		<li><a href="http://www57.myfantasyleague.com/2020/news_articles?L=72440&amp;PLAYERS=&amp;SOURCE=*&amp;TEAM=*&amp;POSITION=*&amp;DAYS=7">League Player News</a></li>
 		<li><a href="#">NFL News</a>
 		<ul>
 			<li><a href="#">ESPN</a>
@@ -112,38 +111,38 @@ document.getElementsByClassName('menu-item-object-page')[i].firstChild.style.pad
 	<ul>
 		<li><a href="#">Live Scoring</a>
 		<ul>
-			<li><a href="http://www57.myfantasyleague.com/2019/live_scoring_summary?L=72440">Scoring Summary</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/live_scoring?L=72440">Scoring Details</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/fantasy_box_score?L=72440">Box Score</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=118">Scoring History</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/live_scoring_summary?L=72440">Scoring Summary</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/live_scoring?L=72440">Scoring Details</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/fantasy_box_score?L=72440">Box Score</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=118">Scoring History</a></li>
 		</ul>
 		</li>
 		<!-- close live scoring -->
 		<li><a href="#">Research</a>
 		<ul>
-			<li><a href="http://www57.myfantasyleague.com/2019/injury?L=72440">Injury Report</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/depth_chart?L=72440">Fantasy Depth Chart</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=205">Who Should Start</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/pro_schedule?L=72440">2019 NFL Schedule</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/pro_matchup?L=72440">NFL Weekly Match-up</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/nfl_team_stats?L=72440">NFL Team Stats</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=81">NFL Team Player Average</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/injury?L=72440">Injury Report</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/depth_chart?L=72440">Fantasy Depth Chart</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=205">Who Should Start</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/pro_schedule?L=72440">2020 NFL Schedule</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/pro_matchup?L=72440">NFL Weekly Match-up</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/nfl_team_stats?L=72440">NFL Team Stats</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=81">NFL Team Player Average</a></li>
 		</ul>
 		</li>
 		<!-- close Research -->
 		<li><a href="#">Game Review</a>
 		<ul>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=207">Fantasy Preview</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=177">Fantasy Recap</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/weekly?L=72440">Weekly Results</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=207">Fantasy Preview</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=177">Fantasy Recap</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/weekly?L=72440">Weekly Results</a></li>
 		</ul>
 		</li>
 		<!-- close game review -->
 		<li><a href="#">Schedule</a>
 		<ul>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=15">By Week</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=16">By Franchise</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=54">Compact</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=15">By Week</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=16">By Franchise</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=54">Compact</a></li>
 		</ul>
 		</li>
 	</ul>
@@ -151,27 +150,27 @@ document.getElementsByClassName('menu-item-object-page')[i].firstChild.style.pad
 	<!-- close game day -->
 	<li><a href="#">Leaderboard</a>
 	<ul>
-		<li><a href="http://www57.myfantasyleague.com/2019/standings?L=72440">Standings</a></li>
-		<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=31">Weekly Summary</a></li>
-		<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=101">Power Ranking</a></li>
-		<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=20">Bar Chart</a></li>
-		<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=119">Tiebreakers</a></li>
-		<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=153">Victory Points Summary</a></li>
-		<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=08">Top Performers</a>
+		<li><a href="http://www57.myfantasyleague.com/2020/standings?L=72440">Standings</a></li>
+		<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=31">Weekly Summary</a></li>
+		<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=101">Power Ranking</a></li>
+		<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=20">Bar Chart</a></li>
+		<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=119">Tiebreakers</a></li>
+		<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=153">Victory Points Summary</a></li>
+		<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=08">Top Performers</a>
 		<ul>
-			<li><a href="http://www57.myfantasyleague.com/2019/top?L=72440&amp;SEARCHTYPE=ADVANCED&amp;COUNT=30&amp;CATEGORY=overall&amp;POSITION=QB&amp;DISPLAY=Passers&amp;TEAM=*&amp;SORT=TOT">Top Passers</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/top?L=72440&amp;SEARCHTYPE=ADVANCED&amp;COUNT=30&amp;CATEGORY=overall&amp;POSITION=RB&amp;DISPLAY=Rushers&amp;TEAM=*&amp;SORT=TOT">Top Running Backs</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/top?L=72440&amp;SEARCHTYPE=ADVANCED&amp;COUNT=30&amp;CATEGORY=overall&amp;POSITION=WR&amp;DISPLAY=Receivers&amp;TEAM=*&amp;SORT=TOT">Top Receivers</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/top?L=72440&amp;SEARCHTYPE=ADVANCED&amp;COUNT=30&amp;CATEGORY=overall&amp;POSITION=TE&amp;DISPLAY=Receivers&amp;TEAM=*&amp;SORT=TOT">Top Tight Ends</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/top?L=72440&amp;SEARCHTYPE=ADVANCED&amp;COUNT=30&amp;CATEGORY=overall&amp;POSITION=PK&amp;DISPLAY=Kickers&amp;TEAM=*&amp;SORT=TOT">Top Place Kickers</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/top?L=72440&amp;SEARCHTYPE=ADVANCED&amp;COUNT=30&amp;&amp;CATEGORY=overall&amp;POSITION=DT%2BDE&amp;DISPLAY=Defenders&amp;TEAM=*&amp;SORT=TOT">Top Defense Linemen</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/top?L=72440&amp;SEARCHTYPE=ADVANCED&amp;COUNT=30&amp;CATEGORY=overall&amp;POSITION=LB&amp;DISPLAY=Defenders&amp;TEAM=*&amp;SORT=TOT">Top Linebackers</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/top?L=72440&amp;SEARCHTYPE=ADVANCED&amp;COUNT=30&amp;CATEGORY=overall&amp;POSITION=CB%2BS&amp;DISPLAY=Defenders&amp;TEAM=*&amp;SORT=TOT">Top Defense Backs</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/top?L=72440&amp;SEARCHTYPE=ADVANCED&amp;COUNT=30&amp;CATEGORY=overall&amp;POSITION=QB&amp;DISPLAY=Passers&amp;TEAM=*&amp;SORT=TOT">Top Passers</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/top?L=72440&amp;SEARCHTYPE=ADVANCED&amp;COUNT=30&amp;CATEGORY=overall&amp;POSITION=RB&amp;DISPLAY=Rushers&amp;TEAM=*&amp;SORT=TOT">Top Running Backs</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/top?L=72440&amp;SEARCHTYPE=ADVANCED&amp;COUNT=30&amp;CATEGORY=overall&amp;POSITION=WR&amp;DISPLAY=Receivers&amp;TEAM=*&amp;SORT=TOT">Top Receivers</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/top?L=72440&amp;SEARCHTYPE=ADVANCED&amp;COUNT=30&amp;CATEGORY=overall&amp;POSITION=TE&amp;DISPLAY=Receivers&amp;TEAM=*&amp;SORT=TOT">Top Tight Ends</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/top?L=72440&amp;SEARCHTYPE=ADVANCED&amp;COUNT=30&amp;CATEGORY=overall&amp;POSITION=PK&amp;DISPLAY=Kickers&amp;TEAM=*&amp;SORT=TOT">Top Place Kickers</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/top?L=72440&amp;SEARCHTYPE=ADVANCED&amp;COUNT=30&amp;&amp;CATEGORY=overall&amp;POSITION=DT%2BDE&amp;DISPLAY=Defenders&amp;TEAM=*&amp;SORT=TOT">Top Defense Linemen</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/top?L=72440&amp;SEARCHTYPE=ADVANCED&amp;COUNT=30&amp;CATEGORY=overall&amp;POSITION=LB&amp;DISPLAY=Defenders&amp;TEAM=*&amp;SORT=TOT">Top Linebackers</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/top?L=72440&amp;SEARCHTYPE=ADVANCED&amp;COUNT=30&amp;CATEGORY=overall&amp;POSITION=CB%2BS&amp;DISPLAY=Defenders&amp;TEAM=*&amp;SORT=TOT">Top Defense Backs</a></li>
 		</ul>
 		</li>
 		<!-- close top performers -->
-		<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=08&amp;SORT=TOT">Top Players</a></li>
-		<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=37">Starter Points of Players</a></li>
+		<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=08&amp;SORT=TOT">Top Players</a></li>
+		<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=37">Starter Points of Players</a></li>
 	</ul>
 	</li>
 	<!-- close leaderboard -->
@@ -179,44 +178,44 @@ document.getElementsByClassName('menu-item-object-page')[i].firstChild.style.pad
 	<ul>
 		<li><a href="#">Rules</a>
 		<ul>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=09">League Scoring</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=26">League ByLaws</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=112">History</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=09">League Scoring</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=26">League ByLaws</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=112">History</a></li>
 		</ul>
 		</li>
 		<!-- close rules -->
 		<li><a href="#">Commish&#39;s Corner</a>
 		<ul>
 			<li><a href="https://www.facebook.com/groups/398643846860175/">Commish&#39;s News</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=01">League Owners</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=123">League Calendar</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=69">Polls</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=01">League Owners</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=123">League Calendar</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=69">Polls</a></li>
 		</ul>
 		</li>
 		<!-- close Commish's Corner -->
 		<li><a href="#">League Games</a>
 		<ul>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=121">NFL Pool Picks</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=120">Survivor Picks</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=179">Fantasy Pick&#39;em Pool</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=121">NFL Pool Picks</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=120">Survivor Picks</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=179">Fantasy Pick&#39;em Pool</a></li>
 		</ul>
 		</li>
 		<!-- close league games -->
 		<li><a href="#">Communications</a>
 		<ul>
 			<li><a href="http://www.facebook.com/groups/132034036837770/">Facebook Group</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=69">Polls</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=69">Polls</a></li>
 		</ul>
 		</li>
 		<!-- close communications -->
 		<li><a href="#">Commissioner Tools</a>
 		<ul>
-			<li><a href="http://www57.myfantasyleague.com/2019/menu_page?L=72440&amp;NAME=FORCOMMISSIONERS">Settings</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/support?L=72440">Help Center</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/my_tickets?L=72440">Support Tickets</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/site_news?L=72440">Site Updates</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=49">Owner Fees Edit</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/site_news?CATEGORY=Official+Statistics+Changes&amp;L=72440">Stat Reports</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/menu_page?L=72440&amp;NAME=FORCOMMISSIONERS">Settings</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/support?L=72440">Help Center</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/my_tickets?L=72440">Support Tickets</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/site_news?L=72440">Site Updates</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=49">Owner Fees Edit</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/site_news?CATEGORY=Official+Statistics+Changes&amp;L=72440">Stat Reports</a></li>
 		</ul>
 		</li>
 		<!-- close Commissioner Tools -->
@@ -225,12 +224,12 @@ document.getElementsByClassName('menu-item-object-page')[i].firstChild.style.pad
 	<!-- close GGL Headquarters -->
 	<li><a href="#">Draft</a>
 	<ul>
-		<li><a href="http://www57.myfantasyleague.com/2019/ajax_ld?L=72440">Live Draft Room</a></li>
-		<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=17">Pre-Select/Auto Pick</a></li>
-		<li><a href="http://www57.myfantasyleague.com/2019/options?LEAGUE_ID=72440&amp;O=129">My Draft List</a></li>
-		<li><a href="http://www57.myfantasyleague.com/2019/options?LEAGUE_ID=72440&amp;O=151">My Draft Preferences</a></li>
+		<li><a href="http://www57.myfantasyleague.com/2020/ajax_ld?L=72440">Live Draft Room</a></li>
+		<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=17">Pre-Select/Auto Pick</a></li>
+		<li><a href="http://www57.myfantasyleague.com/2020/options?LEAGUE_ID=72440&amp;O=129">My Draft List</a></li>
+		<li><a href="http://www57.myfantasyleague.com/2020/options?LEAGUE_ID=72440&amp;O=151">My Draft Preferences</a></li>
 		<li><a href="http://www57.myfantasyleague.com/mockdrafts/public.php">Join a Mock Draft</a></li>
-		<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=182&amp;DISPLAY=LEAGUE">Draft Recap</a></li>
+		<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=182&amp;DISPLAY=LEAGUE">Draft Recap</a></li>
 	</ul>
 	</li>
 	<!-- close draft -->
@@ -240,6 +239,7 @@ document.getElementsByClassName('menu-item-object-page')[i].firstChild.style.pad
 		<li><a href="#">Hall of Fame</a></li>
 		<li><a href="#">Seasons</a>
 		<ul>
+      			<li><a href="http://www57.myfantasyleague.com/2019/home/72440">2019</a></li>
 			<li><a href="http://www57.myfantasyleague.com/2018/home/72440">2018</a></li>
 			<li><a href="http://www57.myfantasyleague.com/2017/home/72440">2017</a></li>
 			<li><a href="http://www57.myfantasyleague.com/2016/home/25320">2016</a></li>
@@ -258,13 +258,13 @@ document.getElementsByClassName('menu-item-object-page')[i].firstChild.style.pad
 		<!-- close seasons -->
 		<li><a href="#">Records</a>
 		<ul>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=156">Franchise Records</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=157">Player Records</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=158">Matchup Records</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=171">All-Time Series</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=204">Season Records</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=208">Career Records</a></li>
-			<li><a href="http://www57.myfantasyleague.com/2019/options?L=72440&amp;O=232">Record Streaks</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=156">Franchise Records</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=157">Player Records</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=158">Matchup Records</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=171">All-Time Series</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=204">Season Records</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=208">Career Records</a></li>
+			<li><a href="http://www57.myfantasyleague.com/2020/options?L=72440&amp;O=232">Record Streaks</a></li>
 		</ul>
 		</li>
 		<!-- close Records -->
@@ -275,5 +275,5 @@ document.getElementsByClassName('menu-item-object-page')[i].firstChild.style.pad
 <!-- close jqueryslidemenu --></div>
 <!-- close wrapper -->
 
-<div class="banner"><a href="http://www57.myfantasyleague.com/2019/home/72440"><img alt="Goal-Line Gridiron" src="https://lh3.googleusercontent.com/eyMOh4iV4rYEgncfYCYN07HenpL8xkYG-becIt3kZDBTeNXW8NdCJaz0aiu0T8LwabF59IFLMOYbInDxrDPsWfRkICSUEXZQILpAYZ8fhh3jvdwRcR5_5woiu6ZV7mNk0tiA0AoOLIo=w2400" /></a></div>
+<div class="banner"><a href="http://www57.myfantasyleague.com/2020/home/72440"><img alt="Goal-Line Gridiron" src="https://lh3.googleusercontent.com/rqZZt9yT-mRHVHQbt_xJ90VI0VvaHJRT7_ZoAlxZmTDdl32gqAWZS8_U_CY6XdLWKf8IfdEfZDD1K3DSskprkf_xzWBpTNlb1GDo-mv5h-bmW9aQ5YIzltrwUMH37CWOZymEKtYPOyNP4d6rJCspBjP76Ym1RekvOkyi2ZfJiZhscSRp465Tx7eyWhXgQNtvfpeOoFolKkIegBDYb3GAe0Obc2AjY6Ussn3vsHHRR-wPNc9Ca0-eTEp4y2IWQY_mtXwUtTuyXLFE4-UzHyWD53aaX7nhfiLX9nK1eDc7itDJHyKSqiPKbEgE3Tj8N_dJdi2OcPr2794R1LWCOR9_J4jHC1mo9ASIQu-_tjtXDNrnUOMigSVhNhdjk1bv0kT8b1A5QtyTdjEFeTfQzrI5AO8s2EMM1ftEfxWpMFgLy6XqqEaNOapskuTQpgy9SOl4Xwf5Zk3z7AxN0AFuxBVKScU3arWCnc0h3KXHqru7H-QcnkCBWxaG5QsmU5zADUsI-NcYZpuLfJK8yJEh3OItkZXkOw8QuezUx93K-tugNl6r0qnWlkJNuu8Y5C1Rl_OotuPruhJH6lOGvXTbIPKoc278ji6arWPChs_QZx2q5isVCs1nIFBPLWu5LobC2Y_YGs0OGljyRmBUR4FIEtcjtKZiIouqZ5yutq18EAAhJD3gQkdqFyAmWTEoXQ4srg=w1024-h250-no" /></a></div>
 <!-- close header -->
