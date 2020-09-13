@@ -8,6 +8,9 @@
 #013F6E - Bravo Blue
  
 */
+.banner {
+    display: table;
+}
 
 #wrapper {
    	position: relative;
@@ -554,6 +557,14 @@ A.mainmenuoff:active {
     -webkit-border-bottom-right-radius: 2px; }
 
 /* Tables */
+td.hint {
+    color: #adc6e6;
+}
+
+td.fp-enhanced {
+    font-size: 12px;
+    background-color: #000 !important;
+}
 
 /* Testing Table Across Entire Site */
 .newposition td, .newposition th {
