@@ -1,0 +1,44 @@
+<div id="myfantasyleague_tabs">
+   <table class="report">
+      <caption><span>Standings</span></caption>
+      <tbody></tbody>
+   </table>
+   <div class="toggle_tabs">
+      <table class="report">
+         <tbody>
+            <tr>
+               <td>
+                  <div class="myfantasyleague_tabmenu">
+                     <span id='tab_title_600'>600</span>
+                     <input id="sub600" type="checkbox">
+                     <label for="sub600"><span></span></label>
+                     <ul id="homepagetabs">
+                        <li id="tab600" onclick="javascript:show_custom_tab('600');"><a class="no-sub">Div 1<input id="sub600" type="checkbox"><label for="sub600"></label></a></li>
+                        <li id="tab601" onclick="javascript:show_custom_tab('601');"><a class="no-sub">Div 2<input id="sub600" type="checkbox"><label for="sub600"></label></a></li>
+                        <li id="tab602" onclick="javascript:show_custom_tab('602');"><a class="no-sub">Div 1<input id="sub600" type="checkbox"><label for="sub600"></label></a></li>
+                        <li id="tab603" onclick="javascript:show_custom_tab('603');"><a class="no-sub">All Divisions<input id="sub600" type="checkbox"><label for="sub600"></label></a></li>
+                     </ul>
+                  </div>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <div class="tabs_scroll">
+         <div id="tabcontent600" class="homepagetabcontent">
+            <module name="STANDINGS" UNIT="DIVISION00"/>
+         </div>
+         <div id="tabcontent601" class="homepagetabcontent">
+            <module name="STANDINGS" UNIT="DIVISION01"/>
+         </div>
+         <div id="tabcontent602" class="homepagetabcontent">
+            <module name="STANDINGS" UNIT="DIVISION02"/>
+         </div>
+         <div id="tabcontent603" class="homepagetabcontent">
+            <module name="STANDINGS"/>
+         </div>
+      </div>
+   </div>
+</div>
+<script>
+   show_custom_tab(600);
+</script>
