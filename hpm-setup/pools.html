@@ -1,0 +1,40 @@
+<div id="myfantasyleague_tabs">
+   <table class="report">
+      <caption><span>Pools</span></caption>
+      <tbody></tbody>
+   </table>
+   <div class="toggle_tabs">
+      <table class="report">
+         <tbody>
+            <tr>
+               <td>
+                  <div class="myfantasyleague_tabmenu">
+                     <span id='tab_title_400'>400</span>
+                     <input id="sub400" type="checkbox">
+                     <label for="sub400"><span></span></label>
+                     <ul id="homepagetabs">
+                        <li id="tab400" onclick="javascript:show_custom_tab('400');"><a class="no-sub">NFL Pool<input id="sub400" type="checkbox"><label for="sub400"></label></a></li>
+                        <li id="tab401" onclick="javascript:show_custom_tab('401');"><a class="no-sub">Fantasy Pool<input id="sub400" type="checkbox"><label for="sub400"></label></a></li>
+                        <li id="tab402" onclick="javascript:show_custom_tab('402');"><a class="no-sub">NFL Survivor<input id="sub400" type="checkbox"><label for="sub400"></label></a></li>
+                     </ul>
+                  </div>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <div class="tabs_scroll">
+         <div id="tabcontent400" class="homepagetabcontent">
+            <module name="NFL_CONFIDENCE_POOL"/>
+         </div>
+         <div id="tabcontent401" class="homepagetabcontent">
+            <module name="FANTASY_CONFIDENCE_POOL"/>
+         </div>
+         <div id="tabcontent402" class="homepagetabcontent">
+            <module name="NFL_SURVIVOR_POOL"/>
+         </div>
+      </div>
+   </div>
+</div>
+<script>
+   show_custom_tab(400);
+</script>
