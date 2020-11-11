@@ -1,0 +1,32 @@
+<script src="https://www.mflscripts.com/mfl-apps/lineups/alert/script.js"></script>
+
+<script>
+var donotcountBye = true; // SETTING TO FALSE WILL NOT ALERT IF A OWNER IS STARTING A BYE WEEK PLAYER
+var donotcountI   = true; // SETTING TO FALSE WILL NOT ALERT IF A OWNER IS STARTING A INJURED PLAYER
+var donotcountS   = true; // SETTING TO FALSE WILL NOT ALERT IF A OWNER IS STARTING A SUSPENDED PLAYER
+var donotcountO   = true; // SETTING TO FALSE WILL NOT ALERT IF A OWNER IS STARTING A PLAYER DEEMED OUT
+</script>
+
+<div class="mobile-wrap">
+<table class="homepagemodule" id="InvalidLineup" align="center" cellspacing="1">
+    <caption><span>LINEUP ALERT</span></caption>
+    <tbody>
+        <tr class="invalid-teams" style="display:none"><th colspan="2">The Following Teams Have Invalid Lineups</th></tr>
+        <tr class="valid-teams" style="display:none"><th colspan="2">All Teams Have Valid Lineups</th></tr>
+        <tr class="reportfooter" style="display:none">
+            <td colspan="2" align="center">
+                <a href='//%HOST%/%YEAR%/options?LEAGUE_ID=%LEAGUEID%&O=02&%FRANCHISEID%' style='text-decoration:none'>
+                    <input type='button' value='Submit Valid Lineup' />
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<style>
+#InvalidLineup .franchiseicon {
+    max-width: 150px;
+    max-height: 50px;
+}
+</style>
