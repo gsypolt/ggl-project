@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto|Roboto:900|Roboto+Slab:700");
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
+
+
 .homepagecolumn .homepagemodule h3 {
   margin: 0 0 0 -1px; }
 
@@ -4919,9 +4922,511 @@ tr.cap_room_available_row th {
 #body_top tr.eventablerow.myfranchise a, #body_options_08 tr.eventablerow.myfranchise a {
   color: #2c501e; }
 
-/*# sourceMappingURL=roboto-black-red.css.map */
+/***************************************/
 
-/* Live Scoring 10/4/2020 */
+
+/* MFL SCORING FORMAT */
+
+
+/***************************************/
+
+#body_ajax_ls #ls_setting_drop,
+#body_ajax_ls .ls-outer-table,
+#body_ajax_ls #ls_ticker_tab_id,
+#body_ajax_ls #ls_mfl_notes {
+  font-family: 'Roboto Condensed', sans-serif
+}
+
+#body_ajax_ls .mobile-view {
+float:none
+}
+
+#body_ajax_ls table.ls-outer-table {
+  border:0;
+  padding:0
+}
+
+#body_ajax_ls .ls-boxscore {
+  white-space: nowrap
+}
+
+#other_games > tbody:nth-child(1) > tr:nth-child(1),
+#other_games br {
+  display:none
+}
+
+#LS_TopTableHolder .LS_MainScoreboard {
+  border-spacing: 2px
+}
+
+#LS_CenterTop {
+  position: relative;
+  font-weight: 700;
+  font-size: 36px
+}
+
+#LS_CenterTop span.hometeam {
+  position: absolute;
+  right: 1%;
+  bottom: 1%;
+  font-size: 11px;
+  font-weight: normal
+}
+
+#LS_CenterTop .hometeam:after {
+  content: "\f0da";
+  font-family: FontAwesome;
+  padding-left: 3px;
+}
+
+#LS_TopTableHolder .franchiseicon {
+  padding: 5px;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+div.ls_team_name {
+    font-size: 20pt;
+}
+
+#body_ajax_ls #marquee_home {
+  display: none
+}
+
+#LS_TopTableHolder .LS_MainScoreboard td {
+  text-align: center;
+  vertical-align: middle
+}
+
+#LS_TopTableHolder #LS_HomeTeamName {
+  font-size: 12px;
+}
+
+#LS_HomeTeamName,
+#LS_CenterTop {
+  width: 50%
+}
+
+#body_ajax_ls #other_games {
+  table-layout: fixed
+}
+
+#body_ajax_ls div.ls_other_game {
+  cursor: pointer;
+  vertical-align: middle;
+  padding: 2px 3px;
+  min-width: 150px
+}
+
+.ls_other_game table {
+  height:50px
+}
+
+#body_ajax_ls td.ls_og_cell {
+  padding-left: 0;
+  width: auto
+}
+
+#body_ajax_ls td.ls_player_stats {
+  font-size: 0;
+  width: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  border: 0 !important;
+  position: absolute;
+  bottom: 0
+}
+
+#body_ajax_ls td.ls_player_stats div {
+  font-size: 10px;
+  white-space: nowrap
+}
+
+#body_ajax_ls td div[class^="pfpts"] {
+  cursor: pointer;
+  font-size: 14px
+}
+
+#body_ajax_ls th.ls_player_stats,
+#body_ajax_ls tr.td-totals-row .ls_player_stats {
+  display: none!important
+}
+
+#body_ajax_ls td a[href^="player"] {
+  white-space: nowrap
+}
+
+#body_ajax_ls #other_games {
+  margin: 0!important
+}
+
+#body_ajax_ls #marquee_home .ls_changed {
+  background: none;
+  color: inherit
+}
+
+#body_ajax_ls #roster_home td {
+  padding-bottom: 16px
+}
+
+#body_ajax_ls #roster_home td.td-pad {
+  padding-bottom: 0
+}
+
+#body_ajax_ls tr.td-totals-row td {
+  border-bottom: 0;
+  padding-bottom: 0!important;
+  line-height: 30px;
+  font-size: 14px
+}
+
+#body_ajax_ls #last_update.ls_changed {
+  background: none
+}
+
+#body_ajax_ls #roster_home th {
+  text-align: center
+}
+
+#body_ajax_ls #roster_home th:first-of-type {
+  text-align: left;
+  text-indent: 2px
+}
+
+#body_ajax_ls td.td-first-type {
+  position: relative
+}
+
+#body_ajax_ls #roster_home .ls_starters td,
+#body_ajax_ls #roster_home .ls_nonstarters td {
+  text-align: center;
+}
+
+#body_ajax_ls #roster_home .ls_starters td:first-of-type,
+#body_ajax_ls #roster_home .ls_nonstarters td:first-of-type {
+  text-align: left;
+}
+
+#body_ajax_ls .ls-matchup td.td-first-type {
+  width: 190px
+}
+
+#body_ajax_ls .ls-matchup td.ls_game_info,
+#body_ajax_ls th.ls_game_info {
+  width: 105px;
+  min-width: 105px
+}
+
+#body_ajax_ls .ls-matchup td.ls_projections,
+#body_ajax_ls th.ls_projections {
+  width: 40px
+}
+
+#body_ajax_ls .ls-matchup td.ls_projections {
+  font-size:90%;
+}
+
+#body_ajax_ls .mobile-view {
+  padding-right: 5px
+}
+
+#body_ajax_ls .mobile-view:last-child {
+  padding: 0;
+  padding-left: 3px
+}
+
+#body_ajax_ls table#roster_home {
+  margin: 0
+}
+
+#body_ajax_ls #ls_setting_drop input {
+  display: none
+}
+
+#body_ajax_ls #ls_setting_drop input+label:before {
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f046";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#body_ajax_ls #ls_setting_drop input:checked+label:before {
+  content: "\f096"
+}
+
+#body_ajax_ls #ls_setting_drop {
+  text-align: left
+}
+
+#body_ajax_ls #ls_setting_drop label {
+  padding-left: 15px;
+  font-size: 13px;
+  margin-right: 10px;
+}
+
+#body_ajax_ls #ls_setting_drop a {
+  text-decoration: none;
+  font-size: 16px;
+}
+
+#body_ajax_ls .ls_append_input {
+  margin-top: 5px;
+  margin-bottom: 10px
+}
+
+#body_ajax_ls #ls_setting_drop .hide_bench {
+  position: relative;
+  display: inline-block;
+  height: 30px;
+  vertical-align: middle;
+  line-height: 30px;
+}
+
+#body_ajax_ls #ls_mfl_notes {
+  text-align: center
+}
+
+#body_ajax_ls div.ls_og_selected,
+#body_ajax_ls div#ls_ticker_label {
+  font-weight: normal
+}
+
+#ls_ticker_tab_id {
+  line-height: 30px
+}
+
+#ls_ticker_tab_id[style="display: inline;"],
+#ls_ticker_tab_id[style="visibility: visible; display: inline;"]{
+    display:inline-block!important;
+    padding:3px
+}
+
+#body_ajax_ls .ls_game_info div a {
+  text-decoration: none
+}
+
+#body_ajax_ls table .ls_changed,
+#body_ajax_ls table div.ls_changed,
+#body_ajax_ls table .ls_changed a {
+  background: none;
+  color: inherit;
+  border: none
+}
+
+#body_ajax_ls table div.ls_withposs {
+  border: 0
+}
+
+#body_ajax_ls table div.ls_noposs {
+  border: 0
+}
+
+#body_ajax_ls table div.ls_noposs.ls_changed,
+div.ls_withposs.ls_changed,
+#body_ajax_ls div.ls_redzone {
+  color: inherit;
+  border: 0;
+}
+
+#body_ajax_ls table td.ls_game_info div,
+#body_ajax_ls table td.td-first-type {
+  font-size: 10px;
+  font-style: italic
+}
+
+#body_ajax_ls table td.ls_game_info div a,
+#body_ajax_ls table td.td-first-type a {
+  font-size: 13px;
+  font-style: normal
+}
+
+#body_ajax_ls table td.ls_player_stats div {
+  font-style: normal
+}
+
+#body_ajax_ls #ls_ticker_tab_id[style*="display: inline;"]+div,
+#body_ajax_ls #ls_ticker_tab_id+div {
+  margin-top: 10px
+}
+
+#body_ajax_ls #ls_ticker_tab_id[style*="display: none;"]+div {
+  margin-top: 0
+}
+
+#body_ajax_ls .ls_other_game td.ls_projections {
+  font-size:80%;
+  width: 26px;
+  padding: 0
+}
+
+.ls_pace_box {
+  text-align: center
+}
+
+.ls_projections {
+  font-style: italic;
+  cursor: default;
+}
+
+th.ls_projections {
+  font-style: normal
+}
+
+#body_ajax_ls td div[class^="oggstat"] {
+  width: 10px;
+  text-align:right
+}
+
+#other_games td[style="border:none;"]:last-of-type {
+  padding: 0
+}
+
+.ls_box_gameover .ls_projections {
+  display:none;
+}
+
+
+/* SCORING NUMBERS FORMAT */
+
+#LS_HomeScore {
+  font-size: 30px;
+  padding: 0
+}
+
+#LS_HomeScore span.blank a {
+  padding: 4px;
+}
+
+#LS_HomeScore span {
+  border-width: 1px;
+  border-style: solid;
+  text-align: center;
+  position: relative;
+  width: 1%;
+  display: table-cell;
+  font-weight: 600;
+  font-size: 40px;
+  text-decoration: none;
+  min-width: 30px;
+  line-height: normal;
+  cursor: default;
+  border-width: 1px;
+  border-style: solid
+}
+
+#LS_HomeScore span:before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+}
+
+#LS_HomeScore span:after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    margin-top: 0px;
+}
+
+#LS_HomeScore span a:after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 9px;
+  width: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  z-index: 1
+}
+
+#LS_HomeScore span a:before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 9px;
+  width: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  z-index: 1
+}
+
+.MFLMainScoreboard,
+#LS_HomeScore span a:after,
+#LS_HomeScore span a:before {
+  border-width: 1px;
+  border-style: solid
+}
+
+#LS_HomeScore div {
+  border-spacing: 1px;
+  width: 100%
+}
+
+div.ls_team_points {
+  padding: 0!important
+}
+
+@media only screen and (max-width:28.000em) {
+  #LS_HomeScore span {
+    font-size: 30px;
+    min-width: 24px
+  }
+}
+
+
+/***************************************/
+
+
+/* MOBILE MFL SCORING FORMAT */
+
+
+/***************************************/
+
+@media only screen and (max-width:40em) {
+  #LS_TopTableHolder #LS_CenterTop,
+  #LS_TopTableHolder .prmin,
+  #LS_TopTableHolder .LS_ScoreboardTitle {
+    display: none
+  }
+  #LS_HomeTeamName {
+    width: 50%
+  }
+  .LS_MainScoreboard {
+    table-layout:auto!important
+  }
+}
+
+@media only screen and (min-width:48.1em) {
+  #body_ajax_ls .ls-outer-table {
+    table-layout: fixed
+  }
+  #roster_home caption {
+    display: none
+  }
+}
+
+@media only screen and (max-width:410px) {
+  td.ls_projections,
+  th.ls_projections,
+  #ls_pace_wrapper {
+    display: none!important
+  }
+}
 
 /***************************************/
 
@@ -4931,30 +5436,11 @@ tr.cap_room_available_row th {
 
 /***************************************/
 
-.ls_scroller {
-  padding: 10px 0;
-  padding-bottom: 5px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
 #body_ajax_ls #ls_setting_drop,
 #body_ajax_ls .ls-outer-table,
 #body_ajax_ls #ls_ticker_tab_id,
 #body_ajax_ls #ls_mfl_notes {
   font-family: 'Roboto Condensed', sans-serif
-}
-
-#body_ajax_ls #container-wrap,
-#body_ajax_ls table[style="margin-top:4px"],
-#body_ajax_ls table#ls_ticker_tab_id,
-#body_ajax_ls table#ls_ticker_tab_id+p,
-#body_ajax_ls table#ls_ticker_tab_id+p+p,
-#body_ajax_ls p:last-of-type,
-#body_ajax_ls #ls_setting_drop,
-#body_ajax_ls #myNavigationHolder,
-#body_ajax_ls table.report+div.mobile-wrap {
-  visibility: hidden
 }
 
 #body_ajax_ls .ls-boxscore {
@@ -5034,7 +5520,7 @@ tr.cap_room_available_row th {
   cursor: pointer;
   vertical-align: middle;
   padding: 2px 3px;
-  min-width: 218px
+  min-width: 150px
 }
 
 #body_ajax_ls td.ls_og_cell {
@@ -5143,7 +5629,7 @@ tr.cap_room_available_row th {
 }
 
 #body_ajax_ls .ls-matchup td.ls_projections {
-  font-size: 100%;
+  font-size: 90%;
 }
 
 #body_ajax_ls .mobile-view {
@@ -5272,7 +5758,7 @@ div.ls_withposs.ls_changed,
 }
 
 #body_ajax_ls .ls_other_game td.ls_projections {
-  font-size: 100%;
+  font-size: 80%;
   width: 26px;
   padding: 0
 }
@@ -5498,7 +5984,7 @@ div.ls_team_points {
 }
 
 #body_ajax_ls div.ls_other_game.current_matchup {
-  background-color: black
+  background-color: rgba(255, 20, 20, .1)
 }
 
 
@@ -5590,7 +6076,7 @@ div.ls_team_points {
 
 #body_ajax_ls img.ls_og_icon {
   max-width: 106px;
-  max-height: 25%
+  max-height: 20px
 }
 
 
@@ -5667,7 +6153,7 @@ div.ls_team_points {
 #body_ajax_ls .ls_players_table tr.ls_nothas_ball .td-first-type:after,
 #body_ajax_ls .ls_players_table tr.ls_in_redzone .td-first-type:after {
   content: '';
-  background-image: url('//www.nitrografixx.com/MFL-Popups/football.svg');
+  background-image: url('https://www.mflscripts.com/ImageDirectory/script-images/football.svg');
   background-size: 12px 12px;
   height: 12px;
   width: 12px;
@@ -5681,7 +6167,7 @@ div.ls_team_points {
 }
 
 #body_ajax_ls .ls_players_table tr.ls_in_redzone .td-first-type:after {
-  background-image: url('//www.nitrografixx.com/MFL-Popups/goal-post.svg')
+  background-image: url('https://www.mflscripts.com/ImageDirectory/script-images/goal-post.svg')
 }
 
 
@@ -5730,7 +6216,7 @@ div.ls_team_points {
 }
 
 .ls_below_projected {
-  color: #e63143 !important
+  color:#f08080!important
 }
 
 .ls_at_projected {
@@ -5781,7 +6267,7 @@ div.ls_team_points {
 
 .ls-modal-content {
   background-color: #111;
-  background-image: url(//www.nitrografixx.com/MFL-2017/body-bg.jpg);
+  background-image: url(https://www.mflscripts.com/ImageDirectory/script-images/body-bg.jpg);
   box-shadow: 0 0 25px rgba(0, 0, 0, 1)
 }
 
@@ -5909,8 +6395,8 @@ div.ls_team_points {
 .weekly-navbar a:visited,
 .weekly-navbar .currentweek {
   color: #fff;
-  background: black;
-  border: 2px solid #0099FF
+  background: rgba(45, 45, 45, .4);
+  border: 1px solid rgba(45, 45, 45, .7);
   border-radius: 2px;
   text-decoration: none;
   display: inline-block;
@@ -5928,11 +6414,11 @@ div.ls_team_points {
 .weekly-navbar a:active:hover,
 .weekly-navbar a:visited:hover {
   color: #fff;
-  background: #0099FF
+  background: rgba(218, 54, 54, .2)
 }
 
 .weekly-navbar .currentweek {
-  background: #0099FF;
+  background: rgba(218, 54, 54, .2);
   color: #fff
 }
 
@@ -5972,17 +6458,17 @@ div.ls_team_points {
 }
 
 @media only screen and (min-width: 48.1em){
-  #body_ajax_ls .mobile-view {
-      width: auto!important;
-      float: none;
-  }
+#body_ajax_ls .mobile-view {
+    width: auto!important;
+    float: none;
+}
 }
 
 @media only screen and (max-width: 48em){
-  #body_ajax_ls .mobile-view {
-      width: 100%;
-      float: left;
-      margin-top: 0;
-      padding: 0!important;
-  }
+#body_ajax_ls .mobile-view {
+    width: 100%;
+    float: left;
+    margin-top: 0;
+    padding: 0!important;
+}
 }

@@ -1,54 +1,59 @@
 <div class="row">
-    <div class="col-md-4 col-md-push-8">
-      <div class="utility-nav">
-        <div class="utility-nav--button">
-          <a href="//%HOST%/%YEAR%/options?L=%LEAGUEID%&O=133">
-            <svg class="icon-exchange">
-              <use xlink:href="#icon-exchange"></use>
-            </svg>
-            <div class="svg-text">Trade Block</div>
-          </a>
-        </div>
-        <div class="utility-nav--button">
-          <a href="//%HOST%/%YEAR%/home/%LEAGUEID%?MODULE=MESSAGE20">
-            <svg class="icon-file-text">
-              <use xlink:href="#icon-file-text"></use>
-            </svg>
-            <div class="svg-text">Rules</div>
-          </a>
-        </div>
-        <div id="loginlink" class="utility-nav--button loginbutton">
-          <svg class="icon-sign-in">
-            <use xlink:href="#icon-sign-in"></use>
+  <div class="col-md-4 col-md-push-8">
+    <module name="MY_LOGO"/>
+    <div class="utility-nav">
+      <div class="utility-nav--button">
+        <a href="//%HOST%/%YEAR%/options?L=%LEAGUEID%&O=133">
+          <svg class="icon-exchange">
+            <use xlink:href="#icon-exchange"></use>
           </svg>
-          <div class="svg-text"></div>
-        </div>
+          <div class="svg-text">Trade Block</div>
+        </a>
       </div>
-      <module name="PLAYER_SEARCH"/>
-      <div class="hidden-xs hidden-sm">
-        <module name="MY_BYE_WEEKS"/>
-        <module name="MY_NEWS" COUNT="10" />
-        <module name="OWNER_ACTIVITY" />
+      <div class="utility-nav--button">
+        <a href="//%HOST%/%YEAR%/home/%LEAGUEID%?MODULE=MESSAGE20">
+          <svg class="icon-file-text">
+            <use xlink:href="#icon-file-text"></use>
+          </svg>
+          <div class="svg-text">Rules</div>
+        </a>
+      </div>
+      <div id="loginlink" class="utility-nav--button loginbutton">
+        <svg class="icon-sign-in">
+          <use xlink:href="#icon-sign-in"></use>
+        </svg>
+        <div class="svg-text"></div>
       </div>
     </div>
-    <div class="col-md-8 col-md-pull-4">
-      
-      <module name="LIVESCORING_SUMMARY"/>
-      <module name="WEEKLY_MVP_STARTERS"/>
-      <div class="mobile-standings-wrapper hidden-xs">
-        <module name="STANDINGS" UNIT="DIVISION00" />
-        <module name="STANDINGS" UNIT="DIVISION01" />
-      </div>
-      <div class="visible-xs visible-sm">
-        <module name="BRIEF_STANDINGS" />
-      </div>
-      <div class="visible-xs visible-sm">
-        <module name="MY_NEWS" COUNT="10" />
-      </div>
-      <div class="visible-xs visible-sm">
-        <module name="NEXT_WEEKS_FANTASY_SCHEDULE" />
-        <module name="OWNER_ACTIVITY" />
-      </div>
+    <module name="PLAYER_SEARCH"/>
+    <module name="MESSAGE5"/>
+    <div class="hidden-xs hidden-sm">
+      <module name="MY_PENDING_WAIVERS"/>
+      <module name="MY_WATCH_LIST"/>
+      <module name="MY_BYE_WEEKS"/>
+      <module name="MY_NEWS" COUNT="10" />
+      <module name="OWNER_ACTIVITY" />
     </div>
   </div>
-  <script src="//mfl.football/assets/js/homepage.js"></script>
+  <div class="col-md-8 col-md-pull-4">
+    
+    <module name="WEEKLY_MVP_STARTERS"/>
+    <div class="mobile-standings-wrapper hidden-xs">
+      <module name="STANDINGS" UNIT="DIVISION00" />
+      <module name="STANDINGS" UNIT="DIVISION01" />
+    </div>
+    <div class="visible-xs visible-sm">
+      <module name="BRIEF_STANDINGS" />
+    </div>
+    
+    <module name="TRANSACTIONS" COUNT="10" TYPE="�����" DAYS="�����"/>
+    <div class="visible-xs visible-sm">
+      <module name="MY_NEWS" COUNT="10" />
+    </div>
+    <div class="visible-xs visible-sm">
+      <module name="NEXT_WEEKS_FANTASY_SCHEDULE" />
+      <module name="OWNER_ACTIVITY" />
+    </div>
+  </div>
+</div>
+<script src="//mfl.football/assets/js/homepage.js"></script>

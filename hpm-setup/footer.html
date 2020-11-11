@@ -54,19 +54,48 @@
     </div>
   </div>
 </div>
-<script src="//www.mflscripts.com/mfl-apps/global/all-footer.js"></script>
+
 <script>
-  var ls_scoreboardName = "3DL SCOREBOARD";   //enter text to name your scoreboard
+  var ls_scoreboardName = "SCOREBOARD";   //enter text to name your scoreboard
   var showTeamName = false;                      //set to true to display franchise names in scoreboard header
   var showTeamIcon = true;                       //set to true to display franchise icons in scoreboard header
   var ls_includeProjections = true;              //set to true to display projections next to player scores
   var ls_includeInjuryStatus = true;             //set to true to display injury status as per the norm
   var ls_excludeIR = true;                       //set to true to remove players on fantasy IR
-  var ls_excludeTaxi = false;                     //set to true to remove players on taxi squad
+  var ls_excludeTaxi = true;                     //set to true to remove players on taxi squad
   var ls_popup_abbrev_name_icon = 2;             // -1=disable; 0=abbrev; 1=name; 2=icon
   var ls_orig_proj_when_final = true;            //set true to change pace to projection when games go final
   var ls_popup_status = true;                    //set true to add status of player to popup
   var ls_box_abbrev_name_icon = 2;               //0=abbrev; 1=name; 2=icon; 3=icon+abbrev; 4=icon+name
   var ls_hide_bye_teams = false;                 //set to true to hide boxscore matchup teams on bye weeks
+  var allPlaySetup = true;
+  var hideTiebreakingPlayer = false;
+  var useNFLIconInPlayerTable = true;
+  var useMFLIconInPlayerTable = true;
+  var alwaysDisplayBenchPlayers = false;
+  var includeCustomPlayers = false;
 </script>
-<!-- <script src="//mfl.football/assets/js/global.js"></script> -->
+
+<script>
+  // FOOTER JS FILE OPTIONS
+  var load_moduleExpand_script     = true;       //Set to true to load https://www.mflscripts.com/mfl-apps/moduleExpand/script.js
+  var load_replace_mflScoring_h2h  = true;       //Set to true to load https://www.mflscripts.com/mfl-apps/scoreboard/replace-mflScoring/h2h.js
+  var load_standingSettings_script = true;       //Set to true to load https://www.mflscripts.com/mfl-apps/standingSettings/script.js
+  var load_popupAddon_script       = true;       //Set to true to load https://www.mflscripts.com/mfl-apps/popups/addon/script.js
+  var load_notification_script     = true;       //Set to true to load https://www.mflscripts.com/mfl-apps/popups/notfications/script.js
+  var load_rosters_script          = true;       //Set to true to load https://www.mflscripts.com/mfl-apps/rosters/script.js
+  var load_history_script          = true;       //Set to true to load https://www.mflscripts.com/mfl-apps/history/integrated/script.js
+  var load_irReport_script         = true;       //Set to true to load https://www.mflscripts.com/mfl-apps/injuredReserve/IRreport/script.js
+  var load_diceRoll_script         = true;       //Set to true to load https://www.mflscripts.com/mfl-apps/diceRoll/script.js
+
+  //MINI-SCOREBOARD AREA
+  var miniScoreboardUseIcon = true; // if true will use mfl icon unless user-defined below has been set
+  var miniScoreboardUseLogo = true; // if true will use mfl logo unless user-defined below has been set
+  var miniScoreboardUseAbbrev = false; // if true will use mfl abbrev
+  var miniScoreboardIconBase = ""; // user-defined image (example where images are mini0001.gif, mini0002.gif etc. use "http://www.myhost.com/images/mini") 
+  var miniScoreboardIconExt = ""; //user-defined extension (from example above use "gif")
+</script>
+  
+<!-- GLOBAL FOOTER JS  -->
+<script src="https://mflscripts.com/mfl-apps/global/footer.js"></script>
+
