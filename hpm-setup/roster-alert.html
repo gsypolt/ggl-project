@@ -1,0 +1,41 @@
+<!-----  LOAD IR ALERT SCRIPT  ------>
+<script>    
+    jQuery.get('https://%HOST%/%YEAR%/options?L=%LEAGUEID%&O=07&DISPLAY=LEAGUE', function (data) {
+      $(data).find('td.two_column_layout').has('td:contains(Possible IR Rule Violation Above)').each(function (index, element) {
+             $(this).find("span a").each(function () {
+             $("<tr class='oddtablerow'><td align='center'>" + $(this)[0].outerHTML + "</td></tr>" ).insertBefore("#IRviolations .reportfooter");
+             });
+      });
+           var $IRrow = $("#IRviolations tr");
+               if ($IRrow.length == 2) {
+               $IRrow.text("There are no IR violations").addClass("oddtablerow").wrapInner("<th class='noIR'></th>");
+               $("#IRviolations .reportfooter").hide();
+               }
+           });
+</script>
+
+<!-----  IR ALERT HTML  ------>
+<div class="mobile-wrap">
+<table class="homepagemodule" id="IRviolations" align="center" cellspacing="1">
+ <caption><span>ROSTER ALERT</span></caption>
+ <tbody>
+   <tr>
+     <th>These Teams May Have IR Violations</th>
+   </tr>
+   <tr class="reportfooter">
+     <td class='IRalert' align='center'>
+       <a href='https://%HOST%/%YEAR%/options?LEAGUE_ID=%LEAGUEID%&O=18&%FRANCHISEID%' style='text-decoration:none'>
+       <input type='button' value='Perform Injured Reserve' />
+       </a>
+     </td>
+   </tr>
+ </tbody>
+</table>
+</div>
+
+<style>
+#IRviolations .franchiseicon {
+ max-width: 150px;
+ max-height: 50px;
+}
+</style>
