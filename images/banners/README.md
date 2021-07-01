@@ -9,7 +9,7 @@
 * Go to `hpm-setup`
 * Open header.html
 * Location snippet of code for banner
-* Update the src tag with newly added image
+* Update the src tag with newly added image name `2021banner.jpg`
 
 ````
 <a href="//%STATICHOST%/%YEAR%/home/%LEAGUEID%">
