@@ -6,7 +6,7 @@
       <div class="col-sm-4">
         <div class="defending-champ">Defending League Champions
           <br>
-          <img alt="Kommandos" eagle="" height="100" src="//www57.myfantasyleague.com/fflnetdynamic2019/72440_franchise_icon0001.jpg" title="Kamikaze Kommandos">
+          <img alt="Kommandos" eagle="" height="100" src="//www47.myfantasyleague.com/fflnetdynamic2022/72440_franchise_icon0002.png" title="Operation blackRHINO">
           <!-- <a title="Owner: Owner name" href="%HOST%/%YEAR%/options?L=%LEAGUEID%&F=0001&O=01">Kamikaze Kommandos</a> -->
         </div>
       </div>
@@ -18,7 +18,7 @@
               <li><a href="//%HOST%/%YEAR%/home/%LEAGUEID%?MODULE=MESSAGE20">Constitution</a></li>
               <li><a href="//%HOST%/%YEAR%/options?L=%LEAGUEID%&O=09">League Scoring</a></li>
               <li><a href="//%HOST%/%YEAR%/options?L=%LEAGUEID%&O=26">Settings</a></li>
-              <li><a href="//%HOST%/%YEAR%/options?L=%LEAGUEID%&O=112">History</a></li>
+              <li><a href="//%HOST%/%YEAR%/home/%LEAGUEID%?MODULE=MESSAGE9">League History</a></li>
             </ul>
           </div>
           <div class="col-sm-3">
@@ -26,8 +26,8 @@
               <li>Team Management</li>
               <li><a href="//%HOST%/%YEAR%/options?L=%LEAGUEID%&O=02">Submit lineup</a></li>
               <li><a href="//%HOST%/%YEAR%/add_drop?L=%LEAGUEID%">Add/drop</a></li>
-              <li><a href="//%HOST%/%YEAR%/options?L=%LEAGUEID%&O=98">Practice squad</a></li>
-              <li><a href="//%HOST%/%YEAR%/options?L=%LEAGUEID%&O=18">Injured reserve</a></li>
+              <li><a href="//%HOST%/%YEAR%/home/%LEAGUEID%??MODULE=MESSAGE7">IR Report</a></li>
+              <li><a href="//%HOST%/%YEAR%/options?L=%LEAGUEID%&O=18">Injured Reserve</a></li>
             </ul>
           </div>
           <div class="col-sm-3">
@@ -95,6 +95,71 @@
   var miniScoreboardIconBase = ""; // user-defined image (example where images are mini0001.gif, mini0002.gif etc. use "http://www.myhost.com/images/mini") 
   var miniScoreboardIconExt = ""; //user-defined extension (from example above use "gif")
 </script>
+
+<!-- MFL POPUP ADD-ON SETTINGS -->
+<script>
+  var enableAddonNewPM = true;      // SET TO TRUE TO ENABLE NOTIFICATION IN MENU THAT A NEW PRIVATE MESSAGE BOARD HAS BEEN SENT TO YOU
+  var enableAddonNewPost = true;    // SET TO TRUE TO ENABLE NOTIFICATION IN MENU THAT A NEW PRIVATE MESSAGE BOARD POST WAS CREATED
+  var enableAddonPoll = true;       // SET TO TRUE TO ENABLE NOTIFICATION IN MENU THAT A NEW POLL HAS BEEN CREATED
+  var enableAddonTrade = true;      // SET TO TRUE TO ENABLE NOTIFICATION IN MENU THAT A NEW TRADE HAS BEEN OFFERED
+  </script>
+  
+  <!-- MFL POPUP ADD-ON HTML -->
+  <div id="message_board_check" style="display:none"><module name="MESSAGE_BOARD_SUMMARY"/></div>
+  <div id="poll_check" style="display:none"><module name="POLL_SUMMARY"/></div>
+  <div id="poll_check" style="display:none"><module name="POLL"/></div>
+  <div id="trade_check" style="display:none"><module name="TRADES"/></div>
+  
+  <!-- MFL POPUP ADD-ON JS FILE -->
+  <script src="https://www.mflscripts.com/mfl-apps/popups/addon/script.js"></script>
+
+  <!-- POPUP NOTIFICATION CSS -->
+<style>
+  .notification-message {font-weight:bold;height:40px;line-height:40px}
+  .notification-default {background-color:#ffd700;color:#000;border-bottom:2px solid #000}
+  .notification-online {background-color:#ffd700;color:#000;border-bottom:2px solid #000}
+  .notification-trade {background-color:#ff4500;color:#fff;border-bottom:2px solid #000;height:60px;line-height:60px}
+  .notification-ir {background-color:#ff0000;color:#fff;border-bottom:2px solid #000}
+  .notification-success {background-color:#04b404;color:#ccc;border-bottom:2px solid #ccc}
+  .notification-fail {background-color:#ff0000;color:#fff;border-bottom:2px solid #000}
+  .notification-warning {background-color:#ff4500;color:#fff;border-bottom:2px solid #0000}
+</style>
+
+<!-- POPUP NOTIFICATION SETTINGS -->
+<script>
+  var includeVisitorNotification = true;
+  var includeTradeNotification = true;
+  var includeIRNotification = true;
+  
+  //THE BELOW VAR IS USED TO SET THE FREQUENCY OF CHECKS
+  var checkEverySecond_notificationVisitor = 60;            // 60 seconds or 1 minute;
+  //THE BELOW VARS ARE USED TO SET THE DELAY BEFORE SHOWING SAME OWNER/MESSAGE AGAIN
+  var sameVisitor_notification_interval = 5*60;   // 5*60  =  300 seconds or 5  minutes before showing same visitor again
+  var trade_notification_interval = 60*60;        // 60*60 = 3600 seconds or 60 minutes
+  //THE BELOW VAR IS USED TO SET THE DISPLAY TIME BEFORE HIDING
+  var notification_duration_seconds = 10;        // 2.5 seconds
+</script>
+
+<!-- POPUP NOTIFICATION JS FILE -->
+<script src="https://www.mflscripts.com/mfl-apps/popups/notfications/script.js"></script>
+  
+  <!-- MFL POPUP ADD-ON CSS -->
+  <style>
+  .addon-icons {
+    display: inline-block;
+    color:#fff;
+  }
+  .addon-icons .fa {
+      font-size: 24px;
+      float: right;
+      padding-left: 8px;
+  }
+  @media only screen and (max-width: 48em) {
+    .myfantasyleague_menu ul li.addon-icons {
+      display:inline-block
+    }
+  }
+  </style>
   
 <!-- GLOBAL FOOTER JS  -->
 <script src="https://mflscripts.com/mfl-apps/global/footer.js"></script>

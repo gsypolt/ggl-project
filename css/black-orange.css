@@ -6819,3 +6819,64 @@ tr.MFLBoxPlayerDetailsSubHeader {
     display: none;
   }
 }
+
+/* HISTORY */
+<style>
+/**********************************************/
+/*              CSS VARIABLES                 */
+/**********************************************/
+.hs_tabs_wrap,.ls-history-modal {
+
+	/*color settings and cog wheel*/
+	--color-settings:#000;
+    
+	/*color of input checkbox when "checked"*/
+	--checkbox-check:green;
+		
+	/*color of input checkbox when "unchecked"*/
+	--checkbox-box:red;
+		
+	/*popup box - text color or wins "W"*/
+	--popup-win:green;
+		
+	/*popup box - text color or losses "L"*/
+	--popup-loss:red;
+		
+	/*popup box - text color or ties "T"*/
+	--popup-tie:orange;
+		
+	/*popup bg color for the title text of Season and Playoffs*/
+	--popup-th-bg:#eee;
+		
+	/*color text for loggeed in user franchise name and info*/
+	--my-franchise:#000;
+		
+	/*logged in user tablerow bg color*/
+	--my-franchise-bg:#FFFBCC;
+		
+	/*border below each stats table to show separation of table - Team Points Tables*/
+	--table-separate:2px solid #ddd;
+		
+	/*color the font awesome (---) and (x) shown in tables*/
+	--dash-x-boxes:#999;
+		
+	/*set bg color of the table header (th)*/
+	--table-header-bg:#006db0;
+	/*if above background color is set to transparent you must set the following to a solid color
+	so that when table is scrolled the fixed leftside th content is not transparent and will not
+	show table data underneath it - if above is set to solid color just set this to same color*/
+	--table-header-bg-fixed:#006db0;
+
+	/* set text color for defunct franchises */
+	--defunct-bg-text:#fff;
+	/* set bg color for defunct franchises */
+	--defunct-bg:#f94c56;
+	/*if above background color is set to transparent you must set this to a solid color
+	so that when table is scrolled the fixed leftside content is not transparent and will not
+	show table data underneath it - if above is set to solid color just set this to same color*/
+	--defunct-bg-fixed:#f94c56;
+
+	/*when user franchise has multiple table rows highlighted in succession , then put border to show separation*/
+	--highlight-separate: 1px solid #eee;
+} 
+</style>
