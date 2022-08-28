@@ -20,9 +20,30 @@
     var dh_Ovr = true;                   	//set to true to display the "Ovr" column 	(default is turned off dont see need for this column)
     var dh_Date = true;                  	//set to true to display the "Date/Time" column (default is turned off dont see need for this column)
     var dh_Elapse = true;                	//set to true to display the "Elapsed" column 	(default is turned off dont see need for this column)
+
+    // STANDINGS HISTORY SETTINGS
+    var load_standingsHistory_script = true; //set to true to load the standings history script
+
+    // PLAYOFFS HISTORY SETTINGS
+    var load_playoffsHistory_script = true; //set to true to load the standings history script
+
+    // TOPS PLAYERS HISTORY SETTINGS
+    var load_topsHistory_script = true; 	//set to true to load the top players history script
+    var top_show = '250';			//set how many players you want to show - default shows 250 players
+    var th_sortArrow = 'white';        	//set to white or black for color of the sorting arrows in the table header - no other colors - white or black only
 </script>
     
 <!-- LEAGUE HISTORY HTML -->
-<div id="league-history-wrapper" class="mobile-wrap"></div>
-<!-- DRAFT HISTORY HTML -->
-<div id="draft-history-wrapper" class="mobile-wrap"></div>
+<div class="mobile-wrap">
+    <div id="league-history-wrapper" class="mobile-wrap"></div>
+    <!-- DRAFT HISTORY HTML -->
+    <div id="draft-history-wrapper" class="mobile-wrap"></div>
+    <!-- TRADES HISTORY HTML -->
+    <div id="trades-history-wrapper" class="mobile-wrap"></div>
+    <!-- STANDINGS HISTORY HTML -->
+    <div id="standings-history-wrapper" class="mobile-wrap"></div>
+    <!-- PLAYOFFS HISTORY HTML -->
+    <div id="playoffs-history-wrapper" class="mobile-wrap"></div>
+    <!-- TOP PLAYERS HISTORY HTML -->
+    <div id="tops-history-wrapper" class="mobile-wrap"></div>
+</div>
