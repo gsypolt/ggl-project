@@ -34,8 +34,22 @@
       <module name="MY_NEWS" COUNT="10" />
       <module name="OWNER_ACTIVITY" />
     </div>
+
   </div>
   <div class="col-md-8 col-md-pull-4">
+
+    <div class="mobile-wrap">
+      <table class="homepagemodule report" id="monthly_events2" align="center" cellspacing="1">
+      <caption>
+        <span>Todays Calendar Events</span>
+      </caption>
+        <tbody>
+        <tr class="oddtablerow">
+          <td class="cal_append"></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
     
     <module name="WEEKLY_MVP_STARTERS"/>
     <div class="mobile-standings-wrapper hidden-xs">
@@ -45,6 +59,16 @@
     <div class="visible-xs visible-sm">
       <module name="BRIEF_STANDINGS" />
     </div>
+
+    <script>
+      jQuery.get(baseURLDynamic + "/" + year + "/options?L=" + league_id + "&O=123", function (data) {
+        jQuery(data).find('#monthly_calendar td.today ul').appendTo('#monthly_events2 td.cal_append');
+      jQuery('#monthly_events2 ul li').wrap('<div class="cal-event"><div class="cal-event-desc"></div></div>');
+      jQuery('#monthly_events2 .cal-event').unwrap();
+      jQuery('#monthly_events2 .cal-event-desc li').css('list-style', 'none');
+      jQuery("#monthly_events2 .cal_append:empty").append('<div class="cal-event"><div class="cal-event-desc" style="font-style:italic"><li style="list-style:none">No Events Today</li></div></div></div>');
+      });
+    </script>
     
     <module name="TRANSACTIONS" COUNT="10" TYPE="�����" DAYS="�����"/>
     <div class="visible-xs visible-sm">
@@ -54,6 +78,7 @@
       <module name="NEXT_WEEKS_FANTASY_SCHEDULE" />
       <module name="OWNER_ACTIVITY" />
     </div>
-  </div>
+
 </div>
+
 <script src="//mfl.football/assets/js/homepage.js"></script>

@@ -1,29 +1,9 @@
-<!-- <script>
-  function setTheme(themeName){localStorage.setItem('theme_'+year+'_'+league_id, themeName);document.documentElement.className = themeName;}
-  (function(){if(localStorage.hasOwnProperty('theme_'+year+'_'+league_id)) setTheme(localStorage.getItem('theme_'+year+'_'+league_id));})();
-</script> -->
+<script src="https://www.mflscripts.com/mfl-apps/global/cache.js"></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>jQuery(document).prop('title', '3DL');</script>
 <link rel="shortcut icon" href="https://www.mflscripts.com/ImageDirectory/script-images/favicon.ico" type="image/x-icon" />
 <script>jQuery('head').append('<link href="https://www.mflscripts.com/ImageDirectory/script-images/favicon.ico" rel="shortcut icon" type="image/x-icon" />');</script>
-
-<!-- <style>
-  .ThemeSwith_overlay{content:"";background-color:#000;opacity:.7;width:100%;height:100%;position:fixed;left:0;top:0}
-  #myMFLSkinSelection{position:fixed;left:0;right:0;top:0;bottom:0;margin:auto;width:200px;box-shadow: 0 0 5px rgba(0,0,0,.5);border-radius:3px;padding:10px!important;background: var(--site-bg-image,#111 url(https://www.mflscripts.com/ImageDirectory/script-images/body-bg.jpg))!important;z-index:1;height:200px;overflow:auto}
-</style> -->
-
-<!-- <div class="MFLSkinSelection">
-  <i class="fa fa-paint-brush MFLSkinSelectionbtn" aria-hidden="true" title="Select Skin Color"></i>
-  <div class="ThemeSwith_overlay" style="display:none"></div>
-  <div id="myMFLSkinSelection" class="MFLSkinSelection-content" style="display:none">
-      <p style="text-align:center;font-weight:bold;color:#eee;text-decoration:underline;margin:0">Skin Selection</p>
-      <a href="#" onclick="setTheme('theme-dk-red')" style="color:#da3636!important"><i class="fa fa-circle" aria-hidden="true" title="Red"></i>Red</a>
-      <a href="#" onclick="setTheme('theme-dk-orange')" style="color:#ff4200!important"><i class="fa fa-circle" aria-hidden="true" title="Orange"></i>Orange</a>
-      <a href="#" onclick="setTheme('theme-dk-blue')" style="color:#117DFF!important"><i class="fa fa-circle" aria-hidden="true" title="Blue"></i>Blue</a>
-      <a href="#" onclick="setTheme('theme-dk-gold')" style="color:#b2784a!important"><i class="fa fa-circle" aria-hidden="true" title="Gold"></i>Gold</a>
-  </div>
-</div> -->
 
 <script>
   //THIS NEEDS TO BE PLACED IN HEADER AND IS USED TO GO BACK IN HISTORY FOR MFL'S LIVE SCORING
@@ -67,9 +47,9 @@
 </style>
 
 <div class="container d-flex h-100 align-items-center">
-  <div class="gdl_logo" id="gdl_logo" href="//%STATICHOST%/%YEAR%/home/%LEAGUEID%">
-    <a href="//%STATICHOST%/%YEAR%/home/%LEAGUEID%">
-      <img class="center-block img-responsive" src="https://github.com/gsypolt/ggl-project/blob/master/images/banners/2021banner.jpg?raw=true" style="filter:grayscale(0%)">
+  <div class="gdl_logo" id="gdl_logo" href="//%HOST%/%YEAR%/home/%LEAGUEID%">
+    <a href="//%HOST%/%YEAR%/home/%LEAGUEID%">
+      <img class="center-block img-responsive" src="https://github.com/gsypolt/ggl-project/blob/master/images/banners/2022banner.jpg?raw=true" style="filter:grayscale(0%)">
     </a>
   </div>
 </div>
@@ -126,6 +106,13 @@
           </svg>
           <div class="svg-text">Calendar</div>
         </a>
+        <a class="svg-iconlink" href="//%HOST%/%YEAR%/home/%LEAGUEID%?MODULE=MESSAGE9">
+          <svg class="svg-icon icon-history" viewBox="0 0 100 87">
+            <use xlink:href="#icon-history"></use>
+          </svg>
+          <div class="svg-text">History</div>
+        </a>
+
         <!-- <a class="svg-iconlink" href="INSERT URL">
           <svg class="svg-icon icon-history" viewBox="0 0 100 87">
             <use xlink:href="#icon-history"></use>
@@ -136,6 +123,8 @@
     </div>
 </div>
 
+<!-- CUSTOM TAB SCRIPT JS FILE -->
+<script src="https://www.mflscripts.com/mfl-apps/tabs/script.js"></script>
 <!-- DEFINE GLOBAL VARIABLES  -->
 <script>
   // ADD COMMISSIONER ABILITIES LINK TO MENU
@@ -239,10 +228,87 @@
   var ls_hide_bye_teams = false;                 //set to true to hide boxscore matchup teams on bye weeks
 </script>
 
+<!-- TICKER HTML -->
+<div class="ticker-wrapper"></div>
+
+<script>
+// TICKER DISPLAY SETTINGS
+var tickerHomePageOnly      = true;         // SET TO TRUE IF YOU HAVE TICKER AS A HEADER MESSAGE BUT ONLY WANT IT ON HOME PAGE; FALSE FOR ALL PAGES
+var tickerName              = "Headlines";  // ENTER TICKER NAME
+var responsiveTicker        = true;         // SET TO TRUE IF YOUR MFL THEME/SKIN IS RESPONSIVE FOR MOBILE SO THAT THE MARQUEE WILL BE ALSO
+var isLeagueIDP             = true;        // SET TO TRUE IF YOU WANT TO INCLUDE IDP OPTIONS; IF FALSE THEN ALL IDP SETTINGS BELOW WILL BE IGNORED
+var tickerSize              = "large";     // ENTER TICKER SIZE "small" , "medium" or "large" 
+var tickerLastPlayoffWeek   = 16;           // SET TO LAST PLAYOFF WEEK 
+var tickerSpeedDefault      = 2;            // # - SET DEFAULT SCROLL SPEED FROM 0 (slowest) to 6 (fastest)
+var tickerDelay             = 3;            // SECONDS TO DELAY BEFORE SCROLLING 1 (shortest) to 6 (longest)
+
+// CUSTOM MESSAGES 
+var tickerContent = new Array();
+//ADD CUSTOM MESSAGE(S) IN THE FORMAT BELOW
+tickerContent.push( ({"header":"Site Update" , "message":"Marquee, Pop-up Notifications, Calendar, and more..."}) );
+tickerContent.push( ({"header":"League Update" , "message":"Roster cuts due August 24th!"}) );
+tickerContent.push( ({"header":"League Update" , "message":"Roster cuts due August 24th!"}) );
+
+//BOTH STANDARD AND LIVE DISPLAY (also includes custom messages above if any)
+var includeFranchiseIcons      = true;   // true or false; when showing players include franchise icon if on a MFL roster REQUIRES cache.js
+var includeLatestArticles      = 5;      // 0=disabled; #=The number of articles to show
+
+//STANDARD DISPLAY SETTINGS (when NFL games have not kicked off in a given week)
+var includeTopPlayerStats      = 5;      // 0=disabled; #=The number of top yardage (Pass/Rush/Rec) to show;
+var includeTopPlayerStatsIDP   = true;   // true or false; only applicable when displaying top players and shows the number of top tackles/sacks for IDP;
+var includeTopPlayerPts        = 5;      // 0=disabled; #=The number of ytd fantasy pts by position offense to show;
+var includePowerRank           = true;   // true or false; show power rank
+var includeAltPowerRank        = true;   // true or false; show alternate power rank
+var includePointScoredTeam     = true;   // true or false; show franchise point scored ranking
+var includeAllplayRecord       = true;   // true or false; show all play ranking
+var includeLastWeekResults     = true;   // true or false; show results for fantasy matchups
+var includeNextWeekMatchups    = true;   // true or false; show next weeks fantasy matchups
+var includeLastWeekNflResults  = true;   // true or false; show results for nfl matchups
+var includeNextWeekNflMatchups = true;   // true or false; show next weeks nfl matchups
+var includeWaiverOrder         = true;   // true or false; current waiver priority
+var includeDraft               = true;   // true or false; used in conjunction with below draft settings
+var draftShowEntire            = true;   // true or false; show entire draft; both picks made and future pending selections
+var draftTopPicksOnly          = 0;      // #=Display the top # of picks in the draft; only applicable if draftShowEntire = false;
+var draftShowPicksMade         = 5;      // #=Display the last # of picks made; only applicable if draftShowEntire = false and draftTopPicksOnly = 0;
+var draftShowPicksPending      = 5;      // #=Display the next # of picks pending; only applicable if draftShowEntire = false and draftTopPicksOnly = 0;
+
+//LIVE DISPLAY SETTINGS (when NFL games have kicked off in a given week)
+var includeLiveLeaders         = 5;      // 0=disabled; #=The number of live leaders (Pass/Rush/Rec), when applicable, to show;
+var includeLiveLeadersIDP      = true;   // true or false; only applicable when displaying live leaders	
+var includeNflMatchups         = true;   // true or false; show live NFL matchups
+var includeNflMatchupLeaders   = true;   // true or false; show live NFL matchup leaders
+var includeFantasyMatchups     = true;   // true or false; show live Fantasy matchups
+
+// TICKER COLORING - SETUP TO MATCH MFL DEFAULT SKIN
+var tickerWidth     = "1148px";                         // set max width of ticker - set to 100% if you want it full width
+var tickerMargin    = "10px auto";                      // set ticker margin - currently set for margin top 10px , margin bottom 10px and side to side auto to center
+var tickerFont      = "Roboto Condensed";               // set font for ticker - default is Roboto Condensed
+var tickerBorder    = "#FFA300";                        // set border color for ticker
+var bigHeadingBG    = "#FFA300";                        // set color of background behind text "Headlines" and the border of the ticker
+var tickerTxtShdw   = "#transparent";                           // set the color of the drop shadow for "Headlines" text and icons set to "transparent" to remove
+var bigHeadingClr   = "#1A1A1A";                           // set color of the text for "Headlines"
+var tickerHeadBG    = "#FFF";                           // set the bg color for the ticker header
+var tickerCogWheel  = "#000000";                        // set the color for the ticker cogwheel
+var tickerHeadClr   = "#000000";                        // set the text color for the ticker header
+var tickerTxtBG     = "#000000";                           // set the bg color for the ticker scrolling text
+var tickerTxtClr    = "#FFA300";                           // set the text color for the ticker scrolling text
+var tickerTxtWgt    = "300";                            // set the text weight for the ticker scrolling text
+var tickerTxtTrans  = "none";                           // set the text-transform for the ticker scrolling text - change to "uppercase" to capitalize
+var tickerLinkClr   = "#FFA300";                        // set the color for the links in scrolling text
+var tickerLinkHvr   = "#cd2122";                        // set the color for the links on hover in scrolling text
+var tickerBoxShdw   = "none";    // set box shadow - if you dont want shadow set to "none"
+var controlsGreen   = "green";                          // set color for the controls boxes when positive setting - current color green
+var controlsRed     = "red";                            // set color for the controls boxes when negative setting - current color red
+</script>
+
+<!-- MARQUEE JS FILE -->
+<script src="https://www.mflscripts.com/mfl-apps/marquee/script.js"></script>
+
 <!-- MFL LIVE SCORING SCRIPT ALL PLAY LEAGUES --> 
 <script src="https://www.mflscripts.com/mfl-apps/scoreboard/replace-mflScoring/allplay.js"></script>
 
-<script src="https://mflscripts.com/mfl-apps/global/header.js?v=1.3.2"></script>
+<!-- <script src="https://mflscripts.com/mfl-apps/global/header.js?v=1.3.2"></script> -->
+<script src="https://mflscripts.com/mfl-apps/global/header.js"></script>
 <link rel="stylesheet" type="text/css" href="https://www.mflscripts.com/mfl-apps/lineups/submit/responsive.css?v=1.0.0">
 <link rel="stylesheet" type="text/css" href="https://www.mflscripts.com/mfl-apps/global/css/300x50-icons.css?v=1.0.0">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css"/>

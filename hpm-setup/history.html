@@ -1,0 +1,49 @@
+<script>
+    // LEAGUE HISTORY SETTINGS
+    var lh_commish_franchise_id = '0004';
+    var lh_abbrev_max_length = 3;         //IF MFL FRANCHISE ABBREV IS MISSING THEN SCRIPT WILL CREATE, YOU CAN SET MAX LENGTH
+    var lh_first_player_season = '';  //SET TO '' OR OMIT IF ALL HISTORICAL SEASONS HAVE PLAYER STATS
+    var lh_name_icon_logo = 5;            //0=name; 1=icon; 2=logo; 3=icon+name;4=logo+name; (active franchises only: 5=icon; 6=logo; 7=icon+name; 8=logo+name)
+    var lh_abbrev_icon_logo = 0;          //0=abbrev; 1=icon; 2=logo; 3=icon+abbrev;4=logo+abbrev; (active franchises only: 5=icon; 6=logo; 7=icon+name; 8=logo+name)
+    var historicalAwards = new Array();
+    historicalAwards["League Champion"] = '<i class="fa fa-trophy ls-league-award"   style="color:#d4af37" aria-hidden="true"></i>';
+    historicalAwards["Second Place Overall"] = '<i class="fa fa-bookmark ls-league-award" style="color:blue" aria-hidden="true"></i>';
+    historicalAwards["Highest Scorer"] = '<i class="fa fa-bookmark ls-league-award" style="color:green" aria-hidden="true"></i>';
+    //var lh_fname_override = new Array();
+    
+    // DRAFT HISTORY SETTINGS
+    var load_draftHistory_script = true; 	//set to true to load the draft history script
+    var dh_Mobile = true;                	//set to true to display responsive css for draft table for stacked tablerows
+    var dh_Comments = true;               	//set to true to display the "Comments" column
+    var dh_sortArrow = 'white';           	//set to white or black for color of the sorting arrows in the table header - no other colors - white or black only
+    var dh_accumulatePts = true;         	//set to true to display accumulated pts from draft season selected and all future seasons (typically only useful for rookie drafts)
+    var dh_Ovr = true;                   	//set to true to display the "Ovr" column 	(default is turned off dont see need for this column)
+    var dh_Date = true;                  	//set to true to display the "Date/Time" column (default is turned off dont see need for this column)
+    var dh_Elapse = true;                	//set to true to display the "Elapsed" column 	(default is turned off dont see need for this column)
+
+    // STANDINGS HISTORY SETTINGS
+    var load_standingsHistory_script = true; //set to true to load the standings history script
+
+    // PLAYOFFS HISTORY SETTINGS
+    var load_playoffsHistory_script = true; //set to true to load the standings history script
+
+    // TOPS PLAYERS HISTORY SETTINGS
+    var load_topsHistory_script = true; 	//set to true to load the top players history script
+    var top_show = '250';			//set how many players you want to show - default shows 250 players
+    var th_sortArrow = 'white';        	//set to white or black for color of the sorting arrows in the table header - no other colors - white or black only
+</script>
+    
+<!-- LEAGUE HISTORY HTML -->
+<div class="mobile-wrap">
+    <div id="league-history-wrapper" class="mobile-wrap"></div>
+    <!-- DRAFT HISTORY HTML -->
+    <div id="draft-history-wrapper" class="mobile-wrap"></div>
+    <!-- TRADES HISTORY HTML -->
+    <div id="trades-history-wrapper" class="mobile-wrap"></div>
+    <!-- STANDINGS HISTORY HTML -->
+    <div id="standings-history-wrapper" class="mobile-wrap"></div>
+    <!-- PLAYOFFS HISTORY HTML -->
+    <div id="playoffs-history-wrapper" class="mobile-wrap"></div>
+    <!-- TOP PLAYERS HISTORY HTML -->
+    <div id="tops-history-wrapper" class="mobile-wrap"></div>
+</div>

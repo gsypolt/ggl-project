@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto|Roboto:900|Roboto+Slab:700");
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
 
-
 .homepagecolumn .homepagemodule h3 {
   margin: 0 0 0 -1px; }
 
@@ -231,7 +230,7 @@ table.homepagemessage td {
 .cta_button {
   display: block;
   padding: 6px 0px 6px;
-  vertical-align: top;
+  /* vertical-align: top; */
   font-size: 18px;
   font-family: 'Roboto slab';
   font-weight: bold; }
@@ -1591,22 +1590,43 @@ table.two_column_layout {
   max-width: 100%;
   display: block; }
 
-.league_logo img {
+/* .gdl_logo img {
   max-height: 70px;
-  margin-bottom: 12px; }
+  margin-bottom: 12px; } */
+
+/* HD/Retina CSS */
+@media
+  only screen and (-webkit-min-device-pixel-ratio: 4),
+  only screen and (   min--moz-device-pixel-ratio: 4),
+  only screen and (     -o-min-device-pixel-ratio: 4/1),
+  only screen and (        min-device-pixel-ratio: 4),
+  only screen and (                min-resolution: 550dpi),
+  only screen and (                min-resolution: 4dppx)
+{
+	.gdl_logo .img {
+		/* background: url(logo@2x.png) no-repeat 0 0; */
+    max-height: 100px;
+    /* background-size: 120px; Equal to normal logo width */
+	}
+}
+
+@media (min-width: 400px) {
+  .gdl_logo img {
+    max-height: 100px;
+    margin-bottom: 18px; } }
 
 @media (min-width: 767px) {
-  .league_logo img {
-    max-height: 70px;
+  .gdl_logo img {
+    max-height: 150px;
     margin-bottom: 18px; } }
 
 @media (min-width: 992px) {
-  .league_logo img {
-    max-height: 110px;
+  .gdl_logo img {
+    max-height: 175px;
     margin-bottom: 0; } }
 
 @media (min-width: 767px) {
-  .league_logo svg {
+  .gdl_logo svg {
     width: 90px;
     height: 100px; } }
 
@@ -1825,21 +1845,22 @@ svg.icon-trophy {
   opacity: .9; }
   #body_options_18 .dropplayer:hover, #body_options_18 .dropplayer:active, #body_options_18 .dropplayer:focus {
     opacity: 1;
-    color: #0099FF; }
+    color: #FFA300; }
 
 input[type="button"], input[type="submit"] {
   padding: 14px 30px;
   margin-bottom: 10px;
   border: 2px solid;
   margin-top: 10px;
-  color: white;
+  color: #282828;
   font-weight: bold;
   text-transform: uppercase;
   cursor: pointer;
   border-radius: 2px; }
   @media (max-width: 991px) {
     input[type="button"], input[type="submit"] {
-      width: 100%; } }
+      width: 100%;
+      color: #282828; } }
 
 #league_chat input[type="button"] {
   width: 100%; }
@@ -2028,7 +2049,8 @@ td.MFLPlayerPoints {
 .MFLGameLinks {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   padding: 6px; }
-  .MFLGameLinks .MFLGameTable {
+  
+.MFLGameLinks .MFLGameTable {
     border-collapse: collapse;
     -webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
@@ -2037,16 +2059,23 @@ td.MFLPlayerPoints {
   .MFLGameLinks .matchupLolite,
   .MFLGameLinks .matchupHilite {
     padding: 0; }
-  .MFLGameLinks td.MFLLiveTeam {
-    min-width: 180px;
+
+#MFLBoxContainer .MFLLiveTeam img {
+      max-height: 25px;
+}
+
+.MFLGameLinks td.MFLLiveTeam {
+    /* min-width: 180px; */
     font-size: 13px; }
-  .MFLGameLinks .MFLNFLGameTable .nflicon {
+.MFLGameLinks .MFLNFLGameTable .nflicon {
     max-width: 30px; }
+
   .MFLGameLinks .MFLNFLLiveScore,
   .MFLGameLinks .MFLLiveScore,
   .MFLGameLinks .MFLLiveTeam {
     font-weight: bold;
     font-family: "Roboto Slab"; }
+
   .MFLGameLinks .MFLLiveClock {
     border-top: 1px solid;
     font-size: 10px;
@@ -2568,7 +2597,9 @@ td#MFLScoreboardHomeLineup {
 
 /*MFL menus*/
 #hsubmenu {
-  margin-bottom: 24px; }
+  margin-bottom: 24px;
+  display: none;
+}
 
 /*   MFL RESPONSIVE TABS
 =========================== */
@@ -4117,7 +4148,7 @@ table.report {
   background-color: #1f1f1f; }
 
 #monthly_calendar td.today {
-  background-color: #0099FF;
+  background-color: #FFA300;
   color: #1f1f1f;
   border-color: #db3a3a; }
 
@@ -4143,7 +4174,7 @@ table.report {
 
 #monthly_calendar td.today .calendarday {
   border-color: #db3a3a;
-  background-color: #0099FF;
+  background-color: #FFA300;
   border-bottom-color: #bf2323; }
   #monthly_calendar td.today .calendarday a:link {
     color: #1f1f1f; }
@@ -4151,7 +4182,7 @@ table.report {
     color: #1f1f1f; }
 
 .constitution-wrapper h2 {
-  color: #0099FF;
+  color: #FFA300;
   border-bottom-color: #292929; }
 
 .constitution-wrapper td.secondround {
@@ -4164,13 +4195,13 @@ table.report {
   background-color: #1f1f1f; }
 
 #body_commissioner_setup td.two_column_layout th {
-  color: #0099FF; }
+  color: #FFA300; }
 
 .draftcta {
-  border-left-color: #0099FF; }
+  border-left-color: #FFA300; }
 
 .standingscta {
-  border-left-color: #0099FF; }
+  border-left-color: #FFA300; }
 
 /*  USE THIS TO HIDE ITEMS YOU DO NOT WANT SHOWING ON YOUR DRAFT ROOM PAGE  */
 .banner-container, #tabmenu-wrap, footer {
@@ -4240,7 +4271,7 @@ table.report {
   fill: transparent; }
 
 .st3 {
-  fill: #0099FF; }
+  fill: #FFA300; }
 
 .st4 {
   display: none; }
@@ -4253,7 +4284,7 @@ table.report {
 
 .leaguename {
   font-family: "Roboto Slab";
-  color: #0099FF; }
+  color: #FFA300; }
   .leaguename .leaguename--the {
     color: #fff; }
   .leaguename .leaguename--dotus {
@@ -4261,7 +4292,7 @@ table.report {
 
 .leaguename-2line .leaguename-2line--primaryname {
   font-family: "Roboto Slab";
-  color: #0099FF;
+  color: #FFA300;
   font-weight: bold; }
 
 .leaguename-2line .leaguename-2line--secondaryname {
@@ -4317,7 +4348,7 @@ table.report {
 .container-footer {
   background-color: #1f1f1f; }
   .container-footer a:link, .container-footer a:visited {
-    color: #0099FF; }
+    color: #FFA300; }
   .container-footer ul li {
     color: #fff;
     font-family: "Roboto Slab"; }
@@ -4328,17 +4359,17 @@ table.report {
   fill: #666; }
 
 a:hover [class^="icon"] {
-  fill: #0099FF; }
+  fill: #FFA300; }
 
 input[type="button"],
 input[type="submit"] {
-  background-color: #0099FF;
-  border-color: #0099FF;
-  color: #fff; }
+  background-color: #FFA300;
+  border-color: #FFA300;
+  color: #282828; }
 
 input[type="button"]:hover,
 input[type="submit"]:hover {
-  background-color: #0099FF;
+  background-color: #FFA300;
   border-color: #87abee;
   color: #fff; }
 
@@ -4351,24 +4382,24 @@ input#chat_text_field {
   color: #333; }
 
 form.reportform input[type="submit"] {
-  background: #0099FF;
+  background: #FFA300;
   color: #fff; }
 
 .btn-primary a,
 .btn-primary a:link,
 .btn-primary a:visited {
-  background-color: #0099FF;
+  background-color: #FFA300;
   color: #fff; }
 
 .btn-primary a:hover {
-  background-color: #0099FF;
+  background-color: #FFA300;
   color: #fff; }
 
 .mb svg.icon-chevron-right {
-  fill: #0099FF; }
+  fill: #FFA300; }
 
 .mb svg.icon-chevron-right:hover {
-  fill: #0099FF; }
+  fill: #FFA300; }
 
 #body_live_scoring_summary table.report .report {
   background-color: #fff; }
@@ -4383,7 +4414,7 @@ div#scoreboardTooltip {
   background-color: #1f1f1f; }
 
 #MFLPlayerPopupClose {
-  background: #0099FF; }
+  background: #FFA300; }
 
 #MFLPlayerPopupClose:hover {
   background: #bb2222; }
@@ -4406,7 +4437,7 @@ div#scoreboardTooltip {
     background-color: #1f1f1f; }
   .MFLGameLinks .MFLLiveClock {
     background-color: #1A1A1A;
-    border-top-color: #0099FF; }
+    border-top-color: #FFA300; }
 
 .MFLOuterTable .report td {
   padding: 6px 6px; }
@@ -4418,13 +4449,13 @@ div#scoreboardTooltip {
 
 .MFLMainScoreboard #MFLRoadScore > div,
 .MFLMainScoreboard #MFLHomeScore > div {
-  color: #0099FF;
+  color: #FFA300;
   background-color: #1f1f1f;
   -webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1); }
 
 td#myTopTableHolder td#MFLCenterTop {
-  color: #0099FF; }
+  color: #FFA300; }
 
 #starter-caption-fixed caption,
 #bench-caption-fixed caption {
@@ -4438,7 +4469,7 @@ td#myTopTableHolder td#MFLCenterTop {
 ======================================= */
 .myfantasyleague_menu {
   background: #1f1f1f;
-  border-bottom-color: #0099FF; }
+  border-bottom-color: #FFA300; }
 
 .myfantasyleague_menu, .myfantasyleague_menu ul, .myfantasyleague_menu ul li ul {
   background: #1f1f1f; }
@@ -4511,7 +4542,7 @@ td#myTopTableHolder td#MFLCenterTop {
 
 .myfantasyleague_tabmenu #homepagetabs li {
   border-right-color: #1f1f1f;
-  background-color: #0099FF;
+  background-color: #FFA300;
   border-left-color: #1f1f1f;
   border-top-color: #1f1f1f;
   border-right-color: #1f1f1f; }
@@ -4624,7 +4655,7 @@ a:link {
   color: #fff; }
 
 h2 {
-  color: #0099FF; }
+  color: #FFA300; }
 
 /*main mfl wrapper*/
 .pagebody {
@@ -4633,7 +4664,7 @@ h2 {
 caption,
 caption span {
   font-family: "Roboto Slab";
-  color: #0099FF; }
+  color: #FFA300; }
 
 th {
   color: #ccc; }
@@ -4648,7 +4679,7 @@ span.reportnavigation {
   color: #BEBEBE; }
   span.reportnavigation a:link,
   span.reportnavigation a:visited {
-    color: #0099FF; }
+    color: #FFA300; }
 
 /*reports*/
 .report-wrapper, #outerMFLScoreboardDiv, #lineup-form {
@@ -4667,7 +4698,7 @@ span.reportnavigation {
 
 .newposition td,
 .newposition th {
-  border-top-color: #0099FF; }
+  border-top-color: #FFA300; }
 
 /*add drop*/
 span#add_name_field_id {
@@ -4703,7 +4734,7 @@ span#drop_name_field_id {
     .utility-nav .svg-text .commish-link {
       border-left-color: #BEBEBE; }
   .utility-nav a:hover [class^="icon"] {
-    fill: #0099FF; }
+    fill: #FFA300; }
 
 textarea#MSG {
   background: #31382d;
@@ -4731,7 +4762,7 @@ textarea#MSG {
 
 .subtotals {
   background-color: transparent;
-  color: #0099FF; }
+  color: #FFA300; }
 
 .rfaStatus {
   color: green;
@@ -4750,14 +4781,14 @@ textarea#MSG {
   margin-top: -12px; }
 
 tr.cap_room_available_row th {
-  color: #0099FF; }
+  color: #FFA300; }
 
 .team-nav {
   background-color: #1f1f1f; }
   .team-nav .team-nav--button svg {
     fill: #666; }
   .team-nav .team-nav--button a:hover svg {
-    fill: #0099FF; }
+    fill: #FFA300; }
   .team-nav .team-nav--button .svg-text {
     color: #BEBEBE; }
   .team-nav .team-nav--button .svg-text a:link,
@@ -4765,14 +4796,14 @@ tr.cap_room_available_row th {
     color: #BEBEBE; }
 
 ::-webkit-scrollbar-thumb {
-  background: #0099FF;
+  background: #FFA300;
   border-color: #1A1A1A; }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #0099FF; }
+  background: #FFA300; }
 
 ::-webkit-scrollbar-thumb:active {
-  background: #0099FF; }
+  background: #FFA300; }
 
 ::-webkit-scrollbar-track {
   background: #1A1A1A;
@@ -4787,17 +4818,17 @@ tr.cap_room_available_row th {
 .homepagecolumn #standings h3, .homepagecolumn #brief_standings h3, .homepagecolumn .homepagemodule caption {
   background-color: transparent;
   font-family: "Roboto Slab";
-  color: #0099FF; }
+  color: #FFA300; }
 
 /*Standings*/
 .homepagecolumn #brief_standings h3, .homepagecolumn #standings h3 {
-  color: #0099FF;
+  color: #FFA300;
   border-bottom-color: #292929; }
 
 #body_standings caption, #body_standings h3 {
   background-color: transparent;
   font-family: "Roboto Slab";
-  color: #0099FF; }
+  color: #FFA300; }
 
 #standings img.standingslogo {
   margin-left: 0px;
@@ -4900,9 +4931,9 @@ tr.cap_room_available_row th {
 
 .tabbed-reports li {
   color: #fff;
-  background-color: #0099FF;
-  border-left-color: #0099FF;
-  border-right-color: #0099FF; }
+  background-color: #FFA300;
+  border-left-color: #FFA300;
+  border-right-color: #FFA300; }
 
 .tabbed-reports li:hover, .tabbed-reports li.active, .tabbed-reports li.current {
   color: #fff;
@@ -4950,10 +4981,10 @@ float:none
   white-space: nowrap
 }
 
-#other_games > tbody:nth-child(1) > tr:nth-child(1),
+/* #other_games > tbody:nth-child(1) > tr:nth-child(1),
 #other_games br {
   display:none
-}
+} */
 
 #LS_TopTableHolder .LS_MainScoreboard {
   border-spacing: 2px
@@ -5973,7 +6004,7 @@ div.ls_team_points {
 
 #body_ajax_ls div.ls_other_game {
   background: rgba(0, 0, 0, .2);
-  border-color: rgba(45, 45, 45, .7)
+  border-color: #404040;
 }
 
 
@@ -5984,7 +6015,7 @@ div.ls_team_points {
 }
 
 #body_ajax_ls div.ls_other_game.current_matchup {
-  background-color: rgba(255, 20, 20, .1)
+  background-color: #404040;
 }
 
 
@@ -6014,7 +6045,7 @@ div.ls_team_points {
 /*border and bg around td cells*/
 
 #LS_TopTableHolder .LS_MainScoreboard td {
-  border: 1px solid rgba(45, 45, 45, .7);
+  border: 1px solid #404040;
   background: rgba(45, 45, 45, .4);
 }
 
@@ -6076,7 +6107,7 @@ div.ls_team_points {
 
 #body_ajax_ls img.ls_og_icon {
   max-width: 106px;
-  max-height: 20px
+  max-height: 50px
 }
 
 
@@ -6395,8 +6426,8 @@ div.ls_team_points {
 .weekly-navbar a:visited,
 .weekly-navbar .currentweek {
   color: #fff;
-  background: rgba(45, 45, 45, .4);
-  border: 1px solid rgba(45, 45, 45, .7);
+  /* background: ; */
+  border: 1px solid #404040;
   border-radius: 2px;
   text-decoration: none;
   display: inline-block;
@@ -6414,11 +6445,11 @@ div.ls_team_points {
 .weekly-navbar a:active:hover,
 .weekly-navbar a:visited:hover {
   color: #fff;
-  background: rgba(218, 54, 54, .2)
+  background: #404040
 }
 
 .weekly-navbar .currentweek {
-  background: rgba(218, 54, 54, .2);
+  background:#404040;
   color: #fff
 }
 
@@ -6472,3 +6503,380 @@ div.ls_team_points {
     padding: 0!important;
 }
 }
+
+/***************************************/
+
+
+/* MINI SCOREBOARD */
+
+
+/***************************************/
+
+#MFLBoxWrapper {
+  margin: 10px auto;
+  max-width: 1148px;
+}
+
+#MFLBoxWrapper .MFLBoxPlayerDetailsNone {
+  text-align: center;
+  font-style: italic;
+  background-color: lightgray;
+}
+
+#MFLBoxPlayerDetails tr.oddtablerow {
+  background-color: white;
+}
+
+#MFLBoxPlayerDetails tr.eventablerow {
+  background-color: lightgrey;
+}
+
+tr.MFLBoxPlayerDetailsHeader {
+  background-color: black;
+}
+
+tr.MFLBoxPlayerDetailsSubHeader {
+  background-color: black;
+}
+
+#MFLBoxContainer .MFLGameTable {
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1)
+}
+.MFLBoxArrowRight:before,
+.MFLBoxArrowLeft:before {
+    color: #bbb;
+}
+.MFLBoxArrowLeft:hover:before,
+.MFLBoxArrowRight:hover:before {
+    color: #263e68;
+}
+.MFLBoxArrowLeft.MFLBoxArrowFaded:before,
+.MFLBoxArrowRight.MFLBoxArrowFaded:before {
+  color: #bbb
+}
+#MFLBoxWrapper .MFLBoxPlayerDetailsClose {
+  color: #282828;
+  border: .125rem solid var(--accent, #606060);
+  background: var(--accent,#FFA300)
+}
+#MFLBoxWrapper .MFLBoxPlayerDetailsClose:hover {
+  color: #FFA300;
+  background: var(--accent,#606060);
+  border-color: var(--accent,#FFA300);
+}
+#MFLBoxWrapper #MFLBoxPlayerDetails {
+  background: #fff;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+  color: #000
+}
+
+#MFLBoxContainer .MFLGameLinks tr {
+  height: 50px;
+}
+
+#MFLBoxWrapper .MFLBoxPlayerDetailsTR:hover {
+  background-color:var(--lightest-color , #FBF3F2)
+}
+#MFLBoxWrapper #MFLBoxPlayerDetails .MFLPaceScorePositive {
+  color: green;
+}
+#MFLBoxWrapper #MFLBoxPlayerDetails .MFLPaceScoreNegative {
+  color: red
+}
+#MFLBoxWrapper .MFLBoxLiveStatsContent {
+  background-color: #fff;
+  color: #000;
+  border: 8px solid #ccc
+}
+#MFLBoxWrapper .MFLBoxLiveStatsClose {
+  color: red
+}
+#MFLBoxWrapper .MFLBoxLiveStatsClose:hover {
+  color: red
+}
+#MFLBoxWrapper #MFLBoxMatchups div.warning {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fff;
+  color:red
+}
+#MFLBoxWrapper #MFLBoxContainer input[type="button"] {
+  box-shadow: 0 0 5px #606060;
+  background: var(--main-four , var(--main , #FFF));
+  color: #282828
+}
+
+/* Mini Scoreboard Left Rail Buttons */
+
+#MFLBoxWrapper #MFLBoxContainer input[type="button"]:hover {
+  background: var(--accent-three , var(--accent , #FFA300))
+}
+#MFLBoxWrapper #MFLBoxContainer input[style="cursor:default"] {
+  background: var(--accent-three , var(--accent , #FFA300))
+}
+#MFLBoxWrapper .MFLGameLinks .MFLWinMarker, #MFLBoxWrapper .MFLGameLinks .MFLNFLWinMarker {
+    color: #00a517;
+}
+
+/* CUSTOM BANNER */
+.custom-banner-container { 
+  max-width: 1148px;
+  margin: 25px auto;
+  margin-top: 60px;
+}
+
+/*CSS FOR ICON BAR*/
+.bannerlinkicons {
+  /* height: 80px; */
+  text-align: center;
+  overflow-y: hidden;
+} 
+
+/***************************************/
+
+
+/* MFL MOBILE REPLACEMENT MENU */
+
+
+/***************************************/
+
+/* Hamburger Icon */
+
+.hamburger-inner {
+  background: #000;
+}
+
+.myfantasyleague_menuMobile span.menu_arrow:before, .myfantasyleague_menuMobile span.menu_arrow:after {
+  background: #333
+}
+
+.hamburger-box {
+  width: 50px;
+  height: 15px;
+}
+
+/*************************************************/
+/*              menu button pullout              */
+/*************************************************/
+#menu-trigger {
+  border: 1px solid #080e25;
+  background: #FFA300;
+  color: #333
+}
+
+/*************************************************/
+/*                 menu container                */
+/*************************************************/
+.myfantasyleague_menuMobile {
+  border-color: #080e25!important;
+  color: #fff;
+  background: #fff
+}
+
+/*************************************************/
+/*        text color for first level items       */
+/*************************************************/
+.myfantasyleague_menuMobile>ul>li>a,
+.myfantasyleague_menuMobile>ul>li>a:active,
+.myfantasyleague_menuMobile>ul>li>a:visited,
+.myfantasyleague_menuMobile>ul>li>a:hover {
+  color: #fff
+}
+
+/*************************************************/
+/*      text color for first level inner link    */
+/*************************************************/
+.myfantasyleague_menuMobile>ul>li>ul>li>a,
+.myfantasyleague_menuMobile>ul>li>ul>li>a:active,
+.myfantasyleague_menuMobile>ul>li>ul>li>a:visited,
+.myfantasyleague_menuMobile>ul>li>ul>li>a:hover {
+  color:#FFA300;
+  background: #fff
+}
+
+/*************************************************/
+/*    text color for second level inner links    */
+/*************************************************/
+.myfantasyleague_menuMobile>ul>li>ul>li>ul>li>a::before{
+  content: '';
+  width: 5px;
+  height: 5px;
+  -moz-border-radius: 7.5px;
+  -webkit-border-radius: 7.5px;
+  border-radius: 7.5px;
+  background: #FFA300;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left:10px
+}
+.myfantasyleague_menuMobile>ul>li>ul>li>ul>li>a {
+  position:relative;
+}
+.myfantasyleague_menuMobile>ul>li>ul>li>ul>li>a,
+.myfantasyleague_menuMobile>ul>li>ul>li>ul>li>a:active,
+.myfantasyleague_menuMobile>ul>li>ul>li>ul>li>a:visited,
+.myfantasyleague_menuMobile>ul>li>ul>li>ul>li>a:hover {
+  color: #080e25;
+  padding-left: 20px!important;
+  background: #fff;
+}
+
+/*************************************************/
+/*           background for menu links           */
+/*************************************************/
+.myfantasyleague_menuMobile a,.myfantasyleague_menuMobile a:active {
+  background: #FFA300;
+  border-bottom: 1px solid #080e25;
+}
+
+/*************************************************/
+/* background for active first level drop down menu links */
+/*************************************************/
+.myfantasyleague_menuMobile>ul>li.has-sub.arrow-down>a {
+  background: #080e25
+}
+
+/*************************************************/
+/* background and text color for active second level drop items */
+/*************************************************/
+.myfantasyleague_menuMobile>ul>li.has-sub>ul>li.has-sub.sub-arrow-down>a {
+  background: #fff;
+  color: #080e25
+}
+
+/*************************************************/
+/*    mobile menu animated up and down arrows    */
+/*************************************************/
+.myfantasyleague_menuMobile>ul>li>ul>li>a {
+  position:relative
+}
+
+.myfantasyleague_menuMobile span.menu_arrow {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 5px;
+  border-radius: 5px;
+  background: #fff;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  display:block;
+}
+.myfantasyleague_menuMobile span.menu_arrow:before {
+  content: "";
+  display: block!important;
+  height: 2px;
+  left: 50%;
+  margin-left: -8px;
+  margin-top: 0;
+  position: absolute;
+  top: 50%;
+  transform: rotate(45deg);
+  transition: all .25s ease;
+  width: 10px;
+}
+.myfantasyleague_menuMobile span.menu_arrow:after {
+  content: "";
+  display: block!important;
+  height: 10px;
+  left: 50%;
+  margin-left: 2px;
+  margin-top: -4px;
+  position: absolute;
+  top: 50%;
+  transform: rotate(45deg);
+  transition: all .25s ease;
+  width: 2px;
+}
+.myfantasyleague_menuMobile span.menu_arrow:before,
+.myfantasyleague_menuMobile span.menu_arrow:after {
+  background:#B82601
+}
+.myfantasyleague_menuMobile .arrow-down>a span.menu_arrow:before,
+.myfantasyleague_menuMobile .sub-arrow-down>a span.menu_arrow:before,
+.myfantasyleague_menuMobile .arrow-down>a span.menu_arrow:after,
+.myfantasyleague_menuMobile .sub-arrow-down>a span.menu_arrow:after{
+  -webkit-transform: rotate(315deg);
+  transform: rotate(315deg);
+  transition: all .25s ease;
+  background: #080e25;
+}
+
+/*************************************************/
+/*        RESPONSIVE STYLE TO SHOW MENU          */
+/*************************************************/
+@media only screen and (max-width: 48em){
+  #menu-trigger,
+  .myfantasyleague_menuMobile {
+    display: block!important
+  }
+  .myfantasyleague_menu,
+  #icon-wrapper,
+  .myfantasyleague_menu .notification-icon-search {
+    display: none;
+  }
+}
+
+/* HISTORY */
+<style>
+/**********************************************/
+/*              CSS VARIABLES                 */
+/**********************************************/
+.hs_tabs_wrap,.ls-history-modal {
+
+	/*color settings and cog wheel*/
+	--color-settings:#000;
+    
+	/*color of input checkbox when "checked"*/
+	--checkbox-check:green;
+		
+	/*color of input checkbox when "unchecked"*/
+	--checkbox-box:red;
+		
+	/*popup box - text color or wins "W"*/
+	--popup-win:green;
+		
+	/*popup box - text color or losses "L"*/
+	--popup-loss:red;
+		
+	/*popup box - text color or ties "T"*/
+	--popup-tie:orange;
+		
+	/*popup bg color for the title text of Season and Playoffs*/
+	--popup-th-bg:#eee;
+		
+	/*color text for loggeed in user franchise name and info*/
+	--my-franchise:#000;
+		
+	/*logged in user tablerow bg color*/
+	--my-franchise-bg:#FFFBCC;
+		
+	/*border below each stats table to show separation of table - Team Points Tables*/
+	--table-separate:2px solid #ddd;
+		
+	/*color the font awesome (---) and (x) shown in tables*/
+	--dash-x-boxes:#999;
+		
+	/*set bg color of the table header (th)*/
+	--table-header-bg:#006db0;
+	/*if above background color is set to transparent you must set the following to a solid color
+	so that when table is scrolled the fixed leftside th content is not transparent and will not
+	show table data underneath it - if above is set to solid color just set this to same color*/
+	--table-header-bg-fixed:#006db0;
+
+	/* set text color for defunct franchises */
+	--defunct-bg-text:#fff;
+	/* set bg color for defunct franchises */
+	--defunct-bg:#f94c56;
+	/*if above background color is set to transparent you must set this to a solid color
+	so that when table is scrolled the fixed leftside content is not transparent and will not
+	show table data underneath it - if above is set to solid color just set this to same color*/
+	--defunct-bg-fixed:#f94c56;
+
+	/*when user franchise has multiple table rows highlighted in succession , then put border to show separation*/
+	--highlight-separate: 1px solid #eee;
+} 
+</style>
