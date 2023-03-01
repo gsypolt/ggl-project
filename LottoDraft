@@ -1,0 +1,48 @@
+import random
+
+def weighted_lottery_draft(teams: list, weights: list) -> list:
+    """
+    This function takes in a list of team names and their corresponding weights and returns a draft order based on the weights and the rules specified.
+    :param teams: A list of strings representing the names of the teams
+    :param weights: A list of integers representing the weights of each team
+    :return: A list representing the draft order for two rounds
+    """
+    first_round_order = []
+    
+    # Create a weighted list with team names repeated based on their weight
+    weighted_teams = []
+    for i in range(len(teams)):
+        weighted_teams.extend([teams[i]] * weights[i])
+    
+    # Randomly select teams from the weighted list until all teams have been selected
+    while len(first_round_order) < len(teams):
+        selection = random.choice(weighted_teams)
+        if selection not in first_round_order:
+            first_round_order.append(selection)
+            # Remove all instances of the selected team from the weighted list to prevent duplicate selections
+            weighted_teams = [team for team in weighted_teams if team != selection]
+    
+    # Create second round order based on first round order and specified rules
+    second_round_order = []
+    
+    for i in range(len(first_round_order)):
+        current_team = first_round_order[i]
+        current_position = i + 1
+        
+        # Determine possible new positions based on rule that a team can only raise or fall a maximum of 2 positions per round
+        possible_new_positions = [current_position - 2, current_position - 1, current_position + 1, current_position + 2]
+        
+        # Filter out invalid positions (less than 1 or greater than number of teams)
+        possible_new_positions = [pos for pos in possible_new_positions if pos >= 1 and pos <= len(teams)]
+        
+        # Randomly select new position from possible new positions
+        new_position = random.choice(possible_new_positions)
+        
+        # Insert current team into second round order at new position
+        second_round_order.insert(new_position - 1, current_team)
+    
+    return [first_round_order, second_round_order]
+
+# Example usage:
+teams = ['Team 1', 'Team 2', 'Team 3', 'Team 4', 'Team 5', 'Team 6', 'Team 7', 'Team 8', 'Team 9', 'Team 10']
+weights = [5,4,3,2,1,1,2,3,4
