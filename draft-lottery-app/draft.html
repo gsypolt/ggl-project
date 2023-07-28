@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dynasty Draft Lottery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <img src="https://github.com/gsypolt/ggl-project/blob/develop/images/banners/2023banner.jpg?raw=true" alt="Banner">
+  </header>
+  <h1>Dynasty Draft Lottery</h1>
+  <button id="start-draft">Start Draft</button>
+  <table>
+    <thead>
+      <tr>
+        <th>Round</th>
+        <th>Pick</th>
+        <th>Team</th>
+      </tr>
+    </thead>
+    <tbody id="draft-results-body">
+    </tbody>
+  </table>
+  <script src="draft.js"></script>
+  <script>
+    const startDraftButton = document.getElementById('start-draft');
+    startDraftButton.addEventListener('click', runDraft);
+  </script>
+</body>
+</html>
