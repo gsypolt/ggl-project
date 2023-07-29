@@ -6808,7 +6808,7 @@ tr.MFLBoxPlayerDetailsSubHeader {
 /*************************************************/
 /*        RESPONSIVE STYLE TO SHOW MENU          */
 /*************************************************/
-@media only screen and (max-width: 48em){
+/* @media only screen and (max-device-width: 500px){
   #menu-trigger,
   .myfantasyleague_menuMobile {
     display: block!important
@@ -6818,7 +6818,7 @@ tr.MFLBoxPlayerDetailsSubHeader {
   .myfantasyleague_menu .notification-icon-search {
     display: none;
   }
-}
+} */
 
 /* HISTORY */
 <style>
