@@ -5,15 +5,15 @@ const delayPerPick = 250;
 
 // Define the teams and their initial draft positions
 const teams = [
-  { name: 'Gorilla Warfare Klan', position: 1, weight: 70 },
-  { name: 'Loco Bandidos', position: 2, weight: 10 },
-  { name: 'Chieftains', position: 3, weight: 7 },
-  { name: 'Whiskey Warriors', position: 4, weight: 5 },
-  { name: 'Buck Hunters', position: 5, weight: 2 },
-  { name: 'Evil Engineers', position: 6, weight: 1 },
-  { name: 'Black Rhinos', position: 7, weight: 0.75 },
-  { name: 'The Guardians', position: 8, weight: 0.5 },
-  { name: 'Redskins Nation', position: 9, weight: 0.25 },
+  { name: 'Whiskey Warriors', position: 1, weight: 70 },
+  { name: 'Black Rhinos', position: 2, weight: 10 },
+  { name: 'Evil Engineers', position: 3, weight: 7 },
+  { name: 'Chieftains', position: 4, weight: 5 },
+  { name: 'Gorilla Warfare Klan', position: 5, weight: 2 },
+  { name: 'Loco Bandidos', position: 6, weight: 1 },
+  { name: 'The Guardians', position: 7, weight: 0.75 },
+  { name: 'Redskins Nation', position: 8, weight: 0.5 },
+  { name: 'Buck Hunters', position: 9, weight: 0.25 },
   { name: 'Knockout Kings', position: 10, weight: 0.5 }
 ];
 
