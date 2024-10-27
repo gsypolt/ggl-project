@@ -1,6 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto|Roboto:900|Roboto+Slab:700");
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
 
+/* 
+Primary Color Scheme
+#263f68
+#ffa300
+*/
+
 .homepagecolumn .homepagemodule h3 {
   margin: 0 0 0 -1px; }
 
@@ -3394,8 +3400,13 @@ table#standings th {
 .nodivisions #standings caption, .nodivisions .homepagecolumn #brief_standings caption {
   display: block; }
 
+/* Submit Lineup Positin Header / Divider */
 #body_lineup .report tr th:first-child {
-  display: none; }
+  /* display: none;  */
+  background: #263f68;
+  padding: 10px 0;
+  text-indent: 8px;
+}
 
 #body_lineup .report a {
   white-space: nowrap; }
@@ -5175,7 +5186,8 @@ div.ls_team_name {
   display: none
 }
 
-#body_ajax_ls #ls_setting_drop input+label:before {
+/* Duplicate Code */
+/* #body_ajax_ls #ls_setting_drop input+label:before {
   font-family: FontAwesome;
   display: inline-block;
   content: "\f046";
@@ -5183,7 +5195,7 @@ div.ls_team_name {
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-}
+} */
 
 #body_ajax_ls #ls_setting_drop input:checked+label:before {
   content: "\f096"
@@ -6806,19 +6818,32 @@ tr.MFLBoxPlayerDetailsSubHeader {
 }
 
 /*******************************************/
-
-
 /* SUBMIT LINEUP FORM */
-
-
 /*******************************************/
+
+/* Clear or reset starting lineup */
+.fa-eraser:before {
+  content: "\f021" !important;
+  font-family: FontAwesome;
+}
+
+#body_lineup.custom_lineup_body form th.select-total-starters {
+  position: relative;
+  display: block;
+  background: #ffa300;
+  font-size: x-large;
+  font-family: 'Roboto Condensed';
+  color: black;
+  padding: 5px 0;
+  text-indent: 10px;
+}
 
 /* change color for the small arrow to left top side of previous starters player image */
 #body_lineup.custom_lineup_body tr.previous_starter.player_row td.pphoto:before {
 	font-size: 0.875rem;
 	height: 0.875rem;
 	width: 0.875rem;
-	background: #fff;
+	background: green;
 	text-align: center;
 	border-radius: 50%;
 	color: green
@@ -6827,13 +6852,17 @@ tr.MFLBoxPlayerDetailsSubHeader {
 
 /* change locked player icon for Starting players games started */
 #body_lineup.custom_lineup_body tr.locked_starter:after {
+  content: "\f023" !important; /* Unicode for fa-lock from Font Awesome */
+  font-family: FontAwesome !important; 
 	color: green
 }
 
 
 /* change checkbox color for players you have selected to start */
 #body_lineup.custom_lineup_body tr.current_starters_row:after {
-	color: green
+  content: "\2713" !important; 
+  color: white;          /* White content color */
+  background-color: green;
 }
 
 
@@ -6852,6 +6881,8 @@ tr.MFLBoxPlayerDetailsSubHeader {
 
 /* change locked player icon for Bench players games started */
 #body_lineup.custom_lineup_body tr.locked_bench:after {
+  content: "\f023" !important; /* Unicode for fa-lock from Font Awesome */
+  font-family: FontAwesome !important; 
 	color: red
 }
 
@@ -6874,6 +6905,7 @@ tr.MFLBoxPlayerDetailsSubHeader {
 
 /* change arrow up color for players not select and on bench */
 #body_lineup.custom_lineup_body tr.current_bench_row:after {
+  content: "\2716" !important; 
 	color: red
 }
 
@@ -6921,14 +6953,14 @@ tr.MFLBoxPlayerDetailsSubHeader {
 
 /* change bottom border color for each "th" table header for linep table */
 .starters_pos_th {
-	border-bottom: 0.188rem solid #263e68
+	border-bottom: 0.188rem solid #ffa300
 }
 
 
-/* change bottom border color for each tablerow for linep table */
-#body_lineup.custom_lineup_body form tr {
+/* REMOVED change bottom border color for each tablerow for linep table */ 
+/* #body_lineup.custom_lineup_body form tr {
 	border-bottom: 0.063rem solid #ccc
-}
+} */
 
 
 /* change text color for weekly opponent matchups */
