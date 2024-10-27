@@ -6805,6 +6805,233 @@ tr.MFLBoxPlayerDetailsSubHeader {
   background: #080e25;
 }
 
+/*******************************************/
+
+
+/* SUBMIT LINEUP FORM */
+
+
+/*******************************************/
+
+/* change color for the small arrow to left top side of previous starters player image */
+#body_lineup.custom_lineup_body tr.previous_starter.player_row td.pphoto:before {
+	font-size: 0.875rem;
+	height: 0.875rem;
+	width: 0.875rem;
+	background: #fff;
+	text-align: center;
+	border-radius: 50%;
+	color: green
+}
+
+
+/* change locked player icon for Starting players games started */
+#body_lineup.custom_lineup_body tr.locked_starter:after {
+	color: green
+}
+
+
+/* change checkbox color for players you have selected to start */
+#body_lineup.custom_lineup_body tr.current_starters_row:after {
+	color: green
+}
+
+
+/* change text color for projected points */
+#body_lineup.custom_lineup_body form td.proj-pts,
+#body_lineup.custom_lineup_body form span.points_row .proj-pts {
+	color: green
+}
+
+
+/* change text color for projected points header title */
+#body_lineup.custom_lineup_body form tr.starters_pos_row+tr td.proj-pts:before {
+	color: #263e68
+}
+
+
+/* change locked player icon for Bench players games started */
+#body_lineup.custom_lineup_body tr.locked_bench:after {
+	color: red
+}
+
+
+/* change background and text color for the small circle on player photos that shows injury designation */
+#body_lineup.custom_lineup_body form td.inj b.warning {
+	color: #fff;
+	background: red
+}
+
+
+/* change background and text color error message displayed if too many or too few starters are selected */
+#body_lineup.custom_lineup_body .starter_count .warning_minimum_error, 
+#body_lineup.custom_lineup_body .starter_count .warning_maximum_error, 
+.starter_count_sub.starter_count_sub_fail:before {
+    background: red;
+    color: #fff;
+}
+
+
+/* change arrow up color for players not select and on bench */
+#body_lineup.custom_lineup_body tr.current_bench_row:after {
+	color: red
+}
+
+
+/* change text color for players on bye shown in the matchup area */
+#body_lineup.custom_lineup_body form td.weekly-opp .warning {
+	color: red
+}
+
+
+/* color of text "B" on top of lock for locked Benched players */
+#body_lineup.custom_lineup_body tr.player_row.locked_bench:before {
+    color: #fff;
+}
+
+
+/* color of font awesome icons in the submit button and custom button at bottom of page */
+#body_lineup .form_buttons.default-btn:after,
+#body_lineup .form_buttons:before {
+	color: #fff
+}
+
+
+/* change background color circular player images */
+#body_lineup.custom_lineup_body table td.pphoto img[src*="svg"],
+#body_lineup.custom_lineup_body table tr.player_row td.pphoto img,
+#body_lineup.custom_lineup_submission_body td.pphoto img {
+    background: #e9ebf0;
+}
+
+
+/* change border color circular player images */
+#body_lineup.custom_lineup_body table td.pphoto img,
+#body_lineup.custom_lineup_submission_body td.pphoto img {
+    border: 0.125rem solid #263e68;
+}
+
+
+/* change background and text color for players rank box that shows at bottom of each players photo */
+#body_lineup.custom_lineup_body form tr.player_row td.pos-rank {
+    background: #263e68!important;
+    color: #fff;
+}
+
+
+/* change bottom border color for each "th" table header for linep table */
+.starters_pos_th {
+	border-bottom: 0.188rem solid #263e68
+}
+
+
+/* change bottom border color for each tablerow for linep table */
+#body_lineup.custom_lineup_body form tr {
+	border-bottom: 0.063rem solid #ccc
+}
+
+
+/* change text color for weekly opponent matchups */
+#body_lineup.custom_lineup_body form td.weekly-opp,
+#body_lineup.custom_lineup_body form td.weekly-opp a,
+.custom_lineup_submission_body tr.starter_totalsRow td {
+	color: #cd2122
+}
+
+
+/* change background and color for drop down that displays as you scroll down page to show current starters */
+.starter_count_reason_more, 
+.starter_count_reason_less, 
+#body_lineup.custom_lineup_body .links_nav a {
+    color: #fff;
+    background: #263e68;
+}
+
+.starter_count_reason_more:hover, 
+.starter_count_reason_less:hover, 
+#body_lineup.custom_lineup_body .links_nav a:hover {
+    color: #fff;
+    background: #cd2122;
+}
+
+
+/* change background and color for drop down button that displays as you scroll down page to show current starters */
+.starter_count_sub {
+    border: 0.188rem solid #cd2122;
+    background: #263e68;
+    box-shadow: 0 0 0.6rem rgb(45 45 45 / 50%);
+    color: #fff;
+    border-top: 0;
+}
+
+#body_lineup p.form_buttons.buttonDisabledContainer:before {
+	opacity: .5;
+	pointer-events: none;
+}
+
+#body_lineup.custom_lineup_body caption {
+	text-align: left!important
+}
+
+.locked_bench,
+.locked_starter {
+	cursor: default!important
+}
+
+
+
+
+
+
+/*******************************************/
+
+
+/* SUBMIT LINEUP POPUP WEATHER */
+
+
+/*******************************************/
+
+#weather-wrapper .current-conditions-place {
+	color: #263e68
+}
+
+#weather-wrapper .as_close_btn {
+	background: red;
+	border-color: red;
+	color: #fff;
+}
+
+#weather-wrapper .as_close_btn:hover {
+	background: #000;
+	border-color: #000;
+	color: #fff
+}
+
+#popup-weather-wrapper #popup-weather-container {
+	background: #fff;
+}
+
+.kickoff-conditions-temp,
+.current-conditions-temp {
+	color: #263e68
+}
+
+.current-conditions-header .current-conditions-text,
+.kickoff-conditions-header .kickoff-conditions-text {
+	color: #000
+}
+
+.current-conditions-wrapper,
+.kickoff-conditions-wrapper {
+	border: 0!important;
+	border-radius: 0!important;
+}
+
+.kickoff-conditions-wrapper {
+	border-top: 0.625rem solid #ccc!important;
+	border-radius: 0!important;
+}
+
 /*************************************************/
 /*        RESPONSIVE STYLE TO SHOW MENU          */
 /*************************************************/
@@ -6821,7 +7048,6 @@ tr.MFLBoxPlayerDetailsSubHeader {
 } */
 
 /* HISTORY */
-<style>
 /**********************************************/
 /*              CSS VARIABLES                 */
 /**********************************************/
@@ -6879,4 +7105,3 @@ tr.MFLBoxPlayerDetailsSubHeader {
 	/*when user franchise has multiple table rows highlighted in succession , then put border to show separation*/
 	--highlight-separate: 1px solid #eee;
 } 
-</style>
