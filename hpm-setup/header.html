@@ -342,12 +342,6 @@
   var SearchMobileCSS = true; // If using the search popup and site designed for mobile set this to true
   
   // CUSTOM SUBMIT LINEUP VAR 
-  var lu_includeValidation = true;
-  var lu_mobileFlipOnAddRemove = true;
-  var lu_addOptionalStarters = true;
-  var lu_useDefaultAsPrimary = true;
-  var lu_mobileSingleColumn = true; //Set to true to display both tables on mobile
-  var lu_remove_message = false; // set to true to remove the optional message box under custom lineup tables
   
   // BOX SCORES SETTINGS
   var mflBoxHomePageOnly = true;
@@ -367,7 +361,7 @@
   var load_chat_enhanced=false;          //Set to true to load https://www.mflscripts.com/mfl-apps/chat/enhanced.js
   var load_popup=true;                  //Set to true to load https://www.mflscripts.com/mfl-apps/popups/players/script.js
   var load_mini_boxscore=true;          //Set to true to load https://www.mflscripts.com/mfl-apps/scoreboard/mini-boxscore/script.js
-  var load_lineups_submit_script=true;  //Set to true to load https://www.mflscripts.com/mfl-apps/lineups/submit/script.js
+  var load_lineups_submit_script=true;  //Set to true to load https://www.mflscripts.com/mfl-apps/lineups/submitV2/script.js
   var load_tabs_script=true;            //Set to true to load https://www.mflscripts.com/mfl-apps/tabs/script.js
   var load_irReport_script=true;        //Set to true to load https://www.mflscripts.com/mfl-apps/injuredReserve/IRreport/script.js
   var load_diceRoll_script=false;        //Set to true to load https://www.mflscripts.com/mfl-apps/diceRoll/script.js
@@ -418,7 +412,7 @@ var tickerContent = new Array();
 tickerContent.push( ({"header":"3DL News" , "message":"Segment 3 Winners KK, RN, TG"}) );
 tickerContent.push( ({"header":"3DL News" , "message":"Reminder to post backups and adjust IR every Sunday"}) );
 tickerContent.push( ({"header":"3DL News" , "message":"NFL Bye Weeks are from Week 5 to Week 14"}) );
-tickerContent.push( ({"header":"3DL News" , "message":"2023 3DL Playoff Weeks 15, 16, & 17" Need 9 wins or Wild Card for playoff berth}) );
+tickerContent.push( ({"header":"3DL News" , "message":"2023 3DL Playoff Weeks 15, 16, & 17 Need 9 wins or Wild Card for playoff berth"}) );
 
 //BOTH STANDARD AND LIVE DISPLAY (also includes custom messages above if any)
 var includeFranchiseIcons      = true;   // true or false; when showing players include franchise icon if on a MFL roster REQUIRES cache.js
@@ -477,6 +471,20 @@ var controlsRed     = "red";                            // set color for the con
 
 <!-- MFL LIVE SCORING SCRIPT ALL PLAY LEAGUES --> 
 <script src="https://www.mflscripts.com/mfl-apps/scoreboard/replace-mflScoring/allplay.js"></script>
+
+
+<script>
+  var lineupFormations = false; 		// set to true if you have an old legacy league that uses formations for positions
+  var lu_includeValidation = true;	// turn check on true , or off false to validate lineup submission
+  var load_lineups_submit_script = true; 	// Set to false to turn off lineup script
+  var lu_useDefaultAsPrimary = false;	// Set to true to use the MFL default lineup submission page until owner decides to click to use custom
+  var hideFantasySharks = false;	 	// Set to true to hide links to Fantasy Sharks
+  var hideOptionalMsg   = false;   	// Set to true to hide optional message input below lineup table
+  var hideLineupHint    = false;	 	// Set to true to hide the lineup "Hint" message below lineup table
+  var showWeatherPop    = true;	        // Set to false to remove the popup for the weather link
+</script>
+  
+<script type="text/javascript" src="https://www.mflscripts.com/mfl-apps/lineups/submitV2/script.js"></script>
 
 <!-- <script src="https://mflscripts.com/mfl-apps/global/header.js?v=1.3.2"></script> -->
 <script src="https://mflscripts.com/mfl-apps/global/header.js"></script>
