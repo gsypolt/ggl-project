@@ -216,7 +216,7 @@
 <div class="container d-flex h-100 align-items-center">
   <div class="gdl_logo" id="gdl_logo" href="//%HOST%/%YEAR%/home/%LEAGUEID%">
     <a href="//%HOST%/%YEAR%/home/%LEAGUEID%">
-      <img class="center-block img-responsive" src="https://github.com/gsypolt/ggl-project/blob/develop/images/banners/2023banner.jpg?raw=true" style="filter:grayscale(0%)">
+      <img class="center-block img-responsive" src="https://github.com/gsypolt/ggl-project/blob/develop/images/banners/2024banner.jpg?raw=true" style="max-width: 100%; height: auto;">
     </a>
   </div>
 </div>
@@ -341,11 +341,13 @@
   var ShowMFLsearch = true; // Set this to true to have a player button added to menu
   var SearchMobileCSS = true; // If using the search popup and site designed for mobile set this to true
   
-  // CUSTOM SUBMIT LINEUP VAR
+  // CUSTOM SUBMIT LINEUP VAR 
   var lu_includeValidation = true;
   var lu_mobileFlipOnAddRemove = true;
   var lu_addOptionalStarters = true;
-  var lu_useDefaultAsPrimary = true; 
+  var lu_useDefaultAsPrimary = true;
+  var lu_mobileSingleColumn = true; //Set to true to display both tables on mobile
+  var lu_remove_message = false; // set to true to remove the optional message box under custom lineup tables
   
   // BOX SCORES SETTINGS
   var mflBoxHomePageOnly = true;
@@ -413,8 +415,10 @@ var tickerDelay             = 3;            // SECONDS TO DELAY BEFORE SCROLLING
 // CUSTOM MESSAGES 
 var tickerContent = new Array();
 //ADD CUSTOM MESSAGE(S) IN THE FORMAT BELOW
-tickerContent.push( ({"header":"3DL News" , "message":"Welcome to the 2023 3DL Site"}) );
-
+tickerContent.push( ({"header":"3DL News" , "message":"Segment 3 Winners KK, RN, TG"}) );
+tickerContent.push( ({"header":"3DL News" , "message":"Reminder to post backups and adjust IR every Sunday"}) );
+tickerContent.push( ({"header":"3DL News" , "message":"NFL Bye Weeks are from Week 5 to Week 14"}) );
+tickerContent.push( ({"header":"3DL News" , "message":"2023 3DL Playoff Weeks 15, 16, & 17" Need 9 wins or Wild Card for playoff berth}) );
 
 //BOTH STANDARD AND LIVE DISPLAY (also includes custom messages above if any)
 var includeFranchiseIcons      = true;   // true or false; when showing players include franchise icon if on a MFL roster REQUIRES cache.js
