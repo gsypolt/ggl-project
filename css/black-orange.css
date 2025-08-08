@@ -7010,17 +7010,488 @@ tr.MFLBoxPlayerDetailsSubHeader {
 	cursor: default!important
 }
 
-
-
-
-
-
+/*******************************************/
+/* ADD/DROP PAGE */
 /*******************************************/
 
+    #add_drop form[action*='add_drop'] {
+        display: none ! important;
+    }
 
+    #add_drop span.reportnavigation {
+        display: none;
+    }
+
+    #add-drop-enhanced-ui {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+        width: 85%;
+        margin: 20px auto;
+    }
+
+    .parent-waiver-table {
+        display: none;
+    }
+
+    #add_drop table#waiver_request_list {
+        padding: 15px;
+        border: none;
+        margin-bottom: 0px;
+        width: 100%;
+    }
+
+    .waiver-table-wrap {
+        margin: 15px auto 0;
+        width: 85%;
+        overflow-x: scroll;
+        border: 2px solid #f7f7f7;
+        box-shadow: 7px 7px 11px #f6f6f6;
+        border-radius: 8px;
+    }
+
+    #waiver_request_list.parent-waiver-table {
+        display: table;
+    }
+
+    #add-drop-summary {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        background: white;
+        border: 2px solid #f7f7f7;
+        box-shadow: 7px 7px 11px #f6f6f6;
+        border-radius: 8px;
+        padding: 12px;
+        font-size: 14px;
+        line-height: 1.1;
+        width: 85%;
+        margin: 0 auto;
+    }
+
+    #add-drop-summary .summary-moves,
+    #add-drop-summary .summary-controls,
+    #add-drop-summary .submit-button-wrapper {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 4px 16px;
+        width: auto;
+        /* Prevents full-width stretching */
+        max-width: 100%;
+    }
+
+
+    #add-drop-summary .summary-title {
+        font-weight: 900;
+        font-size: 15px;
+    }
+
+    #add-drop-summary .summary-moves {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    #add-drop-summary .summary-add,
+    #add-drop-summary .summary-drop {
+        white-space: nowrap;
+    }
+
+    .summary-checkbox,
+    .summary-bid,
+    .summary-group {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    #custom-add-drop-submit {
+        padding: 8px 16px;
+        font-weight: 900;
+        background-color: var(--primary-color);
+        color: white;
+        border: solid 1px var(--primary-color);
+        border-radius: 12px;
+    }
+
+    #custom-add-drop-submit:hover {
+        background-color: var(--dark-color);
+        border: solid 1px var(--dark-color);
+    }
+
+    #add_drop .player-img-wrapper-waiv {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        overflow: hidden;
+        flex-shrink: 0;
+        margin-right: 0px;
+        display: inline-block;
+        vertical-align: middle;
+        border: solid 1px #ccc;
+    }
+
+    .add-drop-player-row.selected-player {
+        background-color: #dedede;
+        border-left: 4px solid var(--primary-color);
+    }
+
+    .player-wproj::before {
+        content: "PROJ: ";
+        font-weight: normal;
+        color: #666;
+        font-size: 10px;
+    }
+
+    .player-wproj::after {
+        content: " PTS";
+        font-weight: normal;
+        font-size: 10px
+    }
+
+    .waiverH3 {
+        background: white;
+        margin: 0;
+        height: 53px;
+        padding-top: 15px;
+        color: var(--primary-color);
+        border-radius: 8px;
+        font-family: 'Industry', sans-serif;
+        font-weight: 900;
+        letter-spacing: 4px;
+        font-size: 18px;
+        line-height: 18px;
+    }
+
+    #add_drop .select-btn {
+        width: 62px;
+        height: 30px;
+        border: solid 1px var(--dark-color);
+        border-radius: 20px;
+        background-color: white;
+        color: var(--dark-color);
+    }
+
+    #add_drop .select-btn:hover {
+        background-color: var(--dark-color);
+        color: white;
+    }
+
+    #add_drop .deselect-btn {
+        width: 62px;
+        height: 30px;
+        border: solid 1px var(--dark-color);
+        border-radius: 20px;
+        background-color: var(--dark-color);
+        color: white;
+    }
+
+    #add_drop .sort-bar {
+        margin: 0;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        font-size: 0.9rem;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 20px;
+        background-color: white;
+    }
+
+    #add_drop .sort-bar span {
+        color: var(--dark-color);
+    }
+
+    #add_drop .sort-btn {
+        background-color: white;
+        border: 1px solid var(--dark-color);
+        padding: 5px 5px 5px 10px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 10px;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--dark-color);
+        text-transform: uppercase;
+    }
+
+    #add_drop .sort-btn:hover {
+        background-color: var(--dark-color);
+        border-color: var(--dark-color);
+        color: white;
+    }
+
+    #add_drop .sort-btn.activated {
+        background-color: var(--dark-color);
+        color: white;
+        border-color: var(--dark-color);
+    }
+
+    #add_drop #position-filter {
+        background-color: var(--dark-color);
+        color: white;
+        border: solid 2px #f7f7f7;
+        box-shadow: 7px 7px 11px #f6f6f6;
+        height: 40px;
+        border-radius: 8px;
+        font-size: 12px;
+    }
+
+    #add_drop input {
+        border: 2px solid #f7f7f7;
+        box-shadow: 7px 7px 11px #f6f6f6;
+    }
+
+
+    #add_drop .player-pos {
+        font-weight: 900;
+        text-align: center;
+        height: 35px;
+        width: 40px;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        border-radius: 10px;
+        color: white;
+    }
+
+    #add_drop .player-pos.QB {
+        background-color: var(--qb-color);
+    }
+
+    #add_drop .player-pos.RB {
+        background-color: var(--rb-color);
+    }
+
+    #add_drop .player-pos.WR {
+        background-color: var(--wr-color);
+    }
+
+    #add_drop .player-pos.TE {
+        background-color: var(--te-color);
+    }
+
+    #add_drop .player-pos.PK {
+        background-color: var(--pk-color);
+    }
+
+    #add_drop .player-pos.DEF {
+        background-color: var(--def-color);
+    }
+
+    .add-player-container,
+    .drop-player-container {
+        min-width: 300px;
+        width: 100%;
+        /* Optional: prevent squeezing on very small screens */
+        height: 500px;
+        flex: 1 1 calc(48% - 7.5px);
+        border: 2px solid #f7f7f7;
+        box-shadow: 7px 7px 11px #f6f6f6;
+        border-radius: 8px;
+        padding: 0px;
+        background: white;
+    }
+
+    #add-player-list {
+        height: 390px;
+        overflow-y: scroll;
+    }
+
+    #drop-player-list {
+        height: 434px;
+        overflow-y: scroll;
+    }
+
+    #drop-player-list,
+    #add-player-list {
+        padding: 0 10px;
+    }
+
+    .shadow-fade-bottom::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -24px;
+        height: 24px;
+        /* adjust height of fade */
+        width: 100%;
+        pointer-events: none;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), transparent);
+    }
+
+    #add_drop .filter-controls {
+        width: 100%;
+        margin-bottom: 0px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    #add_drop #player-search {
+        height: 40px;
+    }
+
+    .add-drop-player-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+        padding: 6px;
+        border-bottom: 1px solid #ddd;
+        cursor: pointer;
+        max-width: 100%;
+        overflow-x: hidden;
+        box-sizing: border-box;
+    }
+
+    .add-drop-player-row>* {
+        min-width: 0;
+    }
+
+    .player-pos,
+    .player-img-wrapper {
+        flex: 0 0 40px;
+        /* don't grow, don't shrink, fixed basis */
+    }
+
+    .player-wproj {
+        flex: 0 0 80px;
+        /* can adjust based on space */
+        text-align: right;
+        font-weight: 900;
+        padding-right: 10px;
+    }
+
+    .player-info {
+        flex: 1 1 auto;
+        min-width: 0;
+        /* ensures truncation instead of overflow */
+    }
+
+    .select-btn {
+        flex: 0 0 auto;
+        /* don't grow or shrink */
+    }
+
+    /* Stack vertically on small screens */
+    @media (max-width: 1100px) {
+        #add-drop-enhanced-ui {
+            flex-direction: column;
+        }
+
+        .player-info {
+            font-size: 12px;
+        }
+    }
+
+    @media (max-width: 500px) {
+
+        #add_drop .summary-moves {
+            flex-direction: column;
+        }
+
+        .add-drop-player-row {
+            gap: 2px;
+            flex-wrap: nowrap;
+            /* ⛔ prevent wrapping */
+            align-items: center;
+        }
+
+        #add_drop .player-pos {
+            height: 30px;
+            width: 30px;
+            flex: 0 0 30px;
+            font-size: 11px;
+        }
+
+        #add_drop .player-img-wrapper {
+            flex: 0 0 40px;
+        }
+
+        .player-info {
+            flex: 1 1 auto;
+            min-width: 0;
+            font-size: 12px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .player-wproj {
+            flex: 0 0 25px;
+            padding-right: 5px;
+        }
+
+        .player-wproj::before {
+            display: none;
+        }
+
+        #add_drop .select-btn,
+        #add_drop .deselect-btn {
+            width: 30px;
+            font-size: 0;
+            border-radius: 20px;
+            flex: 0 0 30px;
+            padding: 0;
+        }
+
+        #add_drop .select-btn::before {
+            content: "\f067";
+            /* Font Awesome plus */
+            font-family: "Font Awesome 6 Pro";
+            font-weight: 900;
+            font-size: 16px;
+            color: black;
+        }
+
+
+        #add_drop .drop-player-list .select-btn::before {
+            content: "\f068";
+            /* Font Awesome minus */
+            font-family: "Font Awesome 6 Pro";
+            font-weight: 900;
+            font-size: 16px;
+            color: var(--dark-color);
+        }
+
+        #add_drop .deselect-btn::before {
+            content: "\f068";
+            /* Font Awesome minus */
+            font-family: "Font Awesome 6 Pro";
+            font-weight: 900;
+            font-size: 16px;
+            color: white;
+        }
+
+        #add_drop .select-btn:hover::before,
+        #add_drop .deselect-btn:hover::before {
+            color: white;
+        }
+    }
+
+
+    /* Stack vertically on small screens */
+    @media (max-width: 765px) {
+        #add-drop-summary {
+            flex-direction: column;
+        }
+
+        #add-drop-summary .summary-moves,
+        #add-drop-summary .summary-controls,
+        #add-drop-summary .submit-button-wrapper {
+            justify-content: center;
+        }
+    }
+
+/*******************************************/
 /* SUBMIT LINEUP POPUP WEATHER */
-
-
 /*******************************************/
 
 #weather-wrapper .current-conditions-place {
