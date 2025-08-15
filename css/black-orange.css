@@ -37,7 +37,7 @@ Primary Color Scheme
     #body_options_43 textarea {
       max-width: 304px; } }
 
-/*add drop*/
+/*add drop OLD*/
 #body_add_drop form table td[colspan="3"] td[align="right"] {
   padding: 8px 6px; }
 
@@ -2914,7 +2914,7 @@ span.reportnavigation {
 .newposition td a {
   margin-top: 12px; }
 
-/*add drop*/
+/*add drop OLD*/
 #body_add_drop form table table caption {
   padding-left: 0; }
 
@@ -4136,7 +4136,7 @@ table.report {
 #drop tr.highlight, #drop tr:hover {
   background-color: red; }
 
-/*add drop*/
+/*add drop OLD*/
 #add_name_field_id {
   color: green; }
 
@@ -4711,7 +4711,7 @@ span.reportnavigation {
 .newposition th {
   border-top-color: #FFA300; }
 
-/*add drop*/
+/*add drop OLD*/
 span#add_name_field_id {
   color: green; }
 
@@ -7012,8 +7012,803 @@ tr.MFLBoxPlayerDetailsSubHeader {
 
 
 
+/*******************************************/
+/* ADD DROP 2025 */
+/*******************************************/
+
+/* THIS MUST GO IN MFL LOADED CSS FILE */
+#add_drop table,
+#body_options_257 table,
+#add_drop .mobile-wrap,
+#body_options_257 .mobile-wrap,
+#dropInputDiv,
+#csetup_cantadd table,
+#csetup_cantadd .mobile-wrap,
+#csetup_cantcut table,
+#csetup_cantcut .mobile-wrap,
+#body_options_178 table,
+#body_options_178 .mobile-wrap,
+#csetup_loadrost table,
+#csetup_loadrost .mobile-wrap,
+#options_129 table,
+#options_129 .mobile-wrap,
+#options_52 table,
+#options_52 .mobile-wrap,
+#new_predraft table,
+#new_predraft .mobile-wrap,
+#contest_lineup table,
+#contest_lineup .mobile-wrap,
+#options_256 table,
+#options_256 .mobile-wrap,
+#options_43 table,
+#options_43 .mobile-wrap,
+#options_43 form  {
+    visibility: hidden;
+}
+
+#add_drop span.reportnavigation,
+#body_options_129 .reportnavigation,
+#options_52 .reportnavigation {
+    display: none;
+}
 
 
+
+/* THE REST CAN GO IN HPM - BUT MAIN CSS RECOMMENDED */
+
+/**********************************/
+/**********************************/
+/* COLORS - FONT SIZE - BORDERING */
+/**********************************/
+/**********************************/
+
+#AddDropForm .player-img-wrapper .player-inj {
+    background: red;
+    color: #fff;
+    width: 0.938rem;
+    height: 0.938rem;
+    font-size: 0.5rem;
+}
+#AddDropForm .player-img-wrapper {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+#AddDropForm .player-img-wrapper-clippler {
+    border: 0.125rem solid #ddd;
+    background-color: #fff;
+}
+#AddDropForm .player-img-wrapper-clippler img[src*="96x96"] {
+    height: 100%;
+}
+#add-drop-summary .fa-checkbox {
+    color: #888;
+    font-size: 1.125rem;
+}
+#add-drop-summary .fa-checkbox.checked i {
+    color: green;
+}
+#AddDropForm #add_name_field_id {
+    color: green;
+}
+#AddDropForm #drop_name_field_id {
+    color: red;
+}
+#AddDropForm #locked-msg {
+    background: #fff;
+    color: red;
+    font-size: .8rem;
+    height: 3rem;
+    padding-left: .4rem;
+    line-height: 1.5rem;
+    border-top: 0.125rem solid var(--th-bg, #080e25);
+}
+#AddDropForm #add-player-list {
+    max-height: 24rem;
+    min-height: 4rem;
+    overflow-y: scroll;
+}
+#AddDropForm #drop-player-list,
+#body_options_178 #AddDropForm #add-player-list {
+    max-height: 27rem;
+    min-height: 7rem;
+    overflow-y: scroll;
+}
+.draftNow #AddDropForm #drop-player-list {
+    min-height: 5rem;
+    overflow-y: auto;
+}
+#AddDropForm .player-wproj::before,
+#AddDropForm .player-myrank::before  {
+    content: "PROJ PTS";
+    font-weight: normal;
+    color: var(--main, #080e25);
+    font-size: 0.625rem;
+    display: block;
+}
+#body_csetup_cantadd #AddDropForm .player-myrank::before,
+#body_csetup_cantcut #AddDropForm .player-myrank::before,
+#body_csetup_loadrost #AddDropForm .player-myrank::before,
+#AddDropForm.draftPageForm .player-wproj::before {
+    content: "FS Rank";
+}
+#AddDropForm .player-myrank::before {
+    content: "My Rank";
+}
+#AddDropForm #add-player-list .select-btn {
+    border-radius: 1.25rem;
+    background-color: green;
+    color: #fff;
+    border: 0;
+}
+#AddDropForm #drop-player-list .select-btn {
+    border-radius: 1.25rem;
+    background-color: red;
+    color: #fff;
+    border: 0;
+}
+#AddDropForm #add-player-list .disabled-locked .select-btn {
+    background-color: red;
+    color: #fff;
+}
+#AddDropForm #add-player-list .deselect-btn {
+    border-radius: 1.25rem;
+    background-color: #fff;
+    color: green;
+    border: 0;
+}
+#AddDropForm #drop-player-list .deselect-btn {
+    border-radius: 1.25rem;
+    background-color: #fff;
+    color: red;
+    border: 0;
+}
+#AddDropForm #drop-player-list .add-drop-player-row.oddtablerow:hover,
+#AddDropForm #drop-player-list .add-drop-player-row.eventablerow:hover {
+    background: rgba(205, 33, 34, .1)!important;
+}
+#AddDropForm #add-player-list .add-drop-player-row.oddtablerow:hover,
+#AddDropForm #add-player-list .add-drop-player-row.eventablerow:hover {
+    background: rgba(60, 179, 0,.1)!important;
+}
+#AddDropForm #add-player-list .add-drop-player-row.oddtablerow.selected-player,
+#AddDropForm #add-player-list .add-drop-player-row.eventablerow.selected-player {
+    background: rgba(60, 179, 0,.1)!important;
+    border-left: 0.25rem solid green;
+}
+#AddDropForm #drop-player-list .add-drop-player-row.oddtablerow.selected-player,
+#AddDropForm #drop-player-list .add-drop-player-row.eventablerow.selected-player {
+    background: rgba(205, 33, 34, .1)!important;
+    border-left: 0.25rem solid red;
+}
+#AddDropForm .sort-bar {
+    font-size: inherit;
+}
+#AddDropForm .sort-btn {
+    background-color: #fff;
+    border-radius: 1.25rem;
+    font-size: 0.625rem;
+    color: var(--main-four, var(--main, #080e25));
+    border:0;
+}
+#AddDropForm .sort-btn:hover {
+    color: #fff;
+    background: var(--accent-two, var(--accent, #B82601));
+}
+#AddDropForm .sort-btn.activated {
+    color: #fff;
+    background: var(--accent-two, var(--accent, #B82601));
+    border:0
+}
+#AddDropForm .player-pos {
+    border-radius: .675rem;
+    font-size: .7rem;
+    color: #fff;
+    background: var(--th-bg, #080e25);
+}
+#AddDropForm .shadow-fade-bottom::after {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent);
+}
+#AddDropForm .add-drop-player-row {
+    /*border-bottom: 0.063rem solid #ddd;*/
+}
+#AddDropForm .player-info {
+    font-size: 0.75rem;
+}
+#AddDropForm .player-info strong,
+#AddDropForm .player-wproj,
+#AddDropForm .player-myrank {
+    font-size: 0.9rem;
+    color:var(--accent-two, var(--accent, #B82601));
+}
+
+
+
+
+/**************************************************/
+/**************************************************/
+/* MEDIA QUERIES - COLORS - FONT SIZE - BORDERING */
+/**************************************************/
+/**************************************************/
+
+@media (max-width: 500px) {
+    #AddDropForm .player-pos {
+        font-size: 0.6rem;
+    }
+    #AddDropForm .select-btn::before {
+        font-weight: 900;
+        font-size: 1rem;
+        color: #fff;
+    }
+    #AddDropForm .drop-player-list .select-btn::before {
+        font-weight: 900;
+        font-size: 1rem;
+    }
+    #AddDropForm .deselect-btn::before {
+        font-weight: 900;
+        font-size: 1rem;
+    }
+}
+
+
+
+
+/*********************************/
+/*********************************/
+/* FORMATTING - NO NEED TO TOUCH */
+/*********************************/
+/*********************************/
+
+.waiver-container,
+.roster-container {
+    min-width: 18.75rem;
+    width: 100%;
+    flex: 1 1 calc(48% - 0.469rem);
+}
+#add-drop-enhanced-ui,
+#add-drop-enhanced-ui-tables {
+    display: flex;
+    justify-content: space-between;
+    gap: 0 0.938rem;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+#add-drop-enhanced-ui-tables table {
+    width: 100%!important;
+}
+#AddDropForm #add-player-list .select-btn:hover,
+#AddDropForm #drop-player-list .select-btn:hover {
+    cursor: pointer;
+}
+#AddDropForm .player-img-wrapper-waiv {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    margin-right: 0;
+    display: inline-block;
+    vertical-align: middle;
+    border: solid 0.063rem #ccc;
+}
+#AddDropForm .select-btn {
+    width: 3.875rem;
+    height: 1.875rem;
+}
+#AddDropForm .deselect-btn {
+    width: 3.875rem;
+    height: 1.875rem;
+}
+#AddDropForm .sort-bar {
+    margin: 0;
+    display: flex;
+    gap: 0.55rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 0.25rem;
+}
+#AddDropForm .sort-btn {
+    padding: 0.313rem 0.313rem 0.313rem 0.625rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    text-transform: uppercase;
+}
+#AddDropForm #position-filter,
+#AddDropForm #add_filt_nfl,
+#AddDropForm #COPY_YEAR,
+#AddDropForm #COPY_LEAGUE,
+#AddDropForm #picker_filt_pos,
+#AddDropForm #picker_filt_nfl,
+#AddDropForm input[name="OPENING_BID"] {
+    max-width: 7rem;
+    min-width: 6rem;
+    padding: 0 !important;
+    height: 2rem;
+}
+#AddDropForm input[name="OPENING_BID"] {
+    margin-left: 0.313rem;
+    padding-left: 0.313rem !important;
+    max-width: 5rem;
+    min-width: 5rem;
+}
+#AddDropForm #addDropSearch {
+    height: 2rem;
+}
+#AddDropForm .player-pos {
+    text-align: center;
+    height: 1.5rem;
+    width: 2.5rem;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+#AddDropForm .add-player-container,
+#AddDropForm .drop-player-container {
+    min-width: 18.75rem;
+    width: 100%;
+    flex: 1 1 calc(48% - 0.469rem);
+}
+#AddDropForm .shadow-fade-bottom::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1.5rem;
+    height: 1.5rem;
+    /* adjust height of fade */
+    width: 100%;
+    pointer-events: none;
+}
+#AddDropForm .filter-controls {
+    width: 100%;
+    display: flex;
+    gap: 0.3rem;
+    align-items: center;
+}
+#AddDropForm #player-search {
+    height: 2.5rem;
+}
+#AddDropForm .add-drop-player-row {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.375rem;
+    cursor: pointer;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+#AddDropForm .add-drop-player-row>* {
+    min-width: 0;
+}
+#AddDropForm .player-pos,
+#AddDropForm .player-img-wrapper {
+    flex: 0 0 2.5rem;
+    /* don't grow, don't shrink, fixed basis */
+}
+#AddDropForm .player-wproj {
+    flex: 0 0 5rem;
+    text-align: center!important;
+    padding-right: 0.125rem;
+    font-weight: 900;
+}
+#AddDropForm .player-myrank {
+    flex: 0 0 3.5rem;
+    text-align: center !important;
+    padding-right: 0.125rem;
+    font-weight: 900;
+}
+#AddDropForm .player-info {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#AddDropForm .select-btn {
+    flex: 0 0 auto;
+    /* don't grow or shrink */
+}
+.roster-container th,
+.roster-container td,
+.waiver-container th,
+.waiver-container td {
+    text-align: left!important;
+}
+.waiver-container .rank {
+    text-align: center!important;
+}
+#add-drop-summary #amt_field_id input {
+    width: unset;
+}
+#enhanced-add-drop-ui .wrapper-add-first,
+#enhanced-add-drop-ui .wrapper-add-second {
+    display: flex;
+    flex-direction: column;
+    gap: 1.313rem;
+}
+#enhanced-add-drop-ui .wrapper-add-second {
+    margin-top: 0.313rem;
+}
+#enhanced-add-drop-ui .row-add-drop-btn {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.313rem;
+    align-items: center;
+}
+#enhanced-add-drop-ui .row-add-drop-btn.comments-row {
+    justify-content: flex-start;
+    align-items: center;
+}
+#enhanced-add-drop-ui .box-add-drop-btn .adds-names {
+    min-width: 2.5rem;
+    text-align: right;
+}
+#enhanced-add-drop-ui .box-add-drop-btn {
+    padding: 0;
+    white-space: nowrap;
+    min-width: 0;
+}
+#enhanced-add-drop-ui .box-add-drop-btn.no-rounds-add,
+#enhanced-add-drop-ui .box-add-drop-btn.rounds-row {
+    text-align: right;
+}
+#enhanced-add-drop-ui .box-add-drop-btn.shrink {
+    flex: 0 0 auto;
+}
+#enhanced-add-drop-ui .box-add-drop-btn.grow {
+    flex: 1 1 auto;
+}
+#enhanced-add-drop-ui #comments_field_id textarea {
+    width: 100%;
+}
+#enhanced-add-drop-ui #round_field_id select {
+    min-width: 2.5rem;
+    width: 2.5rem;
+
+}
+#body_add_drop #waiver_request_list td,
+#body_add_drop #waiver_request_list th {
+    text-align: left;
+}
+#body_add_drop #waiver_request_list th {
+    white-space: nowrap;
+}
+#body_add_drop #waiver_request_list .bid-amount,
+#body_add_drop #waiver_request_list .round,
+#body_add_drop #waiver_request_list .action {
+    text-align: center;
+}
+#body_add_drop #waiver_request_list .round{
+    width:1%;
+}
+#body_add_drop #waiver_request_list td.bid-amount:before {
+    content: "$";
+}
+#AddDropForm .hidden,
+#add-drop-enhanced-ui-tables + br,
+#body_add_drop .mobile-wrap.requests-table + br {
+    display: none!important;
+}
+#AddDropForm #clearDropList:disabled,
+#AddDropForm #clearAddList:disabled,
+#AddDropForm #add_drop_submit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+#add-drop-summary #force_waiver_claim_p span,
+#add-drop-summary #force_waiver_claim_p label {
+    vertical-align: middle;
+    cursor: pointer;
+}
+#add-drop-summary .fa-checkbox {
+    display: inline-block;
+    user-select: none;
+    margin-right: 0.375rem;
+    min-width: 2.5rem;
+    text-align: right;
+}
+#add-drop-summary #FORCE_WAIVER {
+    display: none;
+}
+#AddDropForm .player-img-wrapper .player-inj {
+    top: 0;
+    left: -0.313rem;
+    display: block;
+    text-align: center;
+    border-radius: 50%;
+}
+#AddDropForm .player-img-wrapper {
+    position: relative;
+    overflow: visible;
+    text-align: center;
+}
+
+#AddDropForm .player-img-wrapper-clippler {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 50%;
+}
+#AddDropForm .player-img-wrapper-clippler img {
+    width: auto;
+    height: 2.5rem;
+    object-fit: cover;
+}
+#body_add_drop.addDropSubmit table.report.nocaption tbody tr + tr th,
+#body_add_drop.addDropSubmit table.report caption span img.franchiseicon,
+#body_add_drop.addDropSubmit table.report caption span a {
+    display: none!important;
+}
+#AddDropForm .add-drop-player-row.disabled-dropbox,
+#AddDropForm .add-drop-player-row.disabled-locked,
+#AddDropForm.draftPageForm .add-drop-player-row.disabled-dropbox,
+#AddDropForm.draftPageForm .add-drop-player-row.disabled-locked,
+#AddDropForm.draftPageForm .add-drop-player-row.disabled-draftPick {
+    pointer-events: none;
+    opacity: 0.5;
+}
+#body_options_178 #AddDropForm .disabled-dropbox,
+#body_csetup_cantadd #AddDropForm .disabled-dropbox,
+#body_csetup_loadrost #AddDropForm .disabled-dropbox,
+#body_csetup_cantcut #AddDropForm .disabled-dropbox {
+    display: none!important;
+}
+#draftDetails .showHideRowShow {
+    display: table-row!important;
+}
+
+
+
+/***********************************/
+/***********************************/
+/* MEDIA QUERIES - NO NEED TO EDIT */
+/***********************************/
+/***********************************/
+
+@media (max-width: 960px) {
+    #AddDropForm #add-drop-enhanced-ui {
+        flex-direction: column;
+    }
+    .addDropSubmit table.report td[valign="top"] {
+        display: block;
+    }
+}
+
+@media (min-width: 960px) {
+    .addDropSubmit table.report td[valign="top"]:nth-of-type(1) {
+        padding-right: 0.313rem;
+    }
+    .addDropSubmit table.report td[valign="top"]:nth-of-type(2) {
+        padding-left: 0.313rem;
+    }
+    .addDropSubmit table.report td[valign="top"]:nth-of-type(3) {
+        padding-left: 0.625rem;
+    }
+}
+
+@media (max-width: 700px) {
+    #enhanced-add-drop-ui .box-add-drop-btn.no-rounds-add {
+        text-align: center;
+    }
+    #enhanced-add-drop-ui .box-add-drop-btn.has-rounds-add {
+        text-align: center;
+    }
+    #enhanced-add-drop-ui .box-add-drop-btn {
+        width: 100%;
+        text-align: left;
+    }
+    #enhanced-add-drop-ui #comments_field_id .box-add-drop-btn,
+    #enhanced-add-drop-ui .box-add-drop-btn.has-rounds-row,
+    #enhanced-add-drop-ui .box-add-drop-btn.rounds-fields-row,
+    #enhanced-add-drop-ui .box-add-drop-btn.rounds-row {
+        width: unset;
+    }
+    #AddDropForm #amt_field_id {
+        padding-bottom: 0.725rem;
+    }
+}
+
+@media (max-width: 500px) {
+    #AddDropForm .summary-moves {
+        flex-direction: column;
+    }
+    #AddDropForm .add-drop-player-row {
+        gap: 0.125rem;
+    }
+    #AddDropForm .player-pos {
+        height: 1.3rem;
+        width: 2rem;
+        flex: 0 0 2rem;
+    }
+    #AddDropForm .player-wproj {
+        flex: 0 0 3rem;
+    }
+    #AddDropForm .player-wproj::before {
+        content: "PROJ";
+    }
+    #body_csetup_cantadd #AddDropForm .player-myrank::before,
+    #body_csetup_cantcut #AddDropForm .player-myrank::before,
+    #body_csetup_loadrost #AddDropForm .player-myrank::before,
+    #AddDropForm.draftPageForm .player-wproj::before {
+        content: "FS Rank";
+    }
+    #AddDropForm .player-img-wrapper {
+        margin-left: 0.3rem;
+        margin-right: 0.3rem;
+    }
+    #AddDropForm .select-btn,
+    #AddDropForm .deselect-btn {
+        width: 1.875rem;
+        font-size: 0;
+        border-radius: 1.25rem;
+        flex: 0 0 1.875rem;
+        padding: 0;
+    }
+    #AddDropForm .select-btn::before {
+        content: "\f067";
+        /* Font Awesome plus */
+        font-family: "Font Awesome 6 Pro";
+    }
+    #AddDropForm .drop-player-list .select-btn::before {
+        content: "\f068";
+        /* Font Awesome minus */
+        font-family: "Font Awesome 6 Pro";
+    }
+    #AddDropForm .deselect-btn::before {
+        content: "\f068";
+        /* Font Awesome minus */
+        font-family: "Font Awesome 6 Pro";
+    }
+    #body_add_drop #waiver_request_list td.action a {
+        display: block;
+        margin: 0.3rem;
+    }
+    #AddDropForm #position-filter,
+    #AddDropForm #add_filt_nfl {
+        min-width: 4rem;
+    }
+    #AddDropForm .disabled-locked .select-btn::before,
+    #AddDropForm .disabled-dropbox .select-btn::before {
+        content: "\f068";
+    }
+}
+@media (hover: none) and (pointer: coarse) {
+::-webkit-scrollbar {
+  width: 0!important;
+}
+::-webkit-scrollbar-track {
+  margin:0!important;
+}
+::-webkit-scrollbar-button {
+  width: 0!important;
+}
+    #AddDropForm #add-player-list .add-drop-player-row.oddtablerow:hover,
+    #AddDropForm #drop-player-list .add-drop-player-row.oddtablerow:hover {
+        background: var(--oddtablerow, #f1f1f1)!important;
+    }
+    #AddDropForm #add-player-list .add-drop-player-row.eventablerow:hover,
+    #AddDropForm #drop-player-list .add-drop-player-row.eventablerow:hover {
+        background: var(--eventablerow, #f8f8f8)!important;
+    }
+    #AddDropForm #add-player-list .add-drop-player-row.selected-player.oddtablerow:hover,
+    #AddDropForm #add-player-list .add-drop-player-row.selected-player.eventablerow:hover {
+        background: #3cb3001a !important;
+    }
+    #AddDropForm #drop-player-list .add-drop-player-row.selected-player.oddtablerow:hover,
+    #AddDropForm #drop-player-list .add-drop-player-row.selected-player.eventablerow:hover {
+        background: #cd21221a !important;
+    }
+}
+
+
+#body_options_199 td div.mobile-wrap {
+    margin: 0 0.325rem !important;
+}
+@media (max-width: 700px) {
+    #body_options_199 td div.mobile-wrap {
+        margin: 0 0 0.625rem !important;
+    }
+    #body_options_199 td[style="width:50%"] {
+        display: block;
+        width: 100%!important;
+    }
+    #load_rosters td[valign="top"] {
+        display: block;
+        width: 100%!important;
+    }
+    .moveBtns .move-up-btn-twenty,
+    .moveBtns .move-down-btn-twenty {
+        display: none !important;
+    }
+    #drop-player-list .add-drop-player-row:first-child .move-down-btn-twenty,
+    #drop-player-list .add-drop-player-row:last-child .move-up-btn-twenty {
+        display: inline-block!important;
+    }
+    #drop-player-list .add-drop-player-row:first-child .move-Up-down-btn-twenty,
+    #drop-player-list .add-drop-player-row:last-child .move-Up-down-btn-twenty {
+        display: none!important;
+    }
+}
+@media (min-width: 700px) {
+    .moveBtns .move-Up-down-btn-twenty {
+        display: none!important;
+    }
+}
+#body_options_178 th a[href*="SORT=postion"],
+#body_options_178 th a[href*="SORT=player"] {
+    text-decoration: none;
+    pointer-events: none;
+}
+#CurrentWatchList th {
+    text-align: left;
+}
+#CurrentWatchList td {
+    text-align: left;
+}
+
+#CurrentWatchList td.points,
+#CurrentWatchList td.action {
+    text-align: center;
+}
+#CurrentWatchList th:nth-child(3),
+#CurrentWatchList th:nth-child(4) {
+    text-align: center;
+}
+#waiver_request_list td.action a i,
+#CurrentWatchList td.action a i{
+    margin: 0.3rem;
+    font-size: 1rem;
+}
+#waiver_request_list td.action a:before,
+#CurrentWatchList td.action a:before{
+    display:none!important
+}
+#body_options_129 #AddDropForm #drop-player-list .add-drop-player-row,
+#AddDropForm.draftPageForm #drop-player-list .add-drop-player-row {
+    cursor: default;
+}
+.draftNow #AddDropForm.draftPageForm #drop-player-list .add-drop-player-row {
+    cursor: pointer;
+}
+#drop-player-list .add-drop-player-row:first-child .move-up-btn,
+#drop-player-list .add-drop-player-row:first-child .move-up-btn-twenty {
+    display: none;
+}
+#drop-player-list .add-drop-player-row:last-child .move-down-btn,
+#drop-player-list .add-drop-player-row:last-child .move-down-btn-twenty {
+    display: none;
+}
+#drop-player-list .add-drop-player-row .moveBtns button {
+    margin-right: 0.165rem !important;
+}
+#drop-player-list .moveBtns {
+    margin-top: 0.2rem !important;
+}
+#drop-player-list .moveBtns button {
+    cursor: pointer;
+}
+#drop-player-list.showFilters .move-down-btn-twenty,
+#drop-player-list.showFilters .move-up-btn-twenty,
+#drop-player-list.showFilters .move-Up-down-btn-twenty,
+#drop-player-list.showFilters .add-drop-player-row:first-child .move-down-btn-twenty,
+#drop-player-list.showFilters .add-drop-player-row:last-child .move-up-btn-twenty {
+    display: none !important;
+}
+#contest_lineup #tableCounter td,
+#contest_lineup #tableCounter th {
+    text-align: center!important;
+}
+#contest_lineup #tableCounter tr td:first-child,
+#contest_lineup #tableCounter tr th:first-child {
+    text-align: left !important;
+}
 
 /*******************************************/
 
@@ -7136,4 +7931,802 @@ tr.MFLBoxPlayerDetailsSubHeader {
 
 	/*when user franchise has multiple table rows highlighted in succession , then put border to show separation*/
 	--highlight-separate: 1px solid #eee;
+
+  
 } 
+
+/* ADD/DROP PAGE */
+
+/* THIS MUST GO IN MFL LOADED CSS FILE */
+#add_drop table,
+#body_options_257 table,
+#add_drop .mobile-wrap,
+#body_options_257 .mobile-wrap,
+#dropInputDiv,
+#csetup_cantadd table,
+#csetup_cantadd .mobile-wrap,
+#csetup_cantcut table,
+#csetup_cantcut .mobile-wrap,
+#body_options_178 table,
+#body_options_178 .mobile-wrap,
+#csetup_loadrost table,
+#csetup_loadrost .mobile-wrap,
+#options_129 table,
+#options_129 .mobile-wrap,
+#options_52 table,
+#options_52 .mobile-wrap,
+#new_predraft table,
+#new_predraft .mobile-wrap,
+#contest_lineup table,
+#contest_lineup .mobile-wrap,
+#options_256 table,
+#options_256 .mobile-wrap,
+#options_43 table,
+#options_43 .mobile-wrap,
+#options_43 form  {
+    visibility: hidden;
+}
+
+#add_drop span.reportnavigation,
+#body_options_129 .reportnavigation,
+#options_52 .reportnavigation {
+    display: none;
+}
+
+
+
+/* THE REST CAN GO IN HPM - BUT MAIN CSS RECOMMENDED */
+
+/**********************************/
+/**********************************/
+/* COLORS - FONT SIZE - BORDERING */
+/**********************************/
+/**********************************/
+
+#AddDropForm .player-img-wrapper .player-inj {
+    background: red;
+    color: #fff;
+    width: 0.938rem;
+    height: 0.938rem;
+    font-size: 0.5rem;
+}
+#AddDropForm .player-img-wrapper {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+#AddDropForm .player-img-wrapper-clippler {
+    border: 0.125rem solid #ddd;
+    background-color: #fff;
+}
+#AddDropForm .player-img-wrapper-clippler img[src*="96x96"] {
+    height: 100%;
+}
+#add-drop-summary .fa-checkbox {
+    color: #888;
+    font-size: 1.125rem;
+}
+#add-drop-summary .fa-checkbox.checked i {
+    color: green;
+}
+#AddDropForm #add_name_field_id {
+    color: green;
+}
+#AddDropForm #drop_name_field_id {
+    color: red;
+}
+#AddDropForm #locked-msg {
+    background: #fff;
+    color: red;
+    font-size: .8rem;
+    height: 3rem;
+    padding-left: .4rem;
+    line-height: 1.5rem;
+    border-top: 0.125rem solid var(--th-bg, #080e25);
+}
+#AddDropForm #add-player-list {
+    max-height: 24rem;
+    min-height: 4rem;
+    overflow-y: scroll;
+}
+#AddDropForm #drop-player-list,
+#body_options_178 #AddDropForm #add-player-list {
+    max-height: 27rem;
+    min-height: 7rem;
+    overflow-y: scroll;
+}
+.draftNow #AddDropForm #drop-player-list {
+    min-height: 5rem;
+    overflow-y: auto;
+}
+#AddDropForm .player-wproj::before,
+#AddDropForm .player-myrank::before  {
+    content: "PROJ PTS";
+    font-weight: normal;
+    color: var(--main, #080e25);
+    font-size: 0.625rem;
+    display: block;
+}
+#body_csetup_cantadd #AddDropForm .player-myrank::before,
+#body_csetup_cantcut #AddDropForm .player-myrank::before,
+#body_csetup_loadrost #AddDropForm .player-myrank::before,
+#AddDropForm.draftPageForm .player-wproj::before {
+    content: "FS Rank";
+}
+#AddDropForm .player-myrank::before {
+    content: "My Rank";
+}
+#AddDropForm #add-player-list .select-btn {
+    border-radius: 1.25rem;
+    background-color: green;
+    color: #fff;
+    border: 0;
+}
+#AddDropForm #drop-player-list .select-btn {
+    border-radius: 1.25rem;
+    background-color: red;
+    color: #fff;
+    border: 0;
+}
+#AddDropForm #add-player-list .disabled-locked .select-btn {
+    background-color: red;
+    color: #fff;
+}
+#AddDropForm #add-player-list .deselect-btn {
+    border-radius: 1.25rem;
+    background-color: #fff;
+    color: green;
+    border: 0;
+}
+#AddDropForm #drop-player-list .deselect-btn {
+    border-radius: 1.25rem;
+    background-color: #fff;
+    color: red;
+    border: 0;
+}
+#AddDropForm #drop-player-list .add-drop-player-row.oddtablerow:hover,
+#AddDropForm #drop-player-list .add-drop-player-row.eventablerow:hover {
+    background: rgba(205, 33, 34, .1)!important;
+}
+#AddDropForm #add-player-list .add-drop-player-row.oddtablerow:hover,
+#AddDropForm #add-player-list .add-drop-player-row.eventablerow:hover {
+    background: rgba(60, 179, 0,.1)!important;
+}
+#AddDropForm #add-player-list .add-drop-player-row.oddtablerow.selected-player,
+#AddDropForm #add-player-list .add-drop-player-row.eventablerow.selected-player {
+    background: rgba(60, 179, 0,.1)!important;
+    border-left: 0.25rem solid green;
+}
+#AddDropForm #drop-player-list .add-drop-player-row.oddtablerow.selected-player,
+#AddDropForm #drop-player-list .add-drop-player-row.eventablerow.selected-player {
+    background: rgba(205, 33, 34, .1)!important;
+    border-left: 0.25rem solid red;
+}
+#AddDropForm .sort-bar {
+    font-size: inherit;
+}
+#AddDropForm .sort-btn {
+    background-color: #fff;
+    border-radius: 1.25rem;
+    font-size: 0.625rem;
+    color: var(--main-four, var(--main, #080e25));
+    border:0;
+}
+#AddDropForm .sort-btn:hover {
+    color: #fff;
+    background: var(--accent-two, var(--accent, #B82601));
+}
+#AddDropForm .sort-btn.activated {
+    color: #fff;
+    background: var(--accent-two, var(--accent, #B82601));
+    border:0
+}
+#AddDropForm .player-pos {
+    border-radius: .675rem;
+    font-size: .7rem;
+    color: #fff;
+    background: var(--th-bg, #080e25);
+}
+#AddDropForm .shadow-fade-bottom::after {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent);
+}
+#AddDropForm .add-drop-player-row {
+    /*border-bottom: 0.063rem solid #ddd;*/
+}
+#AddDropForm .player-info {
+    font-size: 0.75rem;
+}
+#AddDropForm .player-info strong,
+#AddDropForm .player-wproj,
+#AddDropForm .player-myrank {
+    font-size: 0.9rem;
+    color:var(--accent-two, var(--accent, #B82601));
+}
+
+
+
+
+/**************************************************/
+/**************************************************/
+/* MEDIA QUERIES - COLORS - FONT SIZE - BORDERING */
+/**************************************************/
+/**************************************************/
+
+@media (max-width: 500px) {
+    #AddDropForm .player-pos {
+        font-size: 0.6rem;
+    }
+    #AddDropForm .select-btn::before {
+        font-weight: 900;
+        font-size: 1rem;
+        color: #fff;
+    }
+    #AddDropForm .drop-player-list .select-btn::before {
+        font-weight: 900;
+        font-size: 1rem;
+    }
+    #AddDropForm .deselect-btn::before {
+        font-weight: 900;
+        font-size: 1rem;
+    }
+}
+
+
+
+
+/*********************************/
+/*********************************/
+/* FORMATTING - NO NEED TO TOUCH */
+/*********************************/
+/*********************************/
+
+.waiver-container,
+.roster-container {
+    min-width: 18.75rem;
+    width: 100%;
+    flex: 1 1 calc(48% - 0.469rem);
+}
+#add-drop-enhanced-ui,
+#add-drop-enhanced-ui-tables {
+    display: flex;
+    justify-content: space-between;
+    gap: 0 0.938rem;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+#add-drop-enhanced-ui-tables table {
+    width: 100%!important;
+}
+#AddDropForm #add-player-list .select-btn:hover,
+#AddDropForm #drop-player-list .select-btn:hover {
+    cursor: pointer;
+}
+#AddDropForm .player-img-wrapper-waiv {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    margin-right: 0;
+    display: inline-block;
+    vertical-align: middle;
+    border: solid 0.063rem #ccc;
+}
+#AddDropForm .select-btn {
+    width: 3.875rem;
+    height: 1.875rem;
+}
+#AddDropForm .deselect-btn {
+    width: 3.875rem;
+    height: 1.875rem;
+}
+#AddDropForm .sort-bar {
+    margin: 0;
+    display: flex;
+    gap: 0.55rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 0.25rem;
+}
+#AddDropForm .sort-btn {
+    padding: 0.313rem 0.313rem 0.313rem 0.625rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    text-transform: uppercase;
+}
+#AddDropForm #position-filter,
+#AddDropForm #add_filt_nfl,
+#AddDropForm #COPY_YEAR,
+#AddDropForm #COPY_LEAGUE,
+#AddDropForm #picker_filt_pos,
+#AddDropForm #picker_filt_nfl,
+#AddDropForm input[name="OPENING_BID"] {
+    max-width: 7rem;
+    min-width: 6rem;
+    padding: 0 !important;
+    height: 2rem;
+}
+#AddDropForm input[name="OPENING_BID"] {
+    margin-left: 0.313rem;
+    padding-left: 0.313rem !important;
+    max-width: 5rem;
+    min-width: 5rem;
+}
+#AddDropForm #addDropSearch {
+    height: 2rem;
+}
+#AddDropForm .player-pos {
+    text-align: center;
+    height: 1.5rem;
+    width: 2.5rem;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+#AddDropForm .add-player-container,
+#AddDropForm .drop-player-container {
+    min-width: 18.75rem;
+    width: 100%;
+    flex: 1 1 calc(48% - 0.469rem);
+}
+#AddDropForm .shadow-fade-bottom::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1.5rem;
+    height: 1.5rem;
+    /* adjust height of fade */
+    width: 100%;
+    pointer-events: none;
+}
+#AddDropForm .filter-controls {
+    width: 100%;
+    display: flex;
+    gap: 0.3rem;
+    align-items: center;
+}
+#AddDropForm #player-search {
+    height: 2.5rem;
+}
+#AddDropForm .add-drop-player-row {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.375rem;
+    cursor: pointer;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+#AddDropForm .add-drop-player-row>* {
+    min-width: 0;
+}
+#AddDropForm .player-pos,
+#AddDropForm .player-img-wrapper {
+    flex: 0 0 2.5rem;
+    /* don't grow, don't shrink, fixed basis */
+}
+#AddDropForm .player-wproj {
+    flex: 0 0 5rem;
+    text-align: center!important;
+    padding-right: 0.125rem;
+    font-weight: 900;
+}
+#AddDropForm .player-myrank {
+    flex: 0 0 3.5rem;
+    text-align: center !important;
+    padding-right: 0.125rem;
+    font-weight: 900;
+}
+#AddDropForm .player-info {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#AddDropForm .select-btn {
+    flex: 0 0 auto;
+    /* don't grow or shrink */
+}
+.roster-container th,
+.roster-container td,
+.waiver-container th,
+.waiver-container td {
+    text-align: left!important;
+}
+.waiver-container .rank {
+    text-align: center!important;
+}
+#add-drop-summary #amt_field_id input {
+    width: unset;
+}
+#enhanced-add-drop-ui .wrapper-add-first,
+#enhanced-add-drop-ui .wrapper-add-second {
+    display: flex;
+    flex-direction: column;
+    gap: 1.313rem;
+}
+#enhanced-add-drop-ui .wrapper-add-second {
+    margin-top: 0.313rem;
+}
+#enhanced-add-drop-ui .row-add-drop-btn {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.313rem;
+    align-items: center;
+}
+#enhanced-add-drop-ui .row-add-drop-btn.comments-row {
+    justify-content: flex-start;
+    align-items: center;
+}
+#enhanced-add-drop-ui .box-add-drop-btn .adds-names {
+    min-width: 2.5rem;
+    text-align: right;
+}
+#enhanced-add-drop-ui .box-add-drop-btn {
+    padding: 0;
+    white-space: nowrap;
+    min-width: 0;
+}
+#enhanced-add-drop-ui .box-add-drop-btn.no-rounds-add,
+#enhanced-add-drop-ui .box-add-drop-btn.rounds-row {
+    text-align: right;
+}
+#enhanced-add-drop-ui .box-add-drop-btn.shrink {
+    flex: 0 0 auto;
+}
+#enhanced-add-drop-ui .box-add-drop-btn.grow {
+    flex: 1 1 auto;
+}
+#enhanced-add-drop-ui #comments_field_id textarea {
+    width: 100%;
+}
+#enhanced-add-drop-ui #round_field_id select {
+    min-width: 2.5rem;
+    width: 2.5rem;
+
+}
+#body_add_drop #waiver_request_list td,
+#body_add_drop #waiver_request_list th {
+    text-align: left;
+}
+#body_add_drop #waiver_request_list th {
+    white-space: nowrap;
+}
+#body_add_drop #waiver_request_list .bid-amount,
+#body_add_drop #waiver_request_list .round,
+#body_add_drop #waiver_request_list .action {
+    text-align: center;
+}
+#body_add_drop #waiver_request_list .round{
+    width:1%;
+}
+#body_add_drop #waiver_request_list td.bid-amount:before {
+    content: "$";
+}
+#AddDropForm .hidden,
+#add-drop-enhanced-ui-tables + br,
+#body_add_drop .mobile-wrap.requests-table + br {
+    display: none!important;
+}
+#AddDropForm #clearDropList:disabled,
+#AddDropForm #clearAddList:disabled,
+#AddDropForm #add_drop_submit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+#add-drop-summary #force_waiver_claim_p span,
+#add-drop-summary #force_waiver_claim_p label {
+    vertical-align: middle;
+    cursor: pointer;
+}
+#add-drop-summary .fa-checkbox {
+    display: inline-block;
+    user-select: none;
+    margin-right: 0.375rem;
+    min-width: 2.5rem;
+    text-align: right;
+}
+#add-drop-summary #FORCE_WAIVER {
+    display: none;
+}
+#AddDropForm .player-img-wrapper .player-inj {
+    top: 0;
+    left: -0.313rem;
+    display: block;
+    text-align: center;
+    border-radius: 50%;
+}
+#AddDropForm .player-img-wrapper {
+    position: relative;
+    overflow: visible;
+    text-align: center;
+}
+
+#AddDropForm .player-img-wrapper-clippler {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 50%;
+}
+#AddDropForm .player-img-wrapper-clippler img {
+    width: auto;
+    height: 2.5rem;
+    object-fit: cover;
+}
+#body_add_drop.addDropSubmit table.report.nocaption tbody tr + tr th,
+#body_add_drop.addDropSubmit table.report caption span img.franchiseicon,
+#body_add_drop.addDropSubmit table.report caption span a {
+    display: none!important;
+}
+#AddDropForm .add-drop-player-row.disabled-dropbox,
+#AddDropForm .add-drop-player-row.disabled-locked,
+#AddDropForm.draftPageForm .add-drop-player-row.disabled-dropbox,
+#AddDropForm.draftPageForm .add-drop-player-row.disabled-locked,
+#AddDropForm.draftPageForm .add-drop-player-row.disabled-draftPick {
+    pointer-events: none;
+    opacity: 0.5;
+}
+#body_options_178 #AddDropForm .disabled-dropbox,
+#body_csetup_cantadd #AddDropForm .disabled-dropbox,
+#body_csetup_loadrost #AddDropForm .disabled-dropbox,
+#body_csetup_cantcut #AddDropForm .disabled-dropbox {
+    display: none!important;
+}
+#draftDetails .showHideRowShow {
+    display: table-row!important;
+}
+
+
+
+/***********************************/
+/***********************************/
+/* MEDIA QUERIES - NO NEED TO EDIT */
+/***********************************/
+/***********************************/
+
+@media (max-width: 960px) {
+    #AddDropForm #add-drop-enhanced-ui {
+        flex-direction: column;
+    }
+    .addDropSubmit table.report td[valign="top"] {
+        display: block;
+    }
+}
+
+@media (min-width: 960px) {
+    .addDropSubmit table.report td[valign="top"]:nth-of-type(1) {
+        padding-right: 0.313rem;
+    }
+    .addDropSubmit table.report td[valign="top"]:nth-of-type(2) {
+        padding-left: 0.313rem;
+    }
+    .addDropSubmit table.report td[valign="top"]:nth-of-type(3) {
+        padding-left: 0.625rem;
+    }
+}
+
+@media (max-width: 700px) {
+    #enhanced-add-drop-ui .box-add-drop-btn.no-rounds-add {
+        text-align: center;
+    }
+    #enhanced-add-drop-ui .box-add-drop-btn.has-rounds-add {
+        text-align: center;
+    }
+    #enhanced-add-drop-ui .box-add-drop-btn {
+        width: 100%;
+        text-align: left;
+    }
+    #enhanced-add-drop-ui #comments_field_id .box-add-drop-btn,
+    #enhanced-add-drop-ui .box-add-drop-btn.has-rounds-row,
+    #enhanced-add-drop-ui .box-add-drop-btn.rounds-fields-row,
+    #enhanced-add-drop-ui .box-add-drop-btn.rounds-row {
+        width: unset;
+    }
+    #AddDropForm #amt_field_id {
+        padding-bottom: 0.725rem;
+    }
+}
+
+@media (max-width: 500px) {
+    #AddDropForm .summary-moves {
+        flex-direction: column;
+    }
+    #AddDropForm .add-drop-player-row {
+        gap: 0.125rem;
+    }
+    #AddDropForm .player-pos {
+        height: 1.3rem;
+        width: 2rem;
+        flex: 0 0 2rem;
+    }
+    #AddDropForm .player-wproj {
+        flex: 0 0 3rem;
+    }
+    #AddDropForm .player-wproj::before {
+        content: "PROJ";
+    }
+    #body_csetup_cantadd #AddDropForm .player-myrank::before,
+    #body_csetup_cantcut #AddDropForm .player-myrank::before,
+    #body_csetup_loadrost #AddDropForm .player-myrank::before,
+    #AddDropForm.draftPageForm .player-wproj::before {
+        content: "FS Rank";
+    }
+    #AddDropForm .player-img-wrapper {
+        margin-left: 0.3rem;
+        margin-right: 0.3rem;
+    }
+    #AddDropForm .select-btn,
+    #AddDropForm .deselect-btn {
+        width: 1.875rem;
+        font-size: 0;
+        border-radius: 1.25rem;
+        flex: 0 0 1.875rem;
+        padding: 0;
+    }
+    #AddDropForm .select-btn::before {
+        content: "\f067";
+        /* Font Awesome plus */
+        font-family: "Font Awesome 6 Pro";
+    }
+    #AddDropForm .drop-player-list .select-btn::before {
+        content: "\f068";
+        /* Font Awesome minus */
+        font-family: "Font Awesome 6 Pro";
+    }
+    #AddDropForm .deselect-btn::before {
+        content: "\f068";
+        /* Font Awesome minus */
+        font-family: "Font Awesome 6 Pro";
+    }
+    #body_add_drop #waiver_request_list td.action a {
+        display: block;
+        margin: 0.3rem;
+    }
+    #AddDropForm #position-filter,
+    #AddDropForm #add_filt_nfl {
+        min-width: 4rem;
+    }
+    #AddDropForm .disabled-locked .select-btn::before,
+    #AddDropForm .disabled-dropbox .select-btn::before {
+        content: "\f068";
+    }
+}
+@media (hover: none) and (pointer: coarse) {
+::-webkit-scrollbar {
+  width: 0!important;
+}
+::-webkit-scrollbar-track {
+  margin:0!important;
+}
+::-webkit-scrollbar-button {
+  width: 0!important;
+}
+    #AddDropForm #add-player-list .add-drop-player-row.oddtablerow:hover,
+    #AddDropForm #drop-player-list .add-drop-player-row.oddtablerow:hover {
+        background: var(--oddtablerow, #f1f1f1)!important;
+    }
+    #AddDropForm #add-player-list .add-drop-player-row.eventablerow:hover,
+    #AddDropForm #drop-player-list .add-drop-player-row.eventablerow:hover {
+        background: var(--eventablerow, #f8f8f8)!important;
+    }
+    #AddDropForm #add-player-list .add-drop-player-row.selected-player.oddtablerow:hover,
+    #AddDropForm #add-player-list .add-drop-player-row.selected-player.eventablerow:hover {
+        background: #3cb3001a !important;
+    }
+    #AddDropForm #drop-player-list .add-drop-player-row.selected-player.oddtablerow:hover,
+    #AddDropForm #drop-player-list .add-drop-player-row.selected-player.eventablerow:hover {
+        background: #cd21221a !important;
+    }
+}
+
+
+#body_options_199 td div.mobile-wrap {
+    margin: 0 0.325rem !important;
+}
+@media (max-width: 700px) {
+    #body_options_199 td div.mobile-wrap {
+        margin: 0 0 0.625rem !important;
+    }
+    #body_options_199 td[style="width:50%"] {
+        display: block;
+        width: 100%!important;
+    }
+    #load_rosters td[valign="top"] {
+        display: block;
+        width: 100%!important;
+    }
+    .moveBtns .move-up-btn-twenty,
+    .moveBtns .move-down-btn-twenty {
+        display: none !important;
+    }
+    #drop-player-list .add-drop-player-row:first-child .move-down-btn-twenty,
+    #drop-player-list .add-drop-player-row:last-child .move-up-btn-twenty {
+        display: inline-block!important;
+    }
+    #drop-player-list .add-drop-player-row:first-child .move-Up-down-btn-twenty,
+    #drop-player-list .add-drop-player-row:last-child .move-Up-down-btn-twenty {
+        display: none!important;
+    }
+}
+@media (min-width: 700px) {
+    .moveBtns .move-Up-down-btn-twenty {
+        display: none!important;
+    }
+}
+#body_options_178 th a[href*="SORT=postion"],
+#body_options_178 th a[href*="SORT=player"] {
+    text-decoration: none;
+    pointer-events: none;
+}
+#CurrentWatchList th {
+    text-align: left;
+}
+#CurrentWatchList td {
+    text-align: left;
+}
+
+#CurrentWatchList td.points,
+#CurrentWatchList td.action {
+    text-align: center;
+}
+#CurrentWatchList th:nth-child(3),
+#CurrentWatchList th:nth-child(4) {
+    text-align: center;
+}
+#waiver_request_list td.action a i,
+#CurrentWatchList td.action a i{
+    margin: 0.3rem;
+    font-size: 1rem;
+}
+#waiver_request_list td.action a:before,
+#CurrentWatchList td.action a:before{
+    display:none!important
+}
+#body_options_129 #AddDropForm #drop-player-list .add-drop-player-row,
+#AddDropForm.draftPageForm #drop-player-list .add-drop-player-row {
+    cursor: default;
+}
+.draftNow #AddDropForm.draftPageForm #drop-player-list .add-drop-player-row {
+    cursor: pointer;
+}
+#drop-player-list .add-drop-player-row:first-child .move-up-btn,
+#drop-player-list .add-drop-player-row:first-child .move-up-btn-twenty {
+    display: none;
+}
+#drop-player-list .add-drop-player-row:last-child .move-down-btn,
+#drop-player-list .add-drop-player-row:last-child .move-down-btn-twenty {
+    display: none;
+}
+#drop-player-list .add-drop-player-row .moveBtns button {
+    margin-right: 0.165rem !important;
+}
+#drop-player-list .moveBtns {
+    margin-top: 0.2rem !important;
+}
+#drop-player-list .moveBtns button {
+    cursor: pointer;
+}
+#drop-player-list.showFilters .move-down-btn-twenty,
+#drop-player-list.showFilters .move-up-btn-twenty,
+#drop-player-list.showFilters .move-Up-down-btn-twenty,
+#drop-player-list.showFilters .add-drop-player-row:first-child .move-down-btn-twenty,
+#drop-player-list.showFilters .add-drop-player-row:last-child .move-up-btn-twenty {
+    display: none !important;
+}
+#contest_lineup #tableCounter td,
+#contest_lineup #tableCounter th {
+    text-align: center!important;
+}
+#contest_lineup #tableCounter tr td:first-child,
+#contest_lineup #tableCounter tr th:first-child {
+    text-align: left !important;
+}
