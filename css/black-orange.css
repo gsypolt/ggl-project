@@ -7095,6 +7095,7 @@ tr.MFLBoxPlayerDetailsSubHeader {
     color: red;
 }
 #AddDropForm #locked-msg {
+    display: none;
     background: #fff;
     color: red;
     font-size: .8rem;
@@ -7122,7 +7123,7 @@ tr.MFLBoxPlayerDetailsSubHeader {
 #AddDropForm .player-myrank::before  {
     content: "PROJ PTS";
     font-weight: normal;
-    color: var(--main, #080e25);
+    color: #ffa300;
     font-size: 0.625rem;
     display: block;
 }
@@ -7219,7 +7220,7 @@ tr.MFLBoxPlayerDetailsSubHeader {
 #AddDropForm .player-wproj,
 #AddDropForm .player-myrank {
     font-size: 0.9rem;
-    color:var(--accent-two, var(--accent, #B82601));
+    color:var(--accent-two, var(--accent, #ffa300));
 }
 
 
@@ -8043,7 +8044,7 @@ tr.MFLBoxPlayerDetailsSubHeader {
 #AddDropForm .player-myrank::before  {
     content: "PROJ PTS";
     font-weight: normal;
-    color: var(--main, #080e25);
+    color: var(--main, #fff);
     font-size: 0.625rem;
     display: block;
 }
@@ -8125,7 +8126,7 @@ tr.MFLBoxPlayerDetailsSubHeader {
     border-radius: .675rem;
     font-size: .7rem;
     color: #fff;
-    background: var(--th-bg, #080e25);
+    background: var(--th-bg, #1c6eb3);
 }
 #AddDropForm .shadow-fade-bottom::after {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent);
@@ -8140,7 +8141,7 @@ tr.MFLBoxPlayerDetailsSubHeader {
 #AddDropForm .player-wproj,
 #AddDropForm .player-myrank {
     font-size: 0.9rem;
-    color:var(--accent-two, var(--accent, #B82601));
+    color:var(--accent-two, var(--accent, #ffa300));
 }
 
 
