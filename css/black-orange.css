@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto|Roboto:900|Roboto+Slab:700");
-@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/font-awesome.min.css";
 
 /* 
 Primary Color Scheme
@@ -343,11 +343,6 @@ table.homepagemessage td {
 #body_options_52 .reportform {
   width: 1090px; }
 
-#body_options_129 select {
-  font-size: .9em; }
-  #body_options_129 select option {
-    padding: 4px 0; }
-
 #body_options_129 input[type="button"],
 #body_options_129 input[type="submit"] {
   padding: 14px 20px; }
@@ -418,13 +413,7 @@ table.homepagemessage td {
     margin: 15px 0; }
   #custom_draftroom #make_pick {
     text-align: center; }
-  #custom_draftroom #make_pick select {
-    width: 100%;
-    max-width: 100%;
-    margin: 0; }
-  #custom_draftroom #make_pick select[name="position"],
-  #custom_draftroom #make_pick select[name="team"] {
-    width: 100px; }
+  
   #custom_draftroom #make_pick td {
     display: block;
     text-align: center; }
@@ -1913,10 +1902,6 @@ input[type="password"], input[type="text"] {
   padding: 4px;
   font-size: 1.1em;
   min-width: 100px; }
-
-select {
-  padding: 4px 5px 5px;
-  font-size: 1.1em; }
 
 /*//messageboard cta*/
 .mb {
@@ -3764,7 +3749,7 @@ table#standings th {
     overflow: hidden; }
   #lineup #startertable tr.playerrow:after {
     content: "\f057";
-    font-family: FontAwesome;
+    font-family: 'Font Awesome 6 Free';
     position: absolute;
     top: 13px;
     z-index: 1;
@@ -3772,7 +3757,7 @@ table#standings th {
     right: 5px; }
   #lineup #benchtable tr.playerrow:after {
     content: "\f055";
-    font-family: FontAwesome;
+    font-family: 'Font Awesome 6 Free';
     position: absolute;
     top: 13px;
     z-index: 1;
@@ -3781,7 +3766,7 @@ table#standings th {
   #lineup #benchtable tr.playerrow.disabled-row:after,
   #lineup #startertable tr.playerrow.disabled-row:after {
     content: "\f023";
-    font-family: FontAwesome;
+    font-family: 'Font Awesome 6 Free';
     position: absolute;
     top: 13px;
     z-index: 1;
@@ -3791,7 +3776,7 @@ table#standings th {
   #lineup #benchtable tr.playerrow.original-starter:before,
   #lineup #startertable tr.playerrow.original-starter:before {
     content: "\f05d";
-    font-family: FontAwesome;
+    font-family: 'Font Awesome 6 Free';
     position: absolute;
     top: 1px;
     z-index: 1;
@@ -3807,7 +3792,7 @@ table#standings th {
     padding: 5px 10px 5px 25px !important;
     font-size: 16px; }
   #lineup .form_buttons:before {
-    font-family: 'FontAwesome';
+    font-family: 'Font Awesome 6 Free';
     position: relative;
     left: 26px;
     content: "\f00c";
@@ -3821,14 +3806,14 @@ table#standings th {
   #lineup h3 + p.default-btn {
     display: none; }
   #lineup .form_buttons.default-btn:after {
-    font-family: 'FontAwesome';
+    font-family: 'Font Awesome 6 Free';
     position: relative;
     right: 23px;
     content: "\f0a9";
     z-index: 1;
     font-size: 16px; }
   #lineup #go-back:before {
-    font-family: 'FontAwesome';
+    font-family: 'Font Awesome 6 Free';
     position: relative;
     left: 23px;
     content: "\f0e2";
@@ -3876,7 +3861,7 @@ table#standings th {
       #lineup #startertable .row_empty td {
         position: relative; }
       #lineup #startertable .row_empty td:after {
-        font-family: "FontAwesome";
+        font-family: 'Font Awesome 6 Free';
         position: absolute;
         content: "\f055";
         font-size: 30px;
@@ -4051,10 +4036,6 @@ table.report {
 
 #body_top .nocaption .player, #body_options_08 .nocaption .player {
   font-size: 12px; }
-
-#body_top select[multiple="multiple"], #body_options_08 select[multiple="multiple"] {
-  position: relative;
-  top: 11px; }
 
 @media (max-width: 360px) {
   #transactions {
@@ -4976,7 +4957,7 @@ tr.cap_room_available_row th {
 #body_ajax_ls .ls-outer-table,
 #body_ajax_ls #ls_ticker_tab_id,
 #body_ajax_ls #ls_mfl_notes {
-  font-family: 'Roboto Condensed', sans-serif
+  font-family: 'Roboto Condensed'
 }
 
 #body_ajax_ls .mobile-view {
@@ -5017,7 +4998,7 @@ float:none
 
 #LS_CenterTop .hometeam:after {
   content: "\f0da";
-  font-family: FontAwesome;
+  font-family: 'Font Awesome 6 Free';
   padding-left: 3px;
 }
 
@@ -5188,7 +5169,7 @@ div.ls_team_name {
 
 /* Duplicate Code */
 /* #body_ajax_ls #ls_setting_drop input+label:before {
-  font-family: FontAwesome;
+  font-family: 'Font Awesome 6 Free';
   display: inline-block;
   content: "\f046";
   position: absolute;
@@ -5483,7 +5464,7 @@ div.ls_team_points {
 #body_ajax_ls .ls-outer-table,
 #body_ajax_ls #ls_ticker_tab_id,
 #body_ajax_ls #ls_mfl_notes {
-  font-family: 'Roboto Condensed', sans-serif
+  font-family: 'Roboto Condensed'
 }
 
 #body_ajax_ls .ls-boxscore {
@@ -5518,13 +5499,13 @@ div.ls_team_points {
 
 #LS_CenterTop .awayteam:before {
   content: "\f0d9";
-  font-family: FontAwesome;
+  font-family: 'Font Awesome 6 Free';
   padding-right: 3px;
 }
 
 #LS_CenterTop .hometeam:after {
   content: "\f0da";
-  font-family: FontAwesome;
+  font-family: 'Font Awesome 6 Free';
   padding-left: 3px;
 }
 
@@ -5694,7 +5675,7 @@ div.ls_team_points {
 }
 
 #body_ajax_ls #ls_setting_drop input+label:before {
-  font-family: FontAwesome;
+  font-family: 'Font Awesome 6 Free';
   display: inline-block;
   content: "\f046";
   position: absolute;
@@ -6413,7 +6394,7 @@ div.ls_team_points {
 /***************************************/
 
 .weekly-navbar {
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: 'Roboto Condensed';
   margin: 10px 0;
   margin-top: 0;
   height: 30px;
@@ -6824,7 +6805,7 @@ tr.MFLBoxPlayerDetailsSubHeader {
 /* Clear or reset starting lineup */
 .fa-eraser:before {
   content: "\f021" !important;
-  font-family: FontAwesome;
+  font-family: 'Font Awesome 6 Free';
 }
 
 #body_lineup.custom_lineup_body form th.select-total-starters {
@@ -6853,7 +6834,7 @@ tr.MFLBoxPlayerDetailsSubHeader {
 /* change locked player icon for Starting players games started */
 #body_lineup.custom_lineup_body tr.locked_starter:after {
   content: "\f023" !important; /* Unicode for fa-lock from Font Awesome */
-  font-family: FontAwesome !important; 
+  font-family: 'Font Awesome 6 Free' !important; 
 	color: green
 }
 
@@ -6882,7 +6863,7 @@ tr.MFLBoxPlayerDetailsSubHeader {
 /* change locked player icon for Bench players games started */
 #body_lineup.custom_lineup_body tr.locked_bench:after {
   content: "\f023" !important; /* Unicode for fa-lock from Font Awesome */
-  font-family: FontAwesome !important; 
+  font-family: 'Font Awesome 6 Free' !important; 
 	color: red
 }
 
@@ -7223,7 +7204,93 @@ tr.MFLBoxPlayerDetailsSubHeader {
     color:var(--accent-two, var(--accent, #ffa300));
 }
 
+/* ========================================= */
+/* --- Mobile Responsive Standings Table --- */
+/* ========================================= */
 
+@media (max-width: 500px) {
+
+  /* Requirement 3: Hide specific columns.
+     This targets both the table headers (<th>) and the table data (<td>)
+     to completely remove these columns from the mobile view.
+  */
+  /* Requirements 3: Hide specific columns. */
+  .report.standings-filter .h2hpct, 
+  .report.standings-filter .gb, 
+  .report.standings-filter .strk, 
+  .report.standings-filter .avgpf, 
+  .report.standings-filter .avgpa, 
+  .report.standings-filter .nondivwlt {
+    display: none !important;
+  }
+
+  /*
+     Requirement 1: Replace the large franchise image with a small circle.
+     - First, hide the original large image.
+     - Then, style the <a> tag as the new circular element.
+  */
+  /* .ficon img {
+    display: none !important;
+  } */
+
+  .ficon a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #333; /* A dark gray background for the circle */
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none; /* Removes the underline from the link */
+    overflow: hidden; /* Ensures no content overflows the circle */
+    white-space: nowrap; /* Prevents text from wrapping */
+  }
+
+  /* Override the content for each specific franchise icon */
+  #franchiseicon_0008 + a::before {
+    content: 'GWK';
+  }
+  
+  #franchiseicon_0010 + a::before {
+    content: 'TG';
+  }
+
+  /*
+     Requirements 4 & 5: Replace division headers with a Font Awesome icon and text.
+     - First, hide the original division logo image.
+     - Then, use pseudo-elements to add the new content.
+  */
+  td[id^="division"] img {
+    display: none !important;
+  }
+
+  #division00::before,
+  #division01::before {
+    /* Set the font family and weight for Font Awesome 6 icons */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    
+    /* Center the content within the table cell */
+    display: block;
+    text-align: center;
+    padding: 5px;
+    font-size: 16px;
+  }
+
+  #division00::before {
+    /* Add the Font Awesome icon (\f44e) and the text 'Alpha' */
+    content: '\f44e' " Alpha";
+  }
+
+  #division01::before {
+    /* Add the Font Awesome icon (\f44e) and the text 'Bravo' */
+    content: '\f44e' " Bravo";
+  }
+
+}
 
 
 /**************************************************/
@@ -7232,7 +7299,7 @@ tr.MFLBoxPlayerDetailsSubHeader {
 /**************************************************/
 /**************************************************/
 
-@media (max-width: 500px) {
+@media (max-width: 400px) {
     #AddDropForm .player-pos {
         font-size: 0.6rem;
     }
@@ -7469,11 +7536,7 @@ tr.MFLBoxPlayerDetailsSubHeader {
 #enhanced-add-drop-ui #comments_field_id textarea {
     width: 100%;
 }
-#enhanced-add-drop-ui #round_field_id select {
-    min-width: 2.5rem;
-    width: 2.5rem;
 
-}
 #body_add_drop #waiver_request_list td,
 #body_add_drop #waiver_request_list th {
     text-align: left;
@@ -7616,7 +7679,7 @@ tr.MFLBoxPlayerDetailsSubHeader {
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 400px) {
     #AddDropForm .summary-moves {
         flex-direction: column;
     }
@@ -7655,17 +7718,17 @@ tr.MFLBoxPlayerDetailsSubHeader {
     #AddDropForm .select-btn::before {
         content: "\f067";
         /* Font Awesome plus */
-        font-family: "Font Awesome 6 Pro";
+        font-family: "Font Awesome 6 Free";
     }
     #AddDropForm .drop-player-list .select-btn::before {
         content: "\f068";
         /* Font Awesome minus */
-        font-family: "Font Awesome 6 Pro";
+        font-family: "Font Awesome 6 Free";
     }
     #AddDropForm .deselect-btn::before {
         content: "\f068";
         /* Font Awesome minus */
-        font-family: "Font Awesome 6 Pro";
+        font-family: "Font Awesome 6 Free";
     }
     #body_add_drop #waiver_request_list td.action a {
         display: block;
@@ -8010,6 +8073,14 @@ tr.MFLBoxPlayerDetailsSubHeader {
 #add-drop-summary .fa-checkbox.checked i {
     color: green;
 }
+
+/* Trash Icon on the Add/Drop Waivers Page */
+.fa-trash-xmark::before {
+    content: "\f1f8";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+}
+
 #AddDropForm #add_name_field_id {
     color: green;
 }
@@ -8390,11 +8461,7 @@ tr.MFLBoxPlayerDetailsSubHeader {
 #enhanced-add-drop-ui #comments_field_id textarea {
     width: 100%;
 }
-#enhanced-add-drop-ui #round_field_id select {
-    min-width: 2.5rem;
-    width: 2.5rem;
 
-}
 #body_add_drop #waiver_request_list td,
 #body_add_drop #waiver_request_list th {
     text-align: left;
@@ -8537,7 +8604,7 @@ tr.MFLBoxPlayerDetailsSubHeader {
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 400px) {
     #AddDropForm .summary-moves {
         flex-direction: column;
     }
@@ -8576,17 +8643,17 @@ tr.MFLBoxPlayerDetailsSubHeader {
     #AddDropForm .select-btn::before {
         content: "\f067";
         /* Font Awesome plus */
-        font-family: "Font Awesome 6 Pro";
+        font-family: "Font Awesome 6 Free";
     }
     #AddDropForm .drop-player-list .select-btn::before {
         content: "\f068";
         /* Font Awesome minus */
-        font-family: "Font Awesome 6 Pro";
+        font-family: "Font Awesome 6 Free";
     }
     #AddDropForm .deselect-btn::before {
         content: "\f068";
         /* Font Awesome minus */
-        font-family: "Font Awesome 6 Pro";
+        font-family: "Font Awesome 6 Free";
     }
     #body_add_drop #waiver_request_list td.action a {
         display: block;
@@ -8730,4 +8797,81 @@ tr.MFLBoxPlayerDetailsSubHeader {
 #contest_lineup #tableCounter tr td:first-child,
 #contest_lineup #tableCounter tr th:first-child {
     text-align: left !important;
+}
+
+.fa-regular, .far {
+    font-weight: 900 !important;; 
+}
+
+/* Select all <select> elements within the form */
+.reportnavigation select,
+.filter-controls select,
+.h3-menu select,
+.reportform select,
+.weekly-navbar-mobile select {
+  -webkit-appearance: none; /* Removes the default arrow in Webkit browsers (Chrome, Safari) */
+  -moz-appearance: none;    /* Removes the default arrow in Firefox */
+  appearance: none;         /* Removes the default arrow in other browsers */
+  
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 8px 30px 8px 12px !important; /* Added right padding for the arrow space */;
+  font-family: 'Roboto slab';
+  font-size: 14px;
+  cursor: pointer;
+  line-height: 1.5; /* Improves spacing and readability */
+  outline: none; /* Removes the blue outline on focus */
+
+  /* Add Font Awesome arrow using pseudo-element */
+  background-image: none;
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  position: relative;
+}
+
+/* Add Font Awesome arrow using ::after pseudo-element */
+.reportnavigation select::after,
+.filter-controls select::after,
+.h3-menu select::after,
+.reportform select::after,
+.weekly-navbar-mobile select::after {
+  content: "\f107"; /* Font Awesome down arrow (fa-angle-down) */
+  font-family: "Font Awesome 5 Free", "Font Awesome 6 Free"; /* Supports both FA5 and FA6 */
+  font-weight: 900; /* Required for solid icons */
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none; /* Prevents the arrow from interfering with clicks */
+  color: #666;
+  font-size: 14px;
+}
+
+/* Style the dropdown when it is focused */
+.reportnavigation select:focus,
+.filter-controls select:focus,
+.h3-menu select,
+.reportform select:focus,
+.weekly-navbar-mobile select:focus {
+  border-color: #007bff; /* Highlight color on focus */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Hover and focus states */
+.reportnavigation select:hover,
+.filter-controls select:hover,
+.h3-menu select:hover,
+.reportform select:hover,
+.weekly-navbar-mobile select:hover {
+  border-color: #999;
+}
+
+/* Style the dropdown options */
+.reportnavigation option,
+.filter-controls option
+.h3-menu option,
+.reportform option,
+.weekly-navbar-mobile option {
+  padding: 10px;
 }
